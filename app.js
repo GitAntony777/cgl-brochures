@@ -1,6 +1,6 @@
 /**
  * Κέντρο Ελληνικής Γλώσσας - Brochure & Booklet Builder Application Logic
- * Modern advertising brochure & booklet designer for TIF 2026.
+ * Modern advertising brochure & booklet designer.
  */
 
 // Brochure & Booklet Templates Content Store
@@ -11,15 +11,14 @@ const templatesContent = {
         title: "Κέντρο Ελληνικής Γλώσσας",
         subtitle: "Γλώσσα, Πολιτισμός & Εκπαίδευση",
         badge: "Επίσημος Ερευνητικός & Εκπαιδευτικός Φορέας",
-        eventTitle: "91η Διεθνής Έκθεση Θεσσαλονίκης",
-        eventDate: "Σεπτέμβριος 2026 • Θεσσαλονίκη"
+        eventTitle: "Υπό την εποπτεία του Υπουργείου Παιδείας",
+        eventDate: "Θεσσαλονίκη, Ελλάδα • Έτος Ίδρυσης 1994"
       },
       backCover: {
         title: "Επικοινωνία & Πληροφορίες",
         lead: "Βρείτε μας στη Θεσσαλονίκη και ψηφιακά σε όλο τον κόσμο.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 500",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: greeklanguage@ypepth.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -63,7 +62,7 @@ const templatesContent = {
         image: "assets/abstract_letters.png",
         paras: [
           "Το ΚΕΓ συμμετέχει ενεργά σε ευρωπαϊκά δίκτυα γλωσσικών φορέων (EFNIL), εκπροσωπώντας την Ελλάδα στη χάραξη γλωσσικών πολιτικών. Διοργανώνει επιστημονικά συνέδρια, webinars και ημερίδες λεξικογραφίας, ενώ παράλληλα στηρίζει τις έδρες ελληνικών σπουδών σε πανεπιστήμια του εξωτερικού.",
-          "Στη ΔΕΘ 2026, παρουσιάζουμε το πλούσιο εκδοτικό μας έργο, συμπεριλαμβανομένου του πρόσφατου 23ου τόμου του Λεξικού Κριαρά (Μάρτιος 2025), καθώς και τις νέες εφαρμογές μας για κινητά τηλέφωνα που διευκολύνουν την πρόσβαση στα λεξικά και το εκπαιδευτικό υλικό."
+          "Παρουσιάζουμε διαρκώς το πλούσιο εκδοτικό και ερευνητικό μας έργο, συμπεριλαμβανομένου του πρόσφατου 23ου τόμου του Λεξικού Κριαρά (Μάρτιος 2025), καθώς και τις νέες ψηφιακές εφαρμογές για κινητά τηλέφωνα που διευκολύνουν την άμεση πρόσβαση στα λεξικά και το εκπαιδευτικό υλικό του Κέντρου."
         ]
       }
     },
@@ -72,15 +71,14 @@ const templatesContent = {
         title: "Center for the Greek Language",
         subtitle: "Language, Culture & Education",
         badge: "Official State Research & Educational Institution",
-        eventTitle: "91st Thessaloniki International Fair",
-        eventDate: "September 2026 • Thessaloniki, Greece"
+        eventTitle: "Under the Supervision of the Ministry of Education",
+        eventDate: "Thessaloniki, Greece • Established 1994"
       },
       backCover: {
         title: "Contact & Info",
         lead: "Find us in Thessaloniki and digitally across the globe.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 500",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: greeklanguage@ypepth.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -124,7 +122,7 @@ const templatesContent = {
         image: "assets/abstract_letters.png",
         paras: [
           "We participate in European language networks (EFNIL), organize international conferences, and publish research on the history and teaching of Greek. We also support Greek chairs in foreign universities.",
-          "At the TIF 2026, we present our new publications, including the latest 23rd volume of the Kriaras Dictionary (March 2025), and our mobile apps that bring dictionaries and learning tools directly to your screen."
+          "We constantly present our rich publishing and research work, including the latest 23rd volume of the Kriaras Dictionary (March 2025), and our mobile applications that bring dictionaries and learning tools directly to your screen."
         ]
       }
     }
@@ -135,15 +133,14 @@ const templatesContent = {
         title: "Πιστοποίηση Ελληνομάθειας",
         subtitle: "Επίσημη Αξιολόγηση & Πιστοποίηση",
         badge: "Κρατικό Πιστοποιητικό Επάρκειας",
-        eventTitle: "91η Διεθνής Έκθεση Θεσσαλονίκης",
-        eventDate: "Σεπτέμβριος 2026 • Θεσσαλονίκη"
+        eventTitle: "Επίσημος Κρατικός Φορέας Πιστοποίησης",
+        eventDate: "Υπουργείο Παιδείας, Θρησκευμάτων & Αθλητισμού"
       },
       backCover: {
         title: "Τμήμα Πιστοποίησης",
         lead: "Πληροφορίες για εξεταστικά κέντρα, εγγραφές και ημερομηνίες εξετάσεων.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 540",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: ellinomatheia@greeklanguage.gr",
         website: "🌐 www.greek-language.gr/certification",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -196,15 +193,14 @@ const templatesContent = {
         title: "Greek Language Certification",
         subtitle: "Official Evaluation & Certification",
         badge: "State Certificate of Attainment",
-        eventTitle: "91st Thessaloniki International Fair",
-        eventDate: "September 2026 • Thessaloniki, Greece"
+        eventTitle: "Official State Certification Agency",
+        eventDate: "Ministry of Education, Religious Affairs & Sports"
       },
       backCover: {
         title: "Certification Dept.",
         lead: "Information on examination centers, registration, and exam dates.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 540",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: ellinomatheia@greeklanguage.gr",
         website: "🌐 www.greek-language.gr/certification",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -259,15 +255,14 @@ const templatesContent = {
         title: "Φρυκτωρίες",
         subtitle: "Ψηφιακό Δίκτυο για την Ελληνική Γλώσσα",
         badge: "Ψηφιακή Ακαδημαϊκή Κοινότητα",
-        eventTitle: "91η Διεθνής Έκθεση Θεσσαλονίκης",
-        eventDate: "Σεπτέμβριος 2026 • Θεσσαλονίκη"
+        eventTitle: "Διεθνές Ψηφιακό Ακαδημαϊκό Δίκτυο",
+        eventDate: "Σύνδεση Εδρών Ελληνικών Σπουδών"
       },
       backCover: {
         title: "Δίκτυο Φρυκτωρίες",
         lead: "Επικοινωνήστε μαζί μας για ακαδημαϊκή δικτύωση και συνεργασίες.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 530",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: fryktories@greeklanguage.gr",
         website: "🌐 www.fryktories.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -319,15 +314,14 @@ const templatesContent = {
         title: "Fryktories",
         subtitle: "Digital Network for the Greek Language",
         badge: "Digital Academic Community",
-        eventTitle: "91st Thessaloniki International Fair",
-        eventDate: "September 2026 • Thessaloniki, Greece"
+        eventTitle: "Global Digital Academic Network",
+        eventDate: "Connecting Departments of Greek Studies"
       },
       backCover: {
         title: "Fryktories Network",
         lead: "Contact us for academic networking and educational partnerships.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 530",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: fryktories@greeklanguage.gr",
         website: "🌐 www.fryktories.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -381,8 +375,8 @@ const templatesContent = {
         title: "Κέντρο Ελληνικής Γλώσσας",
         subtitle: "Γλώσσα, Πολιτισμός & Εκπαίδευση",
         badge: "Επίσημος Ερευνητικός & Εκπαιδευτικός Φορέας",
-        eventTitle: "91η Διεθνής Έκθεση Θεσσαλονίκης",
-        eventDate: "Σεπτέμβριος 2026 • Θεσσαλονίκη"
+        eventTitle: "Υπό την εποπτεία του Υπουργείου Παιδείας",
+        eventDate: "Θεσσαλονίκη, Ελλάδα • Έτος Ίδρυσης 1994"
       },
       page2: {
         category: "Η Ταυτότητά μας",
@@ -390,7 +384,7 @@ const templatesContent = {
         lead: "Το Κέντρο Ελληνικής Γλώσσας (ΚΕΓ) ιδρύθηκε το 1994 στη Θεσσαλονίκη με πρωταρχικό σκοπό την υποστήριξη και διάδοση της ελληνικής γλώσσας εντός και εκτός συνόρων.",
         paras: [
           "Ως εποπτευόμενος φορέας του Υπουργείου Παιδείας, Θρησκευμάτων και Αθλητισμού, το ΚΕΓ λειτουργεί ως το κεντρικό γνωμοδοτικό και επιτελικό όργανο της πολιτείας για τη χάραξη γλωσσικής πολιτικής. Στόχος μας είναι ο σχεδιασμός και η εφαρμογή εθνικών προγραμμάτων για τη στήριξη της ελληνικής ως δεύτερης ή ξένης γλώσσας.",
-          "Παράλληλα, το ΚΕΓ προωθεί την επιστημονική μελέτη και την ιστορική έρευνα της γλώσσας, συντονίζοντας συνεργασίες με ακαδημαϊκά ιδρύματα και έδρες ελληνικών σπουδών παγκοσών, συμβάλλοντας έτσι στη διατήρηση της πολιτιστικής μας κληρονομιάς."
+          "Παράλληλα, το ΚΕΓ προωθεί την επιστημονική μελέτη και την ιστορική έρευνα της γλώσσας, συντονίζοντας συνεργασίες με ακαδημαϊκά ιδρύματα και έδρες ελληνικών σπουδών παγκοσμίως, συμβάλλοντας έτσι στη διατήρηση της πολιτιστικής μας κληρονομιάς."
         ]
       },
       page3: {
@@ -451,7 +445,7 @@ const templatesContent = {
         image: "assets/abstract_letters.png",
         paras: [
           "Το Κρατικό Πιστοποιητικό Ελληνομάθειας θεσπίστηκε με σκοπό την αντικειμενική και έγκυρη αξιολόγηση των γνώσεων της ελληνικής γλώσσας για αλλοδαπούς και ομογενείς. Είναι ο μόνος επίσημος τίτλος επάρκειας που αναγνωρίζεται διεθνώς.",
-          "Οι εξετάσεις διενεργούνται μία φορά το χρόνο, κατά τον μήνα Μάιο. Το ΚΕΓ εποπτεύει τη λειτουργία περισσότερων από 160 εξεταστικών κέντρων που καλύπτουν και τις 5 ηπείρους (Ευρώπη, Ασία, Αμερική, Αφρική, Ωκεανία), εξασφαλίζοντας το αδιάβλητο της διαδικασίας."
+          "Οι εξετάσεις διενεργούνται μία φορά το χρόνο, κατά τον μήνα Μάιο. Το ΚΕΓ εποπτεί τη λειτουργία περισσότερων από 160 εξεταστικών κέντρων που καλύπτουν και τις 5 ηπείρους (Ευρώπη, Ασία, Αμερική, Αφρική, Ωκεανία), εξασφαλίζοντας το αδιάβλητο της διαδικασίας."
         ]
       },
       page9: {
@@ -491,7 +485,6 @@ const templatesContent = {
         lead: "Κέντρο Ελληνικής Γλώσσας — Δίπλα σας σε κάθε γλωσσικό βήμα.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 500 / 540",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: greeklanguage@ypepth.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -503,8 +496,8 @@ const templatesContent = {
         title: "Center for the Greek Language",
         subtitle: "Language, Culture & Education",
         badge: "Official State Research & Educational Institution",
-        eventTitle: "91st Thessaloniki International Fair",
-        eventDate: "September 2026 • Thessaloniki, Greece"
+        eventTitle: "Under the Supervision of the Ministry of Education",
+        eventDate: "Thessaloniki, Greece • Established 1994"
       },
       page2: {
         category: "Our Identity",
@@ -613,7 +606,6 @@ const templatesContent = {
         lead: "Center for the Greek Language — Beside you at every linguistic step.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 500 / 540",
-        fax: "📠 Fax: +30 2313 331 502",
         email: "✉️ Email: greeklanguage@ypepth.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
@@ -1133,7 +1125,6 @@ function renderBackCoverPanel(backData, pageNum) {
       <div class="contact-info">
         <p class="contact-item editable-field" data-sec="backCover" data-field="address">${backData.address}</p>
         <p class="contact-item editable-field" data-sec="backCover" data-field="phone">${backData.phone}</p>
-        <p class="contact-item editable-field" data-sec="backCover" data-field="fax">${backData.fax}</p>
         <p class="contact-item editable-field" data-sec="backCover" data-field="email">${backData.email}</p>
         <p class="contact-item editable-field" data-sec="backCover" data-field="website">${backData.website}</p>
       </div>
