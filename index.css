@@ -761,8 +761,8 @@ body.show-print-guides .print-guides {
 }
 
 .cover-emblem {
-  width: 50mm;
-  height: 50mm;
+  width: 62mm;
+  height: 62mm;
   background-image: url('assets/cgl_logo.png');
   background-size: contain;
   background-position: center;
