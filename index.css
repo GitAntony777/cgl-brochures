@@ -1,0 +1,986 @@
+/* CSS Custom Properties & Design Tokens */
+:root {
+  /* Common UI/Dashboard Colors */
+  --dashboard-bg: rgba(20, 26, 40, 0.95);
+  --dashboard-border: rgba(255, 255, 255, 0.1);
+  --dashboard-text: #f0f2f5;
+  --dashboard-text-muted: #a0aec0;
+  --dashboard-accent: #3182ce;
+  --dashboard-accent-hover: #4299e1;
+
+  /* Theme Defaults (Aegean Mist) */
+  --primary-color: #0c2340;      /* Deep Royal Navy */
+  --secondary-color: #c5a059;    /* Antique Matte Gold */
+  --accent-color: #2b6cb0;       /* Mediterranean Blue */
+  --bg-color: #fcfaf6;           /* Warm Alabaster Cream */
+  --text-color: #1a202c;         /* Slate Black */
+  --panel-bg: #ffffff;
+  --border-color: rgba(197, 160, 89, 0.3);
+  --safe-guide-color: rgba(229, 62, 62, 0.35);
+  --fold-guide-color: rgba(49, 130, 206, 0.5);
+
+  /* Margins & Dimensions (B5 standard: 176mm x 250mm) */
+  --panel-width: 176mm;
+  --panel-height: 250mm;
+  --bleed-margin: 3mm;
+  --safe-margin: 5mm;
+}
+
+/* Theme: Terracotta Earth */
+body.theme-terracotta {
+  --primary-color: #5c2518;      /* Deep Terracotta Earth */
+  --secondary-color: #d06d4c;    /* Rich Pottery Clay */
+  --accent-color: #4a5568;       /* Charcoal Slate */
+  --bg-color: #f7f3ed;           /* Warm Sand/Stone */
+  --text-color: #2d1c18;         /* Deep Brown/Black */
+  --panel-bg: #fffbf7;
+  --border-color: rgba(208, 109, 76, 0.3);
+}
+
+/* Theme: Olympus Olive */
+body.theme-olive {
+  --primary-color: #1e2d1d;      /* Deep Olive Forest */
+  --secondary-color: #8c8f53;    /* Soft Olive Leaf Gold */
+  --accent-color: #3b593a;       /* Sage Green */
+  --bg-color: #f8f7f2;           /* Aged Parchment */
+  --text-color: #1b201a;         /* Charcoal Olive */
+  --panel-bg: #fefdfa;
+  --border-color: rgba(140, 143, 83, 0.3);
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #11141e;
+  color: var(--dashboard-text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography styles inside brochures */
+.serif-title {
+  font-family: 'Cinzel', 'Playfair Display', 'GFSDidot', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.greek-style-heading {
+  font-family: 'Playfair Display', 'GFSDidot', serif;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* App Layout */
+.app-header {
+  background-color: #181d28;
+  border-bottom: 1px solid var(--dashboard-border);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--dashboard-accent);
+  background-color: #ffffff;
+  padding: 2px;
+  object-fit: contain;
+}
+
+.logo-text h1 {
+  font-size: 1.25rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo-text span {
+  font-size: 0.8rem;
+  color: var(--dashboard-text-muted);
+}
+
+.quick-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.quick-links a {
+  color: var(--dashboard-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.quick-links a:hover {
+  color: var(--dashboard-accent);
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+/* Sidebar Dashboard Controls */
+.control-panel {
+  width: 320px;
+  background-color: var(--dashboard-bg);
+  border-right: 1px solid var(--dashboard-border);
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panel-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1.25rem;
+}
+
+.panel-section:last-child {
+  border-bottom: none;
+}
+
+.panel-section h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--dashboard-text-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.control-group {
+  margin-bottom: 1rem;
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
+}
+
+.control-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: var(--dashboard-text);
+}
+
+select {
+  width: 100%;
+  background-color: #242c3d;
+  border: 1px solid var(--dashboard-border);
+  color: #fff;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: var(--dashboard-accent);
+  outline: none;
+}
+
+/* Layout Button Grid */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.layout-btn {
+  background-color: #242c3d;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 6px;
+  color: var(--dashboard-text-muted);
+  padding: 0.75rem 0.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.layout-btn:hover {
+  border-color: var(--dashboard-accent);
+  color: #fff;
+}
+
+.layout-btn.active {
+  background-color: rgba(49, 130, 206, 0.15);
+  border-color: var(--dashboard-accent);
+  color: #fff;
+}
+
+.layout-btn .icon {
+  font-size: 1.5rem;
+}
+
+.layout-btn .label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.layout-btn .label small {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+/* Color Palette Dots */
+.color-palette-selector {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.color-dot:hover {
+  transform: scale(1.1);
+}
+
+.color-dot.active {
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.color-dot.aegean { background: linear-gradient(135deg, #0c2340 50%, #c5a059 50%); }
+.color-dot.terracotta { background: linear-gradient(135deg, #5c2518 50%, #d06d4c 50%); }
+.color-dot.olive { background: linear-gradient(135deg, #1e2d1d 50%, #8c8f53 50%); }
+
+/* Toggle Switches */
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.slider {
+  width: 36px;
+  height: 20px;
+  background-color: #4a5568;
+  border-radius: 20px;
+  position: relative;
+  transition: background-color 0.2s;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: var(--dashboard-accent);
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(16px);
+}
+
+.toggle-label {
+  font-size: 0.85rem;
+}
+
+/* Action Buttons */
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-primary {
+  background-color: var(--dashboard-accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--dashboard-accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #2d3748;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: var(--dashboard-text);
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #4a5568;
+}
+
+.panel-info {
+  background-color: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--dashboard-accent);
+  padding: 0.75rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.panel-info p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--dashboard-text-muted);
+}
+
+/* Canvas & Preview Area */
+.canvas-wrapper {
+  flex: 1;
+  background-color: #1e2433;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.canvas-zoom-control {
+  font-size: 0.85rem;
+  color: var(--dashboard-text-muted);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.5rem;
+}
+
+.brochure-canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Spread Container represents one sheet of paper (open flat) */
+.spread-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.spread-title-indicator {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dashboard-text-muted);
+  align-self: flex-start;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Spread canvas container (holding 1, 2, or 3 panels side-by-side) */
+.spread-canvas {
+  display: flex;
+  background-color: var(--bg-color);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* Dynamic width & height in mm to mimic actual print dimensions */
+.spread-canvas.layout-single {
+  width: var(--panel-width);
+  height: var(--panel-height);
+}
+
+.spread-canvas.layout-bifold {
+  width: calc(var(--panel-width) * 2);
+  height: var(--panel-height);
+}
+
+.spread-canvas.layout-trifold {
+  width: calc(var(--panel-width) * 3);
+  height: var(--panel-height);
+}
+
+/* Fold Guides (Dashed blue lines) */
+.fold-guide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dashed var(--fold-guide-color);
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+}
+
+body.show-fold-guides .fold-guide {
+  display: block;
+}
+
+/* Trifold has folds at 1/3 and 2/3 width */
+.spread-canvas.layout-trifold .fold-guide-1 {
+  left: 33.3333%;
+}
+.spread-canvas.layout-trifold .fold-guide-2 {
+  left: 66.6666%;
+}
+
+/* Bifold has fold at 1/2 width */
+.spread-canvas.layout-bifold .fold-guide-1 {
+  left: 50%;
+}
+
+/* Safe Area & Bleed Guides (Red borders) */
+.print-guides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: var(--bleed-margin) solid var(--safe-guide-color);
+  pointer-events: none;
+  z-index: 9;
+  display: none;
+}
+
+.print-guides::before {
+  content: "";
+  position: absolute;
+  top: var(--safe-margin);
+  left: var(--safe-margin);
+  right: var(--safe-margin);
+  bottom: var(--safe-margin);
+  border: 1px dotted rgba(229, 62, 62, 0.6);
+}
+
+body.show-print-guides .print-guides {
+  display: block;
+}
+
+/* Individual Panel styling */
+.brochure-panel {
+  width: var(--panel-width);
+  height: var(--panel-height);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18mm 14mm; /* Professional editorial print padding */
+  overflow: hidden;
+  color: var(--text-color);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+/* Dynamic backgrounds - Image Motif with opacity */
+.brochure-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0; /* Default (motif-none) */
+  transition: background-image 0.3s, opacity 0.3s;
+  z-index: -1;
+}
+
+/* Abstract Letters Motif background selection */
+.motif-abstract .brochure-panel::before {
+  background-image: url('assets/abstract_letters.png');
+  opacity: 0.12;
+}
+
+/* Ancient Manuscript Motif background selection */
+.motif-manuscript .brochure-panel::before {
+  background-image: url('assets/ancient_manuscript.png');
+  opacity: 0.15;
+}
+
+/* Modern Geometric Motif background selection */
+.motif-geometric .brochure-panel::before {
+  background-image: url('assets/modern_geometric.png');
+  opacity: 0.10;
+}
+
+/* Clean background gradients when no image */
+.motif-none .brochure-panel {
+  background: linear-gradient(180deg, var(--panel-bg) 0%, var(--bg-color) 100%);
+}
+
+/* Panel decorative border */
+.panel-border-box {
+  position: absolute;
+  top: 8mm;
+  left: 8mm;
+  right: 8mm;
+  bottom: 8mm;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.panel-border-box::before {
+  content: "";
+  position: absolute;
+  top: 1mm;
+  left: 1mm;
+  right: 1mm;
+  bottom: 1mm;
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+/* Corner ornaments (modern Greek style) */
+.ornament-corner {
+  position: absolute;
+  width: 4mm;
+  height: 4mm;
+  border: 2px solid var(--secondary-color);
+  pointer-events: none;
+}
+
+.ornament-tl { top: 7mm; left: 7mm; border-right: none; border-bottom: none; }
+.ornament-tr { top: 7mm; right: 7mm; border-left: none; border-bottom: none; }
+.ornament-bl { bottom: 7mm; left: 7mm; border-right: none; border-top: none; }
+.ornament-br { bottom: 7mm; right: 7mm; border-left: none; border-top: none; }
+
+/* Panel Header */
+.panel-header {
+  text-align: center;
+  margin-bottom: 3mm;
+}
+
+.panel-category {
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--secondary-color);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 1.5mm;
+}
+
+.panel-title {
+  font-size: 13.5pt;
+  color: var(--primary-color);
+  line-height: 1.25;
+  margin-bottom: 2mm;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1.5mm;
+}
+
+.panel-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* Panel Body & Content Elements */
+.panel-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3mm;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+.panel-lead {
+  font-size: 9.5pt;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2mm;
+}
+
+.panel-para {
+  margin-bottom: 1.5mm;
+  text-align: justify;
+}
+
+.panel-para:last-child {
+  margin-bottom: 0;
+}
+
+/* List element styling inside brochure */
+.panel-list {
+  list-style: none;
+  margin: 1.5mm 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.panel-list li {
+  position: relative;
+  padding-left: 4.5mm;
+  text-align: left;
+}
+
+.panel-list li::before {
+  content: "♦";
+  color: var(--secondary-color);
+  font-size: 8pt;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Highlight boxes */
+.highlight-box {
+  background-color: rgba(197, 160, 89, 0.08);
+  border-left: 2.5px solid var(--secondary-color);
+  padding: 2.5mm 3.5mm;
+  margin: 2mm 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.highlight-box p {
+  font-size: 8pt;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Front Cover Layout (Panel 6 on Tri-fold outside, Panel 1 on single) */
+.panel-cover {
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: var(--panel-bg);
+}
+
+.cover-badge {
+  font-size: 7.5pt;
+  border: 1px solid var(--secondary-color);
+  padding: 1mm 3mm;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--secondary-color);
+  margin-top: 5mm;
+  font-weight: 600;
+}
+
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5mm;
+}
+
+.cover-emblem {
+  width: 50mm;
+  height: 50mm;
+  background-image: url('assets/cgl_logo.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin-bottom: 2mm;
+}
+
+.cover-title {
+  font-size: 16pt;
+  color: var(--primary-color);
+  line-height: 1.2;
+  margin-bottom: 2mm;
+}
+
+.cover-subtitle {
+  font-size: 9.5pt;
+  color: var(--secondary-color);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.cover-event {
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  padding-top: 3mm;
+  width: 80%;
+}
+
+.cover-event-title {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  letter-spacing: 0.1em;
+}
+
+.cover-event-date {
+  font-size: 8pt;
+  color: var(--text-color);
+  margin-top: 1mm;
+}
+
+/* Back Cover Layout (Panel 5 on Tri-fold outside) */
+.panel-back-cover {
+  justify-content: space-between;
+}
+
+.back-header {
+  text-align: center;
+}
+
+.back-footer {
+  border-top: 1.5px solid var(--secondary-color);
+  padding-top: 4mm;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  font-size: 7.5pt;
+  text-align: left;
+  margin: 3mm 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+}
+
+.contact-icon {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 4mm;
+  margin-top: 3mm;
+  font-size: 8pt;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Edit Mode styling */
+[contenteditable="true"] {
+  outline: none;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border-radius: 2px;
+}
+
+body.edit-mode-active [contenteditable="true"]:hover {
+  background-color: rgba(49, 130, 206, 0.08);
+  box-shadow: 0 0 0 1px rgba(49, 130, 206, 0.2);
+}
+
+body.edit-mode-active [contenteditable="true"]:focus {
+  background-color: rgba(49, 130, 206, 0.12);
+  box-shadow: 0 0 0 1px var(--dashboard-accent);
+}
+
+/* App Footer */
+.app-footer-info {
+  background-color: #181d28;
+  border-top: 1px solid var(--dashboard-border);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--dashboard-text-muted);
+}
+
+/* Panel thematic image illustration */
+.panel-image {
+  width: 100%;
+  height: 42mm;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  margin-top: 4mm;
+  margin-bottom: 2mm;
+  display: block;
+  opacity: 0.95;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.panel-image:hover {
+  opacity: 1;
+  border-color: var(--secondary-color);
+}
+
+/* PRINT MEDIA STYLES - CRITICAL FOR B5 DIMENSIONS */
+@media print {
+  /* Hide the entire Dashboard UI */
+  .app-header, 
+  .control-panel, 
+  .canvas-zoom-control, 
+  .spread-title-indicator,
+  .app-footer-info {
+    display: none !important;
+  }
+
+  /* Reset body and container backgrounds for printing */
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    min-height: auto !important;
+  }
+
+  .app-container {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .canvas-wrapper {
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .brochure-canvas {
+    gap: 0 !important;
+    display: block !important;
+    width: auto !important;
+  }
+
+  /* Set page orientation and dimensions to landscape or portrait based on layout */
+  /* We force each spread to occupy exactly one printed page */
+  .spread-container {
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    break-after: page !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    width: auto !important;
+  }
+
+  .spread-container:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .spread-canvas {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+    background-color: var(--bg-color) !important;
+  }
+
+  /* Force display colors & background images when printing */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide fold lines and print guides on physical print */
+  .fold-guide, 
+  .print-guides {
+    display: none !important;
+  }
+
+  /* Keep contenteditable look natural (no hover outlines during print) */
+  [contenteditable="true"] {
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+}

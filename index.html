@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Κέντρο Ελληνικής Γλώσσας | Σχεδιαστής Διαφημιστικών Εντύπων ΔΕΘ 2026</title>
+  <meta name="description" content="Διαδραστική εφαρμογή σχεδίασης, προσαρμογής και εκτύπωσης διαφημιστικών εντύπων (B5) για το Κέντρο Ελληνικής Γλώσσας στη Διεθνή Έκθεση Θεσσαλονίκης 2026.">
+  <link rel="stylesheet" href="index.css">
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=GFSDidot&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+</head>
+<body class="theme-aegean">
+
+  <!-- Application Dashboard UI (hidden during print) -->
+  <header class="app-header" id="appHeader">
+    <div class="header-logo">
+      <img src="assets/cgl_logo.png" alt="ΚΕΓ Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>Κέντρο Ελληνικής Γλώσσας</h1>
+        <span>Σχεδιαστής Διαφημιστικών Εντύπων • ΔΕΘ 2026</span>
+      </div>
+    </div>
+    
+    <div class="quick-links">
+      <a href="http://www.greeklanguage.gr" target="_blank" rel="noopener">greeklanguage.gr</a>
+      <a href="http://www.greek-language.gr" target="_blank" rel="noopener">greek-language.gr</a>
+      <a href="https://www.fryktories.gr" target="_blank" rel="noopener">fryktories.gr</a>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <!-- Sidebar Control Panel -->
+    <aside class="control-panel" id="controlPanel">
+      <div class="panel-section">
+        <h2>1. Θεματολογία Εντύπου</h2>
+        <div class="control-group">
+          <label for="brochureTemplateSelect">Επιλέξτε Περιεχόμενο:</label>
+          <select id="brochureTemplateSelect">
+            <option value="general" selected>Γενική Παρουσίαση & Πύλη (Προτείνεται: Τρίπτυχο)</option>
+            <option value="certification">Πιστοποίηση Ελληνομάθειας (Προτείνεται: Δίπτυχο)</option>
+            <option value="fryktories">Φρυκτωρίες & Εκπαίδευση (Προτείνεται: Μονό Φύλλο)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>2. Μορφή Εκτύπωσης (Layout)</h2>
+        <div class="layout-grid">
+          <button class="layout-btn" data-layout="single" id="btnLayoutSingle">
+            <span class="icon">📄</span>
+            <span class="label">Μονό Φύλλο<br><small>2 Σελίδες</small></span>
+          </button>
+          <button class="layout-btn" data-layout="bifold" id="btnLayoutBifold">
+            <span class="icon">📖</span>
+            <span class="label">Δίπτυχο<br><small>4 Σελίδες</small></span>
+          </button>
+          <button class="layout-btn active" data-layout="trifold" id="btnLayoutTrifold">
+            <span class="icon">📰</span>
+            <span class="label">Τρίπτυχο<br><small>6 Σελίδες</small></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>3. Αισθητική & Εικαστικό Θέμα</h2>
+        <div class="control-group">
+          <label>Χρωματική Παλέτα:</label>
+          <div class="color-palette-selector">
+            <button class="color-dot aegean active" data-theme="aegean" title="Aegean Mist (Μπλε & Χρυσό)"></button>
+            <button class="color-dot terracotta" data-theme="terracotta" title="Terracotta Earth (Κεραμιδί & Πηλός)"></button>
+            <button class="color-dot olive" data-theme="olive" title="Olympus Olive (Πράσινο Ελιάς)"></button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="motifSelect">Φόντο & Γραφικό Μοτίβο:</label>
+          <select id="motifSelect">
+            <option value="abstract" selected>Αφαιρετικά Ελληνικά Γράμματα</option>
+            <option value="manuscript">Αρχαίο Χειρόγραφο (Πάπυρος)</option>
+            <option value="geometric">Σύγχρονο Γεωμετρικό Μοτίβο</option>
+            <option value="none">Καθαρό (Χωρίς Εικόνα)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>4. Εργαλεία Σχεδίασης & UI</h2>
+        <div class="toggle-group">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleEditMode" checked>
+            <span class="slider"></span>
+            <span class="toggle-label">Επεξεργασία Κειμένων</span>
+          </label>
+          
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleFoldGuides" checked>
+            <span class="slider"></span>
+            <span class="toggle-label">Οδηγοί Αναδίπλωσης (Folds)</span>
+          </label>
+
+          <label class="toggle-switch">
+            <input type="checkbox" id="togglePrintGuides">
+            <span class="slider"></span>
+            <span class="toggle-label">Bleed (3mm) & Safe Margins</span>
+          </label>
+
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleLanguage">
+            <span class="slider"></span>
+            <span class="toggle-label">Αγγλικό Περιεχόμενο (EN)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="panel-section actions-section">
+        <button id="btnPrint" class="btn-primary">
+          <span class="icon">🖨️</span> Εκτύπωση / Save to PDF
+        </button>
+        <button id="btnReset" class="btn-secondary">
+          <span class="icon">🔄</span> Επαναφορά Κειμένων
+        </button>
+      </div>
+
+      <div class="panel-info">
+        <p>💡 <strong>Οδηγός Εκτύπωσης:</strong> Για βέλτιστο αποτέλεσμα, επιλέξτε προσανατολισμό <strong>Οριζόντιο (Landscape)</strong>, μέγεθος χαρτιού <strong>B5</strong> (ή A4 με κλίμακα) και απενεργοποιήστε τα περιθώρια (Margines: None/Περιθώρια: Κανένα) στις ρυθμίσεις εκτύπωσης του browser.</p>
+      </div>
+    </aside>
+
+    <!-- Brochure Canvas Area -->
+    <section class="canvas-wrapper">
+      <div class="canvas-zoom-control">
+        <span>Προεπισκόπηση B5 Έντυπου (Max 176mm x 250mm ανά σελίδα)</span>
+      </div>
+
+      <div class="brochure-canvas" id="brochureCanvas">
+        
+        <!-- Spread 1: OUTSIDE / FRONT (Front, Back & Flap depending on layout) -->
+        <div class="spread-container outside-spread" id="outsideSpread">
+          <div class="spread-title-indicator">Εξωτερική Όψη (Μπροστινό & Πίσω Μέρος)</div>
+          <div class="spread-canvas layout-trifold motif-abstract" id="outsideCanvas">
+            <!-- Panels are injected dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Spread 2: INSIDE / BACK (Inside panels) -->
+        <div class="spread-container inside-spread" id="insideSpread">
+          <div class="spread-title-indicator">Εσωτερική Όψη (Εσωτερικές Σελίδες)</div>
+          <div class="spread-canvas layout-trifold motif-abstract" id="insideCanvas">
+            <!-- Panels are injected dynamically by app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer-info" id="appFooter">
+    <p>© 2026 Κέντρο Ελληνικής Γλώσσας. Σχεδίαση για τη Διεθνή Έκθεση Θεσσαλονίκης 2026.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
