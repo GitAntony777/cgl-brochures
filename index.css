@@ -1226,3 +1226,350 @@ body.show-print-guides .color-bar {
     margin: 15mm 12mm !important;
   }
 }
+
+/* ==========================================================================
+   AUTHENTICATION & LOGIN SCREEN STYLES
+   ========================================================================== */
+body.not-logged-in .app-header,
+body.not-logged-in .app-container,
+body.not-logged-in .app-footer-info {
+  display: none !important;
+}
+
+body.not-logged-in .login-screen {
+  display: flex !important;
+}
+
+.login-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 30% 30%, #1e293b, #0f172a, #020617);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Background animation */
+.login-screen::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(147, 1, 35, 0.15) 0%, transparent 70%);
+  top: 20%;
+  left: 20%;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: floatBG 12s infinite alternate ease-in-out;
+}
+.login-screen::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+  bottom: 15%;
+  right: 15%;
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: floatBG 16s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatBG {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.1); }
+}
+
+.login-card {
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 420px;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.login-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: #f8fafc;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: 0.05em;
+}
+
+.login-header p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-form .input-group {
+  position: relative;
+  text-align: left;
+}
+
+.login-form .input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-form .input-group input:focus {
+  border-color: #c5a059;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.3);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.login-form .input-group label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Floating labels */
+.login-form .input-group input:focus ~ label,
+.login-form .input-group input:not(:placeholder-shown) ~ label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.75rem;
+  background: #0f172a;
+  padding: 0 6px;
+  color: #c5a059;
+  border-radius: 4px;
+}
+
+.login-error-msg {
+  color: #ef4444;
+  font-size: 0.85rem;
+  text-align: left;
+  min-height: 18px;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #930123, #b91c1c);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(147, 1, 35, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(147, 1, 35, 0.45);
+  background: linear-gradient(135deg, #b91c1c, #dc2626);
+}
+
+.login-info-badge {
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  text-align: left;
+}
+
+.login-info-badge .info-icon {
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+
+.login-info-badge .info-content {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.demo-credential {
+  color: #f59e0b;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   DYNAMIC EDITOR CONTROLS & UI
+   ========================================================================== */
+.brochure-panel {
+  position: relative;
+}
+
+/* Edit Panel Overlay Controls */
+.panel-editor-controls {
+  display: none;
+  position: absolute;
+  bottom: 9mm;
+  left: 9mm;
+  right: 9mm;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 2mm 3mm;
+  justify-content: space-around;
+  gap: 2mm;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.edit-mode-active .panel-editor-controls {
+  display: flex;
+}
+
+.btn-panel-action {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 1mm 2mm;
+  font-size: 7.5pt;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1mm;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-panel-action:hover {
+  background: #c5a059;
+  border-color: #c5a059;
+  color: #0f172a;
+}
+
+/* Hover Delete controls on elements */
+.editable-container {
+  position: relative;
+}
+
+.delete-element-btn {
+  display: none;
+  position: absolute;
+  right: -2mm;
+  top: -2mm;
+  width: 4.5mm;
+  height: 4.5mm;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 6pt;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 105;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  line-height: 1;
+}
+
+body.edit-mode-active .editable-container:hover .delete-element-btn {
+  display: flex;
+}
+
+.delete-element-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* Custom Image Upload Overlay */
+.image-edit-container {
+  position: relative;
+  width: 100%;
+}
+
+.btn-image-change {
+  display: none;
+  position: absolute;
+  top: 5mm;
+  right: 5mm;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 4px;
+  padding: 1.5mm 3mm;
+  font-size: 7.5pt;
+  cursor: pointer;
+  z-index: 100;
+  font-family: 'Inter', sans-serif;
+  gap: 1mm;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: all 0.2s ease;
+}
+
+body.edit-mode-active .image-edit-container:hover .btn-image-change {
+  display: flex;
+}
+
+.btn-image-change:hover {
+  background: #c5a059;
+  color: #0f172a;
+  border-color: #c5a059;
+}
+
+/* Hide all editor controls in print */
+@media print {
+  .panel-editor-controls,
+  .delete-element-btn,
+  .btn-image-change {
+    display: none !important;
+  }
+}
+

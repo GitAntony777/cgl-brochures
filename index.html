@@ -11,7 +11,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=GFSDidot&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
 </head>
-<body class="theme-aegean">
+<body class="theme-aegean not-logged-in">
+
+  <!-- Login Screen UI -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="login-logo-container">
+        <img src="assets/cgl_logo.png" alt="ΚΕΓ Logo" class="login-logo">
+      </div>
+      <div class="login-header">
+        <h2>Κέντρο Ελληνικής Γλώσσας</h2>
+        <p>Σχεδιαστής Διαφημιστικών & Εκδοτικών Εντύπων</p>
+      </div>
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <input type="email" id="loginEmail" required placeholder=" ">
+          <label for="loginEmail">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="loginPassword" required placeholder=" ">
+          <label for="loginPassword">Κωδικός Πρόσβασης</label>
+        </div>
+        <div id="loginError" class="login-error-msg"></div>
+        <button type="submit" class="btn-login">Είσοδος στην Εφαρμογή</button>
+      </form>
+      <div class="login-info-badge">
+        <span class="info-icon">ℹ️</span>
+        <div class="info-content">
+          <strong>Δοκιμαστικά Στοιχεία Εισόδου:</strong><br>
+          Email: <code class="demo-credential">admin@komvos.edu.gr</code><br>
+          Κωδικός: <code class="demo-credential">cglpassword123</code>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Application Dashboard UI (hidden during print) -->
   <header class="app-header" id="appHeader">
@@ -39,7 +72,7 @@
           <label for="docTypeSelect">Επιλέξτε Τύπο Εντύπου:</label>
           <select id="docTypeSelect">
             <option value="brochure" selected>Διαφημιστικό Φυλλάδιο (Brochure)</option>
-            <option value="booklet">Διαφημιστικό Βιβλίο (12σέλιδο Booklet)</option>
+            <option value="booklet">Διαφημιστικό Βιβλίο (16σέλιδο Booklet)</option>
           </select>
         </div>
 

@@ -19,7 +19,7 @@ const templatesContent = {
         lead: "Βρείτε μας στη Θεσσαλονίκη και ψηφιακά σε όλο τον κόσμο.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 500",
-        email: "✉️ Email: greeklanguage@ypepth.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -29,7 +29,7 @@ const templatesContent = {
         title: "Το Κέντρο (ΚΕΓ)",
         lead: "Το Κέντρο Ελληνικής Γλώσσας (ΚΕΓ) ιδρύθηκε το 1994 στη Θεσσαλονίκη ως ερευνητικό και εκπαιδευτικό ίδρυμα με διεθνή εμβέλεια, εποπτευόμενο από το Υπουργείο Παιδείας.",
         paras: [
-          "Λειτουργεί ως Νομικό Πρόσωπο Ιδιωτικού Δικαίου (Ν.Π.Ι.Δ.) και αποτελεί το επιτελικό, γνωμοδοτικό και συντονιστικό όργανο της ελληνικής πολιτείας για θέματα γλωσσικής εκπαίδευσης και γλωσσικής πολιτικής. Με έδρα τη Θεσσαλονίκη, το ΚΕΓ συντονίζει τις προσπάθειες για τη στήριξη, διάδοση και διδασκαλία της ελληνικής γλώσσας εντός και εκτός συνόρων.",
+          "Λειτουργεί ως Νομικό Πρόσωπο Ιδιωτικού Δικαίου (Ν.Π.Ι.Δ.) μη κερδοσκοπικού χαρακτήρα και αποτελεί το επιτελικό, γνωμοδοτικό και συντονιστικό όργανο της ελληνικής πολιτείας για θέματα γλωσσικής εκπαίδευσης και γλωσσικής πολιτικής. Με έδρα τη Θεσσαλονίκη, το ΚΕΓ συντονίζει τις προσπάθειες για τη στήριξη, διάδοση και διδασκαλία της ελληνικής γλώσσας εντός και εκτός συνόρων.",
           "Η επιστημονική του δράση αναπτύσσεται μέσω τεσσάρων τμημάτων: Λεξικογραφίας, Γλωσσολογίας, Γλώσσας & Λογοτεχνίας, και Στήριξης & Προβολής της Ελληνικής Γλώσσας. Στόχος μας είναι η προώθηση της ελληνικής γλώσσας στη διαχρονία της (Αρχαία, Μεσαιωνική, Νεοελληνική) και η παροχή σύγχρονων ψηφιακών λύσεων για τη γλωσσική εκπαίδευση."
         ]
       },
@@ -79,7 +79,7 @@ const templatesContent = {
         lead: "Find us in Thessaloniki and digitally across the globe.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 500",
-        email: "✉️ Email: greeklanguage@ypepth.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -141,7 +141,7 @@ const templatesContent = {
         lead: "Πληροφορίες για εξεταστικά κέντρα, εγγραφές και ημερομηνίες εξετάσεων.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 540",
-        email: "✉️ Email: ellinomatheia@greeklanguage.gr",
+        email: "✉️ Email: ellinomatheia@komvos.edu.gr",
         website: "🌐 www.greek-language.gr/certification",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -201,7 +201,7 @@ const templatesContent = {
         lead: "Information on examination centers, registration, and exam dates.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 540",
-        email: "✉️ Email: ellinomatheia@greeklanguage.gr",
+        email: "✉️ Email: ellinomatheia@komvos.edu.gr",
         website: "🌐 www.greek-language.gr/certification",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -263,7 +263,7 @@ const templatesContent = {
         lead: "Επικοινωνήστε μαζί μας για ακαδημαϊκή δικτύωση και συνεργασίες.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 530",
-        email: "✉️ Email: fryktories@greeklanguage.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.fryktories.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -322,7 +322,7 @@ const templatesContent = {
         lead: "Contact us for academic networking and educational partnerships.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 530",
-        email: "✉️ Email: fryktories@greeklanguage.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.fryktories.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -379,44 +379,86 @@ const templatesContent = {
         eventDate: "Θεσσαλονίκη, Ελλάδα • Έτος Ίδρυσης 1994"
       },
       page2: {
-        category: "Η Ταυτότητά μας",
-        title: "Σκοπός του ΚΕΓ",
-        lead: "Το Κέντρο Ελληνικής Γλώσσας (ΚΕΓ) ιδρύθηκε το 1994 στη Θεσσαλονίκη με πρωταρχικό σκοπό την υποστήριξη και διάδοση της ελληνικής γλώσσας εντός και εκτός συνόρων.",
+        category: "Ταυτότητα ΚΕΓ",
+        title: "Ταυτότητα & Αποστολή",
+        lead: "Το ΚΕΓ ιδρύθηκε το 1994 στη Θεσσαλονίκη ως Νομικό Πρόσωπο Ιδιωτικού Δικαίου (Ν.Π.Ι.Δ.) μη κερδοσκοπικού χαρακτήρα.",
+        image: "assets/cgl_logo.png",
         paras: [
-          "Ως εποπτευόμενος φορέας του Υπουργείου Παιδείας, Θρησκευμάτων και Αθλητισμού, το ΚΕΓ λειτουργεί ως το κεντρικό γνωμοδοτικό και επιτελικό όργανο της πολιτείας για τη χάραξη γλωσσικής πολιτικής. Στόχος μας είναι ο σχεδιασμός και η εφαρμογή εθνικών προγραμμάτων για τη στήριξη της ελληνικής ως δεύτερης ή ξένης γλώσσας.",
-          "Παράλληλα, το ΚΕΓ προωθεί την επιστημονική μελέτη και την ιστορική έρευνα της γλώσσας, συντονίζοντας συνεργασίες με ακαδημαϊκά ιδρύματα και έδρες ελληνικών σπουδών παγκοσμίως, συμβάλλοντας έτσι στη διατήρηση της πολιτιστικής μας κληρονομιάς."
+          "Εποπτεύεται από το Υπουργείο Παιδείας, Θρησκευμάτων και Αθλητισμού και λειτουργεί ως επιτελικό, γνωμοδοτικό και συντονιστικό όργανο της πολιτείας για τη χάραξη γλωσσικής πολιτικής και εκπαίδευσης.",
+          "Η αποστολή του εστιάζει στην ενίσχυση και προώθηση της ελληνικής γλώσσας εντός και εκτός συνόρων, στην οργάνωση της διδασκαλίας της σε αλλοδαπούς και ομογενείς, καθώς και στη στήριξη των εκπαιδευτικών."
         ]
       },
       page3: {
-        category: "Η Δομή μας",
-        title: "Τμήματα & Ιστορικό",
-        lead: "Με έδρα τη Θεσσαλονίκη, το ΚΕΓ έχει αναπτύξει τρεις δεκαετίες πλούσιου επιστημονικού έργου μέσω εξειδικευμένων τμημάτων.",
+        category: "Επιστημονικές Αρχές",
+        title: "Αρχές & Φιλοσοφία",
+        lead: "Το ΚΕΓ ακολουθεί αυστηρές επιστημονικές αρχές για τη μελέτη και καλλιέργεια της ελληνικής γλώσσας.",
+        image: "assets/ancient_manuscript.png",
         paras: [
-          "Η επιστημονική και ερευνητική δράση του Κέντρου οργανώνεται σε τέσσερα βασικά τμήματα: 1) Τμήμα Λεξικογραφίας, 2) Τμήμα Γλωσσολογίας, 3) Τμήμα Γλώσσας και Λογοτεχνίας, και 4) Τμήμα Στήριξης και Προβολής της Ελληνικής Γλώσσας.",
-          "Κάθε τμήμα στελεχώνεται από κορυφαίους επιστήμονες και ερευνητές που παράγουν μονογραφίες, λεξικά, εκπαιδευτικά βιβλία και ψηφιακά περιβάλλοντα, καθιστώντας το ΚΕΓ σημείο αναφοράς για την ελληνική φιλολογία διεθνώς."
+          "Αποφεύγει δογματικές ή ιδεολογικές προκαταλήψεις σχετικά με την εξέλιξη της νεοελληνικής γλώσσας και δεν θεωρεί τη σύγχρονη γλώσσα «ημαρτημένη» ή διορθωτέα με βάση παρωχημένα πρότυπα.",
+          "Υποστηρίζει ότι η γλωσσική καλλιέργεια επιτυγχάνεται μέσω της συστηματικής μελέτης της στο συγχρονικό της εύρος και στο ιστορικό της βάθος, κυρίως μέσω υποδειγματικών λογοτεχνικών και επιστημονικών κειμένων."
         ]
       },
       page4: {
-        category: "Ψηφιακός Κόμβος",
-        title: "Η Πύλη & τα Λεξικά",
-        lead: "Η Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) αποτελεί τον μεγαλύτερο ψηφιακό κόμβο για τη μελέτη της ελληνικής.",
+        category: "Ερευνητικό Τμήμα",
+        title: "Τμήμα Λεξικογραφίας",
+        lead: "Σχεδιασμός, σύνταξη και έκδοση λεξικών για όλες τις περιόδους της ελληνικής γλώσσας.",
         image: "assets/ancient_manuscript.png",
         paras: [
-          "Η Πύλη προσφέρει ελεύθερη πρόσβαση σε έγκριτα ηλεκτρονικά λεξικά για όλες τις ιστορικές περιόδους. Ξεχωρίζουν το Λεξικό της Κοινής Νεοελληνικής (Τριανταφυλλίδη) για τη σύγχρονη γλώσσα, το Λεξικό Κριαρά για τη μεσαιωνική ελληνική γραμματεία και η Επιτομή Liddell & Scott για την Αρχαία Ελληνική.",
-          "Τα λεξικά είναι πλήρως αναζητήσιμα online, διευκολύνοντας καθημερινά χιλιάδες εκπαιδευτικούς, μαθητές, μεταφραστές και ερευνητές σε όλο τον κόσμο."
+          "Το τμήμα συνεχίζει το μνημειώδες έργο του Εμμανουήλ Κριαρά για τη Μεσαιωνική Ελληνική Γραμματεία, ενώ παράλληλα συντάσσει λεξικογραφικά εργαλεία και λεξικά για την Αρχαία και Νέα Ελληνική γλώσσα.",
+          "Δημιουργεί προηγμένες ψηφιακές βάσεις δεδομένων που τροφοδοτούν τα ηλεκτρονικά λεξικά της Πύλης, παρέχοντας ελεύθερη πρόσβαση σε χιλιάδες ερευνητές, εκπαιδευτικούς και μαθητές παγκοσμίως."
         ]
       },
       page5: {
-        category: "Ψηφιακή Έρευνα",
-        title: "Σώματα Κειμένων & Μελέτες",
-        lead: "Η Πύλη ενσωματώνει προηγμένα ψηφιακά εργαλεία και βιβλιοθήκες για τη γλωσσική έρευνα.",
+        category: "Ερευνητικό Τμήμα",
+        title: "Τμήμα Γλωσσολογίας",
+        lead: "Επιστημονική έρευνα για την ιστορική εξέλιξη, τη δομή και τη χρήση της ελληνικής γλώσσας.",
         image: "assets/modern_geometric.png",
         paras: [
-          "Στην Πύλη φιλοξενούνται εκτενή και συστηματικά σώματα κειμένων (corpora) για την ανάλυση της νεοελληνικής, καθώς και ψηφιακές βιβλιοθήκες, όπως η «Μνημοσύνη» για την αρχαία ελληνική γραμματεία και ανθολογίες νεοελληνικής λογοτεχνίας.",
-          "Παρέχονται επίσης εξειδικευμένοι οδηγοί μελέτης, ιστορικές ανασκοπήσεις για την εξέλιξη της ελληνικής γλώσσας και υποστηρικτικό υλικό για την εισαγωγή της γλωσσικής εκπαιδευτικής θεωρίας."
+          "Εστιάζει στη μελέτη της δομής, των διαλέκτων και της κοινωνικής διάστασης της ελληνικής γλώσσας, σχεδιάζοντας προγράμματα γλωσσικής πολιτικής και γλωσσικής διδασκαλίας.",
+          "Καταγράφει τη γλωσσική πραγματικότητα και διατυπώνει επιστημονικές προτάσεις προς την πολιτεία για τη βελτίωση και τον εκσυγχρονισμό της γλωσσικής εκπαίδευσης στα σχολεία."
         ]
       },
       page6: {
+        category: "Ερευνητικό Τμήμα",
+        title: "Τμήμα Στήριξης & Προβολής",
+        lead: "Διαχείριση των κρατικών εξετάσεων ελληνομάθειας και ανάπτυξη μεθοδολογιών διδασκαλίας.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "Είναι ο επίσημος φορέας του Υπουργείου Παιδείας για τη διεξαγωγή των εξετάσεων του Κρατικού Πιστοποιητικού Ελληνομάθειας παγκοσμίως, εξασφαλίζοντας την εγκυρότητα και το αδιάβλητο των εξετάσεων.",
+          "Εκπονεί καινοτόμα προγράμματα εξ αποστάσεως εκπαίδευσης για διδάσκοντες (όπως οι «Διαδρομές») και παράγει πρότυπο διδακτικό υλικό, όπως η αναγνωρισμένη σειρά βιβλίων «ΚΛΙΚ στα Ελληνικά»."
+        ]
+      },
+      page7: {
+        category: "Ερευνητικό Τμήμα",
+        title: "Τμήμα Γλώσσας & Λογοτεχνίας",
+        lead: "Έρευνα της νεοελληνικής λογοτεχνίας και σύνδεση της λογοτεχνικής γλώσσας με την εκπαίδευση.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "Μελετά τη λογοτεχνική παραγωγή στη διαχρονία της και αναπτύσσει ψηφιακές ανθολογίες, σώματα λογοτεχνικών κειμένων και πρότυπα ψηφιακά σενάρια διδασκαλίας για τη σχολική τάξη.",
+          "Συντονίζει έργα όπως η «Πολύτροπη Γλώσσα» που προσφέρουν στους φιλολόγους και στους μαθητές του Λυκείου πλούσιο υποστηρικτικό υλικό για τη διδασκαλία της γλώσσας και της λογοτεχνίας."
+        ]
+      },
+      page8: {
+        category: "Ψηφιακός Κόμβος",
+        title: "Η Πύλη για την Ελληνική Γλώσσα",
+        lead: "Ο κεντρικός διαδικτυακός κόμβος (www.greek-language.gr) για τη μελέτη και τη διδασκαλία της γλώσσας.",
+        image: "assets/ancient_manuscript.png",
+        paras: [
+          "Η Πύλη αποτελεί ένα πρωτοποριακό ψηφιακό περιβάλλον που παρέχει ελεύθερη πρόσβαση σε έγκριτα ηλεκτρονικά λεξικά για όλες τις ιστορικές περιόδους της ελληνικής (Αρχαία, Μεσαιωνική, Νέα).",
+          "Φιλοξενεί το Λεξικό Τριανταφυλλίδη για τη Νεοελληνική, το Λεξικό Κριαρά για τη Μεσαιωνική, καθώς και την Επιτομή Liddell & Scott για την Αρχαία Ελληνική, εξυπηρετώντας καθημερινά χιλιάδες χρήστες."
+        ]
+      },
+      page9: {
+        category: "Ψηφιακή Έρευνα",
+        title: "Λεξικά & Σώματα Κειμένων",
+        lead: "Προηγμένα ψηφιακά εργαλεία και βιβλιοθήκες για τη γλωσσολογική έρευνα.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "Ενσωματώνει συστηματικά σώματα κειμένων (corpora) για την ανάλυση της νεοελληνικής, καθώς και ψηφιακές βιβλιοθήκες, όπως η «Μνημοσύνη» για την αρχαία ελληνική γραμματεία και ανθολογίες νεοελληνικής λογοτεχνίας.",
+          "Παρέχει επίσης εξειδικευμένους οδηγούς μελέτης, ιστορικές ανασκοπήσεις για την εξέλιξη της ελληνικής γλώσσας και υποστηρικτικό υλικό για την εισαγωγή της γλωσσικής εκπαιδευτικής θεωρίας."
+        ]
+      },
+      page10: {
         category: "Ψηφιακή Τάξη",
         title: "Πρωτέας & Πολύτροπη",
         lead: "Ψηφιακά εκπαιδευτικά περιβάλλοντα που υποστηρίζουν τη διδασκαλία στη σχολική τάξη.",
@@ -427,7 +469,7 @@ const templatesContent = {
           "Ψηφιακός Σχολικός Σύμβουλος: Οδηγίες και σενάρια για την αξιοποίηση των ΤΠΕ στη γλωσσική εκπαίδευση."
         ]
       },
-      page7: {
+      page11: {
         category: "E-Learning",
         title: "Ψηφίδες & Greek to Me",
         lead: "Σύγχρονες πλατφόρμες τηλεκπαίδευσης για την εκμάθηση της ελληνικής από απόσταση.",
@@ -438,7 +480,7 @@ const templatesContent = {
           "Επιμόρφωση Εκπαιδευτικών: Σεμινάρια για τη διδακτική της ελληνικής ως δεύτερης/ξένης γλώσσας."
         ]
       },
-      page8: {
+      page12: {
         category: "Πιστοποίηση",
         title: "Επίσημες Εξετάσεις",
         lead: "Το ΚΕΓ είναι ο αποκλειστικός κρατικός φορέας του Υπουργείου Παιδείας για τη διενέργεια των εξετάσεων πιστοποίησης ελληνομάθειας παγκοσμίως.",
@@ -448,7 +490,7 @@ const templatesContent = {
           "Οι εξετάσεις διενεργούνται μία φορά το χρόνο, κατά τον μήνα Μάιο. Το ΚΕΓ εποπτεί τη λειτουργία περισσότερων από 160 εξεταστικών κέντρων που καλύπτουν και τις 5 ηπείρους (Ευρώπη, Ασία, Αμερική, Αφρική, Ωκεανία), εξασφαλίζοντας το αδιάβλητο της διαδικασίας."
         ]
       },
-      page9: {
+      page13: {
         category: "Τα Επίπεδα",
         title: "Κλίμακα Α1 έως Γ2",
         lead: "Η αξιολόγηση ακολουθεί πλήρως το Κοινό Ευρωπαϊκό Πλαίσιο Αναφοράς για τις Γλώσσες (CEFR).",
@@ -460,7 +502,7 @@ const templatesContent = {
           "Γ1 (Πολύ Καλή) & Γ2 (Άριστη): Πλήρης ευχέρεια, απαραίτητο για συγκεκριμένες επαγγελματικές άδειες."
         ]
       },
-      page10: {
+      page14: {
         category: "Αναγνώριση",
         title: "Αξία του Πιστοποιητικού",
         lead: "Ένα απαραίτητο θεσμικό και επαγγελματικό εφόδιο με ισχυρή νομική κατοχύρωση.",
@@ -470,7 +512,7 @@ const templatesContent = {
           "Επαγγελματική & Νομική Χρήση: Είναι απαραίτητο για διορισμό στο ελληνικό δημόσιο (επίπεδο Γ1/Γ2), την άσκηση νομικά κατοχυρωμένων επαγγελμάτων (γιατροί, δικηγόροι κλπ.), καθώς και για την απόκτηση της ελληνικής ιθαγένειας (επίπεδο Α2) ή της άδειας διαμονής επί μακρόν διαμένοντος."
         ]
       },
-      page11: {
+      page15: {
         category: "Παγκόσμια Κοινότητα",
         title: "Φρυκτωρίες & Διαδρομές",
         lead: "Διασύνδεση των εδρών ελληνικών σπουδών και επιμόρφωση των εκπαιδευτικών παγκοσμίως.",
@@ -480,12 +522,12 @@ const templatesContent = {
           "Σε άμεση σύνδεση με τις Φρυκτωρίες, το πρόγραμμα «Διαδρομές» του ΚΕΓ προσφέρει πιστοποιημένη, εξ αποστάσεως επιμόρφωση σε εκπαιδευτικούς στην Ελλάδα και το εξωτερικό, εξασφαλίζοντας τη συνεχή επαγγελματική τους κατάρτιση."
         ]
       },
-      page12: {
+      page16: {
         title: "Επικοινωνία & Πληροφορίες",
         lead: "Κέντρο Ελληνικής Γλώσσας — Δίπλα σας σε κάθε γλωσσικό βήμα.",
         address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
         phone: "📞 Τηλέφωνο: +30 2313 331 500 / 540",
-        email: "✉️ Email: greeklanguage@ypepth.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -500,44 +542,86 @@ const templatesContent = {
         eventDate: "Thessaloniki, Greece • Established 1994"
       },
       page2: {
-        category: "Our Identity",
-        title: "Purpose of CGL",
-        lead: "The Center for the Greek Language (CGL) was established in 1994 in Thessaloniki to support and promote the Greek language worldwide.",
+        category: "CGL Identity",
+        title: "Identity & Mission",
+        lead: "CGL was established in 1994 in Thessaloniki as a non-profit State Research Institution.",
+        image: "assets/cgl_logo.png",
         paras: [
-          "Supervised by the Ministry of Education, CGL serves as the primary advisory and planning body for national language policies, implementing initiatives to support Greek as a second/foreign language.",
-          "CGL actively coordinates scientific research, fostering partnerships with Greek studies departments and chairs internationally, ensuring the continuity of Hellenic linguistic heritage."
+          "Supervised by the Greek Ministry of Education, it coordinates and executes national language policies, supporting the teaching of the Greek language both inside Greece and abroad.",
+          "Its mission focuses on the scientific description and promotion of Greek language, organizing Greek courses for foreigners and diaspora Greeks, and supporting educators worldwide."
         ]
       },
       page3: {
-        category: "Our Structure",
-        title: "Departments & History",
-        lead: "Based in Thessaloniki, CGL has built three decades of rich scientific work across specialized academic divisions.",
+        category: "Scientific Principles",
+        title: "Principles & Philosophy",
+        lead: "CGL operations are governed by strict scientific methodology and language planning principles.",
+        image: "assets/ancient_manuscript.png",
         paras: [
-          "Our research is organized into four main departments: 1) Lexicography, 2) Linguistics, 3) Language & Literature, and 4) Support and Promotion of the Greek Language.",
-          "Each department is staffed by leading academics producing specialized reference materials, digital libraries, and pedagogical tools, making CGL a global hub for Greek philology."
+          "It avoids normative dogmas and ideological biases concerning the evolution of Modern Greek, viewing it not as 'corrupted' but as a living, developing linguistic system.",
+          "It maintains that linguistic cultivation is achieved through synchronic and diachronic study of the language in its full depth, primarily through exemplary literary and scientific texts."
         ]
       },
       page4: {
-        category: "Digital Hub",
-        title: "The Portal & Dictionaries",
-        lead: "The Greek Language Portal (www.greek-language.gr) is the largest digital hub for the study and research of the Greek language.",
+        category: "Research Division",
+        title: "Lexicography Dept.",
+        lead: "Planning, compiling, and publishing authoritative dictionaries for all historical periods of Greek.",
         image: "assets/ancient_manuscript.png",
         paras: [
-          "The Portal offers free access to authoritative digital lexicons covering all historical periods: the Triantafyllidis Lexicon for Modern Greek, the Kriaras Lexicon for Medieval Greek, and the Liddell-Scott Lexicon for Ancient Greek.",
-          "All resources are searchable online, supporting thousands of educators, students, translators, and researchers worldwide daily."
+          "The department continues the monumental work of Emmanuel Kriaras for Medieval Greek literature, while compiling lexicographical tools for Ancient and Modern Greek.",
+          "It constructs advanced digital lexical databases that power the online dictionaries of the Portal, providing free access to thousands of researchers and learners globally."
         ]
       },
       page5: {
-        category: "Linguistic Research",
-        title: "Text Corpora & Databases",
-        lead: "The Portal integrates advanced text analysis corpora and digital libraries for linguistic studies.",
+        category: "Research Division",
+        title: "Linguistics Dept.",
+        lead: "Scientific research on the historical evolution, structure, and usage of the Greek language.",
         image: "assets/modern_geometric.png",
         paras: [
-          "It hosts systematic text corpora for analyzing Modern Greek, alongside digital archives such as the 'Mnemosyne' database for ancient literature, and anthologies of modern prose.",
-          "It also provides comprehensive study guides, historical overviews of the Greek language, and auxiliary materials for teaching linguistics in schools."
+          "It focuses on the structure, dialects, sociolinguistics, and usage of Greek, designing language policy frameworks and modern school curricula.",
+          "By analyzing linguistic reality, it formulates recommendations to the government to update and modernize Greek language teaching methodologies in schools."
         ]
       },
       page6: {
+        category: "Research Division",
+        title: "Support & Promotion Dept.",
+        lead: "Managing the official state certifications and developing teaching methodologies.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "It holds exclusive state authority under the Ministry of Education for conducting the Certificate of Attainment in Greek examinations worldwide, ensuring absolute security and validity.",
+          "It designs innovative remote e-learning programs for teachers (such as 'Routes') and produces high-quality books like the 'KLIK sta Ellinika' textbook series."
+        ]
+      },
+      page7: {
+        category: "Research Division",
+        title: "Language & Literature Dept.",
+        lead: "Researching Modern Greek literature and integrating literary language in education.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "It studies literary production across eras, developing digital anthologies, literary text corpora, and model digital scenarios for school classrooms.",
+          "It coordinates digital resource projects like 'Politropi Glossa' that provide high school educators and students with rich tools to cultivate linguistic and literary competence."
+        ]
+      },
+      page8: {
+        category: "Digital Hub",
+        title: "The Portal for the Greek Language",
+        lead: "The central digital gateway (www.greek-language.gr) for the study and teaching of Greek.",
+        image: "assets/ancient_manuscript.png",
+        paras: [
+          "The Portal represents a pioneering digital platform offering free access to major electronic dictionaries covering all historical periods of the Greek language.",
+          "It hosts the Triantafyllidis Lexicon for Modern Greek, the Kriaras Lexicon for Medieval Greek, and the Liddell-Scott Lexicon for Ancient Greek, serving thousands of users daily."
+        ]
+      },
+      page9: {
+        category: "Linguistic Research",
+        title: "Corpora & Databases",
+        lead: "Advanced digital resources and databases for linguistic and literary analysis.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "It hosts systematic text corpora for linguistic analysis of Modern Greek, alongside digital archives such as the 'Mnemosyne' database for ancient literature.",
+          "It also provides comprehensive study guides, historical overviews of the Greek language, and auxiliary materials for teaching linguistics in schools."
+        ]
+      },
+      page10: {
         category: "Digital Classroom",
         title: "Proteas & Politropi",
         lead: "Digitally-driven educational environments designed to support classroom teaching.",
@@ -548,7 +632,7 @@ const templatesContent = {
           "Linguistic Advisors: Pedagogical guides for integrating ICT in language curriculum."
         ]
       },
-      page7: {
+      page11: {
         category: "E-Learning",
         title: "Psifides & Greek to Me",
         lead: "State-of-the-art online training programs supporting distant learning.",
@@ -559,7 +643,7 @@ const templatesContent = {
           "Teacher Seminars: Specialized professional training modules for teaching Greek as a second language."
         ]
       },
-      page8: {
+      page12: {
         category: "Certification",
         title: "Official Examinations",
         lead: "CGL is the exclusive state-appointed agency of the Ministry of Education for conducting the Certificate of Attainment in Greek.",
@@ -569,7 +653,7 @@ const templatesContent = {
           "Examinations are conducted annually in May. CGL oversees over 160 official exam centers across Europe, Asia, America, Africa, and Oceania, ensuring standardized and secure testing procedures."
         ]
       },
-      page9: {
+      page13: {
         category: "The Levels",
         title: "Levels A1 to C2",
         lead: "Our proficiency assessment fully aligns with the Common European Framework of Reference for Languages (CEFR).",
@@ -581,7 +665,7 @@ const templatesContent = {
           "C1 (Effective Proficiency) & C2 (Mastery): Full native-like fluency, required for licensed professions."
         ]
       },
-      page10: {
+      page14: {
         category: "Recognition",
         title: "Value of the Certificate",
         lead: "An essential legal, academic, and professional asset with wide state recognition.",
@@ -591,7 +675,7 @@ const templatesContent = {
           "Professional & Legal Value: Mandatory for civil service jobs, practicing regulated professions (medicine, law, etc.), and is a key prerequisite for Greek citizenship (Level A2)."
         ]
       },
-      page11: {
+      page15: {
         category: "Global Network",
         title: "Fryktories & Routes",
         lead: "Connecting departments of Greek studies and supporting educators on a global level.",
@@ -601,12 +685,12 @@ const templatesContent = {
           "In alignment with Fryktories, CGL's 'Routes' program offers certified, distance-learning training for educators teaching Greek as a foreign language."
         ]
       },
-      page12: {
+      page16: {
         title: "Contact & Info",
         lead: "Center for the Greek Language — Beside you at every linguistic step.",
         address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
         phone: "📞 Tel: +30 2313 331 500 / 540",
-        email: "✉️ Email: greeklanguage@ypepth.gr",
+        email: "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
         website: "🌐 www.greeklanguage.gr",
         socialFb: "Facebook: @greeklanguage.gr",
         socialTw: "X (Twitter): @GreekLanguage"
@@ -629,6 +713,7 @@ let state = {
   pageSize: 'b5',         // 'b5', 'a4', 'a5', 'dl'
   fontStyle: 'cinzel',    // 'cinzel', 'serif', 'sans'
   fontSize: 'medium',     // 'small', 'medium', 'large'
+  authenticated: false,
   contentData: JSON.parse(JSON.stringify(templatesContent))
 };
 
@@ -655,6 +740,17 @@ const layoutButtons = document.querySelectorAll('.layout-btn');
 
 // Initialize Application
 function init() {
+  // Check Authentication Status
+  const savedAuth = sessionStorage.getItem('cglAuth');
+  if (savedAuth === 'true') {
+    state.authenticated = true;
+    document.body.classList.remove('not-logged-in');
+  } else {
+    state.authenticated = false;
+    document.body.classList.add('not-logged-in');
+  }
+  
+  setupAuthListeners();
   setupThemeListeners();
   setupLayoutListeners();
   setupOptionListeners();
@@ -662,6 +758,29 @@ function init() {
   
   // Render Initial View
   render();
+}
+
+// Setup Event Listener for Authentication
+function setupAuthListeners() {
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const errorMsg = document.getElementById('loginError');
+      
+      if ((email === 'admin@komvos.edu.gr' || email === 'admin@cgl.gr') && password === 'cglpassword123') {
+        state.authenticated = true;
+        sessionStorage.setItem('cglAuth', 'true');
+        document.body.classList.remove('not-logged-in');
+        errorMsg.innerText = '';
+        render();
+      } else {
+        errorMsg.innerText = '⚠️ Λανθασμένο email ή κωδικός πρόσβασης!';
+      }
+    });
+  }
 }
 
 // Setup Event Listeners for Themes
@@ -704,19 +823,6 @@ function setupOptionListeners() {
 
   brochureTemplateSelect.addEventListener('change', (e) => {
     state.template = e.target.value;
-    
-    // Suggest optimal layout based on CGL recommendation
-    if (state.template === 'general') {
-      state.layout = 'trifold';
-      setActiveLayoutButton('btnLayoutTrifold');
-    } else if (state.template === 'certification') {
-      state.layout = 'bifold';
-      setActiveLayoutButton('btnLayoutBifold');
-    } else if (state.template === 'fryktories') {
-      state.layout = 'single';
-      setActiveLayoutButton('btnLayoutSingle');
-    }
-    
     render();
   });
 
@@ -742,18 +848,17 @@ function setupOptionListeners() {
 
   toggleEditMode.addEventListener('change', (e) => {
     state.editMode = e.target.checked;
-    applyUIClassesToBody();
-    toggleContentEditable();
+    render();
   });
 
   toggleFoldGuides.addEventListener('change', (e) => {
     state.foldGuides = e.target.checked;
-    applyUIClassesToBody();
+    render();
   });
 
   togglePrintGuides.addEventListener('change', (e) => {
     state.printGuides = e.target.checked;
-    render(); // Re-render to calculate margins & update print page sizes
+    render();
   });
 
   toggleLanguage.addEventListener('change', (e) => {
@@ -762,44 +867,115 @@ function setupOptionListeners() {
   });
 }
 
-function setActiveLayoutButton(buttonId) {
-  layoutButtons.forEach(b => b.classList.remove('active'));
-  document.getElementById(buttonId).classList.add('active');
-}
-
-// Apply visual toggle classes to document body
-function applyUIClassesToBody() {
-  const body = document.body;
-  
-  if (state.editMode) body.classList.add('edit-mode-active');
-  else body.classList.remove('edit-mode-active');
-  
-  if (state.foldGuides) body.classList.add('show-fold-guides');
-  else body.classList.remove('show-fold-guides');
-  
-  if (state.printGuides) body.classList.add('show-print-guides');
-  else body.classList.remove('show-print-guides');
-}
-
-// Setup Action Button Event Listeners
+// Setup Action Buttons
 function setupButtonListeners() {
   btnPrint.addEventListener('click', () => {
     window.print();
   });
 
   btnReset.addEventListener('click', () => {
-    if (confirm(state.language === 'el' ? 
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε τα κείμενα του επιλεγμένου εντύπου στις αρχικές τους τιμές;' : 
-      'Are you sure you want to reset the selected brochure texts to their default values?')) {
-      if (state.docType === 'booklet') {
-        state.contentData.booklet = JSON.parse(JSON.stringify(templatesContent.booklet));
-      } else {
-        state.contentData[state.template] = JSON.parse(JSON.stringify(templatesContent[state.template]));
-      }
+    if (confirm("Είστε σίγουροι ότι θέλετε να επαναφέρετε τα κείμενα στις αρχικές τους τιμές; Όλες οι αλλαγές σας θα χαθούν.")) {
+      state.contentData = JSON.parse(JSON.stringify(templatesContent));
       render();
     }
   });
 }
+
+// Helper function to apply active UI styling classes to document body
+function applyUIClassesToBody() {
+  if (state.editMode) {
+    document.body.classList.add('edit-mode-active');
+  } else {
+    document.body.classList.remove('edit-mode-active');
+  }
+
+  if (state.foldGuides) {
+    document.body.classList.add('show-fold-guides');
+  } else {
+    document.body.classList.remove('show-fold-guides');
+  }
+
+  if (state.printGuides) {
+    document.body.classList.add('show-print-guides');
+  } else {
+    document.body.classList.remove('show-print-guides');
+  }
+}
+
+// Helper to retrieve currently active dataset
+function getActiveData() {
+  return state.contentData[state.docType === 'booklet' ? 'booklet' : state.template][state.language];
+}
+
+// Expose editor actions globally on window
+window.deleteElement = function(sectionKey, field, index) {
+  const activeData = getActiveData();
+  if (activeData[sectionKey] && activeData[sectionKey][field]) {
+    activeData[sectionKey][field].splice(index, 1);
+    render();
+  }
+};
+
+window.addParagraph = function(sectionKey) {
+  const activeData = getActiveData();
+  if (activeData[sectionKey]) {
+    if (!activeData[sectionKey].paras) {
+      activeData[sectionKey].paras = [];
+    }
+    // Remove lists to maintain a clean layout structure
+    if (activeData[sectionKey].list) {
+      delete activeData[sectionKey].list;
+    }
+    activeData[sectionKey].paras.push("Νέα παράγραφος. Κάντε κλικ εδώ για να την επεξεργαστείτε...");
+    render();
+  }
+};
+
+window.addListItem = function(sectionKey) {
+  const activeData = getActiveData();
+  if (activeData[sectionKey]) {
+    if (!activeData[sectionKey].list) {
+      activeData[sectionKey].list = [];
+    }
+    // Remove paragraphs to maintain a clean structure
+    if (activeData[sectionKey].paras) {
+      delete activeData[sectionKey].paras;
+    }
+    activeData[sectionKey].list.push("Νέο στοιχείο λίστας. Κάντε κλικ εδώ για επεξεργασία...");
+    render();
+  }
+};
+
+window.changeImage = function(sectionKey) {
+  window.triggerImageUpload(sectionKey);
+};
+
+window.triggerImageUpload = function(sectionKey) {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*';
+  fileInput.style.display = 'none';
+  
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const base64Data = evt.target.result;
+        const activeData = getActiveData();
+        if (activeData[sectionKey]) {
+          activeData[sectionKey].image = base64Data;
+          render();
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+  
+  document.body.appendChild(fileInput);
+  fileInput.click();
+  document.body.removeChild(fileInput);
+};
 
 // Dynamically toggles contenteditable attribute on elements
 function toggleContentEditable() {
@@ -820,13 +996,14 @@ function bindTextEdits() {
       const index = e.target.getAttribute('data-idx');
       
       const newText = e.target.innerText.trim();
+      const activeData = getActiveData();
       
-      const activeData = state.contentData[state.docType === 'booklet' ? 'booklet' : state.template][state.language];
-      
-      if (index !== null) {
-        activeData[section][field][parseInt(index)] = newText;
-      } else {
-        activeData[section][field] = newText;
+      if (activeData[section]) {
+        if (index !== null && index !== undefined && activeData[section][field] && Array.isArray(activeData[section][field])) {
+          activeData[section][field][parseInt(index)] = newText;
+        } else {
+          activeData[section][field] = newText;
+        }
       }
     });
   });
@@ -872,7 +1049,7 @@ function renderPrintWrapper(panelHtml) {
   `;
 }
 
-// Render dynamic print page sizes dynamically via inline style tag for printing
+// Render dynamic print page sizes dynamically via style tag
 function updatePrintPageSize() {
   let styleTag = document.getElementById('print-page-style');
   if (!styleTag) {
@@ -881,7 +1058,6 @@ function updatePrintPageSize() {
     document.head.appendChild(styleTag);
   }
 
-  // Calculate width and height in mm
   let w = 176;
   let h = 250;
   
@@ -902,7 +1078,6 @@ function updatePrintPageSize() {
   let totalW = panels * w;
   let totalH = h;
 
-  // Add margin spacing if printing with crop marks
   if (state.printGuides) {
     totalW += 24; // 12mm left, 12mm right margins
     totalH += 30; // 15mm top, 15mm bottom margins
@@ -920,6 +1095,10 @@ function updatePrintPageSize() {
 
 // Render dynamic content according to current layout, template and language
 function render() {
+  if (!state.authenticated) {
+    return; // Don't render content if not logged in
+  }
+
   // 1. Set Typography & Theme classes on document body
   document.body.className = '';
   document.body.classList.add(`theme-${state.theme}`);
@@ -960,59 +1139,77 @@ function render() {
   if (state.docType === 'booklet') {
     const activeContent = state.contentData.booklet[state.language];
     
-    // Render 6 Spreads (12 pages total, saddle stitched)
+    // Render 8 Spreads (16 pages total, saddle stitched)
     brochureCanvas.innerHTML = `
       <!-- Spread 1: Covers -->
       <div class="spread-container outside-spread">
-        <div class="spread-title-indicator">Φύλλο 1: Εξώφυλλο / Οπισθόφυλλο (Σελίδες 12 & 1) - Βιβλιοδεσία Καρφίτσα</div>
+        <div class="spread-title-indicator">Φύλλο 1: Εξώφυλλο / Οπισθόφυλλο (Σελίδες 16 & 1) - Βιβλιοδεσία Καρφίτσα</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderBackCoverPanel(activeContent.page12, '12'))}
+          ${renderPrintWrapper(renderBackCoverPanel(activeContent.page16, '16'))}
           ${renderPrintWrapper(renderCoverPanel(activeContent.page1, '1'))}
         </div>
       </div>
       
-      <!-- Spread 2: Pages 2 & 3 (Introduction & History) -->
+      <!-- Spread 2: Pages 2 & 3 (Identity & Principles) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 2: Σελίδες 2 & 3 (Σκοπός / Τμήματα ΚΕΓ)</div>
+        <div class="spread-title-indicator">Φύλλο 2: Σελίδες 2 & 3 (Ταυτότητα & Αποστολή / Επιστημονικές Αρχές)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page2', activeContent.page2, '2'))}
           ${renderPrintWrapper(renderSectionPanel('page3', activeContent.page3, '3'))}
         </div>
       </div>
       
-      <!-- Spread 3: Pages 4 & 5 (Portal - Dictionaries & Text Corpora) -->
+      <!-- Spread 3: Pages 4 & 5 (Departments: Lexicography & Linguistics) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 3: Σελίδες 4 & 5 (Πύλη για την Ελληνική Γλώσσα)</div>
+        <div class="spread-title-indicator">Φύλλο 3: Σελίδες 4 & 5 (Ερευνητικά Τμήματα: Λεξικογραφία & Γλωσσολογία)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page4', activeContent.page4, '4'))}
           ${renderPrintWrapper(renderSectionPanel('page5', activeContent.page5, '5'))}
         </div>
       </div>
       
-      <!-- Spread 4: Pages 6 & 7 (Digital Classroom & Distant Learning) -->
+      <!-- Spread 4: Pages 6 & 7 (Departments: Support/Promotion & Language/Literature) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 4: Σελίδες 6 & 7 (Ψηφιακά Εργαλεία Διδασκαλίας)</div>
+        <div class="spread-title-indicator">Φύλλο 4: Σελίδες 6 & 7 (Ερευνητικά Τμήματα: Στήριξη/Προβολή & Γλώσσα/Λογοτεχνία)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page6', activeContent.page6, '6'))}
           ${renderPrintWrapper(renderSectionPanel('page7', activeContent.page7, '7'))}
         </div>
       </div>
       
-      <!-- Spread 5: Pages 8 & 9 (Certification Exams & Standard CEFR Levels) -->
+      <!-- Spread 5: Pages 8 & 9 (Portal - Dictionaries & Text Corpora) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 5: Σελίδες 8 & 9 (Πιστοποίηση Ελληνομάθειας - Δράση & Επίπεδα)</div>
+        <div class="spread-title-indicator">Φύλλο 5: Σελίδες 8 & 9 (Η Πύλη για την Ελληνική Γλώσσα)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page8', activeContent.page8, '8'))}
           ${renderPrintWrapper(renderSectionPanel('page9', activeContent.page9, '9'))}
         </div>
       </div>
       
-      <!-- Spread 6: Pages 10 & 11 (Certificate Recognition & Fryktories Network) -->
+      <!-- Spread 6: Pages 10 & 11 (Digital Classroom & E-learning) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 6: Σελίδες 10 & 11 (Αναγνώριση Πιστοποιητικού / Δίκτυο Φρυκτωρίες)</div>
+        <div class="spread-title-indicator">Φύλλο 6: Σελίδες 10 & 11 (Ψηφιακά Εργαλεία & Ψηφίδες/E-Learning)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page10', activeContent.page10, '10'))}
           ${renderPrintWrapper(renderSectionPanel('page11', activeContent.page11, '11'))}
+        </div>
+      </div>
+      
+      <!-- Spread 7: Pages 12 & 13 (Certification Exams & Standard CEFR Levels) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 7: Σελίδες 12 & 13 (Πιστοποίηση Ελληνομάθειας - Δράση & Επίπεδα)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page12', activeContent.page12, '12'))}
+          ${renderPrintWrapper(renderSectionPanel('page13', activeContent.page13, '13'))}
+        </div>
+      </div>
+      
+      <!-- Spread 8: Pages 14 & 15 (Certificate Value & Fryktories Network) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 8: Σελίδες 14 & 15 (Χρησιμότητα Πιστοποιητικού / Δίκτυο Φρυκτωρίες)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page14', activeContent.page14, '14'))}
+          ${renderPrintWrapper(renderSectionPanel('page15', activeContent.page15, '15'))}
         </div>
       </div>
     `;
@@ -1145,13 +1342,19 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
   
   if (sectionData.paras) {
     bodyContent = sectionData.paras.map((p, idx) => `
-      <p class="panel-para editable-field" data-sec="${sectionKey}" data-field="paras" data-idx="${idx}">${p}</p>
+      <div class="editable-container">
+        <p class="panel-para editable-field" data-sec="${sectionKey}" data-field="paras" data-idx="${idx}">${p}</p>
+        <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'paras', ${idx})">❌</button>
+      </div>
     `).join('');
   } else if (sectionData.list) {
     bodyContent = `
       <ul class="panel-list">
         ${sectionData.list.map((item, idx) => `
-          <li class="editable-field" data-sec="${sectionKey}" data-field="list" data-idx="${idx}">${item}</li>
+          <div class="editable-container">
+            <li class="editable-field" data-sec="${sectionKey}" data-field="list" data-idx="${idx}">${item}</li>
+            <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'list', ${idx})">❌</button>
+          </div>
         `).join('')}
       </ul>
     `;
@@ -1159,7 +1362,12 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
 
   let imageContent = '';
   if (sectionData.image) {
-    imageContent = `<img src="${sectionData.image}" alt="${sectionData.title}" class="panel-image">`;
+    imageContent = `
+      <div class="image-edit-container">
+        <img src="${sectionData.image}" alt="${sectionData.title}" class="panel-image">
+        <button class="btn-image-change" onclick="window.changeImage('${sectionKey}')">📷 Αλλαγή Εικόνας</button>
+      </div>
+    `;
   }
 
   return `
@@ -1179,6 +1387,12 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
         <div class="panel-lead editable-field" data-sec="${sectionKey}" data-field="lead">${sectionData.lead}</div>
         ${bodyContent}
         ${imageContent}
+      </div>
+
+      <div class="panel-editor-controls">
+        <button class="btn-panel-action" onclick="window.addParagraph('${sectionKey}')">➕ Παράγραφος</button>
+        <button class="btn-panel-action" onclick="window.addListItem('${sectionKey}')">➕ Λίστα</button>
+        <button class="btn-panel-action" onclick="window.triggerImageUpload('${sectionKey}')">📷 Εικόνα</button>
       </div>
     </div>
   `;
