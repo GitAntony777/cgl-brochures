@@ -99,7 +99,7 @@ body {
 .logo-img {
   height: 48px;
   width: 48px;
-  border-radius: 50%;
+  border-radius: 6px;
   border: 2px solid var(--dashboard-accent);
   background-color: #ffffff;
   padding: 2px;
@@ -767,7 +767,6 @@ body.show-print-guides .print-guides {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 50%;
   margin-bottom: 2mm;
 }
 

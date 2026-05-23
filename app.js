@@ -725,7 +725,6 @@ function renderCoverPanel(coverData, pageNum) {
       
       <div class="cover-main">
         <div class="cover-emblem"></div>
-        <div class="brand-motto" style="font-family: 'Cinzel', serif; font-size: 9pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--secondary-color); margin-top: 2mm; margin-bottom: 4mm; font-weight: 700; text-align: center;">ΓΛΩΣΣΑΝ ΝΩΜΑΝ</div>
         <h1 class="cover-title serif-title editable-field" data-sec="cover" data-field="title">${coverData.title}</h1>
         <p class="cover-subtitle greek-style-heading editable-field" data-sec="cover" data-field="subtitle">${coverData.subtitle}</p>
       </div>
