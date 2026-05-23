@@ -1,8 +1,9 @@
 /**
- * Κέντρο Ελληνικής Γλώσσας - Brochure Builder Application Logic
- * Modern advertising brochure designer for TIF 2026.
+ * Κέντρο Ελληνικής Γλώσσας - Brochure & Booklet Builder Application Logic
+ * Modern advertising brochure & booklet designer for TIF 2026.
  */
 
+// Brochure & Booklet Templates Content Store
 const templatesContent = {
   general: {
     el: {
@@ -182,7 +183,8 @@ const templatesContent = {
       section3: {
         category: "Υποστήριξη",
         title: "Προετοιμασία & Υλικό",
-        lead: "Το ΚΕΓ παρέσει πλούσιο υλικό για την προετοιμασία των υποψηφίων και των εκπαιδευτικών.",
+        lead: "Το ΚΕΓ παρέχει πλούσιο υλικό για την προετοιμασία των υποψηφίων και των εκπαιδευτικών.",
+        image: "assets/ancient_manuscript.png",
         paras: [
           "Στην ειδική πύλη (greek-language.gr/certification) προσφέρεται δωρεάν πρόσβαση σε παλαιότερα θέματα εξετάσεων (past papers), δείγματα ακουστικών θεμάτων, διαγνωστικά τεστ και αναλυτικούς οδηγούς για τις εξετάσεις.",
           "Επιπλέον, το ΚΕΓ εκδίδει τη σειρά βιβλίων 'ΚΛΙΚ στα Ελληνικά' (επίπεδα Α1-Γ1) με πλούσιο υποστηρικτικό υλικό, και αναπτύσσει ψηφιακές εφαρμογές (όπως η εφαρμογή KLIK in Greek για κινητά) για τη διδασκαλία της ελληνικής ως ξένης/δεύτερης γλώσσας."
@@ -372,6 +374,252 @@ const templatesContent = {
         ]
       }
     }
+  },
+  booklet: {
+    el: {
+      page1: {
+        title: "Κέντρο Ελληνικής Γλώσσας",
+        subtitle: "Γλώσσα, Πολιτισμός & Εκπαίδευση",
+        badge: "Επίσημος Ερευνητικός & Εκπαιδευτικός Φορέας",
+        eventTitle: "91η Διεθνής Έκθεση Θεσσαλονίκης",
+        eventDate: "Σεπτέμβριος 2026 • Θεσσαλονίκη"
+      },
+      page2: {
+        category: "Η Ταυτότητά μας",
+        title: "Σκοπός του ΚΕΓ",
+        lead: "Το Κέντρο Ελληνικής Γλώσσας (ΚΕΓ) ιδρύθηκε το 1994 στη Θεσσαλονίκη με πρωταρχικό σκοπό την υποστήριξη και διάδοση της ελληνικής γλώσσας εντός και εκτός συνόρων.",
+        paras: [
+          "Ως εποπτευόμενος φορέας του Υπουργείου Παιδείας, Θρησκευμάτων και Αθλητισμού, το ΚΕΓ λειτουργεί ως το κεντρικό γνωμοδοτικό και επιτελικό όργανο της πολιτείας για τη χάραξη γλωσσικής πολιτικής. Στόχος μας είναι ο σχεδιασμός και η εφαρμογή εθνικών προγραμμάτων για τη στήριξη της ελληνικής ως δεύτερης ή ξένης γλώσσας.",
+          "Παράλληλα, το ΚΕΓ προωθεί την επιστημονική μελέτη και την ιστορική έρευνα της γλώσσας, συντονίζοντας συνεργασίες με ακαδημαϊκά ιδρύματα και έδρες ελληνικών σπουδών παγκοσών, συμβάλλοντας έτσι στη διατήρηση της πολιτιστικής μας κληρονομιάς."
+        ]
+      },
+      page3: {
+        category: "Η Δομή μας",
+        title: "Τμήματα & Ιστορικό",
+        lead: "Με έδρα τη Θεσσαλονίκη, το ΚΕΓ έχει αναπτύξει τρεις δεκαετίες πλούσιου επιστημονικού έργου μέσω εξειδικευμένων τμημάτων.",
+        paras: [
+          "Η επιστημονική και ερευνητική δράση του Κέντρου οργανώνεται σε τέσσερα βασικά τμήματα: 1) Τμήμα Λεξικογραφίας, 2) Τμήμα Γλωσσολογίας, 3) Τμήμα Γλώσσας και Λογοτεχνίας, και 4) Τμήμα Στήριξης και Προβολής της Ελληνικής Γλώσσας.",
+          "Κάθε τμήμα στελεχώνεται από κορυφαίους επιστήμονες και ερευνητές που παράγουν μονογραφίες, λεξικά, εκπαιδευτικά βιβλία και ψηφιακά περιβάλλοντα, καθιστώντας το ΚΕΓ σημείο αναφοράς για την ελληνική φιλολογία διεθνώς."
+        ]
+      },
+      page4: {
+        category: "Ψηφιακός Κόμβος",
+        title: "Η Πύλη & τα Λεξικά",
+        lead: "Η Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) αποτελεί τον μεγαλύτερο ψηφιακό κόμβο για τη μελέτη της ελληνικής.",
+        image: "assets/ancient_manuscript.png",
+        paras: [
+          "Η Πύλη προσφέρει ελεύθερη πρόσβαση σε έγκριτα ηλεκτρονικά λεξικά για όλες τις ιστορικές περιόδους. Ξεχωρίζουν το Λεξικό της Κοινής Νεοελληνικής (Τριανταφυλλίδη) για τη σύγχρονη γλώσσα, το Λεξικό Κριαρά για τη μεσαιωνική ελληνική γραμματεία και η Επιτομή Liddell & Scott για την Αρχαία Ελληνική.",
+          "Τα λεξικά είναι πλήρως αναζητήσιμα online, διευκολύνοντας καθημερινά χιλιάδες εκπαιδευτικούς, μαθητές, μεταφραστές και ερευνητές σε όλο τον κόσμο."
+        ]
+      },
+      page5: {
+        category: "Ψηφιακή Έρευνα",
+        title: "Σώματα Κειμένων & Μελέτες",
+        lead: "Η Πύλη ενσωματώνει προηγμένα ψηφιακά εργαλεία και βιβλιοθήκες για τη γλωσσική έρευνα.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "Στην Πύλη φιλοξενούνται εκτενή και συστηματικά σώματα κειμένων (corpora) για την ανάλυση της νεοελληνικής, καθώς και ψηφιακές βιβλιοθήκες, όπως η «Μνημοσύνη» για την αρχαία ελληνική γραμματεία και ανθολογίες νεοελληνικής λογοτεχνίας.",
+          "Παρέχονται επίσης εξειδικευμένοι οδηγοί μελέτης, ιστορικές ανασκοπήσεις για την εξέλιξη της ελληνικής γλώσσας και υποστηρικτικό υλικό για την εισαγωγή της γλωσσικής εκπαιδευτικής θεωρίας."
+        ]
+      },
+      page6: {
+        category: "Ψηφιακή Τάξη",
+        title: "Πρωτέας & Πολύτροπη",
+        lead: "Ψηφιακά εκπαιδευτικά περιβάλλοντα που υποστηρίζουν τη διδασκαλία στη σχολική τάξη.",
+        image: "assets/abstract_letters.png",
+        list: [
+          "Πρωτέας (proteas.greek-language.gr): Ολοκληρωμένο περιβάλλον με εγκεκριμένα εκπαιδευτικά σενάρια για το μάθημα της γλώσσας.",
+          "Πολύτροπη Γλώσσα: Ψηφιακό υποστηρικτικό υλικό για τη διδασκαλία της νεοελληνικής γλώσσας και της λογοτεχνίας στο Λύκειο.",
+          "Ψηφιακός Σχολικός Σύμβουλος: Οδηγίες και σενάρια για την αξιοποίηση των ΤΠΕ στη γλωσσική εκπαίδευση."
+        ]
+      },
+      page7: {
+        category: "E-Learning",
+        title: "Ψηφίδες & Greek to Me",
+        lead: "Σύγχρονες πλατφόρμες τηλεκπαίδευσης για την εκμάθηση της ελληνικής από απόσταση.",
+        image: "assets/modern_geometric.png",
+        list: [
+          "Ψηφίδες: Νέο ψηφιακό περιβάλλον που συγκεντρώνει γλωσσικούς πόρους, λεξικά, σώματα κειμένων και διδακτικό υλικό.",
+          "Greek to Me: Διαδικτυακό πρόγραμμα εκμάθησης της ελληνικής για εφήβους και ενήλικες (επίπεδα Α1-Β1) με σύγχρονες μεθόδους.",
+          "Επιμόρφωση Εκπαιδευτικών: Σεμινάρια για τη διδακτική της ελληνικής ως δεύτερης/ξένης γλώσσας."
+        ]
+      },
+      page8: {
+        category: "Πιστοποίηση",
+        title: "Επίσημες Εξετάσεις",
+        lead: "Το ΚΕΓ είναι ο αποκλειστικός κρατικός φορέας του Υπουργείου Παιδείας για τη διενέργεια των εξετάσεων πιστοποίησης ελληνομάθειας παγκοσμίως.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "Το Κρατικό Πιστοποιητικό Ελληνομάθειας θεσπίστηκε με σκοπό την αντικειμενική και έγκυρη αξιολόγηση των γνώσεων της ελληνικής γλώσσας για αλλοδαπούς και ομογενείς. Είναι ο μόνος επίσημος τίτλος επάρκειας που αναγνωρίζεται διεθνώς.",
+          "Οι εξετάσεις διενεργούνται μία φορά το χρόνο, κατά τον μήνα Μάιο. Το ΚΕΓ εποπτεύει τη λειτουργία περισσότερων από 160 εξεταστικών κέντρων που καλύπτουν και τις 5 ηπείρους (Ευρώπη, Ασία, Αμερική, Αφρική, Ωκεανία), εξασφαλίζοντας το αδιάβλητο της διαδικασίας."
+        ]
+      },
+      page9: {
+        category: "Τα Επίπεδα",
+        title: "Κλίμακα Α1 έως Γ2",
+        lead: "Η αξιολόγηση ακολουθεί πλήρως το Κοινό Ευρωπαϊκό Πλαίσιο Αναφοράς για τις Γλώσσες (CEFR).",
+        image: "assets/ancient_manuscript.png",
+        list: [
+          "Α1 (για παιδιά 8-12 ετών & εφήβους/ενήλικες): Στοιχειώδης εισαγωγή στη γλώσσα.",
+          "Α2 (και ειδικό Α2 για Επαγγελματικούς Σκοπούς): Βασική επικοινωνία και απλός διάλογος.",
+          "Β1 (Μέτρια) & Β2 (Καλή): Απαραίτητο επίπεδο για σπουδές και εργασία στην Ελλάδα.",
+          "Γ1 (Πολύ Καλή) & Γ2 (Άριστη): Πλήρης ευχέρεια, απαραίτητο για συγκεκριμένες επαγγελματικές άδειες."
+        ]
+      },
+      page10: {
+        category: "Αναγνώριση",
+        title: "Αξία του Πιστοποιητικού",
+        lead: "Ένα απαραίτητο θεσμικό και επαγγελματικό εφόδιο με ισχυρή νομική κατοχύρωση.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "Ακαδημαϊκή Χρήση: Το επίπεδο Β2 είναι υποχρεωτικό για την εγγραφή αλλοδαπών φοιτητών σε ελληνικά Ανώτατα Εκπαιδευτικά Ιδρύματα (ΑΕΙ). Παράλληλα, μοριοδοτείται ή απαιτείται για υποτροφίες και προγράμματα ανταλλαγής.",
+          "Επαγγελματική & Νομική Χρήση: Είναι απαραίτητο για διορισμό στο ελληνικό δημόσιο (επίπεδο Γ1/Γ2), την άσκηση νομικά κατοχυρωμένων επαγγελμάτων (γιατροί, δικηγόροι κλπ.), καθώς και για την απόκτηση της ελληνικής ιθαγένειας (επίπεδο Α2) ή της άδειας διαμονής επί μακρόν διαμένοντος."
+        ]
+      },
+      page11: {
+        category: "Παγκόσμια Κοινότητα",
+        title: "Φρυκτωρίες & Διαδρομές",
+        lead: "Διασύνδεση των εδρών ελληνικών σπουδών και επιμόρφωση των εκπαιδευτικών παγκοσμίως.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "Το ψηφιακό δίκτυο «Φρυκτωρίες» (www.fryktories.gr) συνδέει έδρες ελληνικών σπουδών, σχολεία και εκπαιδευτικούς στο εξωτερικό, παρέχοντας μια πλατφόρμα επικοινωνίας και ανταλλαγής διδακτικών σεναρίων και ψηφιοποιημένου υλικού.",
+          "Σε άμεση σύνδεση με τις Φρυκτωρίες, το πρόγραμμα «Διαδρομές» του ΚΕΓ προσφέρει πιστοποιημένη, εξ αποστάσεως επιμόρφωση σε εκπαιδευτικούς στην Ελλάδα και το εξωτερικό, εξασφαλίζοντας τη συνεχή επαγγελματική τους κατάρτιση."
+        ]
+      },
+      page12: {
+        title: "Επικοινωνία & Πληροφορίες",
+        lead: "Κέντρο Ελληνικής Γλώσσας — Δίπλα σας σε κάθε γλωσσικό βήμα.",
+        address: "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη",
+        phone: "📞 Τηλέφωνο: +30 2313 331 500 / 540",
+        fax: "📠 Fax: +30 2313 331 502",
+        email: "✉️ Email: greeklanguage@ypepth.gr",
+        website: "🌐 www.greeklanguage.gr",
+        socialFb: "Facebook: @greeklanguage.gr",
+        socialTw: "X (Twitter): @GreekLanguage"
+      }
+    },
+    en: {
+      page1: {
+        title: "Center for the Greek Language",
+        subtitle: "Language, Culture & Education",
+        badge: "Official State Research & Educational Institution",
+        eventTitle: "91st Thessaloniki International Fair",
+        eventDate: "September 2026 • Thessaloniki, Greece"
+      },
+      page2: {
+        category: "Our Identity",
+        title: "Purpose of CGL",
+        lead: "The Center for the Greek Language (CGL) was established in 1994 in Thessaloniki to support and promote the Greek language worldwide.",
+        paras: [
+          "Supervised by the Ministry of Education, CGL serves as the primary advisory and planning body for national language policies, implementing initiatives to support Greek as a second/foreign language.",
+          "CGL actively coordinates scientific research, fostering partnerships with Greek studies departments and chairs internationally, ensuring the continuity of Hellenic linguistic heritage."
+        ]
+      },
+      page3: {
+        category: "Our Structure",
+        title: "Departments & History",
+        lead: "Based in Thessaloniki, CGL has built three decades of rich scientific work across specialized academic divisions.",
+        paras: [
+          "Our research is organized into four main departments: 1) Lexicography, 2) Linguistics, 3) Language & Literature, and 4) Support and Promotion of the Greek Language.",
+          "Each department is staffed by leading academics producing specialized reference materials, digital libraries, and pedagogical tools, making CGL a global hub for Greek philology."
+        ]
+      },
+      page4: {
+        category: "Digital Hub",
+        title: "The Portal & Dictionaries",
+        lead: "The Greek Language Portal (www.greek-language.gr) is the largest digital hub for the study and research of the Greek language.",
+        image: "assets/ancient_manuscript.png",
+        paras: [
+          "The Portal offers free access to authoritative digital lexicons covering all historical periods: the Triantafyllidis Lexicon for Modern Greek, the Kriaras Lexicon for Medieval Greek, and the Liddell-Scott Lexicon for Ancient Greek.",
+          "All resources are searchable online, supporting thousands of educators, students, translators, and researchers worldwide daily."
+        ]
+      },
+      page5: {
+        category: "Linguistic Research",
+        title: "Text Corpora & Databases",
+        lead: "The Portal integrates advanced text analysis corpora and digital libraries for linguistic studies.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "It hosts systematic text corpora for analyzing Modern Greek, alongside digital archives such as the 'Mnemosyne' database for ancient literature, and anthologies of modern prose.",
+          "It also provides comprehensive study guides, historical overviews of the Greek language, and auxiliary materials for teaching linguistics in schools."
+        ]
+      },
+      page6: {
+        category: "Digital Classroom",
+        title: "Proteas & Politropi",
+        lead: "Digitally-driven educational environments designed to support classroom teaching.",
+        image: "assets/abstract_letters.png",
+        list: [
+          "Proteas (proteas.greek-language.gr): Interactive platform featuring approved educational scenarios for language courses.",
+          "Politropi Glossa: Supplementary digital materials for teaching Modern Greek language and literature in high schools.",
+          "Linguistic Advisors: Pedagogical guides for integrating ICT in language curriculum."
+        ]
+      },
+      page7: {
+        category: "E-Learning",
+        title: "Psifides & Greek to Me",
+        lead: "State-of-the-art online training programs supporting distant learning.",
+        image: "assets/modern_geometric.png",
+        list: [
+          "Psifides: A new portal compiling linguistic resources, dictionaries, text corpora, and lesson plans.",
+          "Greek to Me: An online Greek language course for adolescents and adults (levels A1-B1) utilizing modern learning methods.",
+          "Teacher Seminars: Specialized professional training modules for teaching Greek as a second language."
+        ]
+      },
+      page8: {
+        category: "Certification",
+        title: "Official Examinations",
+        lead: "CGL is the exclusive state-appointed agency of the Ministry of Education for conducting the Certificate of Attainment in Greek.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "The Certificate of Attainment in Greek provides a reliable and objective evaluation of Greek language skills for foreign citizens and diaspora Greeks. It is the only proficiency credential recognized by the state.",
+          "Examinations are conducted annually in May. CGL oversees over 160 official exam centers across Europe, Asia, America, Africa, and Oceania, ensuring standardized and secure testing procedures."
+        ]
+      },
+      page9: {
+        category: "The Levels",
+        title: "Levels A1 to C2",
+        lead: "Our proficiency assessment fully aligns with the Common European Framework of Reference for Languages (CEFR).",
+        image: "assets/ancient_manuscript.png",
+        list: [
+          "A1 (for kids 8-12 & adolescents/adults): Elementary introduction to basic vocabulary.",
+          "A2 (including A2 for Professional Purposes): Basic communication for everyday situations.",
+          "B1 (Intermediate) & B2 (Vantage): The standard requirement for academic studies in Greece.",
+          "C1 (Effective Proficiency) & C2 (Mastery): Full native-like fluency, required for licensed professions."
+        ]
+      },
+      page10: {
+        category: "Recognition",
+        title: "Value of the Certificate",
+        lead: "An essential legal, academic, and professional asset with wide state recognition.",
+        image: "assets/abstract_letters.png",
+        paras: [
+          "Academic Value: Level B2 is required for foreign students enrolling in Greek universities. It also aids diaspora students claiming school placements and scholarships.",
+          "Professional & Legal Value: Mandatory for civil service jobs, practicing regulated professions (medicine, law, etc.), and is a key prerequisite for Greek citizenship (Level A2)."
+        ]
+      },
+      page11: {
+        category: "Global Network",
+        title: "Fryktories & Routes",
+        lead: "Connecting departments of Greek studies and supporting educators on a global level.",
+        image: "assets/modern_geometric.png",
+        paras: [
+          "The 'Fryktories' digital network (www.fryktories.gr) links Hellenic studies departments, schools, and teachers worldwide, offering forums, lesson plans, and terminology directories.",
+          "In alignment with Fryktories, CGL's 'Routes' program offers certified, distance-learning training for educators teaching Greek as a foreign language."
+        ]
+      },
+      page12: {
+        title: "Contact & Info",
+        lead: "Center for the Greek Language — Beside you at every linguistic step.",
+        address: "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
+        phone: "📞 Tel: +30 2313 331 500 / 540",
+        fax: "📠 Fax: +30 2313 331 502",
+        email: "✉️ Email: greeklanguage@ypepth.gr",
+        website: "🌐 www.greeklanguage.gr",
+        socialFb: "Facebook: @greeklanguage.gr",
+        socialTw: "X (Twitter): @GreekLanguage"
+      }
+    }
   }
 };
 
@@ -385,30 +633,36 @@ let state = {
   foldGuides: true,
   printGuides: false,
   language: 'el',         // 'el', 'en'
-  // Deep copy of content to allow real-time custom edits
+  docType: 'brochure',    // 'brochure', 'booklet'
+  pageSize: 'b5',         // 'b5', 'a4', 'a5', 'dl'
+  fontStyle: 'cinzel',    // 'cinzel', 'serif', 'sans'
+  fontSize: 'medium',     // 'small', 'medium', 'large'
   contentData: JSON.parse(JSON.stringify(templatesContent))
 };
 
 // DOM Element Selectors
+const docTypeSelect = document.getElementById('docTypeSelect');
 const brochureTemplateSelect = document.getElementById('brochureTemplateSelect');
 const btnLayoutSingle = document.getElementById('btnLayoutSingle');
 const btnLayoutBifold = document.getElementById('btnLayoutBifold');
 const btnLayoutTrifold = document.getElementById('btnLayoutTrifold');
 const motifSelect = document.getElementById('motifSelect');
+const pageSizeSelect = document.getElementById('pageSizeSelect');
+const fontStyleSelect = document.getElementById('fontStyleSelect');
+const fontSizeSelect = document.getElementById('fontSizeSelect');
+
 const toggleEditMode = document.getElementById('toggleEditMode');
 const toggleFoldGuides = document.getElementById('toggleFoldGuides');
 const togglePrintGuides = document.getElementById('togglePrintGuides');
 const toggleLanguage = document.getElementById('toggleLanguage');
 const btnPrint = document.getElementById('btnPrint');
 const btnReset = document.getElementById('btnReset');
-const outsideCanvas = document.getElementById('outsideCanvas');
-const insideCanvas = document.getElementById('insideCanvas');
+const brochureCanvas = document.getElementById('brochureCanvas');
 const colorDots = document.querySelectorAll('.color-dot');
 const layoutButtons = document.querySelectorAll('.layout-btn');
 
 // Initialize Application
 function init() {
-  // Add Theme & Guide Event Listeners
   setupThemeListeners();
   setupLayoutListeners();
   setupOptionListeners();
@@ -422,19 +676,13 @@ function init() {
 function setupThemeListeners() {
   colorDots.forEach(dot => {
     dot.addEventListener('click', (e) => {
-      // Remove active from all dots
       colorDots.forEach(d => d.classList.remove('active'));
       
       const selectedTheme = e.target.getAttribute('data-theme');
       state.theme = selectedTheme;
       e.target.classList.add('active');
       
-      // Update body classes
-      document.body.className = '';
-      document.body.classList.add(`theme-${state.theme}`);
-      
-      // Apply UI states again
-      applyUIClassesToBody();
+      render();
     });
   });
 }
@@ -457,10 +705,15 @@ function setupLayoutListeners() {
 
 // Setup Select & Checkbox Option Listeners
 function setupOptionListeners() {
+  docTypeSelect.addEventListener('change', (e) => {
+    state.docType = e.target.value;
+    render();
+  });
+
   brochureTemplateSelect.addEventListener('change', (e) => {
     state.template = e.target.value;
     
-    // Suggest optimal layout based on CGL recommendation, but let user override
+    // Suggest optimal layout based on CGL recommendation
     if (state.template === 'general') {
       state.layout = 'trifold';
       setActiveLayoutButton('btnLayoutTrifold');
@@ -477,7 +730,22 @@ function setupOptionListeners() {
 
   motifSelect.addEventListener('change', (e) => {
     state.motif = e.target.value;
-    updateMotifClasses();
+    render();
+  });
+
+  pageSizeSelect.addEventListener('change', (e) => {
+    state.pageSize = e.target.value;
+    render();
+  });
+
+  fontStyleSelect.addEventListener('change', (e) => {
+    state.fontStyle = e.target.value;
+    render();
+  });
+
+  fontSizeSelect.addEventListener('change', (e) => {
+    state.fontSize = e.target.value;
+    render();
   });
 
   toggleEditMode.addEventListener('change', (e) => {
@@ -493,7 +761,7 @@ function setupOptionListeners() {
 
   togglePrintGuides.addEventListener('change', (e) => {
     state.printGuides = e.target.checked;
-    applyUIClassesToBody();
+    render(); // Re-render to calculate margins & update print page sizes
   });
 
   toggleLanguage.addEventListener('change', (e) => {
@@ -521,29 +789,21 @@ function applyUIClassesToBody() {
   else body.classList.remove('show-print-guides');
 }
 
-// Update motif classes on spread canvas containers
-function updateMotifClasses() {
-  const canvasses = [outsideCanvas, insideCanvas];
-  canvasses.forEach(canvas => {
-    canvas.className = 'spread-canvas'; // Reset classes
-    canvas.classList.add(`layout-${state.layout}`);
-    canvas.classList.add(`motif-${state.motif}`);
-  });
-}
-
 // Setup Action Button Event Listeners
 function setupButtonListeners() {
   btnPrint.addEventListener('click', () => {
-    // Before printing, set print-appropriate classes temporarily or rely on print CSS
     window.print();
   });
 
   btnReset.addEventListener('click', () => {
     if (confirm(state.language === 'el' ? 
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε τα κείμενα του επιλεγμένου φυλλαδίου στις αρχικές τους τιμές;' : 
+      'Είστε σίγουροι ότι θέλετε να επαναφέρετε τα κείμενα του επιλεγμένου εντύπου στις αρχικές τους τιμές;' : 
       'Are you sure you want to reset the selected brochure texts to their default values?')) {
-      // Re-initialize default data for the selected template & language
-      state.contentData[state.template] = JSON.parse(JSON.stringify(templatesContent[state.template]));
+      if (state.docType === 'booklet') {
+        state.contentData.booklet = JSON.parse(JSON.stringify(templatesContent.booklet));
+      } else {
+        state.contentData[state.template] = JSON.parse(JSON.stringify(templatesContent[state.template]));
+      }
       render();
     }
   });
@@ -562,7 +822,6 @@ function bindTextEdits() {
   const editableElements = document.querySelectorAll('.editable-field');
   
   editableElements.forEach(el => {
-    // Listen for blur event to save text changes
     el.addEventListener('blur', (e) => {
       const section = e.target.getAttribute('data-sec');
       const field = e.target.getAttribute('data-field');
@@ -570,105 +829,55 @@ function bindTextEdits() {
       
       const newText = e.target.innerText.trim();
       
-      const activeData = state.contentData[state.template][state.language];
+      const activeData = state.contentData[state.docType === 'booklet' ? 'booklet' : state.template][state.language];
       
       if (index !== null) {
-        // It's a list item or array of paragraphs
         activeData[section][field][parseInt(index)] = newText;
       } else {
-        // It's a single text field
         activeData[section][field] = newText;
       }
     });
   });
 }
 
-// Render dynamic content according to current layout, template and language
-function render() {
-  // 1. Update Motif and Layout Classes
-  updateMotifClasses();
-  applyUIClassesToBody();
-
-  // 2. Clear canvases
-  outsideCanvas.innerHTML = '';
-  insideCanvas.innerHTML = '';
-
-  const activeContent = state.contentData[state.template][state.language];
-
-  // 3. Render Spreads based on layout
-  if (state.layout === 'trifold') {
-    // TRI-FOLD: 3 Panels Outer, 3 Panels Inner
-    // Outside Spread: Page 4 (Flap), Page 5 (Back Cover), Page 6 (Front Cover)
-    outsideCanvas.innerHTML = `
-      ${createFoldGuide(1)}
-      ${createFoldGuide(2)}
-      ${createPrintGuides()}
-      ${renderSectionPanel('section3', activeContent.section3, '4')}
-      ${renderBackCoverPanel(activeContent.backCover, '5')}
-      ${renderCoverPanel(activeContent.cover, '6')}
-    `;
-    
-    // Inside Spread: Page 1 (Intro), Page 2 (Section 1), Page 3 (Section 2)
-    insideCanvas.innerHTML = `
-      ${createFoldGuide(1)}
-      ${createFoldGuide(2)}
-      ${createPrintGuides()}
-      ${renderSectionPanel('intro', activeContent.intro, '1')}
-      ${renderSectionPanel('section1', activeContent.section1, '2')}
-      ${renderSectionPanel('section2', activeContent.section2, '3')}
-    `;
-    
-  } else if (state.layout === 'bifold') {
-    // BI-FOLD: 2 Panels Outer, 2 Panels Inner
-    // Outside Spread: Page 4 (Back Cover), Page 1 (Front Cover)
-    outsideCanvas.innerHTML = `
-      ${createFoldGuide(1)}
-      ${createPrintGuides()}
-      ${renderBackCoverPanel(activeContent.backCover, '4')}
-      ${renderCoverPanel(activeContent.cover, '1')}
-    `;
-    
-    // Inside Spread: Page 2 (Intro), Page 3 (Section 1 / Section 2 combined or single)
-    // We combine Intro content and section 1 content
-    insideCanvas.innerHTML = `
-      ${createFoldGuide(1)}
-      ${createPrintGuides()}
-      ${renderSectionPanel('intro', activeContent.intro, '2')}
-      ${renderSectionPanel('section1', activeContent.section1, '3')}
-    `;
-    
-  } else {
-    // SINGLE SHEET: 1 Panel Front, 1 Panel Back
-    // Outside Spread: Front Cover
-    outsideCanvas.innerHTML = `
-      ${createPrintGuides()}
-      ${renderCoverPanel(activeContent.cover, '1')}
-    `;
-    
-    // Inside Spread: Back Details (Intro / Contact Info)
-    // We render the intro as back page of single sheet
-    insideCanvas.innerHTML = `
-      ${createPrintGuides()}
-      ${renderSectionPanel('intro', activeContent.intro, '2')}
-    `;
-  }
-
-  // 4. Set correct print stylesheet rules for page size dynamically
-  updatePrintPageSize();
-
-  // 5. Connect inline text editor triggers
-  toggleContentEditable();
-  bindTextEdits();
-}
-
-// Generate the Fold line element
+// Render the Fold line element
 function createFoldGuide(number) {
   return `<div class="fold-guide fold-guide-${number}"></div>`;
 }
 
-// Generate the red Bleed and safety margin guides
-function createPrintGuides() {
-  return `<div class="print-guides"></div>`;
+// Generate print wrapper containing crop marks and targets
+function renderPrintWrapper(panelHtml) {
+  return `
+    <div class="panel-print-wrapper">
+      <!-- Crop Marks -->
+      <div class="printer-mark crop-mark crop-tl-h"></div>
+      <div class="printer-mark crop-mark crop-tl-v"></div>
+      <div class="printer-mark crop-mark crop-tr-h"></div>
+      <div class="printer-mark crop-mark crop-tr-v"></div>
+      <div class="printer-mark crop-mark crop-bl-h"></div>
+      <div class="printer-mark crop-mark crop-bl-v"></div>
+      <div class="printer-mark crop-mark crop-br-h"></div>
+      <div class="printer-mark crop-mark crop-br-v"></div>
+      
+      <!-- Registration Marks -->
+      <div class="printer-mark registration-mark reg-top"></div>
+      <div class="printer-mark registration-mark reg-bottom"></div>
+      
+      <!-- Color Calibration Bar -->
+      <div class="printer-mark color-bar">
+        <div class="color-patch patch-c" title="Cyan"></div>
+        <div class="color-patch patch-m" title="Magenta"></div>
+        <div class="color-patch patch-y" title="Yellow"></div>
+        <div class="color-patch patch-k" title="Black"></div>
+        <div class="color-patch patch-r" title="Red"></div>
+        <div class="color-patch patch-g" title="Green"></div>
+        <div class="color-patch patch-b" title="Blue"></div>
+      </div>
+      
+      <!-- The Panel -->
+      ${panelHtml}
+    </div>
+  `;
 }
 
 // Render dynamic print page sizes dynamically via inline style tag for printing
@@ -680,35 +889,205 @@ function updatePrintPageSize() {
     document.head.appendChild(styleTag);
   }
 
-  // Set correct B5 landscape spreads in media query
-  if (state.layout === 'trifold') {
-    styleTag.innerHTML = `
-      @media print {
-        @page {
-          size: 528mm 250mm;
-          margin: 0;
-        }
+  // Calculate width and height in mm
+  let w = 176;
+  let h = 250;
+  
+  if (state.pageSize === 'a4') {
+    w = 210; h = 297;
+  } else if (state.pageSize === 'a5') {
+    w = 148; h = 210;
+  } else if (state.pageSize === 'dl') {
+    w = 99; h = 210;
+  }
+
+  let panels = 2; // Default for bifold / booklet
+  if (state.docType === 'brochure') {
+    if (state.layout === 'trifold') panels = 3;
+    else if (state.layout === 'single') panels = 1;
+  }
+
+  let totalW = panels * w;
+  let totalH = h;
+
+  // Add margin spacing if printing with crop marks
+  if (state.printGuides) {
+    totalW += 24; // 12mm left, 12mm right margins
+    totalH += 30; // 15mm top, 15mm bottom margins
+  }
+
+  styleTag.innerHTML = `
+    @media print {
+      @page {
+        size: ${totalW}mm ${totalH}mm;
+        margin: 0;
       }
-    `;
-  } else if (state.layout === 'bifold') {
-    styleTag.innerHTML = `
-      @media print {
-        @page {
-          size: 352mm 250mm;
-          margin: 0;
-        }
-      }
+    }
+  `;
+}
+
+// Render dynamic content according to current layout, template and language
+function render() {
+  // 1. Set Typography & Theme classes on document body
+  document.body.className = '';
+  document.body.classList.add(`theme-${state.theme}`);
+  document.body.classList.add(`font-${state.fontStyle}`);
+  document.body.classList.add(`size-${state.fontSize}`);
+  applyUIClassesToBody();
+
+  // 2. Set dynamic panel dimensions on root element
+  const root = document.documentElement;
+  if (state.pageSize === 'a4') {
+    root.style.setProperty('--panel-width', '210mm');
+    root.style.setProperty('--panel-height', '297mm');
+  } else if (state.pageSize === 'a5') {
+    root.style.setProperty('--panel-width', '148mm');
+    root.style.setProperty('--panel-height', '210mm');
+  } else if (state.pageSize === 'dl') {
+    root.style.setProperty('--panel-width', '99mm');
+    root.style.setProperty('--panel-height', '210mm');
+  } else {
+    root.style.setProperty('--panel-width', '176mm');
+    root.style.setProperty('--panel-height', '250mm');
+  }
+
+  // Show/Hide template and layout controls based on docType
+  const templateSelectGroup = document.getElementById('templateSelectGroup');
+  const layoutSection = document.getElementById('layoutSection');
+  if (state.docType === 'booklet') {
+    templateSelectGroup.style.display = 'none';
+    layoutSection.style.display = 'none';
+  } else {
+    templateSelectGroup.style.display = 'block';
+    layoutSection.style.display = 'block';
+  }
+
+  brochureCanvas.innerHTML = ''; // Clear canvas
+
+  // 3. Render content based on document type
+  if (state.docType === 'booklet') {
+    const activeContent = state.contentData.booklet[state.language];
+    
+    // Render 6 Spreads (12 pages total, saddle stitched)
+    brochureCanvas.innerHTML = `
+      <!-- Spread 1: Covers -->
+      <div class="spread-container outside-spread">
+        <div class="spread-title-indicator">Φύλλο 1: Εξώφυλλο / Οπισθόφυλλο (Σελίδες 12 & 1) - Βιβλιοδεσία Καρφίτσα</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderBackCoverPanel(activeContent.page12, '12'))}
+          ${renderPrintWrapper(renderCoverPanel(activeContent.page1, '1'))}
+        </div>
+      </div>
+      
+      <!-- Spread 2: Pages 2 & 3 (Introduction & History) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 2: Σελίδες 2 & 3 (Σκοπός / Τμήματα ΚΕΓ)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page2', activeContent.page2, '2'))}
+          ${renderPrintWrapper(renderSectionPanel('page3', activeContent.page3, '3'))}
+        </div>
+      </div>
+      
+      <!-- Spread 3: Pages 4 & 5 (Portal - Dictionaries & Text Corpora) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 3: Σελίδες 4 & 5 (Πύλη για την Ελληνική Γλώσσα)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page4', activeContent.page4, '4'))}
+          ${renderPrintWrapper(renderSectionPanel('page5', activeContent.page5, '5'))}
+        </div>
+      </div>
+      
+      <!-- Spread 4: Pages 6 & 7 (Digital Classroom & Distant Learning) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 4: Σελίδες 6 & 7 (Ψηφιακά Εργαλεία Διδασκαλίας)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page6', activeContent.page6, '6'))}
+          ${renderPrintWrapper(renderSectionPanel('page7', activeContent.page7, '7'))}
+        </div>
+      </div>
+      
+      <!-- Spread 5: Pages 8 & 9 (Certification Exams & Standard CEFR Levels) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 5: Σελίδες 8 & 9 (Πιστοποίηση Ελληνομάθειας - Δράση & Επίπεδα)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page8', activeContent.page8, '8'))}
+          ${renderPrintWrapper(renderSectionPanel('page9', activeContent.page9, '9'))}
+        </div>
+      </div>
+      
+      <!-- Spread 6: Pages 10 & 11 (Certificate Recognition & Fryktories Network) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 6: Σελίδες 10 & 11 (Αναγνώριση Πιστοποιητικού / Δίκτυο Φρυκτωρίες)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page10', activeContent.page10, '10'))}
+          ${renderPrintWrapper(renderSectionPanel('page11', activeContent.page11, '11'))}
+        </div>
+      </div>
     `;
   } else {
-    styleTag.innerHTML = `
-      @media print {
-        @page {
-          size: 176mm 250mm;
-          margin: 0;
-        }
-      }
-    `;
+    // Render brochures
+    const activeContent = state.contentData[state.template][state.language];
+    
+    if (state.layout === 'trifold') {
+      brochureCanvas.innerHTML = `
+        <div class="spread-container outside-spread">
+          <div class="spread-title-indicator">Εξωτερική Όψη (Μπροστινό & Πίσω Μέρος)</div>
+          <div class="spread-canvas layout-trifold motif-${state.motif}">
+            ${renderPrintWrapper(renderSectionPanel('section3', activeContent.section3, '4'))}
+            ${renderPrintWrapper(renderBackCoverPanel(activeContent.backCover, '5'))}
+            ${renderPrintWrapper(renderCoverPanel(activeContent.cover, '6'))}
+          </div>
+        </div>
+        <div class="spread-container inside-spread">
+          <div class="spread-title-indicator">Εσωτερική Όψη (Εσωτερικές Σελίδες)</div>
+          <div class="spread-canvas layout-trifold motif-${state.motif}">
+            ${renderPrintWrapper(renderSectionPanel('intro', activeContent.intro, '1'))}
+            ${renderPrintWrapper(renderSectionPanel('section1', activeContent.section1, '2'))}
+            ${renderPrintWrapper(renderSectionPanel('section2', activeContent.section2, '3'))}
+          </div>
+        </div>
+      `;
+    } else if (state.layout === 'bifold') {
+      brochureCanvas.innerHTML = `
+        <div class="spread-container outside-spread">
+          <div class="spread-title-indicator">Εξωτερική Όψη (Μπροστινό & Πίσω Μέρος)</div>
+          <div class="spread-canvas layout-bifold motif-${state.motif}">
+            ${renderPrintWrapper(renderBackCoverPanel(activeContent.backCover, '4'))}
+            ${renderPrintWrapper(renderCoverPanel(activeContent.cover, '1'))}
+          </div>
+        </div>
+        <div class="spread-container inside-spread">
+          <div class="spread-title-indicator">Εσωτερική Όψη (Εσωτερικές Σελίδες)</div>
+          <div class="spread-canvas layout-bifold motif-${state.motif}">
+            ${renderPrintWrapper(renderSectionPanel('intro', activeContent.intro, '2'))}
+            ${renderPrintWrapper(renderSectionPanel('section1', activeContent.section1, '3'))}
+          </div>
+        </div>
+      `;
+    } else { // single page
+      brochureCanvas.innerHTML = `
+        <div class="spread-container outside-spread">
+          <div class="spread-title-indicator">Εξωτερική Όψη (Μπροστινό Μέρος)</div>
+          <div class="spread-canvas layout-single motif-${state.motif}">
+            ${renderPrintWrapper(renderCoverPanel(activeContent.cover, '1'))}
+          </div>
+        </div>
+        <div class="spread-container inside-spread">
+          <div class="spread-title-indicator">Εσωτερική Όψη (Πίσω Μέρος)</div>
+          <div class="spread-canvas layout-single motif-${state.motif}">
+            ${renderPrintWrapper(renderSectionPanel('intro', activeContent.intro, '2'))}
+          </div>
+        </div>
+      `;
+    }
   }
+
+  // 4. Update Print styles
+  updatePrintPageSize();
+
+  // 5. Connect Text editing
+  toggleContentEditable();
+  bindTextEdits();
 }
 
 // Panel Render Functions

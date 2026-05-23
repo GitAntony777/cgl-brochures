@@ -34,9 +34,17 @@
     <!-- Sidebar Control Panel -->
     <aside class="control-panel" id="controlPanel">
       <div class="panel-section">
-        <h2>1. Θεματολογία Εντύπου</h2>
+        <h2>1. Τύπος Εντύπου & Θέμα</h2>
         <div class="control-group">
-          <label for="brochureTemplateSelect">Επιλέξτε Περιεχόμενο:</label>
+          <label for="docTypeSelect">Επιλέξτε Τύπο Εντύπου:</label>
+          <select id="docTypeSelect">
+            <option value="brochure" selected>Διαφημιστικό Φυλλάδιο (Brochure)</option>
+            <option value="booklet">Διαφημιστικό Βιβλίο (12σέλιδο Booklet)</option>
+          </select>
+        </div>
+
+        <div class="control-group" id="templateSelectGroup">
+          <label for="brochureTemplateSelect">Επιλέξτε Περιεχόμενο Φυλλαδίου:</label>
           <select id="brochureTemplateSelect">
             <option value="general" selected>Γενική Παρουσίαση & Πύλη (Προτείνεται: Τρίπτυχο)</option>
             <option value="certification">Πιστοποίηση Ελληνομάθειας (Προτείνεται: Δίπτυχο)</option>
@@ -45,7 +53,7 @@
         </div>
       </div>
 
-      <div class="panel-section">
+      <div class="panel-section" id="layoutSection">
         <h2>2. Μορφή Εκτύπωσης (Layout)</h2>
         <div class="layout-grid">
           <button class="layout-btn" data-layout="single" id="btnLayoutSingle">
@@ -65,13 +73,10 @@
 
       <div class="panel-section">
         <h2>3. Αισθητική & Εικαστικό Θέμα</h2>
-        <div class="control-group">
-          <label>Χρωματική Παλέτα:</label>
-          <div class="color-palette-selector">
-            <button class="color-dot aegean active" data-theme="aegean" title="Aegean Mist (Μπλε & Χρυσό)"></button>
-            <button class="color-dot terracotta" data-theme="terracotta" title="Terracotta Earth (Κεραμιδί & Πηλός)"></button>
-            <button class="color-dot olive" data-theme="olive" title="Olympus Olive (Πράσινο Ελιάς)"></button>
-          </div>
+        <div class="color-palette-selector" style="margin-bottom: 1rem;">
+          <button class="color-dot aegean active" data-theme="aegean" title="Aegean Mist (Μπλε & Χρυσό)"></button>
+          <button class="color-dot terracotta" data-theme="terracotta" title="Terracotta Earth (Κεραμιδί & Πηλός)"></button>
+          <button class="color-dot olive" data-theme="olive" title="Olympus Olive (Πράσινο Ελιάς)"></button>
         </div>
 
         <div class="control-group">
@@ -86,7 +91,38 @@
       </div>
 
       <div class="panel-section">
-        <h2>4. Εργαλεία Σχεδίασης & UI</h2>
+        <h2>4. Διαστάσεις & Τυπογραφία</h2>
+        <div class="control-group">
+          <label for="pageSizeSelect">Διαστάσεις Σελίδας:</label>
+          <select id="pageSizeSelect">
+            <option value="b5" selected>B5 (176mm x 250mm)</option>
+            <option value="a4">A4 (210mm x 297mm)</option>
+            <option value="a5">A5 (148mm x 210mm)</option>
+            <option value="dl">DL (99mm x 210mm)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="fontStyleSelect">Στυλ Γραμματοσειράς:</label>
+          <select id="fontStyleSelect">
+            <option value="cinzel" selected>Aegean Cinzel (Κλασικό/Μοντέρνο)</option>
+            <option value="serif">GFSDidot Serif (Παραδοσιακό/Λόγιο)</option>
+            <option value="sans">Modern Sans-Serif (Σύγχρονο/Καθαρό)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="fontSizeSelect">Μέγεθος Κειμένου:</label>
+          <select id="fontSizeSelect">
+            <option value="small">Μικρό (Small)</option>
+            <option value="medium" selected>Κανονικό (Medium)</option>
+            <option value="large">Μεγάλο (Large)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>5. Εργαλεία Σχεδίασης & UI</h2>
         <div class="toggle-group">
           <label class="toggle-switch">
             <input type="checkbox" id="toggleEditMode" checked>

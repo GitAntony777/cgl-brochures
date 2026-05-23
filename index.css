@@ -983,3 +983,246 @@ body.edit-mode-active [contenteditable="true"]:focus {
     background-color: transparent !important;
   }
 }
+
+
+/* ==========================================================================
+   ADVANCED DESIGN SYSTEM: FONTS, SIZES, WRAPPERS & PRINTER MARKS
+   ========================================================================== */
+
+/* Font Family Overrides */
+body.font-cinzel .serif-title {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+}
+body.font-cinzel .greek-style-heading {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+body.font-serif .serif-title {
+  font-family: 'GFSDidot', 'Playfair Display', serif;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+body.font-serif .greek-style-heading {
+  font-family: 'GFSDidot', serif;
+  font-style: italic;
+}
+body.font-serif .panel-body,
+body.font-serif .panel-lead,
+body.font-serif .contact-info,
+body.font-serif .panel-list li {
+  font-family: 'GFSDidot', serif;
+}
+
+body.font-sans .serif-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+body.font-sans .greek-style-heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+}
+body.font-sans .panel-body,
+body.font-sans .panel-lead,
+body.font-sans .contact-info,
+body.font-sans .panel-list li {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Font Size Scaling Rules */
+body.size-small {
+  --title-scale: 0.85;
+  --body-scale: 0.85;
+}
+body.size-medium {
+  --title-scale: 1.0;
+  --body-scale: 1.0;
+}
+body.size-large {
+  --title-scale: 1.12;
+  --body-scale: 1.12;
+}
+
+/* Apply scaling to brochure text elements */
+.panel-title {
+  font-size: calc(14pt * var(--title-scale)) !important;
+}
+.panel-lead {
+  font-size: calc(9pt * var(--body-scale)) !important;
+}
+.panel-para {
+  font-size: calc(8pt * var(--body-scale)) !important;
+}
+.panel-list li {
+  font-size: calc(8pt * var(--body-scale)) !important;
+}
+.cover-title {
+  font-size: calc(16pt * var(--title-scale)) !important;
+}
+.cover-subtitle {
+  font-size: calc(9.5pt * var(--body-scale)) !important;
+}
+.contact-item {
+  font-size: calc(8pt * var(--body-scale)) !important;
+}
+
+/* Print Wrapper (Holds the panel and positions the crop/registration marks) */
+.panel-print-wrapper {
+  position: relative;
+  width: var(--panel-width);
+  height: var(--panel-height);
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  transition: margin 0.3s ease;
+}
+
+/* When print guides are active, add a margin around panels on screen to show marks */
+body.show-print-guides .panel-print-wrapper {
+  margin: 15mm 12mm;
+}
+
+/* Printer Marks (Crop, Registration, Color Bar) */
+.printer-mark {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Show them only when print-guides are active */
+body.show-print-guides .printer-mark {
+  display: block;
+}
+
+/* Crop Marks (0.1mm hairline stroke) */
+.crop-mark {
+  background-color: #111;
+}
+
+/* Top Left */
+.crop-tl-h {
+  top: 0;
+  left: -12mm;
+  width: 9mm;
+  height: 0.15mm;
+}
+.crop-tl-v {
+  top: -12mm;
+  left: 0;
+  width: 0.15mm;
+  height: 9mm;
+}
+
+/* Top Right */
+.crop-tr-h {
+  top: 0;
+  right: -12mm;
+  width: 9mm;
+  height: 0.15mm;
+}
+.crop-tr-v {
+  top: -12mm;
+  right: 0;
+  width: 0.15mm;
+  height: 9mm;
+}
+
+/* Bottom Left */
+.crop-bl-h {
+  bottom: 0;
+  left: -12mm;
+  width: 9mm;
+  height: 0.15mm;
+}
+.crop-bl-v {
+  bottom: -12mm;
+  left: 0;
+  width: 0.15mm;
+  height: 9mm;
+}
+
+/* Bottom Right */
+.crop-br-h {
+  bottom: 0;
+  right: -12mm;
+  width: 9mm;
+  height: 0.15mm;
+}
+.crop-br-v {
+  bottom: -12mm;
+  right: 0;
+  width: 0.15mm;
+  height: 9mm;
+}
+
+/* Registration Targets (Crosshairs inside circle) */
+.registration-mark {
+  width: 6mm;
+  height: 6mm;
+  border: 0.15mm solid #111;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.registration-mark::before,
+.registration-mark::after {
+  content: '';
+  position: absolute;
+  background-color: #111;
+}
+.registration-mark::before {
+  top: 50%;
+  left: -2mm;
+  width: 10mm;
+  height: 0.15mm;
+  transform: translateY(-50%);
+}
+.registration-mark::after {
+  left: 50%;
+  top: -2mm;
+  width: 0.15mm;
+  height: 10mm;
+  transform: translateX(-50%);
+}
+
+.reg-top {
+  top: -10mm;
+}
+.reg-bottom {
+  bottom: -10mm;
+}
+
+/* CMYK Color Calibration Bars */
+.color-bar {
+  top: -10mm;
+  left: 10mm;
+  display: flex;
+  gap: 0.5mm;
+}
+body.show-print-guides .color-bar {
+  display: flex;
+}
+.color-patch {
+  width: 3.5mm;
+  height: 3.5mm;
+  border: 0.1mm solid rgba(0,0,0,0.25);
+}
+.patch-c { background-color: #00ffff; } /* Cyan */
+.patch-m { background-color: #ff00ff; } /* Magenta */
+.patch-y { background-color: #ffff00; } /* Yellow */
+.patch-k { background-color: #000000; } /* Black */
+.patch-r { background-color: #ff0000; } /* Red */
+.patch-g { background-color: #00ff00; } /* Green */
+.patch-b { background-color: #0000ff; } /* Blue */
+
+/* Print Mode Booklet Break Rules */
+@media print {
+  /* Apply margins when print guides are active during print */
+  body.show-print-guides .panel-print-wrapper {
+    margin: 15mm 12mm !important;
+  }
+}
