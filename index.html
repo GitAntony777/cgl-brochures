@@ -9,7 +9,7 @@
   <!-- Google Fonts for premium typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=GFSDidot&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=GFSDidot&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="theme-aegean not-logged-in">
 
@@ -145,10 +145,19 @@
         <div class="control-group">
           <label for="pageSizeSelect">Διαστάσεις Σελίδας:</label>
           <select id="pageSizeSelect">
-            <option value="b5" selected>B5 (176mm x 250mm)</option>
-            <option value="a4">A4 (210mm x 297mm)</option>
-            <option value="a5">A5 (148mm x 210mm)</option>
-            <option value="dl">DL (99mm x 210mm)</option>
+            <!-- Populated dynamically based on docType by app.js -->
+            <option value="b5" selected>B5 (176mm x 250mm) - Πρότυπο ΚΕΓ</option>
+            <option value="a3">A3 (297mm x 420mm) - Αφίσα/Μεγάλο</option>
+            <option value="a4">A4 (210mm x 297mm) - Βιβλίο/Κατάλογος</option>
+            <option value="a5">A5 (148mm x 210mm) - Φυλλάδιο</option>
+            <option value="a6">A6 (105mm x 148mm) - Flyer/Μικρό</option>
+            <option value="b4">B4 (250mm x 353mm) - Μεσαίο Φορμά</option>
+            <option value="b6">B6 (125mm x 176mm) - Μικρό Βιβλίο</option>
+            <option value="dl">DL (99mm x 210mm) - Φάκελος/Flyer</option>
+            <option value="square_m">Τετράγωνο M (200mm x 200mm)</option>
+            <option value="square_l">Τετράγωνο L (210mm x 210mm)</option>
+            <option value="bookmark_wide">Σελιδοδείκτης Wide (55mm x 200mm)</option>
+            <option value="bookmark_std">Σελιδοδείκτης Standard (50mm x 200mm)</option>
           </select>
         </div>
 
@@ -158,21 +167,89 @@
             <option value="cinzel" selected>Aegean Cinzel (Κλασικό/Μοντέρνο)</option>
             <option value="serif">GFSDidot Serif (Παραδοσιακό/Λόγιο)</option>
             <option value="sans">Modern Sans-Serif (Σύγχρονο/Καθαρό)</option>
+            <option value="garamond">EB Garamond (Κλασικό Βιβλίου)</option>
+            <option value="montserrat">Montserrat (Μοντέρνο Γεωμετρικό)</option>
+            <option value="outfit">Outfit (Εκδοτικό/Καθαρό)</option>
           </select>
         </div>
 
         <div class="control-group">
-          <label for="fontSizeSelect">Μέγεθος Κειμένου:</label>
-          <select id="fontSizeSelect">
-            <option value="small">Μικρό (Small)</option>
-            <option value="medium" selected>Κανονικό (Medium)</option>
-            <option value="large">Μεγάλο (Large)</option>
-          </select>
+          <div class="control-group-row" style="display: flex; gap: 0.5rem;">
+            <div style="flex: 1;">
+              <label for="titleFontSizeSelect" style="font-size: 0.8rem; color: var(--dashboard-text-muted);">Μέγεθος Τίτλων (pt):</label>
+              <select id="titleFontSizeSelect" style="width: 100%; margin-top: 0.25rem;">
+                <option value="12">12 pt</option>
+                <option value="14">14 pt</option>
+                <option value="16">16 pt</option>
+                <option value="18" selected>18 pt</option>
+                <option value="20">20 pt</option>
+                <option value="24">24 pt</option>
+                <option value="28">28 pt</option>
+                <option value="32">32 pt</option>
+                <option value="36">36 pt</option>
+              </select>
+            </div>
+            <div style="flex: 1;">
+              <label for="bodyFontSizeSelect" style="font-size: 0.8rem; color: var(--dashboard-text-muted);">Μέγεθος Κειμένου (pt):</label>
+              <select id="bodyFontSizeSelect" style="width: 100%; margin-top: 0.25rem;">
+                <option value="7">7 pt</option>
+                <option value="8" selected>8 pt</option>
+                <option value="9">9 pt</option>
+                <option value="10">10 pt</option>
+                <option value="11">11 pt</option>
+                <option value="12">12 pt</option>
+                <option value="14">14 pt</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="panel-section">
-        <h2>5. Εργαλεία Σχεδίασης & UI</h2>
+        <h2>5. Επιλογές Χαρτιού</h2>
+        <div class="control-group">
+          <label for="paperTypeSelect">Τύπος Χαρτιού & Υφή:</label>
+          <select id="paperTypeSelect">
+            <option value="velvet" selected>Velvet / Matte Coated (Ματ/Βελούδο)</option>
+            <option value="gloss">Gloss Coated (Ιλουστρασιόν Γυαλιστερό)</option>
+            <option value="uncoated">Writing / Offset (Απεστρωμένο Γραφής)</option>
+            <option value="kraft">Ecological Kraft (Οικολογικό Κραφτ)</option>
+            <option value="textured">Fine Art Linen (Ανάγλυφο με Υφή Λινού)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="paperWeightSelect">Βάρος Χαρτιού (Γραμμάρια):</label>
+          <select id="paperWeightSelect">
+            <option value="80">80 gsm (Λεπτό Φωτοτυπικό)</option>
+            <option value="115">115 gsm (Ελαφρύ Φυλλάδιο)</option>
+            <option value="130">130 gsm (Στάνταρ Φυλλάδιο)</option>
+            <option value="170">170 gsm (Παχύ Φυλλάδιο)</option>
+            <option value="250" selected>250 gsm (Premium Εξώφυλλο/Φυλλάδιο)</option>
+            <option value="300">300 gsm (Premium Κάρτα/Βιβλίο)</option>
+            <option value="350">350 gsm (Βαρύ Χαρτόνι/Σελιδοδείκτης)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="paperColorSelect">Αρχικός Χρωματισμός Χαρτιού:</label>
+          <select id="paperColorSelect">
+            <option value="offwhite" selected>Σπασμένο Λευκό (Off-White)</option>
+            <option value="white">Καθαρό Λευκό (Pure White)</option>
+            <option value="cream">Κρεμ / Ivory (Classic Cream)</option>
+            <option value="grey">Φυσικό Ανακυκλωμένο (Recycled Grey)</option>
+            <option value="kraft">Οικολογικό Κραφτ (Kraft Brown)</option>
+          </select>
+        </div>
+
+        <div id="paperRecommendation" class="panel-info" style="margin-top: 1rem; border-left: 3px solid var(--dashboard-accent); padding-left: 0.75rem; background: rgba(197, 160, 89, 0.05);">
+          <!-- Recommendation text updated dynamically by app.js -->
+          <p style="font-size: 0.8rem; margin: 0;"></p>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h2>6. Εργαλεία Σχεδίασης & UI</h2>
         <div class="toggle-group">
           <label class="toggle-switch">
             <input type="checkbox" id="toggleEditMode" checked>
@@ -207,7 +284,7 @@
       </div>
 
       <div class="panel-section">
-        <h2>6. Google Gemini AI</h2>
+        <h2>7. Google Gemini AI</h2>
         <div class="control-group">
           <label for="geminiApiKey">Gemini API Key:</label>
           <div style="display: flex; gap: 0.5rem; margin-top: 0.4rem;">
@@ -236,8 +313,8 @@
 
     <!-- Brochure Canvas Area -->
     <section class="canvas-wrapper">
-      <div class="canvas-zoom-control" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px;">
-        <span>Προεπισκόπηση B5 Έντυπου (Max 176mm x 250mm ανά σελίδα)</span>
+      <div class="canvas-zoom-control">
+        <span id="canvasPreviewTitle">Προεπισκόπηση B5 Έντυπου (Max 176mm x 250mm ανά σελίδα)</span>
         <div class="zoom-buttons" style="display: flex; gap: 0.5rem; align-items: center;">
           <button id="btnZoomOut" class="btn-zoom" title="Σμίκρυνση">➖</button>
           <span id="zoomValue" style="color: var(--dashboard-text); font-size: 0.85rem; font-weight: 500; min-width: 45px; text-align: center;">100%</span>

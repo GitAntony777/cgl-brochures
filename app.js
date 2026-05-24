@@ -1142,6 +1142,21 @@ const templatesContent = {
 };
 
 // Application State Management
+const PAGE_SIZES = {
+  a3: { name: 'A3', width: 297, height: 420 },
+  a4: { name: 'A4', width: 210, height: 297 },
+  a5: { name: 'A5', width: 148, height: 210 },
+  a6: { name: 'A6', width: 105, height: 148 },
+  b4: { name: 'B4', width: 250, height: 353 },
+  b5: { name: 'B5', width: 176, height: 250 },
+  b6: { name: 'B6', width: 125, height: 176 },
+  dl: { name: 'DL', width: 99, height: 210 },
+  square_m: { name: 'Τετράγωνο M', width: 200, height: 200 },
+  square_l: { name: 'Τετράγωνο L', width: 210, height: 210 },
+  bookmark_wide: { name: 'Σελιδοδείκτης Wide', width: 55, height: 200 },
+  bookmark_std: { name: 'Σελιδοδείκτης Standard', width: 50, height: 200 }
+};
+
 let state = {
   template: 'general',    // 'general', 'certification', 'fryktories'
   layout: 'trifold',      // 'single', 'bifold', 'trifold'
@@ -1154,7 +1169,11 @@ let state = {
   docType: 'brochure',    // 'brochure', 'booklet', 'bookmark'
   pageSize: 'b5',         // 'b5', 'a4', 'a5', 'dl'
   fontStyle: 'cinzel',    // 'cinzel', 'serif', 'sans'
-  fontSize: 'medium',     // 'small', 'medium', 'large'
+  titleFontSize: 18,      // Title size in pt
+  bodyFontSize: 8,        // Body size in pt
+  paperType: 'velvet',    // 'velvet', 'gloss', 'uncoated', 'kraft', 'textured'
+  paperWeight: '250',     // gsm
+  paperColor: 'offwhite', // 'white', 'cream', 'offwhite', 'grey', 'kraft'
   bookmarkTheme: 'lexicography',
   zoom: 1.0,
   fieldHistories: {},
@@ -1180,7 +1199,11 @@ const btnLayoutTrifold = document.getElementById('btnLayoutTrifold');
 const motifSelect = document.getElementById('motifSelect');
 const pageSizeSelect = document.getElementById('pageSizeSelect');
 const fontStyleSelect = document.getElementById('fontStyleSelect');
-const fontSizeSelect = document.getElementById('fontSizeSelect');
+const titleFontSizeSelect = document.getElementById('titleFontSizeSelect');
+const bodyFontSizeSelect = document.getElementById('bodyFontSizeSelect');
+const paperTypeSelect = document.getElementById('paperTypeSelect');
+const paperWeightSelect = document.getElementById('paperWeightSelect');
+const paperColorSelect = document.getElementById('paperColorSelect');
 
 const toggleEditMode = document.getElementById('toggleEditMode');
 const toggleFoldGuides = document.getElementById('toggleFoldGuides');
@@ -1285,6 +1308,10 @@ function init() {
   setupButtonListeners();
   setupVideoPresenterListeners();
   
+  // Initialize dropdown contents and recommendations
+  updatePageSizeDropdown();
+  updatePaperRecommendations();
+  
   // Render Initial View
   render();
 }
@@ -1347,6 +1374,8 @@ function setupLayoutListeners() {
 function setupOptionListeners() {
   docTypeSelect.addEventListener('change', (e) => {
     state.docType = e.target.value;
+    updatePageSizeDropdown();
+    updatePaperRecommendations();
     render();
   });
 
@@ -1424,8 +1453,29 @@ function setupOptionListeners() {
     render();
   });
 
-  fontSizeSelect.addEventListener('change', (e) => {
-    state.fontSize = e.target.value;
+  titleFontSizeSelect.addEventListener('change', (e) => {
+    state.titleFontSize = parseInt(e.target.value);
+    render();
+  });
+
+  bodyFontSizeSelect.addEventListener('change', (e) => {
+    state.bodyFontSize = parseInt(e.target.value);
+    render();
+  });
+
+  paperTypeSelect.addEventListener('change', (e) => {
+    state.paperType = e.target.value;
+    updatePaperRecommendations();
+    render();
+  });
+
+  paperWeightSelect.addEventListener('change', (e) => {
+    state.paperWeight = e.target.value;
+    render();
+  });
+
+  paperColorSelect.addEventListener('change', (e) => {
+    state.paperColor = e.target.value;
     render();
   });
 
@@ -2322,14 +2372,13 @@ function updatePrintPageSize() {
   let h = 250;
   
   if (state.docType === 'bookmark') {
-    w = 55;
-    h = 200;
-  } else if (state.pageSize === 'a4') {
-    w = 210; h = 297;
-  } else if (state.pageSize === 'a5') {
-    w = 148; h = 210;
-  } else if (state.pageSize === 'dl') {
-    w = 99; h = 210;
+    const dims = PAGE_SIZES[state.pageSize] || PAGE_SIZES.bookmark_wide;
+    w = dims.width;
+    h = dims.height;
+  } else {
+    const dims = PAGE_SIZES[state.pageSize] || PAGE_SIZES.b5;
+    w = dims.width;
+    h = dims.height;
   }
 
   let panels = 2; // Default for bifold / booklet / bookmark
@@ -2356,36 +2405,114 @@ function updatePrintPageSize() {
   `;
 }
 
+// Dynamic update of Page Size select options based on docType
+function updatePageSizeDropdown() {
+  const select = document.getElementById('pageSizeSelect');
+  if (!select) return;
+
+  select.innerHTML = '';
+
+  if (state.docType === 'bookmark') {
+    const allowed = ['bookmark_wide', 'bookmark_std'];
+    allowed.forEach(key => {
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.text = `${PAGE_SIZES[key].name} (${PAGE_SIZES[key].width}mm x ${PAGE_SIZES[key].height}mm)`;
+      if (state.pageSize === key) opt.selected = true;
+      select.appendChild(opt);
+    });
+
+    if (!allowed.includes(state.pageSize)) {
+      state.pageSize = 'bookmark_wide';
+      select.value = 'bookmark_wide';
+    }
+  } else {
+    const keys = ['b5', 'a3', 'a4', 'a5', 'a6', 'b4', 'b6', 'dl', 'square_m', 'square_l'];
+    keys.forEach(key => {
+      const opt = document.createElement('option');
+      opt.value = key;
+      let label = `${PAGE_SIZES[key].name} (${PAGE_SIZES[key].width}mm x ${PAGE_SIZES[key].height}mm)`;
+      if (key === 'b5') label += ' - Πρότυπο ΚΕΓ';
+      opt.text = label;
+      if (state.pageSize === key) opt.selected = true;
+      select.appendChild(opt);
+    });
+
+    if (state.pageSize.startsWith('bookmark')) {
+      state.pageSize = 'b5';
+      select.value = 'b5';
+    }
+  }
+}
+
+// Dynamic update of paper recommendation texts
+function updatePaperRecommendations() {
+  const container = document.getElementById('paperRecommendation');
+  if (!container) return;
+
+  const p = container.querySelector('p');
+  if (!p) return;
+
+  let text = '';
+  if (state.docType === 'bookmark') {
+    text = `<strong>Σύσταση ΚΕΓ:</strong> Για σελιδοδείκτες προτείνεται βαρύ χαρτί <strong>300-350 gsm</strong> (Velvet ή Ανάγλυφο Λινό) για μέγιστη ανθεκτικότητα και premium αίσθηση.`;
+  } else if (state.docType === 'booklet') {
+    text = `<strong>Σύσταση ΚΕΓ:</strong> Για 16σέλιδα booklets προτείνεται χαρτί <strong>115-130 gsm</strong> (Velvet ή Offset) για τις εσωτερικές σελίδες και <strong>250 gsm</strong> για το εξώφυλλο, ώστε να διπλώνει ομοιόμορφα.`;
+  } else { // brochure
+    if (state.layout === 'trifold') {
+      text = `<strong>Σύσταση ΚΕΓ:</strong> Για τρίπτυχα φυλλάδια προτείνεται χαρτί <strong>130-170 gsm</strong> (Velvet ή Gloss). Βάρη άνω των 170 gsm απαιτούν προηγούμενη πίκμανση (χάραξη) για να μην «σπάει» το χαρτί στις αναδιπλώσεις.`;
+    } else {
+      text = `<strong>Σύσταση ΚΕΓ:</strong> Για δίπτυχα ή μονόφυλλα φυλλάδια προτείνεται χαρτί <strong>170-250 gsm</strong> (Velvet, Gloss ή Ανάγλυφο Λινό) για εξαιρετική ποιότητα και στιβαρότητα.`;
+    }
+  }
+
+  p.innerHTML = text;
+}
+
 // Render dynamic content according to current layout, template and language
 function render() {
   if (!state.authenticated) {
     return; // Don't render content if not logged in
   }
 
-  // 1. Set Typography & Theme classes on document body
+  // 1. Set Typography & Theme & Paper classes on document body
   document.body.className = '';
   document.body.classList.add(`theme-${state.theme}`);
   document.body.classList.add(`font-${state.fontStyle}`);
-  document.body.classList.add(`size-${state.fontSize}`);
+  document.body.classList.add(`paper-type-${state.paperType}`);
   applyUIClassesToBody();
 
-  // 2. Set dynamic panel dimensions on root element
+  // 2. Set dynamic panel dimensions & paper styling on root element
   const root = document.documentElement;
-  if (state.docType === 'bookmark') {
-    root.style.setProperty('--panel-width', '55mm');
-    root.style.setProperty('--panel-height', '200mm');
-  } else if (state.pageSize === 'a4') {
-    root.style.setProperty('--panel-width', '210mm');
-    root.style.setProperty('--panel-height', '297mm');
-  } else if (state.pageSize === 'a5') {
-    root.style.setProperty('--panel-width', '148mm');
-    root.style.setProperty('--panel-height', '210mm');
-  } else if (state.pageSize === 'dl') {
-    root.style.setProperty('--panel-width', '99mm');
-    root.style.setProperty('--panel-height', '210mm');
-  } else {
-    root.style.setProperty('--panel-width', '176mm');
-    root.style.setProperty('--panel-height', '250mm');
+  const dims = PAGE_SIZES[state.pageSize] || PAGE_SIZES.b5;
+  root.style.setProperty('--panel-width', dims.width + 'mm');
+  root.style.setProperty('--panel-height', dims.height + 'mm');
+
+  // Set paper background color
+  const paperColorsMap = {
+    white: '#ffffff',
+    cream: '#faf5eb',
+    offwhite: '#fbfaf8',
+    grey: '#e8e6e3',
+    kraft: '#c8ad8d'
+  };
+  root.style.setProperty('--paper-bg', paperColorsMap[state.paperColor] || '#fbfaf8');
+
+  // Set typography font sizes
+  root.style.setProperty('--panel-title-size', state.titleFontSize + 'pt');
+  root.style.setProperty('--panel-lead-size', (state.bodyFontSize + 1.5) + 'pt');
+  root.style.setProperty('--panel-body-size', state.bodyFontSize + 'pt');
+  root.style.setProperty('--cover-title-size', (state.titleFontSize * 1.2) + 'pt');
+
+  // Update canvas preview title
+  const canvasPreviewTitle = document.getElementById('canvasPreviewTitle');
+  if (canvasPreviewTitle) {
+    const docTypeName = {
+      brochure: 'Φυλλαδίου',
+      booklet: 'Βιβλίου (Booklet)',
+      bookmark: 'Σελιδοδείκτη'
+    }[state.docType] || 'Εγγράφου';
+    canvasPreviewTitle.innerText = `Προεπισκόπηση ${docTypeName} (${dims.name} - ${dims.width}mm x ${dims.height}mm ανά σελίδα)`;
   }
 
   // Show/Hide template and layout controls based on docType

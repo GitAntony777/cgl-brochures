@@ -430,18 +430,20 @@ select:focus {
 }
 
 .canvas-zoom-control {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--dashboard-text-muted);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: 1100px;
+  max-width: none;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   position: sticky;
   top: 0;
-  background-color: #1e2433;
+  background: rgba(30, 36, 51, 0.95);
+  backdrop-filter: blur(8px);
   z-index: 100;
-  padding: 1.5rem 0 1rem 0;
+  padding: 0.6rem 2rem;
 }
 
 .brochure-canvas {
@@ -474,7 +476,7 @@ select:focus {
 /* Spread canvas container (holding 1, 2, or 3 panels side-by-side) */
 .spread-canvas {
   display: flex;
-  background-color: var(--bg-color);
+  background-color: var(--paper-bg, var(--bg-color)) !important;
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   position: relative;
   overflow: hidden;
@@ -1050,41 +1052,78 @@ body.font-sans .panel-list li {
   font-family: 'Inter', sans-serif;
 }
 
-/* Font Size Scaling Rules */
-body.size-small {
-  --title-scale: 0.85;
-  --body-scale: 0.85;
+body.font-garamond .serif-title {
+  font-family: 'EB Garamond', serif;
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
-body.size-medium {
-  --title-scale: 1.0;
-  --body-scale: 1.0;
+body.font-garamond .greek-style-heading {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
 }
-body.size-large {
-  --title-scale: 1.12;
-  --body-scale: 1.12;
+body.font-garamond .panel-body,
+body.font-garamond .panel-lead,
+body.font-garamond .contact-info,
+body.font-garamond .panel-list li {
+  font-family: 'EB Garamond', serif;
 }
 
-/* Apply scaling to brochure text elements */
+body.font-montserrat .serif-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+body.font-montserrat .greek-style-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+body.font-montserrat .panel-body,
+body.font-montserrat .panel-lead,
+body.font-montserrat .contact-info,
+body.font-montserrat .panel-list li {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body.font-outfit .serif-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+body.font-outfit .greek-style-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+body.font-outfit .panel-body,
+body.font-outfit .panel-lead,
+body.font-outfit .contact-info,
+body.font-outfit .panel-list li {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Font Size Scaling Rules */
+/* Apply dynamic font sizes based on state variables */
 .panel-title {
-  font-size: calc(14pt * var(--title-scale)) !important;
+  font-size: var(--panel-title-size, 14pt) !important;
 }
 .panel-lead {
-  font-size: calc(9pt * var(--body-scale)) !important;
+  font-size: var(--panel-lead-size, 9pt) !important;
 }
 .panel-para {
-  font-size: calc(8pt * var(--body-scale)) !important;
+  font-size: var(--panel-body-size, 8pt) !important;
 }
 .panel-list li {
-  font-size: calc(8pt * var(--body-scale)) !important;
+  font-size: var(--panel-body-size, 8pt) !important;
 }
 .cover-title {
-  font-size: calc(16pt * var(--title-scale)) !important;
+  font-size: var(--cover-title-size, 18pt) !important;
 }
 .cover-subtitle {
-  font-size: calc(9.5pt * var(--body-scale)) !important;
+  font-size: var(--panel-lead-size, 9.5pt) !important;
 }
 .contact-item {
-  font-size: calc(8pt * var(--body-scale)) !important;
+  font-size: var(--panel-body-size, 8pt) !important;
 }
 
 /* Print Wrapper (Holds the panel and positions the crop/registration marks) */
@@ -2022,15 +2061,15 @@ body.edit-mode-active .editable-container:hover .ai-actions-container {
   background: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: var(--dashboard-text) !important;
-  width: 32px !important;
-  height: 32px !important;
+  width: 26px !important;
+  height: 26px !important;
   border-radius: 6px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
-  font-size: 0.9rem !important;
+  font-size: 0.75rem !important;
 }
 
 .btn-zoom:hover {
@@ -2044,9 +2083,9 @@ body.edit-mode-active .editable-container:hover .ai-actions-container {
 
 #btnZoomReset {
   width: auto !important;
-  height: 32px !important;
-  padding: 0 0.6rem !important;
-  font-size: 0.75rem !important;
+  height: 26px !important;
+  padding: 0 0.5rem !important;
+  font-size: 0.65rem !important;
 }
 
 .ai-redo-btn {
@@ -2074,4 +2113,59 @@ body.edit-mode-active .editable-container:hover .ai-actions-container {
 
 .ai-redo-btn:active {
   transform: scale(0.9) !important;
+}
+
+/* Realistic Paper Texture Overlays */
+.spread-canvas::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.3s;
+}
+
+body.paper-type-velvet .spread-canvas::after {
+  mix-blend-mode: overlay;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+body.paper-type-gloss .spread-canvas::after {
+  mix-blend-mode: soft-light;
+  opacity: 0.12;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+}
+
+body.paper-type-uncoated .spread-canvas::after {
+  mix-blend-mode: multiply;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+body.paper-type-kraft .spread-canvas::after {
+  mix-blend-mode: multiply;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+body.paper-type-textured .spread-canvas::after {
+  mix-blend-mode: multiply;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpattern id='linen' width='16' height='16' patternUnits='userSpaceOnUse'%3E%3Crect width='16' height='16' fill='none'/%3E%3Cpath d='M0 8h16M8 0v16' stroke='%23000' stroke-width='0.5' opacity='0.35'/%3E%3C/pattern%3E%3Crect width='16' height='16' fill='url(%23linen)'/%3E%3C/svg%3E");
+}
+
+@media print {
+  .spread-canvas::after {
+    display: none !important;
+  }
+  .spread-canvas {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
 }
