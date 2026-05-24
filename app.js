@@ -1600,7 +1600,7 @@ function setupButtonListeners() {
       generatePrinterInstructionsHTML(brochureFilename);
       
       // Set document title for spec sheet PDF
-      document.title = `${brochureFilename}_FPE_${date}`;
+      document.title = `${brochureFilename}_FPE`;
       
       // Set print instructions class
       document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
@@ -3666,8 +3666,7 @@ function triggerSpecsSheetPrint(brochureFilename) {
   generatePrinterInstructionsHTML(brochureFilename);
   
   // Set appropriate document title for the specs sheet PDF filename recommendation
-  const date = new Date().toISOString().slice(0, 10);
-  document.title = `${brochureFilename}_FPE_${date}`;
+  document.title = `${brochureFilename}_FPE`;
   
   // Prepare classes for print instructions
   document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
