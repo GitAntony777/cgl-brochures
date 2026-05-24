@@ -1221,6 +1221,7 @@ const btnModalConfirmPrint = document.getElementById('btnModalConfirmPrint');
 const btnModalCancelPrint = document.getElementById('btnModalCancelPrint');
 const btnModalPrintInstructions = document.getElementById('btnModalPrintInstructions');
 const printerInstructionsContainer = document.getElementById('printerInstructionsContainer');
+const pdfFilenameInput = document.getElementById('pdfFilenameInput');
 
 // Project Management DOM elements
 const btnExportProject = document.getElementById('btnExportProject');
@@ -1528,6 +1529,14 @@ function setupButtonListeners() {
     const radio = document.querySelector(`input[name="printModeRadio"][value="${state.printMode}"]`);
     if (radio) radio.checked = true;
     updatePrintModalOrientationText();
+    
+    // Auto-populate custom PDF filename input field
+    if (pdfFilenameInput) {
+      const date = new Date().toISOString().slice(0, 10);
+      const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
+      pdfFilenameInput.value = `cgl-${docTypeLabel}-${state.template}-${date}`;
+    }
+    
     printModal.style.display = 'flex';
   });
 
@@ -1560,7 +1569,8 @@ function setupButtonListeners() {
     // Set document title to suggested filename
     const date = new Date().toISOString().slice(0, 10);
     const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
-    const brochureFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
+    const defaultFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
+    const brochureFilename = (pdfFilenameInput && pdfFilenameInput.value.trim()) ? pdfFilenameInput.value.trim() : defaultFilename;
     document.title = brochureFilename;
     
     // Flag to prompt for specs sheet after printing completes
@@ -1580,7 +1590,8 @@ function setupButtonListeners() {
       
       const date = new Date().toISOString().slice(0, 10);
       const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
-      const brochureFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
+      const defaultFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
+      const brochureFilename = (pdfFilenameInput && pdfFilenameInput.value.trim()) ? pdfFilenameInput.value.trim() : defaultFilename;
       
       // Set to print instructions mode
       state.printMode = 'instructions';
