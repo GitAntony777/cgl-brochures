@@ -1557,6 +1557,15 @@ function setupButtonListeners() {
       document.body.classList.remove('show-print-guides');
     }
     
+    // Set document title to suggested filename
+    const date = new Date().toISOString().slice(0, 10);
+    const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
+    const brochureFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
+    document.title = brochureFilename;
+    
+    // Flag to prompt for specs sheet after printing completes
+    state.pendingSpecsPrompt = brochureFilename;
+    
     // Update dynamic print page dimensions
     updatePrintPageSize();
     
@@ -1564,16 +1573,23 @@ function setupButtonListeners() {
       window.print();
     }, 150);
   });
-
+ 
   if (btnModalPrintInstructions) {
     btnModalPrintInstructions.addEventListener('click', () => {
       printModal.style.display = 'none';
+      
+      const date = new Date().toISOString().slice(0, 10);
+      const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
+      const brochureFilename = `cgl-${docTypeLabel}-${state.template}-${date}`;
       
       // Set to print instructions mode
       state.printMode = 'instructions';
       
       // Generate and inject instructions HTML
-      generatePrinterInstructionsHTML();
+      generatePrinterInstructionsHTML(brochureFilename);
+      
+      // Set document title for spec sheet PDF
+      document.title = `${brochureFilename}_FPE_${date}`;
       
       // Set print instructions class
       document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
@@ -1588,7 +1604,7 @@ function setupButtonListeners() {
       }, 150);
     });
   }
-
+ 
   window.addEventListener('afterprint', () => {
     // Restore original classes
     document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim', 'print-mode-instructions');
@@ -1599,10 +1615,25 @@ function setupButtonListeners() {
       state.printMode = selectedRadio ? selectedRadio.value : 'bleedbox';
     }
     
+    // Restore original document title
+    document.title = "Ψηφιακός Σχεδιαστής Εντύπων - ΚΕΓ";
+    
     applyUIClassesToBody();
     
     // Re-run updatePrintPageSize to restore state
     updatePrintPageSize();
+    
+    // Prompt for specs sheet if it was a brochure print
+    if (state.pendingSpecsPrompt) {
+      const brochureFilename = state.pendingSpecsPrompt;
+      state.pendingSpecsPrompt = null; // Clear flag
+      
+      setTimeout(() => {
+        if (confirm(`Θέλετε να εκδοθεί το Δελτίο Τεχνικών Προδιαγραφών Εκτύπωσης (ΦΠΕ) για το αρχείο "${brochureFilename}.pdf";`)) {
+          triggerSpecsSheetPrint(brochureFilename);
+        }
+      }, 300);
+    }
   });
 
   btnReset.addEventListener('click', () => {
@@ -3407,7 +3438,7 @@ function renderBookmarkPanel(panelData, side, pageNum) {
 }
 
 // Generate dynamic HTML for printer specifications sheet (Spec Sheet)
-function generatePrinterInstructionsHTML() {
+function generatePrinterInstructionsHTML(linkedFilename = '') {
   if (!printerInstructionsContainer) return;
 
   // 1. Resolve Document Type & Layout
@@ -3510,6 +3541,11 @@ function generatePrinterInstructionsHTML() {
   const draftName = draftNameInput ? draftNameInput.value.trim() : '';
   const projectName = draftName || 'Σχέδιο Εντύπου ΚΕΓ';
 
+  const dateIso = new Date().toISOString().slice(0, 10);
+  const docTypeLabelForFilename = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
+  const defaultBrochureFilename = `cgl-${docTypeLabelForFilename}-${state.template}-${dateIso}.pdf`;
+  const linkedFile = linkedFilename ? `${linkedFilename}.pdf` : defaultBrochureFilename;
+
   // 8. Generate HTML Content
   printerInstructionsContainer.innerHTML = `
     <div class="instructions-header">
@@ -3528,6 +3564,10 @@ function generatePrinterInstructionsHTML() {
     <div class="instructions-section">
       <h3>1. Γενικά Στοιχεία Εντύπου</h3>
       <table class="instructions-table">
+        <tr>
+          <th>Συνδεδεμένο Αρχείο Εκτύπωσης:</th>
+          <td><strong>${linkedFile}</strong></td>
+        </tr>
         <tr>
           <th>Τύπος Εντύπου & Διάταξη:</th>
           <td>${docTypeLabel} &mdash; ${layoutLabel}</td>
@@ -3605,6 +3645,29 @@ function generatePrinterInstructionsHTML() {
       <p>Το παρόν δελτίο συνοδεύει το ψηφιακό αρχείο εκτύπωσης και περιέχει τις τεχνικές παραμέτρους όπως επιλέχθηκαν από το χρήστη στον σχεδιαστή εντύπων του ΚΕΓ.</p>
     </div>
   `;
+}
+
+// Helper to programmatically trigger the printing of the Technical Specifications Sheet (FPE)
+function triggerSpecsSheetPrint(brochureFilename) {
+  state.printMode = 'instructions';
+  
+  // Generate specs sheet HTML with the linked filename
+  generatePrinterInstructionsHTML(brochureFilename);
+  
+  // Set appropriate document title for the specs sheet PDF filename recommendation
+  const date = new Date().toISOString().slice(0, 10);
+  document.title = `${brochureFilename}_FPE_${date}`;
+  
+  // Prepare classes for print instructions
+  document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
+  document.body.classList.add('print-mode-instructions');
+  document.body.classList.remove('show-print-guides', 'show-fold-guides');
+  
+  updatePrintPageSize();
+  
+  setTimeout(() => {
+    window.print();
+  }, 150);
 }
 
 // Start app on load
