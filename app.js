@@ -703,15 +703,15 @@ const templatesContent = {
         front: {
           category: "ΤΜΗΜΑ ΛΕΞΙΚΟΓΡΑΦΙΑΣ",
           title: "Λεξικό Κριαρά",
-          lead: "Το μνημειώδες έργο για τη μεσαιωνική ελληνική γραμματεία.",
-          mainText: "«Η γλώσσα είναι ο καθρέφτης του πνεύματος και της ιστορίας ενός λαού.»\n— Εμμανουήλ Κριαράς",
+          lead: "Η λεξικογραφική παράδοση του Κέντρου Ελληνικής Γλώσσας συνεχίζει να αποτυπώνει με επιστημονική εγκυρότητα τον πλούτο της ελληνικής γραμματείας, από την αρχαιότητα έως τη σύγχρονη εποχή, με έμφαση στη μεσαιωνική και νεοελληνική περίοδο.",
+          mainText: "«Η γλώσσα δεν είναι απλό εργαλείο συνεννόησης· είναι ο καθρέφτης του πνεύματος, της εσωτερικής ζωής, των κοινωνικών αγώνων και της ιστορικής διαδρομής ενός λαού. Στο λεξικό αποτυπώνεται η ψυχή του έθνους.»\n— Εμμανουήλ Κριαράς",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΨΗΦΙΑΚΗ ΛΕΞΙΚΟΓΡΑΦΙΑ",
           title: "Ηλεκτρονικά Λεξικά",
-          lead: "Ελεύθερη online πρόσβαση στα κορυφαία λεξικά της ελληνικής γραμματείας.",
-          mainText: "• Λεξικό Κοινής Νεοελληνικής (Τριανταφυλλίδη)\n• Λεξικό Μεσαιωνικής Δημώδους (Κριαρά)\n• Επιτομή Λεξικού Liddell & Scott",
+          lead: "Η Πύλη για την Ελληνική Γλώσσα παρέχει ελεύθερη και καθολική πρόσβαση σε ψηφιοποιημένα επιστημονικά λεξικά, διευκολύνοντας τη μελέτη, τη διδασκαλία και την έρευνα της γλώσσας μας παγκοσμίως.",
+          mainText: "• Λεξικό της Κοινής Νεοελληνικής (Ίδρυμα Μανόλη Τριανταφυλλίδη)\n• Λεξικό Μεσαιωνικής Ελληνικής Δημώδους Γραμματείας (Εμμανουήλ Κριαρά)\n• Επιτομή του Μεγάλου Λεξικού της Αρχαίας Ελληνικής Γλώσσας Liddell & Scott\n• Λεξικό της Αρχαίας Ελληνικής Γλώσσας των H. G. Liddell & R. Scott (εικονογραφημένο)\n• Γλωσσάρι Μεσαιωνικής και Νεοελληνικής Ορολογίας και Εξειδικευμένα Βοηθήματα",
           footnote: "www.greek-language.gr"
         }
       },
@@ -719,15 +719,15 @@ const templatesContent = {
         front: {
           category: "LEXICOGRAPHY DEPT.",
           title: "Kriaras Dictionary",
-          lead: "The monumental work for medieval Greek literature.",
-          mainText: "'Language is the mirror of a nation's spirit and history.'\n— Emmanuel Kriaras",
+          lead: "The lexicographical tradition of the Center for the Greek Language documents the richness of Greek literature from antiquity to modern times, focusing on medieval and modern periods.",
+          mainText: "'Language is not merely a tool for communication; it is the mirror of the spirit, the inner life, the social struggles, and the historical journey of a nation. The dictionary reflects the very soul of the people.'\n— Emmanuel Kriaras",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "DIGITAL LEXICOGRAPHY",
           title: "E-Dictionaries",
-          lead: "Free online access to standard Greek dictionaries.",
-          mainText: "• Dictionary of Standard Modern Greek\n• Medieval Greek Lexicon (Kriaras)\n• Liddell & Scott Greek-English Lexicon",
+          lead: "The Portal for the Greek Language offers free, worldwide access to digitized standard scientific dictionaries, facilitating research, study, and teaching.",
+          mainText: "• Dictionary of Standard Modern Greek (Triantafyllidis Foundation)\n• Lexicon of Medieval Greek Vernacular Literature (Emmanuel Kriaras)\n• Epitome of Liddell & Scott Greek-English Lexicon for Ancient Greek\n• Complete Illustrated Liddell & Scott Greek-English Lexicon\n• Specialized glossaries and digital linguistic resources for scholars",
           footnote: "www.greek-language.gr"
         }
       }
@@ -737,15 +737,15 @@ const templatesContent = {
         front: {
           category: "ΤΜΗΜΑ ΓΛΩΣΣΟΛΟΓΙΑΣ",
           title: "Γλωσσική Έρευνα",
-          lead: "Μελέτη της δομής, της ιστορικής εξέλιξης και των διαλέκτων της ελληνικής.",
-          mainText: "Έρευνα για τη γλωσσική ποικιλία, την κοινωνιογλωσσολογία και τη χάραξη εθνικής γλωσσικής πολιτικής.",
+          lead: "Το Τμήμα Γλωσσολογίας εστιάζει στην επιστημονική μελέτη της δομής, της ιστορικής εξέλιξης και της κοινωνικής διάστασης της ελληνικής γλώσσας, σχεδιάζοντας προτάσεις γλωσσικής πολιτικής.",
+          mainText: "Η γλωσσολογική έρευνα στοχεύει στη βαθύτερη κατανόηση της γλωσσικής ποικιλίας, στην καταγραφή της ζωντανής γλωσσικής πραγματικότητας και στην ανάπτυξη επιστημονικών μεθοδολογιών για τη βελτίωση της διδασκαλίας της ελληνικής ως μητρικής και ως δεύτερης/ξένης γλώσσας.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΓΛΩΣΣΙΚΟΙ ΠΟΡΟΙ",
           title: "Σώματα Κειμένων",
-          lead: "Σύγχρονα ψηφιακά εργαλεία για ερευνητές και γλωσσολόγους.",
-          mainText: "• Εθνικά σώματα κειμένων (corpora)\n• Μελέτες για τις νεοελληνικές διαλέκτους\n• Ψηφιακές υποδομές γλωσσικής ανάλυσης",
+          lead: "Σύγχρονες ψηφιακές υποδομές και γλωσσικοί πόροι που προσφέρονται ελεύθερα στην επιστημονική και εκπαιδευτική κοινότητα για γλωσσολογική ανάλυση και έρευνα.",
+          mainText: "• Συστηματικά σώματα κειμένων (corpora) νεοελληνικών και αρχαίων πηγών\n• Ηλεκτρονικά εργαλεία ανάλυσης κειμένων και συμφραστικοί πίνακες\n• Εξειδικευμένες μελέτες για τις νεοελληνικές διαλέκτους και ιδιώματα\n• Βάσεις δεδομένων για τη δομή και τη σύνταξη της ελληνικής γλώσσας\n• Ψηφιακά περιβάλλοντα υποστήριξης γλωσσολογικών ερευνών",
           footnote: "www.greek-language.gr"
         }
       },
@@ -753,15 +753,15 @@ const templatesContent = {
         front: {
           category: "LINGUISTICS DEPT.",
           title: "Linguistic Research",
-          lead: "Studying the structure, historical development, and dialects of Greek.",
-          mainText: "Research in linguistic variation, sociolinguistics, and national language planning.",
+          lead: "The Department of Linguistics focuses on the scientific study of the structure, historical evolution, and social aspects of the Greek language, advising on educational language policy.",
+          mainText: "Linguistic research aims at a deeper understanding of language variation, documenting the living language reality, and developing robust scientific methodologies to enhance the teaching of Greek as a native and second/foreign language.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "LINGUISTIC RESOURCES",
           title: "Text Corpora",
-          lead: "State-of-the-art digital tools for researchers and linguists.",
-          mainText: "• Systematic text corpora\n• Studies on Modern Greek dialects\n• Infrastructure for linguistic analysis",
+          lead: "Modern digital infrastructures and linguistic resources are provided freely to the scientific and educational community for advanced linguistic analysis and research.",
+          mainText: "• Systematic text corpora of modern and ancient Greek sources\n• Electronic text analysis tools and concordances for researchers\n• Specialized research on Modern Greek dialects and idioms\n• Databases tracking the syntactic and grammatical structure of Greek\n• Digital environments supporting collaborative linguistic studies",
           footnote: "www.greek-language.gr"
         }
       }
@@ -771,15 +771,15 @@ const templatesContent = {
         front: {
           category: "ΓΛΩΣΣΑ & ΛΟΓΟΤΕΧΝΙΑ",
           title: "Λόγος & Τέχνη",
-          lead: "Η ελληνική λογοτεχνία ως βασικός πυλώνας γλωσσικής καλλιέργειας και παιδείας.",
-          mainText: "«Η λογοτεχνία είναι η πατρίδα των λέξεων που σώζουν την ψυχή μας.»\nΈρευνα και ανάδειξη της νεοελληνικής γραμματείας.",
+          lead: "Το Τμήμα Γλώσσας και Λογοτεχνίας αναδεικνύει τη λογοτεχνική παραγωγή ως θεμελιώδη πυλώνα της ελληνικής παιδείας, της πολιτισμικής ταυτότητας και της διαχρονικής γλωσσικής καλλιέργειας.",
+          mainText: "«Η λογοτεχνία είναι η πατρίδα των λέξεων που διασώζουν την ιστορική μνήμη και την αισθητική συνείδηση ενός λαού.»\nΗ έρευνα εστιάζει στη νεοελληνική λογοτεχνία και στη σύνδεσή της με τη σχολική τάξη.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΨΗΦΙΑΚΗ ΑΝΘΟΛΟΓΗΣΗ",
           title: "Πόροι Λογοτεχνίας",
-          lead: "Ψηφιακά περιβάλλοντα για τη μελέτη της λογοτεχνικής μας κληρονομιάς.",
-          mainText: "• Ανθολογίες νεοελληνικής λογοτεχνίας\n• Ψηφιακή βιβλιοθήκη «Μνημοσύνη»\n• Εκπαιδευτικό υλικό για τη σχολική τάξη",
+          lead: "Πρωτοποριακά ψηφιακά περιβάλλοντα και ανθολογίες που διευκολύνουν τη γνωριμία των μαθητών και του ευρύτερου κοινού με τον πλούτο της ελληνικής λογοτεχνικής δημιουργίας.",
+          mainText: "• Ψηφιακές ανθολογίες νεοελληνικής ποίησης και πεζογραφίας\n• Η ψηφιακή βιβλιοθήκη «Μνημοσύνη» για την αρχαία ελληνική γραμματεία\n• Διδακτικά σενάρια και οδηγοί μελέτης λογοτεχνικών έργων\n• Ψηφιακό αρχείο μελέτης για την ιστορία της νεοελληνικής κριτικής\n• Υποστηρικτικό υλικό για τη διδασκαλία της λογοτεχνίας στη δευτεροβάθμια εκπαίδευση",
           footnote: "www.greek-language.gr"
         }
       },
@@ -787,15 +787,15 @@ const templatesContent = {
         front: {
           category: "LANGUAGE & LITERATURE",
           title: "Word & Art",
-          lead: "Greek literature as a fundamental pillar of linguistic cultivation and culture.",
-          mainText: "Researching, preserving, and highlighting Modern Greek literary works across eras.",
+          lead: "The Department of Language and Literature promotes literary creation as a cornerstone of Greek education, cultural identity, and long-term linguistic cultivation.",
+          mainText: "'Literature is the homeland of words that preserve the historical memory and aesthetic consciousness of a nation.'\nResearch focuses on Modern Greek literature and its connection with the classroom.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "DIGITAL ANTHOLOGIES",
           title: "Literature Resources",
-          lead: "Digital environments for studying our rich literary heritage.",
-          mainText: "• Modern Greek literature anthologies\n• 'Mnemosyne' digital library of ancient texts\n• Educational material for high schools",
+          lead: "Pioneering digital environments and anthologies that facilitate access for students and the general public to the richness of Greek literary output.",
+          mainText: "• Digital anthologies of Modern Greek poetry and prose writing\n• The 'Mnemosyne' digital library for classical Greek literature\n• Educational scenarios and study guides for literary masterpieces\n• Digital research archives on the history of modern Greek criticism\n• Supportive resources for teaching literature in secondary education",
           footnote: "www.greek-language.gr"
         }
       }
@@ -805,15 +805,15 @@ const templatesContent = {
         front: {
           category: "ΠΙΣΤΟΠΟΙΗΣΗ",
           title: "Ελληνομάθεια",
-          lead: "Ο επίσημος κρατικός τίτλος επάρκειας της ελληνικής γλώσσας παγκοσμίως.",
-          mainText: "«Ένα επίσημο διαβατήριο για σπουδές, εργασία και θεσμική αναγνώριση στην Ελλάδα και την Ευρώπη.»",
+          lead: "Το Κέντρο Ελληνικής Γλώσσας είναι ο αποκλειστικός κρατικός φορέας του Υπουργείου Παιδείας για την επιστημονική οργάνωση και διενέργεια των εξετάσεων πιστοποίησης ελληνομάθειας.",
+          mainText: "«Το Πιστοποιητικό Επαρκούς Γνώσης της Ελληνικής Γλώσσας αποτελεί ένα επίσημο, διεθνώς αναγνωρισμένο εφόδιο για σπουδές, εργασία και θεσμική αναγνώριση στην Ελλάδα και την Ευρωπαϊκή Ένωση.»",
           footnote: "ellinomatheia@komvos.edu.gr"
         },
         back: {
           category: "ΟΙ ΕΞΕΤΑΣΕΙΣ",
           title: "Δομή & Επίπεδα",
-          lead: "Διεξαγωγή εξετάσεων κάθε Μάιο σε πάνω από 160 εξεταστικά κέντρα παγκοσμίως.",
-          mainText: "• Επίπεδα Α1-Γ2 (σύμφωνα με το CEFR)\n• Αναγνωρισμένοι τίτλοι σπουδών\n• Σειρά βιβλίων «ΚΛΙΚ στα Ελληνικά»",
+          lead: "Οι εξετάσεις πιστοποίησης διενεργούνται κάθε Μάιο σε παγκόσμια κλίμακα, ακολουθώντας αυστηρά επιστημονικά πρότυπα αξιολόγησης και εγκυρότητας.",
+          mainText: "• Εξάβαθμη κλίμακα αξιολόγησης (επίπεδα Α1 έως Γ2) συμβατή με το CEFR\n• Πάνω από 160 επίσημα εξεταστικά κέντρα και στις πέντε ηπείρους\n• Ειδικές εξετάσεις για επαγγελματικούς σκοπούς και άδειες εργασίας\n• Σειρά βιβλίων και εκπαιδευτικού υλικού «ΚΛΙΚ στα Ελληνικά»\n• Ψηφιακές εφαρμογές και online διαγνωστικά τεστ προετοιμασίας",
           footnote: "www.greek-language.gr/certification"
         }
       },
@@ -821,15 +821,15 @@ const templatesContent = {
         front: {
           category: "CERTIFICATION",
           title: "Greek Proficiency",
-          lead: "The official state certificate of proficiency in the Greek language worldwide.",
-          mainText: "'An official passport for studies, professional employment, and legal status in Greece & EU.'",
+          lead: "The Center for the Greek Language is the exclusive state-appointed institution of the Ministry of Education for conducting examinations for the Certificate of Attainment in Greek.",
+          mainText: "'The Certificate of Attainment in Greek is an official, globally recognized credential that opens doors to academic studies, professional careers, and legal recognition in Greece and the EU.'",
           footnote: "ellinomatheia@komvos.edu.gr"
         },
         back: {
           category: "EXAMINATIONS",
           title: "Structure & Levels",
-          lead: "Held every May at over 160 official exam centers across the globe.",
-          mainText: "• Levels A1-C2 (aligned with the CEFR)\n• Globally recognized credentials\n• 'KLIK sta Ellinika' textbook series",
+          lead: "Proficiency examinations are held every May worldwide, adhering to rigorous scientific standards of language assessment and administrative integrity.",
+          mainText: "• Six-level evaluation scale (A1 to C2) fully aligned with the CEFR\n• Over 160 official test centers operating across five continents\n• Specialized exams tailored for professional purposes and work permits\n• The acclaimed 'KLIK sta Ellinika' textbook and prep series\n• Mobile applications and online mock exams for self-preparation",
           footnote: "www.greek-language.gr/certification"
         }
       }
@@ -839,15 +839,15 @@ const templatesContent = {
         front: {
           category: "ΨΗΦΙΑΚΟΣ ΚΟΜΒΟΣ",
           title: "Η Πύλη",
-          lead: "Ο κεντρικός ψηφιακός κόμβος της ελληνικής γλώσσας στο διαδίκτυο.",
-          mainText: "Ψηφιακός θησαυρός για εκπαιδευτικούς, ερευνητές, φοιτητές και μαθητές σε όλο τον κόσμο.",
+          lead: "Η Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) αποτελεί τον κεντρικό ψηφιακό κόμβο του ΚΕΓ για τη μελέτη, τη διδασκαλία και την έρευνα της γλώσσας μας.",
+          mainText: "Ένας ανεκτίμητος ψηφιακός θησαυρός που συγκεντρώνει ηλεκτρονικά λεξικά, σώματα κειμένων, εκπαιδευτικό υλικό και επιστημονικά βοηθήματα, προσφέροντας ελεύθερη πρόσβαση σε χρήστες από όλο τον κόσμο.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΨΗΦΙΑΚΟΙ ΠΟΡΟΙ",
           title: "Ελεύθερη Πρόσβαση",
-          lead: "Πληθώρα εργαλείων και επιστημονικών πόρων με ένα κλικ.",
-          mainText: "• Ηλεκτρονικά λεξικά & σώματα κειμένων\n• Ψηφίδες γλωσσικής εκπαίδευσης\n• Βιβλιογραφικοί οδηγοί & μελέτες",
+          lead: "Μέσω της Πύλης, εκπαιδευτικοί, μαθητές, φοιτητές και ερευνητές έχουν άμεση πρόσβαση σε σύγχρονα εργαλεία γλωσσικής υποστήριξης και διδακτικού σχεδιασμού.",
+          mainText: "• Ολοκληρωμένα ηλεκτρονικά λεξικά για όλες τις ιστορικές περιόδους\n• Ψηφιοποιημένα σώματα κειμένων για γλωσσολογική έρευνα\n• Η ψηφιακή βάση «Ψηφίδες» με εκπαιδευτικούς πόρους και σενάρια\n• Ανθολογίες νεοελληνικής λογοτεχνίας και οδηγοί μελέτης\n• Διασύνδεση με διεθνή ακαδημαϊκά δίκτυα ελληνικών σπουδών",
           footnote: "www.greek-language.gr"
         }
       },
@@ -855,15 +855,15 @@ const templatesContent = {
         front: {
           category: "DIGITAL PORTAL",
           title: "The Portal",
-          lead: "The flagship digital hub for the Greek language on the web.",
-          mainText: "A comprehensive digital treasure for educators, students, and scholars worldwide.",
+          lead: "The Portal for the Greek Language (www.greek-language.gr) is the primary digital hub of CGL for the study, teaching, and research of the Greek language.",
+          mainText: "An invaluable digital treasure house that aggregates electronic dictionaries, text corpora, educational resources, and scientific tools, providing free access to users worldwide.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "DIGITAL RESOURCES",
           title: "Free Access",
-          lead: "A wealth of linguistic tools and educational resources at your fingertips.",
-          mainText: "• E-dictionaries & text corpora\n• Psifides pedagogical environment\n• Bibliographical guides & materials",
+          lead: "Through the Portal, teachers, students, and academic researchers gain direct access to state-of-the-art tools for linguistic support and lesson planning.",
+          mainText: "• Comprehensive e-dictionaries spanning all historical periods of Greek\n• Digitized text corpora tailored for advanced linguistic analysis\n• The 'Psifides' digital database compiling teaching resources and plans\n• Modern Greek literature anthologies and detailed study guides\n• Seamless connectivity with international networks of Hellenic studies",
           footnote: "www.greek-language.gr"
         }
       }
@@ -873,15 +873,15 @@ const templatesContent = {
         front: {
           category: "ΨΗΦΙΑΚΟ ΔΙΚΤΥΟ",
           title: "Φρυκτωρίες",
-          lead: "Σύνδεση των εδρών ελληνικών σπουδών και των εκπαιδευτικών σε όλο τον κόσμο.",
-          mainText: "Μετάδοση του ελληνικού λόγου και του πολιτισμού από άκρη σε άκρη της γης μέσω της τεχνολογίας.",
+          lead: "Οι «Φρυκτωρίες» (www.fryktories.gr) αποτελούν μια καινοτόμο ψηφιακή πλατφόρμα του ΚΕΓ για τη διασύνδεση και υποστήριξη των εδρών ελληνικών σπουδών παγκοσμίως.",
+          mainText: "Εμπνευσμένο από το αρχαίο σύστημα μεταφοράς μηνυμάτων με πυρσούς, το δίκτυο μεταφέρει τον ελληνικό λόγο και πολιτισμό από άκρη σε άκρη της γης μέσω της σύγχρονης ψηφιακής τεχνολογίας.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΚΟΙΝΟΤΗΤΑ ΜΑΘΗΣΗΣ",
           title: "Δίκτυο & Συνεργασία",
-          lead: "Μια παγκόσμια κοινότητα επικοινωνίας και υποστήριξης.",
-          mainText: "• Χάρτης εδρών ελληνικών σπουδών\n• Ανταλλαγή εκπαιδευτικών σεναρίων\n• Φόρουμ επιστημονικού διαλόγου",
+          lead: "Μια δυναμική παγκόσμια κοινότητα μάθησης, επικοινωνίας και αλληλοϋποστήριξης για εκπαιδευτικούς και ακαδημαϊκούς που διδάσκουν την ελληνική γλώσσα.",
+          mainText: "• Διαδραστικός παγκόσμιος χάρτης εδρών ελληνικών σπουδών\n• Ψηφιακό αποθετήριο για την ανταλλαγή εκπαιδευτικών σεναρίων\n• Θεματικά φόρουμ επιστημονικού διαλόγου και επίλυσης αποριών\n• Διοργάνωση webinars και σεμιναρίων για διδάσκοντες στο εξωτερικό\n• Ψηφιακή υποστήριξη προγραμμάτων τηλεκπαίδευσης",
           footnote: "www.fryktories.gr"
         }
       },
@@ -889,15 +889,15 @@ const templatesContent = {
         front: {
           category: "DIGITAL NETWORK",
           title: "Fryktories",
-          lead: "Connecting departments of Greek studies and educators across the globe.",
-          mainText: "Transmitting Greek language and culture to the ends of the earth through modern technology.",
+          lead: "The 'Fryktories' network (www.fryktories.gr) is an innovative digital platform by CGL that connects and supports departments of Greek studies worldwide.",
+          mainText: "Inspired by the ancient system of signal beacons using torches, this digital network transmits Greek language and culture across the globe through modern online technology.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "LEARNING NETWORK",
           title: "Connect & Collaborate",
-          lead: "A global community for communication and mutual support.",
-          mainText: "• Global directory of Greek chairs\n• Sharing lesson plans & resources\n• Scientific discussion forums",
+          lead: "A global community for communication and mutual support for educators and academics teaching the Greek language, literature, and culture abroad.",
+          mainText: "• Interactive global directory and map of Greek studies chairs\n• Digital repository for sharing lesson plans and teaching methods\n• Specialized discussion forums for academic and pedagogical topics\n• Online training seminars and webinars for instructors overseas\n• Supporting remote learning projects and distance education tools",
           footnote: "www.fryktories.gr"
         }
       }
@@ -908,16 +908,17 @@ const templatesContent = {
           category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
           title: "Κ. Π. Καβάφης",
           subtitle: "Ο Αλεξανδρινός Ποιητής",
-          lead: "Αποσπάσματα από τα κορυφαία ποιήματα της παγκόσμιας λογοτεχνίας.",
-          mainText: "«Σαν έτοιμος από καιρό, σα θαρραλέος, αποχαιρέτα την, την Αλεξάνδρεια που φεύγει.»\n— Αποχαιρετισμός",
+          image: "assets/cavafy_portrait.png",
+          lead: "Ο Κωνσταντίνος Π. Καβάφης, ο κορυφαίος Αλεξανδρινός ποιητής, σφράγισε την παγκόσμια λογοτεχνία με τη μοναδική ιστορική, φιλοσοφική και αισθητική του ματιά.",
+          mainText: "«Σαν έτοιμος από καιρό, σα θαρραλέος, αποχαιρέτα την, την Αλεξάνδρεια που φεύγει. Προ πάντων να μη γελασθείς, μην πεις πως ήταν ένα όνειρο, πως απατήθηκεν η ακοή σου· μάταιες ελπίδες τέτοιες μην καταδεχθείς.»\n— Αποχαιρετισμός (1911)",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΙΘΑΚΗ",
           title: "Το Ταξίδι της Ζωής",
           subtitle: "Φιλοσοφική Ποίηση",
-          lead: "«Σα βγεις στον πηγαιμό για την Ιθάκη, να εύχεσαι να 'ναι μακρύς ο δρόμος, γεμάτος περιπέτειες, γεμάτος γνώσεις.»",
-          mainText: "Η φιλοσοφική ποίηση του Κ. Π. Καβάφη ως οικουμενικό μάθημα ζωής και γλωσσικής ακρίβειας.",
+          lead: "Η ποίηση του Καβάφη αποτελεί ένα παγκόσμιο μάθημα υπαρξιακής σοφίας, ιστορικής συνείδησης και απαράμιλλης γλωσσικής ακρίβειας και λιτότητας.",
+          mainText: "«Σα βγεις στον πηγαιμό για την Ιθάκη, να εύχεσαι να 'ναι μακρύς ο δρόμος, γεμάτος περιπέτειες, γεμάτος γνώσεις. Τους Λαιστρυγόνας και τους Κύκλωπας, τον θυμωμένο Ποσειδώνα μη φοβάσαι, τέτοια στον δρόμο σου ποτέ σου δεν θα βρεις, αν μέν' η σκέψις σου υψηλή, αν εκλεκτό συναίσθημα το πνεύμα και το σώμα σου αγγίζει.»\n— Ιθάκη (1911)",
           footnote: "www.greek-language.gr"
         }
       },
@@ -926,16 +927,17 @@ const templatesContent = {
           category: "BIOGRAPHICAL BOOKMARK",
           title: "C. P. Cavafy",
           subtitle: "The Alexandrian Poet",
-          lead: "Excerpts from some of the finest works in modern world poetry.",
-          mainText: "'As one long prepared, as one courageous, bid her farewell, the Alexandria that is leaving.'\n— The God Abandons Antony",
+          image: "assets/cavafy_portrait.png",
+          lead: "Constantine P. Cavafy, the preeminent Alexandrian poet, left an indelible mark on world literature through his unique historical, philosophical, and aesthetic perspective.",
+          mainText: "'As one long prepared, as one courageous, bid her farewell, the Alexandria that is leaving. Above all, do not deceive yourself, do not say that it was a dream, that your hearing was mistaken; do not demean yourself with empty hopes like these.'\n— The God Abandons Antony",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "ITHACA",
           title: "The Journey of Life",
           subtitle: "Philosophical Poetry",
-          lead: "'Keep Ithaca always in your mind. Arriving there is what you're destined for. But don't hurry the journey at all.'",
-          mainText: "Cavafy's historical and philosophical poetry as a universal lesson of wisdom and artistic precision.",
+          lead: "Cavafy's poetry offers a universal lesson in existential wisdom, historical consciousness, and unparalleled linguistic precision and artistic economy.",
+          mainText: "'Keep Ithaca always in your mind. Arriving there is what you're destined for. But don't hurry the journey at all. Better if it lasts for many years, so you're old by the time you reach the island, wealthy with all you've gained on the way, not expecting Ithaca to make you rich.'\n— Ithaca",
           footnote: "www.greek-language.gr"
         }
       }
@@ -946,16 +948,17 @@ const templatesContent = {
           category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
           title: "Οδ. Ελύτης",
           subtitle: "Ποιητής του Αιγαίου",
-          lead: "Βραβείο Νόμπελ Λογοτεχνίας 1979. Η ποίηση του φωτός, του Αιγαίου και του ελληνισμού.",
-          mainText: "«Εάν αποσυνδέσεις την Ελλάδα, στο τέλος θα δεις να σου απομένουν μια ελιά, ένα αμπέλι κι ένα καράβι. Που σημαίνει: με άλλα τόσα την ξαναφτιάχνεις.»",
+          image: "assets/elytis_portrait.png",
+          lead: "Ο Οδυσσέας Ελύτης τιμήθηκε με το Βραβείο Νόμπελ Λογοτεχνίας το 1979 για την ποίησή του, που με φόντο την ελληνική παράδοση υμνεί την ελευθερία και το φως.",
+          mainText: "«Εάν αποσυνδέσεις την Ελλάδα, στο τέλος θα δεις να σου απομένουν μια ελιά, ένα αμπέλι κι ένα καράβι. Που σημαίνει: με άλλα τόσα την ξαναφτιάχνεις.»\nΗ λυρική του γραφή αναδεικνύει την αισθητική αρμονία του Αιγαίου και τη δύναμη του ελληνικού λόγου.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΤΟ ΑΞΙΟΝ ΕΣΤΙ",
           title: "Μνημειώδες Έργο",
           subtitle: "Νόμπελ Λογοτεχνίας",
-          lead: "«Τη γλώσσα μου έδωσαν ελληνική· το σπίτι φτωχικό στις αμμουδιές του Ομήρου...»",
-          mainText: "Η λυρική κοσμοθεωρία του Ελύτη ως ύμνος στη ζωή, την ελευθερία και τη διαχρονική δύναμη του ελληνικού λόγου.",
+          lead: "Το μνημειώδες ποιητικό έργο «Το Άξιον Εστί» αποτελεί έναν ύμνο στη διαχρονική συνέχεια της ελληνικής γλώσσας και στους αγώνες του λαού της.",
+          mainText: "«Τη γλώσσα μου έδωσαν ελληνική· το σπίτι φτωχικό στις αμμουδιές του Ομήρου. Μοναχή έγνοια η γλώσσα μου στις αμμουδιές του Ομήρου... Εκεί σπάροι και πέρκες, ανεμόδαρτα ρήματα, ρεύματα πράσινα μες στα γαλάζια, όσα είδα στα σπλάχνα μου ν' ανάβουν, σφουγγάρια, μέδουσες με τα πρώτα λόγια των Σειρήνων, κοχύλια ροδινά με τα πρώτα μαύρα ρίγη.»\n— Το Άξιον Εστί",
           footnote: "www.greek-language.gr"
         }
       },
@@ -964,16 +967,17 @@ const templatesContent = {
           category: "BIOGRAPHICAL BOOKMARK",
           title: "O. Elytis",
           subtitle: "Poet of the Aegean",
-          lead: "Nobel Prize in Literature 1979. The poetry of light, the Aegean Sea, and Hellenism.",
-          mainText: "'If you deconstruct Greece, in the end you will see that what is left is an olive tree, a vineyard and a boat. Meaning: with these same components you can rebuild it.'",
+          image: "assets/elytis_portrait.png",
+          lead: "Odysseus Elytis was awarded the Nobel Prize in Literature in 1979 for his poetry, which celebrates human freedom and the luminous clarity of the Greek soul.",
+          mainText: "'If you deconstruct Greece, in the end you will see that what is left is an olive tree, a vineyard and a boat. Meaning: with these same components you can rebuild it.'\nHis lyrical voice highlights the aesthetic harmony of the Aegean landscape.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "THE AXION ESTI",
           title: "The Lyrical Anthem",
           subtitle: "Nobel Prize 1979",
-          lead: "'Greek was the language they gave me; humble my house on the sandy shores of Homer...'",
-          mainText: "Elytis's lyrical philosophy as an anthem to life, liberty, and the enduring power of the Greek language.",
+          lead: "His monumental poetic masterpiece 'The Axion Esti' stands as a modern epic, praising the continuity of the Greek language and the resilience of its people.",
+          mainText: "'Greek was the language they gave me; humble my house on the sandy shores of Homer. My only care my language on the sandy shores of Homer... There sea-bream and perch, wind-beaten verbs, green currents among the blue, all I saw light up in my entrails, sponges, jellyfish with the Sirens' first words, rosy shells with their first black shudders.'\n— The Axion Esti",
           footnote: "www.greek-language.gr"
         }
       }
@@ -984,16 +988,17 @@ const templatesContent = {
           category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
           title: "Γ. Σεφέρης",
           subtitle: "Ποίηση & Ιστορία",
-          lead: "Βραβείο Νόμπελ Λογοτεχνίας 1963. Ο ποιητής που συνδύασε τον κλασικό μύθο με τη σύγχρονη μοίρα.",
-          mainText: "«Σ' αυτόν τον κόσμο, που ολοένα στενεύει, ο καθένας μας χρειάζεται τον άλλο. Πρέπει να αναζητήσουμε τον άνθρωπο, όπου κι αν βρίσκεται.»",
+          image: "assets/seferis_portrait.png",
+          lead: "Ο Γιώργος Σεφέρης, ο πρώτος Έλληνας νομπελίστας ποιητής (1963), συνδύασε με μοναδικό τρόπο τον αρχαίο μύθο με τη δραματική μοίρα του σύγχρονου ελληνισμού.",
+          mainText: "«Σ' αυτόν τον κόσμο, που ολοένα στενεύει, ο καθένας μας χρειάζεται τον άλλο. Πρέπει να αναζητήσουμε τον άνθρωπο, όπου κι αν βρίσκεται. Όταν ο δρόμος μας είναι ο άνθρωπος, η ζωή αποκτά νόημα και φως.»\n— Λόγος της Αποδοχής του Βραβείου Νόμπελ",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "Η ΕΛΛΗΝΙΚΗ ΓΛΩΣΣΑ",
           title: "Λόγος της Αποδοχής",
           subtitle: "Νόμπελ Λογοτεχνίας",
-          lead: "«Ανήκω σε μια χώρα μικρή. Είναι ένα πέτρινο ακρωτήρι στη Μεσόγειο, που δεν έχει άλλο αγαθό παρά τον αγώνα του λαού του, τη θάλασσα, και το φως του ήλιου.»",
-          mainText: "«Είναι μικρός ο τόπος μας, αλλά η παράδοσή του είναι τεράστια και το κοινό χαρακτηριστικό της είναι ότι μας παραδόθηκε χωρίς διακοπή.»",
+          lead: "Στον λόγο του στην Ακαδημία της Στοκχόλμης, ο Σεφέρης τόνισε τη σημασία της ελληνικής γλώσσας ως μιας αδιάσπαστης και ζωντανής πολιτιστικής παράδοσης.",
+          mainText: "«Ανήκω σε μια χώρα μικρή. Είναι ένα πέτρινο ακρωτήρι στη Μεσόγειο, που δεν έχει άλλο αγαθό παρά τον αγώνα του λαού του, τη θάλασσα, και το φως του ήλιου. Είναι μικρός ο τόπος μας, αλλά η παράδοσή του είναι τεράστια και το κοινό χαρακτηριστικό της είναι ότι μας παραδόθηκε χωρίς διακοπή επί αιώνες.»\n— Γιώργος Σεφέρης, 1963",
           footnote: "www.greek-language.gr"
         }
       },
@@ -1002,16 +1007,17 @@ const templatesContent = {
           category: "BIOGRAPHICAL BOOKMARK",
           title: "G. Seferis",
           subtitle: "Poetry & History",
-          lead: "Nobel Prize in Literature 1963. Integrating classical myth with modern human destiny.",
-          mainText: "'In this world, which is constantly shrinking, each of us needs the other. We must seek out man, wherever he may be.'",
+          image: "assets/seferis_portrait.png",
+          lead: "George Seferis, the first Greek Nobel laureate in Literature (1963), masterfully integrated ancient myth with the tragic fate of modern Hellenism.",
+          mainText: "'In this world, which is constantly shrinking, each of us needs the other. We must seek out man, wherever he may be. When man is our path, life acquires meaning, purpose, and light.'\n— Nobel Prize Acceptance Speech",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "THE GREEK LANGUAGE",
           title: "Nobel Speech",
           subtitle: "Nobel Prize 1963",
-          lead: "'I belong to a small country. A stone cape in the Mediterranean, with no other resource than the struggle of its people, the sea, and the light of the sun.'",
-          mainText: "'Our land is small, but its tradition is vast, and its main characteristic is that it has been handed down to us without interruption.'",
+          lead: "In his speech to the Stockholm Academy, Seferis emphasized the significance of the Greek language as an unbroken and living cultural tradition.",
+          mainText: "'I belong to a small country. A stone cape in the Mediterranean, with no other resource than the struggle of its people, the sea, and the light of the sun. Our land is small, but its tradition is vast, and its main characteristic is that it has been handed down to us without interruption.'\n— George Seferis, 1963",
           footnote: "www.greek-language.gr"
         }
       }
@@ -1022,16 +1028,17 @@ const templatesContent = {
           category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
           title: "Εμ. Κριαράς",
           subtitle: "Ο Δάσκαλος της Γλώσσας",
-          lead: "Ο κορυφαίος Έλληνας φιλόλογος, λεξικογράφος και υποστηρικτής της δημοτικής γλώσσας.",
-          mainText: "«Η δημοτική γλώσσα είναι η ζωντανή φωνή του ελληνικού λαού, το όργανο με το οποίο εκφράστηκε η ψυχή του έθνους μας.»",
+          image: "assets/kriaras_portrait.png",
+          lead: "Ο Εμμανουήλ Κριαράς υπήρξε κορυφαίος φιλόλογος, λεξικογράφος και αφοσιωμένος δάσκαλος της γλώσσας, πρωτεργάτης στον αγώνα για την καθιέρωση της δημοτικής.",
+          mainText: "«Η δημοτική γλώσσα είναι η ζωντανή φωνή του ελληνικού λαού, το όργανο με το οποίο εκφράστηκε η ψυχή του έθνους μας. Η υπεράσπισή της είναι χρέος προς την ελευθερία του πνεύματος και την παιδεία του τόπου.»\n— Εμμανουήλ Κριαράς",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΤΟ ΛΕΞΙΚΟ ΚΡΙΑΡΑ",
           title: "Μεσαιωνική Γραμματεία",
           subtitle: "Λεξικογραφικό Έργο",
-          lead: "Το Λεξικό της Μεσαιωνικής Ελληνικής Δημώδους Γραμματείας (1100-1669) αποτελεί τον συνδετικό κρίκο της γλώσσας μας.",
-          mainText: "Η έκδοση του Λεξικού συνεχίζεται συστηματικά από το ΚΕΓ (23ος τόμος, 2025) αποτελώντας παγκόσμιο σημείο αναφοράς.",
+          lead: "Το μνημειώδες «Λεξικό της Μεσαιωνικής Ελληνικής Δημώδους Γραμματείας (1100-1669)» του Κριαρά αποτελεί το επιστημονικό θεμέλιο της μεσαιωνικής μας γλώσσας.",
+          mainText: "• 23 τόμοι λεξικογραφικού έργου που καλύπτουν τη μεταβατική φάση της γλώσσας\n• Η έκδοση και ο εμπλουτισμός του λεξικού συνεχίζονται συστηματικά από το ΚΕΓ\n• Συνδετικός κρίκος ανάμεσα στην Αρχαία και τη Νέα Ελληνική γλώσσα\n• Πρωταρχική πηγή για τη μελέτη της κοινωνικής και γλωσσικής εξέλιξης\n• Ελεύθερα προσβάσιμο σε ψηφιακή μορφή μέσω της Πύλης για την Ελληνική Γλώσσα",
           footnote: "www.greek-language.gr"
         }
       },
@@ -1040,16 +1047,17 @@ const templatesContent = {
           category: "BIOGRAPHICAL BOOKMARK",
           title: "Em. Kriaras",
           subtitle: "The Scholar of Greek",
-          lead: "The preeminent Greek philologist, lexicographer, and advocate of the Demotic language.",
-          mainText: "'The demotic language is the living voice of the Greek people, the instrument through which the soul of our nation was expressed.'",
+          image: "assets/kriaras_portrait.png",
+          lead: "Emmanuel Kriaras was a preeminent philologist, lexicographer, and dedicated educator, playing a leading role in the recognition of Demotic Greek.",
+          mainText: "'The demotic language is the living voice of the Greek people, the instrument through which the soul of our nation was expressed. Defending it is a duty to intellectual freedom and national education.'\n— Emmanuel Kriaras",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "KRIARAS DICTIONARY",
           title: "Medieval Greek Lexicon",
           subtitle: "Lexicographical Work",
-          lead: "The Dictionary of Medieval Vulgar Greek Literature (1100-1669) is the essential link in the history of Greek.",
-          mainText: "The publication of the Lexicon is systematically continued by CGL (Vol. 23, 2025), serving as a global scientific resource.",
+          lead: "His monumental 'Lexicon of Medieval Greek Vernacular Literature (1100-1669)' serves as the scientific foundation of the medieval Greek language.",
+          mainText: "• 23 volumes of lexicographical work covering the transitional phase of Greek\n• The publication and enrichment of the Lexicon is continued by CGL\n• Serves as the essential bridge between Ancient and Modern Greek\n• An invaluable source for researching medieval history and linguistics\n• Digitally accessible for free through the Portal for the Greek Language",
           footnote: "www.greek-language.gr"
         }
       }
@@ -1060,16 +1068,16 @@ const templatesContent = {
           category: "ΘΕΜΑΤΙΚΗ ΕΛΛΗΝΙΚΗΣ ΓΛΩΣΣΑΣ",
           title: "Ιστορία",
           subtitle: "Της Ελληνικής Γλώσσας",
-          lead: "Μια αδιάσπαστη ιστορική διαδρομή 3.500 ετών γραπτής παράδοσης.",
-          mainText: "Από τη Μυκηναϊκή Γραμμική Β, στην Κλασική Αρχαιότητα, την Ελληνιστική Κοινή, τη Μεσαιωνική και τη Νέα Ελληνική γλώσσα.",
+          lead: "Η ελληνική γλώσσα διακρίνεται για την αδιάλειπτη ιστορική της πορεία και την αδιάσπαστη συνέχεια της γραπτής της παράδοσης εδώ και 3.500 χρόνια.",
+          mainText: "Από τις μυκηναϊκές πινακίδες της Γραμμικής Β, στα έπη του Ομήρου, την κλασική περίοδο της φιλοσοφίας, την ελληνιστική κοινή, τη μεσαιωνική δημώδη και τη νεοελληνική κοινή γλώσσα, η ελληνική παραμένει ζωντανή και εξελισσόμενη.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΔΙΑΧΡΟΝΙΑ",
-          title: "Μια Ζωντανή Γλώσσα",
+          title: "Διαχρονία",
           subtitle: "3.500 Έτη Παράδοσης",
-          lead: "Η ελληνική γλώσσα είναι μία από τις ελάχιστες ζωντανές γλώσσες με συνεχή γραπτή μαρτυρία αιώνων.",
-          mainText: "• Γραμμική Β (15ος αι. π.Χ.)\n• Κλασική & Ελληνιστική περίοδος\n• Βυζαντινή & Μεσαιωνική δημώδης\n• Νεοελληνική κοινή γλώσσα",
+          lead: "Η διαχρονική εξέλιξη της ελληνικής γλώσσας αποτελεί ένα μοναδικό φαινόμενο στην παγκόσμια ιστορία του πολιτισμού και της γλωσσολογίας.",
+          mainText: "• Μυκηναϊκή περίοδος με τις πρώτες καταγραφές σε Γραμμική Β (15ος αι. π.Χ.)\n• Κλασική περίοδος με τη διαμόρφωση της αττικής διαλέκτου και της φιλοσοφίας\n• Ελληνιστική Κοινή (Κοινή) που έγινε η διεθνής γλώσσα της Μεσογείου\n• Μεσαιωνική/Βυζαντινή περίοδος με τη γέννηση της δημώδους γραμματείας\n• Νεοελληνική περίοδος με τη διαμόρφωση της Κοινής Νεοελληνικής γλώσσας",
           footnote: "www.greek-language.gr"
         }
       },
@@ -1078,16 +1086,16 @@ const templatesContent = {
           category: "THEMATIC FIELDS",
           title: "History",
           subtitle: "Of the Greek Language",
-          lead: "An uninterrupted historical path of 3,500 years of written tradition.",
-          mainText: "From Mycenaean Linear B, to Classical Antiquity, Hellenistic Koine, Medieval Vulgar, and Modern Greek.",
+          lead: "The Greek language is distinguished by its continuous historical path and an unbroken written tradition spanning over 3,500 years.",
+          mainText: "From the Mycenaean tablets of Linear B to the epic poems of Homer, the classical era of philosophy, the Hellenistic Koine, the medieval vernacular, and Modern Greek, it remains a living, evolving tongue.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "DIACHRONY",
           title: "A Living Language",
           subtitle: "3,500 Years of Tradition",
-          lead: "Greek is one of the few living languages with a continuous written record spanning millennia.",
-          mainText: "• Linear B (15th century BC)\n• Classical & Hellenistic period\n• Byzantine & Medieval vernacular\n• Modern Greek standard language",
+          lead: "The diachronic evolution of the Greek language stands as a unique phenomenon in the history of world civilization and linguistics.",
+          mainText: "• Mycenaean period with the earliest records written in Linear B (15th c. BC)\n• Classical period shaping the Attic dialect, democratic discourse and philosophy\n• Hellenistic Koine which served as the lingua franca of the Mediterranean\n• Medieval and Byzantine period with the emergence of vernacular literature\n• Modern Greek period leading to the standard Modern Greek of today",
           footnote: "www.greek-language.gr"
         }
       }
@@ -1098,16 +1106,16 @@ const templatesContent = {
           category: "ΘΕΜΑΤΙΚΗ ΕΛΛΗΝΙΚΗΣ ΓΛΩΣΣΑΣ",
           title: "Ετυμολογία",
           subtitle: "Η Ιστορία των Λέξεων",
-          lead: "Αναζητώντας τις ρίζες, την καταγωγή και την εξέλιξη των ελληνικών λέξεων.",
-          mainText: "Κάθε λέξη κρύβει μέσα της έναν μύθο, μια ιστορική διαδρομή και μια φιλοσοφική προσέγγιση του κόσμου.",
+          lead: "Η ετυμολογία της ελληνικής γλώσσας είναι μια συναρπαστική αναζήτηση στις ρίζες, την προέλευση και την ιστορική εξέλιξη των λέξεων που χρησιμοποιούμε καθημερινά.",
+          mainText: "Κάθε λέξη κρύβει μέσα της έναν μύθο, μια ιστορική διαδρομή, κοινωνικές αλλαγές και μια ιδιαίτερη φιλοσοφική προσέγγιση για την κατανόηση του κόσμου. Η ετυμολογική μελέτη φωτίζει τη σκέψη μας.",
           footnote: "Κέντρο Ελληνικής Γλώσσας"
         },
         back: {
           category: "ΟΙΚΟΥΜΕΝΙΚΟΤΗΤΑ",
           title: "Ρίζες & Δάνεια",
           subtitle: "Διεθνείς Όροι",
-          lead: "Η τεράστια επίδραση της ελληνικής γλώσσας στο παγκόσμιο λεξιλόγιο της επιστήμης και του πολιτισμού.",
-          mainText: "• Ανάλυση ριζών και παραγωγής\n• Διεθνείς επιστημονικοί όροι\n• Ετυμολογικά λεξικά στην Πύλη",
+          lead: "Η ελληνική γλώσσα έχει επηρεάσει βαθύτατα το παγκόσμιο λεξιλόγιο της επιστήμης, της φιλοσοφίας, της ιατρικής και των τεχνών σε όλο τον κόσμο.",
+          mainText: "• Ανάλυση των ριζών, των προθεμάτων και των καταλήξεων των λέξεων\n• Διεθνείς επιστημονικοί όροι που παράγονται από ελληνικά συνθετικά\n• Μελέτη των δανείων και αντιδανείων ανάμεσα στις ευρωπαϊκές γλώσσες\n• Ελεύθερη πρόσβαση σε ετυμολογικά λεξικά μέσω της Πύλης του ΚΕΓ\n• Εκπαιδευτικά προγράμματα για την ετυμολογία στη σχολική τάξη",
           footnote: "www.greek-language.gr"
         }
       },
@@ -1116,16 +1124,16 @@ const templatesContent = {
           category: "THEMATIC FIELDS",
           title: "Etymology",
           subtitle: "History of Words",
-          lead: "Exploring the roots, origin, and evolution of Greek words.",
-          mainText: "Every single word hides a myth, a historical journey, and a philosophical approach to the universe.",
+          lead: "The etymology of the Greek language is a fascinating journey into the roots, origins, and historical transformations of the words we use daily.",
+          mainText: "Every single word carries a myth, a historical journey, social adaptations, and a unique philosophical approach to understanding the universe. Etymological study illuminates modern thought.",
           footnote: "Center for the Greek Language"
         },
         back: {
           category: "UNIVERSALITY",
           title: "Roots & Loanwords",
           subtitle: "International Terms",
-          lead: "The immense influence of the Greek language on the global vocabulary of science, medicine, and culture.",
-          mainText: "• Root analysis and word formation\n• International scientific terminology\n• Etymological dictionaries on the Portal",
+          lead: "The Greek language has profoundly shaped the global vocabulary of science, philosophy, medicine, and the arts across civilizations.",
+          mainText: "• Detailed analysis of word roots, prefixes, suffixes, and derivatives\n• International scientific terminology derived from Greek roots\n• Investigation of loanwords and reciprocal borrowing between languages\n• Free access to CGL Portal for etymological resources\n• Specialized educational tools teaching etymology in high schools",
           footnote: "www.greek-language.gr"
         }
       }
@@ -2258,7 +2266,13 @@ function renderBookmarkPanel(panelData, side, pageNum) {
   }
 
   let emblemHtml = '';
-  if (side === 'front') {
+  if (panelData.image) {
+    emblemHtml = `
+      <div class="bookmark-image-container">
+        <img src="${panelData.image}" class="bookmark-portrait-image" alt="${title}" />
+      </div>
+    `;
+  } else if (side === 'front') {
     emblemHtml = `<div class="cover-emblem"></div>`;
   }
 

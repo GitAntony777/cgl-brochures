@@ -142,7 +142,7 @@ body {
 
 /* Sidebar Dashboard Controls */
 .control-panel {
-  width: 320px;
+  width: 380px;
   background-color: var(--dashboard-bg);
   border-right: 1px solid var(--dashboard-border);
   padding: 1.5rem;
@@ -1682,6 +1682,32 @@ body.edit-mode-active .image-edit-container:hover .btn-image-change {
   width: 15mm !important;
   height: 15mm !important;
   margin: 1mm auto !important;
+}
+
+.bookmark-image-container {
+  width: 25mm !important;
+  height: 25mm !important;
+  margin: 1.5mm auto !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  border: 1px solid var(--secondary-color) !important;
+  background-color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.bookmark-portrait-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: grayscale(100%) contrast(1.1) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.bookmark-portrait-image:hover {
+  transform: scale(1.08) !important;
 }
 
 /* AI loading and shimmer animations */
