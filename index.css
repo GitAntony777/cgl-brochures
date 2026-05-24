@@ -673,50 +673,50 @@ body.show-print-guides .print-guides {
 
 /* Greek Meander Motif */
 .motif-meander .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M0 30h10v-10h10v10H10v10h20V10H10V0h30v40H20v10h20v10H0V30z' fill='none' stroke='%23ffffff' stroke-width='1.2' stroke-opacity='0.15'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%3E%3Cpath%20d%3D%22M0%2030h10v-10h10v10H10v10h20V10H10V0h30v40H20v10h20v10H0V30z%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221.2%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 60px 60px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Aegean Waves Motif */
 .motif-waves .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath d='M0 20 Q 20 5, 40 20 T 80 20' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.15'/%3E%3Cpath d='M0 30 Q 20 15, 40 30 T 80 30' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2240%22%20viewBox%3D%220%200%2080%2040%22%3E%3Cpath%20d%3D%22M0%2020%20Q%2020%205%2C%2040%2020%20T%2080%2020%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221.5%22%20stroke-opacity%3D%220.8%22%2F%3E%3Cpath%20d%3D%22M0%2030%20Q%2020%2015%2C%2040%2030%20T%2080%2030%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 80px 40px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Olive Branch Motif */
 .motif-olive .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1'%3E%3Cpath d='M10 50 Q 30 40, 50 50 T 90 50'/%3E%3Cpath d='M30 43 C 25 35, 35 30, 40 38 C 45 30, 55 35, 50 43' fill='%23ffffff' fill-opacity='0.05'/%3E%3Cpath d='M70 43 C 65 35, 75 30, 80 38 C 85 30, 95 35, 90 43' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-opacity%3D%220.8%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M10%2050%20Q%2030%2040%2C%2050%2050%20T%2090%2050%22%2F%3E%3Cpath%20d%3D%22M30%2043%20C%2025%2035%2C%2035%2030%2C%2040%2038%20C%2045%2030%2C%2055%2035%2C%2050%2043%22%20fill%3D%22%231e293b%22%20fill-opacity%3D%220.3%22%2F%3E%3Cpath%20d%3D%22M70%2043%20C%2065%2035%2C%2075%2030%2C%2080%2038%20C%2085%2030%2C%2095%2035%2C%2090%2043%22%20fill%3D%22%231e293b%22%20fill-opacity%3D%220.3%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 100px 100px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Byzantine Mosaic Motif */
 .motif-byzantine .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M25 0 L50 25 L25 50 L0 25 Z' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.15'/%3E%3Ccircle cx='25' cy='25' r='10' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.1'/%3E%3Cpath d='M0 0 L50 50 M50 0 L0 50' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpath%20d%3D%22M25%200%20L50%2025%20L25%2050%20L0%2025%20Z%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.8%22%2F%3E%3Ccircle%20cx%3D%2225%22%20cy%3D%2225%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.6%22%2F%3E%3Cpath%20d%3D%22M0%200%20L50%2050%20M50%200%20L0%2050%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%220.5%22%20stroke-opacity%3D%220.4%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 50px 50px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Linear B Ancient Script Motif */
 .motif-linearb .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1.2' fill='none'%3E%3Cpath d='M20 20 L20 60 M10 40 L30 40 M15 30 L25 50' /%3E%3Cpath d='M60 20 Q 80 10, 70 40 T 90 60 M70 30 L90 30' /%3E%3Cpath d='M20 80 Q 40 100, 20 110 M15 95 L30 95' /%3E%3Ccircle cx='70' cy='90' r='12' /%3E%3Cpath d='M70 78 L70 102 M58 90 L82 90' /%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22120%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cg%20stroke%3D%22%231e293b%22%20stroke-opacity%3D%220.8%22%20stroke-width%3D%221.2%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M20%2020%20L20%2060%20M10%2040%20L30%2040%20M15%2030%20L25%2050%22%2F%3E%3Cpath%20d%3D%22M60%2020%20Q%2080%2010%2C%2070%2040%20T%2090%2060%20M70%2030%20L90%2030%22%2F%3E%3Cpath%20d%3D%22M20%2080%20Q%2040%20100%2C%2020%20110%20M15%2095%20L30%2095%22%2F%3E%3Ccircle%20cx%3D%2270%22%20cy%3D%2290%22%20r%3D%2212%22%2F%3E%3Cpath%20d%3D%22M70%2078%20L70%20102%20M58%2090%20L82%2090%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 120px 120px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Hellenic Marble Motif */
 .motif-marble .brochure-panel::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cpath d='M10 0 C 40 50, 20 100, 80 120 C 140 140, 110 180, 150 200 M60 0 C 100 40, 90 70, 130 110 C 170 150, 150 180, 200 200' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.08'/%3E%3Cpath d='M180 0 C 140 30, 160 80, 110 110 C 60 140, 80 180, 10 200' fill='none' stroke='%23ffffff' stroke-width='0.7' stroke-opacity='0.06'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22200%22%20viewBox%3D%220%200%20200%20200%22%3E%3Cpath%20d%3D%22M10%200%20C%2040%2050%2C%2020%20100%2C%2080%20120%20C%20140%20140%2C%20110%20180%2C%20150%20200%20M60%200%20C%20100%2040%2C%2090%2070%2C%20130%20110%20C%20170%20150%2C%20150%20180%2C%20200%20200%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M180%200%20C%20140%2030%2C%20160%2080%2C%20110%20110%20C%2060%20140%2C%2080%20180%2C%2010%20200%22%20fill%3D%22none%22%20stroke%3D%22%231e293b%22%20stroke-width%3D%220.7%22%20stroke-opacity%3D%220.4%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
-  opacity: 1;
+  opacity: 0.18;
 }
 
 /* Clean background gradients when no image */
