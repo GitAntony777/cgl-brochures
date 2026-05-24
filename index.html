@@ -467,13 +467,19 @@
           </div>
         </div>
 
-        <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
-          <button id="btnModalConfirmPrint" class="btn-primary" style="flex: 1; padding: 0.85rem;">🔥 Συνέχεια στην Εκτύπωση</button>
-          <button id="btnModalCancelPrint" class="btn-secondary" style="flex: 0.5; padding: 0.85rem;">Ακύρωση</button>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+          <button id="btnModalConfirmPrint" class="btn-primary" style="padding: 0.85rem;">🔥 Συνέχεια στην Εκτύπωση</button>
+          <div style="display: flex; gap: 0.5rem;">
+            <button id="btnModalPrintInstructions" class="btn-secondary" style="flex: 1; padding: 0.85rem;" title="Εκτύπωση τεχνικών προδιαγραφών για τον τυπογράφο">📋 Οδηγίες Τυπογράφου (PDF)</button>
+            <button id="btnModalCancelPrint" class="btn-secondary" style="flex: 0.5; padding: 0.85rem;">Ακύρωση</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Print-only container for technical specifications -->
+  <div id="printerInstructionsContainer" class="print-instructions-container"></div>
 
   <script src="app.js"></script>
 </body>

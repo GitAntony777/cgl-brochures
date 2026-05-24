@@ -2468,3 +2468,159 @@ body.print-mode-cropmarks .brochure-panel {
 #draftsList::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
+
+/* Printer Instructions Print styling */
+.print-instructions-container {
+  display: none;
+}
+
+@media print {
+  body.print-mode-instructions .app-container,
+  body.print-mode-instructions .modal-overlay,
+  body.print-mode-instructions .canvas-wrapper,
+  body.print-mode-instructions header,
+  body.print-mode-instructions footer {
+    display: none !important;
+  }
+
+  body.print-mode-instructions {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  body.print-mode-instructions .print-instructions-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
+    color: #1e293b !important;
+  }
+
+  .instructions-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #c5a059;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+
+  .instructions-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .instructions-title-block {
+    flex: 1;
+  }
+
+  .instructions-title-block h1 {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .instructions-title-block h2 {
+    font-size: 10.5pt;
+    font-weight: 500;
+    color: #475569;
+    margin: 0;
+  }
+
+  .instructions-meta {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 9.5pt;
+  }
+
+  .instructions-meta p {
+    margin: 0;
+  }
+
+  .instructions-section {
+    margin-bottom: 22px;
+  }
+
+  .instructions-section h3 {
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: #0f172a;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin: 0 0 10px 0;
+  }
+
+  .instructions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 10pt;
+  }
+
+  .instructions-table th, .instructions-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .instructions-table th {
+    font-weight: 600;
+    color: #475569;
+    width: 35%;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .instructions-table td {
+    color: #0f172a;
+    width: 65%;
+  }
+
+  .instructions-notes {
+    background: #fffdf5;
+    border: 1px solid #fef08a;
+    border-left: 4px solid #c5a059;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 9.5pt;
+    color: #334155;
+  }
+
+  .instructions-notes p {
+    margin: 0 0 8px 0;
+  }
+
+  .instructions-notes p:last-child {
+    margin-bottom: 0;
+  }
+
+  .instructions-notes ul {
+    margin: 0 0 8px 0;
+    padding-left: 20px;
+  }
+
+  .instructions-notes li {
+    margin-bottom: 4px;
+  }
+
+  .instructions-footer {
+    margin-top: 30px;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 12px;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #64748b;
+  }
+}

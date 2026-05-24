@@ -1219,6 +1219,8 @@ const printModal = document.getElementById('printModal');
 const btnClosePrintModal = document.getElementById('btnClosePrintModal');
 const btnModalConfirmPrint = document.getElementById('btnModalConfirmPrint');
 const btnModalCancelPrint = document.getElementById('btnModalCancelPrint');
+const btnModalPrintInstructions = document.getElementById('btnModalPrintInstructions');
+const printerInstructionsContainer = document.getElementById('printerInstructionsContainer');
 
 // Project Management DOM elements
 const btnExportProject = document.getElementById('btnExportProject');
@@ -1562,14 +1564,42 @@ function setupButtonListeners() {
     }, 150);
   });
 
+  if (btnModalPrintInstructions) {
+    btnModalPrintInstructions.addEventListener('click', () => {
+      printModal.style.display = 'none';
+      
+      // Set to print instructions mode
+      state.printMode = 'instructions';
+      
+      // Generate and inject instructions HTML
+      generatePrinterInstructionsHTML();
+      
+      // Set print instructions class
+      document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
+      document.body.classList.add('print-mode-instructions');
+      document.body.classList.remove('show-print-guides', 'show-fold-guides');
+      
+      // Update print page dimensions to A4 portrait
+      updatePrintPageSize();
+      
+      setTimeout(() => {
+        window.print();
+      }, 150);
+    });
+  }
+
   window.addEventListener('afterprint', () => {
     // Restore original classes
-    document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
-    if (state.printGuides) {
-      document.body.classList.add('show-print-guides');
-    } else {
-      document.body.classList.remove('show-print-guides');
+    document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim', 'print-mode-instructions');
+    
+    // Restore printMode if it was instructions
+    if (state.printMode === 'instructions') {
+      const selectedRadio = document.querySelector('input[name="printModeRadio"]:checked');
+      state.printMode = selectedRadio ? selectedRadio.value : 'bleedbox';
     }
+    
+    applyUIClassesToBody();
+    
     // Re-run updatePrintPageSize to restore state
     updatePrintPageSize();
   });
@@ -2482,6 +2512,18 @@ function updatePrintPageSize() {
   let totalH = h;
 
   const mode = state.printMode || 'bleedbox';
+  if (mode === 'instructions') {
+    styleTag.innerHTML = `
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 15mm;
+        }
+      }
+    `;
+    return;
+  }
+
   if (mode === 'cropmarks') {
     totalW += 24; // 12mm left, 12mm right margins
     totalH += 30; // 15mm top, 15mm bottom margins
@@ -3340,6 +3382,210 @@ function renderBookmarkPanel(panelData, side, pageNum) {
         <div class="bookmark-footnote editable-field" data-sec="${side}" data-field="footnote">${footnote}</div>
         ${renderAiButtons(side, 'footnote')}
       </div>
+    </div>
+  `;
+}
+
+// Generate dynamic HTML for printer specifications sheet (Spec Sheet)
+function generatePrinterInstructionsHTML() {
+  if (!printerInstructionsContainer) return;
+
+  // 1. Resolve Document Type & Layout
+  let docTypeLabel = '';
+  let layoutLabel = '';
+  let foldingDetails = '';
+  
+  if (state.docType === 'bookmark') {
+    docTypeLabel = 'Σελιδοδείκτης (Bookmark)';
+    layoutLabel = state.bilingualBookmark ? 'Δίγλωσσος (Ελληνικά / Αγγλικά)' : 'Μονόγλωσσος';
+    foldingDetails = 'Δεν απαιτούνται πτυχώσεις. Κοπή στις τελικές διαστάσεις.';
+  } else if (state.docType === 'booklet') {
+    docTypeLabel = 'Βιβλιάριο (Booklet)';
+    layoutLabel = '16σέλιδο Έντυπο';
+    foldingDetails = 'Αναδίπλωση στη μέση, βιβλιοδεσία με καρφίτσα.';
+  } else { // brochure
+    docTypeLabel = 'Πολύπτυχο Φυλλάδιο (Brochure)';
+    if (state.layout === 'trifold') {
+      layoutLabel = 'Τρίπτυχο Φυλλάδιο';
+      foldingDetails = 'Δύο πτυχώσεις (αναδίπλωση σε 3 πάνελ / Trifold).';
+    } else if (state.layout === 'bifold') {
+      layoutLabel = 'Δίπτυχο Φυλλάδιο';
+      foldingDetails = 'Μία πτύχωση στη μέση (αναδίπλωση σε 2 πάνελ / Bifold).';
+    } else {
+      layoutLabel = 'Μονόφυλλο Έντυπο';
+      foldingDetails = 'Δεν απαιτούνται πτυχώσεις. Κοπή στις τελικές διαστάσεις.';
+    }
+  }
+
+  // 2. Resolve Theme / Template
+  const themeLabels = {
+    general: 'Γενικό Έντυπο ΚΕΓ',
+    certification: 'Τμήμα Πιστοποίησης Ελληνομάθειας',
+    fryktories: 'Δίκτυο Φρυκτωρίες (Έδρες Ελληνικών Σπουδών)',
+    lexicography: 'Τμήμα Λεξικογραφίας (Λεξικό Κριαρά)',
+    cavafy: 'Θεματικό: Κ. Π. Καβάφης',
+    elytis: 'Θεματικό: Οδυσσέας Ελύτης',
+    seferis: 'Θεματικό: Γιώργος Σεφέρης',
+    kriaras: 'Θεματικό: Εμμανουήλ Κριάρας',
+    books: 'Θεματικό: Βιβλίο & Εκπαίδευση',
+    interactive: 'Θεματικό: Ψηφιακό & Διαδραστικό'
+  };
+  const themeLabel = themeLabels[state.template] || state.template;
+
+  // 3. Resolve Paper Specifications
+  const paperTypeLabels = {
+    velvet: 'Velvet / Matte Coated (Ματ/Βελούδο)',
+    gloss: 'Gloss Coated (Ιλουστρασιόν Γυαλιστερό)',
+    uncoated: 'Writing / Offset (Απεστρωμένο Γραφής)',
+    kraft: 'Ecological Kraft (Οικολογικό Κραφτ)',
+    textured: 'Fine Art Linen (Ανάγλυφο με Υφή Λινού)'
+  };
+  const paperTypeLabel = paperTypeLabels[state.paperType] || state.paperType;
+
+  const paperColorLabels = {
+    offwhite: 'Σπασμένο Λευκό (Off-White)',
+    white: 'Καθαρό Λευκό (Pure White)',
+    cream: 'Κρεμ / Ivory (Classic Cream)',
+    grey: 'Φυσικό Ανακυκλωμένο (Recycled Grey)',
+    kraft: 'Οικολογικό Κραφτ (Kraft Brown)'
+  };
+  const paperColorLabel = paperColorLabels[state.paperColor] || state.paperColor;
+  const paperWeightLabel = `${state.paperWeight} gsm`;
+
+  // 4. Resolve Dimensions
+  const dims = PAGE_SIZES[state.pageSize] || (state.docType === 'bookmark' ? PAGE_SIZES.bookmark_wide : PAGE_SIZES.b5);
+  const pageW = dims.width;
+  const pageH = dims.height;
+
+  let panels = 2; // Default for bifold / booklet / bookmark
+  if (state.docType === 'brochure') {
+    if (state.layout === 'trifold') panels = 3;
+    else if (state.layout === 'single') panels = 1;
+  }
+
+  const totalTrimW = panels * pageW;
+  const totalTrimH = pageH;
+  
+  const totalBleedW = totalTrimW + 6;
+  const totalBleedH = totalTrimH + 6;
+
+  // 5. Selected Print Mode
+  const selectedRadio = document.querySelector('input[name="printModeRadio"]:checked');
+  const printModeValue = selectedRadio ? selectedRadio.value : 'bleedbox';
+  let printModeLabel = '';
+  let printModeDesc = '';
+  
+  if (printModeValue === 'bleedbox') {
+    printModeLabel = '1. Καθαρό Αρχείο με Bleed (Bleed Box 3mm)';
+    printModeDesc = 'Το παραδοτέο PDF περιλαμβάνει τις διαστάσεις του εντύπου συν 3mm ξάκρισμα (bleed) περιμετρικά. Δεν περιλαμβάνει σημεία κοπής (crop marks) για αποφυγή λαθών στη σύμπτωση. Κατάλληλο για αυτόματα συστήματα κοπής τυπογραφείων.';
+  } else if (printModeValue === 'cropmarks') {
+    printModeLabel = '2. Αρχείο με Σημεία Κοπής & Bleed (Crop Marks)';
+    printModeDesc = 'Το παραδοτέο PDF περιέχει οδηγούς κοπής (crop marks), σταυρούς σύμπτωσης (registration marks) και μπάρες ελέγχου χρωμάτων περιμετρικά. Το ξάκρισμα (bleed) είναι 3mm.';
+  } else {
+    printModeLabel = '3. Καθαρό Έντυπο στις Τελικές Διαστάσεις (Trim Size)';
+    printModeDesc = 'Το παραδοτέο PDF έχει τις ακριβείς τελικές διαστάσεις του εντύπου, χωρίς ξάκρισμα (bleed) ή crop marks. Κατάλληλο για ψηφιακή χρήση ή οικιακούς εκτυπωτές.';
+  }
+
+  // 6. Current Date
+  const dateString = new Date().toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+  // 7. Get Draft Name if available
+  const draftName = draftNameInput ? draftNameInput.value.trim() : '';
+  const projectName = draftName || 'Σχέδιο Εντύπου ΚΕΓ';
+
+  // 8. Generate HTML Content
+  printerInstructionsContainer.innerHTML = `
+    <div class="instructions-header">
+      <img src="assets/cgl_logo.png" alt="Λογότυπο ΚΕΓ" class="instructions-logo">
+      <div class="instructions-title-block">
+        <h1>ΔΕΛΤΙΟ ΠΡΟΔΙΑΓΡΑΦΩΝ ΕΚΤΥΠΩΣΗΣ</h1>
+        <h2>Κέντρο Ελληνικής Γλώσσας — Ψηφιακός Σχεδιαστής Εντύπων</h2>
+      </div>
+    </div>
+
+    <div class="instructions-meta">
+      <p><strong>Όνομα Έργου:</strong> ${projectName}</p>
+      <p><strong>Ημερομηνία:</strong> ${dateString}</p>
+    </div>
+
+    <div class="instructions-section">
+      <h3>1. Γενικά Στοιχεία Εντύπου</h3>
+      <table class="instructions-table">
+        <tr>
+          <th>Τύπος Εντύπου & Διάταξη:</th>
+          <td>${docTypeLabel} &mdash; ${layoutLabel}</td>
+        </tr>
+        <tr>
+          <th>Θεματική Ενότητα / Θέμα:</th>
+          <td>${themeLabel}</td>
+        </tr>
+        <tr>
+          <th>Γλώσσα / Έκδοση:</th>
+          <td>${state.language === 'en' ? 'Αγγλική Έκδοση' : 'Ελληνική Έκδοση'}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="instructions-section">
+      <h3>2. Προδιαγραφές Χαρτιού</h3>
+      <table class="instructions-table">
+        <tr>
+          <th>Τύπος & Υφή Χαρτιού:</th>
+          <td>${paperTypeLabel}</td>
+        </tr>
+        <tr>
+          <th>Βάρος Χαρτιού (Γραμμάρια):</th>
+          <td>${paperWeightLabel}</td>
+        </tr>
+        <tr>
+          <th>Αρχικό Χρώμα Χαρτιού:</th>
+          <td>${paperColorLabel}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="instructions-section">
+      <h3>3. Διαστάσεις, Ξάκρισμα & Κοπή</h3>
+      <table class="instructions-table">
+        <tr>
+          <th>Καθαρές Διαστάσεις Σελίδας (Trim):</th>
+          <td>${pageW} x ${pageH} mm</td>
+        </tr>
+        <tr>
+          <th>Συνολικές Διαστάσεις Ανάπτυξης (Spread):</th>
+          <td>${totalTrimW} x ${totalTrimH} mm (Οριζόντιος Προσανατολισμός)</td>
+        </tr>
+        <tr>
+          <th>Περιθώριο Ξακρίσματος (Bleed):</th>
+          <td>3 mm σε όλες τις πλευρές</td>
+        </tr>
+        <tr>
+          <th>Συνολικές Διαστάσεις με Ξάκρισμα:</th>
+          <td>${totalBleedW} x ${totalBleedH} mm</td>
+        </tr>
+        <tr>
+          <th>Πτυχώσεις / Διπλώματα:</th>
+          <td>${foldingDetails}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="instructions-section">
+      <h3>4. Τεχνικές Οδηγίες Εκτύπωσης</h3>
+      <div class="instructions-notes">
+        <p><strong>Διάταξη Σελίδων:</strong> Το αρχείο PDF εκτύπωσης αποτελείται από <strong>2 σελίδες (όψεις)</strong> που πρέπει να εκτυπωθούν <strong>μπρος-πίσω (double-sided)</strong> με απόλυτη σύμπτωση των όψεων κατά την κοπή:</p>
+        <ul>
+          <li><strong>Σελίδα 1 (Όψη Α - Εξωτερική):</strong> Περιλαμβάνει το Εξώφυλλο, το Οπισθόφυλλο και το Flap (αν υπάρχει).</li>
+          <li><strong>Σελίδα 2 (Όψη Β - Εσωτερική):</strong> Περιλαμβάνει τις εσωτερικές σελίδες/στήλες.</li>
+        </ul>
+        <p><strong>Χρώματα & CMYK:</strong> Όλα τα στοιχεία (κείμενα, μοτίβα, φόντο) έχουν εξαχθεί σε υψηλή ανάλυση. Συνιστάται η εκτύπωση με τετραχρωμία (CMYK) και η χρήση των αντίστοιχων προφίλ χρωμάτων ανάλογα με το επιλεγμένο χαρτί (π.χ. Coated FOGRA39 για Velvet, Uncoated για Offset).</p>
+        <p><strong>Επιλεγμένος Τύπος Παραδοτέου PDF:</strong></p>
+        <p><strong>${printModeLabel}</strong><br><span style="font-size: 8.5pt; color: #64748b;">${printModeDesc}</span></p>
+      </div>
+    </div>
+
+    <div class="instructions-footer">
+      <p>Το παρόν δελτίο συνοδεύει το ψηφιακό αρχείο εκτύπωσης και περιέχει τις τεχνικές παραμέτρους όπως επιλέχθηκαν από το χρήστη στον σχεδιαστή εντύπων του ΚΕΓ.</p>
     </div>
   `;
 }
