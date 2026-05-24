@@ -1157,7 +1157,7 @@ let state = {
   fontSize: 'medium',     // 'small', 'medium', 'large'
   bookmarkTheme: 'lexicography',
   zoom: 1.0,
-  originalTexts: {},
+  fieldHistories: {},
   bilingualBookmark: false,
   geminiKey: '',
   videoScripts: {},       // Stores user-edited video script text
@@ -1945,69 +1945,171 @@ window.triggerImageUpload = function(sectionKey) {
   document.body.removeChild(fileInput);
 };
 
-// Helper to render AI actions (Rewrite & Undo buttons)
-function renderAiButtons(section, field, index = null) {
-  const idxStr = index !== null && index !== undefined ? index : 'null';
-  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
-  const hasBackup = state.originalTexts && state.originalTexts[backupKey];
-  
-  let html = `<div class="ai-actions-container">`;
-  html += `<button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${section}', '${field}', ${idxStr}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>`;
-  if (hasBackup) {
-    html += `<button class="ai-undo-btn" onclick="window.triggerAiUndo('${section}', '${field}', ${idxStr}, this)" title="Επαναφορά προηγούμενου κειμένου (Undo)">↩️</button>`;
-  }
-  html += `</div>`;
-  return html;
-}
-
-// Google Gemini AI Undo trigger
-window.triggerAiUndo = function(section, field, index, buttonEl) {
-  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
-  if (!state.originalTexts || !state.originalTexts[backupKey]) return;
-  
-  const originalText = state.originalTexts[backupKey];
-  
-  // Find element
-  let selector = `.editable-field[data-sec="${section}"][data-field="${field}"]`;
-  if (index !== null && index !== undefined) {
-    selector += `[data-idx="${index}"]`;
-  }
-  const el = document.querySelector(selector);
-  if (!el) return;
-  
-  el.innerText = originalText;
-  
-  // Update state memory
+// Helper to retrieve current field value directly from state
+function getFieldCurrentValue(section, field, index) {
   if (state.docType === 'bookmark') {
     let lang = state.language;
     if (state.bilingualBookmark) {
       lang = (section === 'front') ? 'el' : 'en';
     }
     const activeData = state.contentData.bookmark[state.bookmarkTheme][lang];
-    if (activeData[section]) {
+    if (activeData && activeData[section]) {
       if (field === 'bullets' && index !== null && index !== undefined) {
         let bulletsArray = activeData[section].mainText.split('\n').filter(line => line.trim() !== '');
-        bulletsArray[parseInt(index)] = '• ' + originalText;
-        activeData[section].mainText = bulletsArray.join('\n');
+        let val = bulletsArray[parseInt(index)] || '';
+        return val.replace(/^[•\-\*\s]+/, '').trim();
       } else {
-        activeData[section][field] = originalText;
+        return activeData[section][field] || '';
       }
     }
   } else {
     const activeData = getActiveData();
-    if (activeData[section]) {
+    if (activeData && activeData[section]) {
       if (index !== null && index !== undefined && Array.isArray(activeData[section][field])) {
-        activeData[section][field][parseInt(index)] = originalText;
+        return activeData[section][field][parseInt(index)] || '';
       } else {
-        activeData[section][field] = originalText;
+        return activeData[section][field] || '';
       }
     }
   }
+  return '';
+}
+
+// Helper to apply text changes to state memory
+function applyFieldText(section, field, index, text) {
+  if (state.docType === 'bookmark') {
+    let lang = state.language;
+    if (state.bilingualBookmark) {
+      lang = (section === 'front') ? 'el' : 'en';
+    }
+    const activeData = state.contentData.bookmark[state.bookmarkTheme][lang];
+    if (activeData && activeData[section]) {
+      if (field === 'bullets' && index !== null && index !== undefined) {
+        let bulletsArray = activeData[section].mainText.split('\n').filter(line => line.trim() !== '');
+        bulletsArray[parseInt(index)] = '• ' + text;
+        activeData[section].mainText = bulletsArray.join('\n');
+      } else {
+        activeData[section][field] = text;
+      }
+    }
+  } else {
+    const activeData = getActiveData();
+    if (activeData && activeData[section]) {
+      if (index !== null && index !== undefined && Array.isArray(activeData[section][field])) {
+        activeData[section][field][parseInt(index)] = text;
+      } else {
+        activeData[section][field] = text;
+      }
+    }
+  }
+}
+
+// Push a new field state to history (Max 5 levels)
+function pushFieldState(backupKey, newValue, section, field, index) {
+  state.fieldHistories = state.fieldHistories || {};
+  let historyObj = state.fieldHistories[backupKey];
   
-  // Delete backup
-  delete state.originalTexts[backupKey];
+  if (!historyObj) {
+    const currentVal = getFieldCurrentValue(section, field, index);
+    historyObj = {
+      states: [currentVal],
+      currentIndex: 0
+    };
+    state.fieldHistories[backupKey] = historyObj;
+  }
   
-  // Re-render canvas
+  if (newValue === historyObj.states[historyObj.currentIndex]) {
+    return;
+  }
+  
+  // Truncate any redo states if we edited in-between
+  historyObj.states = historyObj.states.slice(0, historyObj.currentIndex + 1);
+  
+  // Add new state
+  historyObj.states.push(newValue);
+  historyObj.currentIndex = historyObj.states.length - 1;
+  
+  // Limit to max 5 undo levels (which means max 6 states in list: 1 active + 5 historical)
+  if (historyObj.states.length > 6) {
+    historyObj.states.shift();
+    historyObj.currentIndex = historyObj.states.length - 1;
+  }
+}
+
+// Helper to render AI actions (Rewrite, Undo & Redo buttons)
+function renderAiButtons(section, field, index = null) {
+  const idxStr = index !== null && index !== undefined ? index : 'null';
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  
+  const historyObj = state.fieldHistories && state.fieldHistories[backupKey];
+  const canUndo = historyObj && historyObj.currentIndex > 0;
+  const canRedo = historyObj && historyObj.currentIndex < historyObj.states.length - 1;
+  
+  let html = `<div class="ai-actions-container">`;
+  html += `<button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${section}', '${field}', ${idxStr}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>`;
+  
+  if (canUndo) {
+    html += `<button class="ai-undo-btn" onclick="window.triggerAiUndo('${section}', '${field}', ${idxStr}, this)" title="Αναίρεση αλλαγής (Undo)">↩️</button>`;
+  }
+  if (canRedo) {
+    html += `<button class="ai-redo-btn" onclick="window.triggerAiRedo('${section}', '${field}', ${idxStr}, this)" title="Επαναφορά αλλαγής (Redo)">↪️</button>`;
+  }
+  
+  html += `</div>`;
+  return html;
+}
+
+// Google Gemini AI Undo trigger (Go back in history)
+window.triggerAiUndo = function(section, field, index, buttonEl) {
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  const historyObj = state.fieldHistories && state.fieldHistories[backupKey];
+  if (!historyObj || historyObj.currentIndex <= 0) return;
+  
+  // Go back
+  historyObj.currentIndex--;
+  const prevText = historyObj.states[historyObj.currentIndex];
+  
+  // Find element in DOM
+  let selector = `.editable-field[data-sec="${section}"][data-field="${field}"]`;
+  if (index !== null && index !== undefined) {
+    selector += `[data-idx="${index}"]`;
+  }
+  const el = document.querySelector(selector);
+  if (el) {
+    el.innerText = prevText;
+  }
+  
+  // Apply to memory
+  applyFieldText(section, field, index, prevText);
+  
+  // Re-render
+  render();
+};
+
+// Google Gemini AI Redo trigger (Go forward in history)
+window.triggerAiRedo = function(section, field, index, buttonEl) {
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  const historyObj = state.fieldHistories && state.fieldHistories[backupKey];
+  if (!historyObj || historyObj.currentIndex >= historyObj.states.length - 1) return;
+  
+  // Go forward
+  historyObj.currentIndex++;
+  const nextText = historyObj.states[historyObj.currentIndex];
+  
+  // Find element in DOM
+  let selector = `.editable-field[data-sec="${section}"][data-field="${field}"]`;
+  if (index !== null && index !== undefined) {
+    selector += `[data-idx="${index}"]`;
+  }
+  const el = document.querySelector(selector);
+  if (el) {
+    el.innerText = nextText;
+  }
+  
+  // Apply to memory
+  applyFieldText(section, field, index, nextText);
+  
+  // Re-render
   render();
 };
 
@@ -2031,8 +2133,7 @@ window.triggerAiRewrite = async function(section, field, index, buttonEl) {
 
   // Save backup text before rewrite
   const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
-  state.originalTexts = state.originalTexts || {};
-  state.originalTexts[backupKey] = originalText;
+  // History is managed in pushFieldState on success
 
   buttonEl.classList.add('loading');
   buttonEl.disabled = true;
@@ -2095,7 +2196,9 @@ Text to rewrite: "${originalText}"`
           }
         }
       }
-      render(); // Re-render to show Undo button
+      // Save rewrite to field history
+      pushFieldState(backupKey, rewrittenText, section, field, index);
+      render(); // Re-render to show Undo/Redo buttons
     } else {
       alert("⚠️ Το Gemini API δεν επέστρεψε περιεχόμενο. Δοκιμάστε ξανά.");
     }
@@ -2129,6 +2232,10 @@ function bindTextEdits() {
       
       const newText = e.target.innerText.trim();
       
+      const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+      // Push manual edit to history
+      pushFieldState(backupKey, newText, section, field, index);
+
       if (state.docType === 'bookmark') {
         let lang = state.language;
         if (state.bilingualBookmark) {
@@ -2144,6 +2251,7 @@ function bindTextEdits() {
             activeData[section][field] = newText;
           }
         }
+        render(); // Re-render to show Undo/Redo if edited manually
         return;
       }
       
@@ -2155,6 +2263,7 @@ function bindTextEdits() {
           activeData[section][field] = newText;
         }
       }
+      render(); // Re-render to show Undo/Redo if edited manually
     });
   });
 }
