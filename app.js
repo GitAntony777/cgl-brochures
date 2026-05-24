@@ -1157,6 +1157,7 @@ let state = {
   fontSize: 'medium',     // 'small', 'medium', 'large'
   bookmarkTheme: 'lexicography',
   zoom: 1.0,
+  originalTexts: {},
   bilingualBookmark: false,
   geminiKey: '',
   videoScripts: {},       // Stores user-edited video script text
@@ -1944,6 +1945,72 @@ window.triggerImageUpload = function(sectionKey) {
   document.body.removeChild(fileInput);
 };
 
+// Helper to render AI actions (Rewrite & Undo buttons)
+function renderAiButtons(section, field, index = null) {
+  const idxStr = index !== null && index !== undefined ? index : 'null';
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  const hasBackup = state.originalTexts && state.originalTexts[backupKey];
+  
+  let html = `<div class="ai-actions-container">`;
+  html += `<button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${section}', '${field}', ${idxStr}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>`;
+  if (hasBackup) {
+    html += `<button class="ai-undo-btn" onclick="window.triggerAiUndo('${section}', '${field}', ${idxStr}, this)" title="Επαναφορά προηγούμενου κειμένου (Undo)">↩️</button>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+// Google Gemini AI Undo trigger
+window.triggerAiUndo = function(section, field, index, buttonEl) {
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  if (!state.originalTexts || !state.originalTexts[backupKey]) return;
+  
+  const originalText = state.originalTexts[backupKey];
+  
+  // Find element
+  let selector = `.editable-field[data-sec="${section}"][data-field="${field}"]`;
+  if (index !== null && index !== undefined) {
+    selector += `[data-idx="${index}"]`;
+  }
+  const el = document.querySelector(selector);
+  if (!el) return;
+  
+  el.innerText = originalText;
+  
+  // Update state memory
+  if (state.docType === 'bookmark') {
+    let lang = state.language;
+    if (state.bilingualBookmark) {
+      lang = (section === 'front') ? 'el' : 'en';
+    }
+    const activeData = state.contentData.bookmark[state.bookmarkTheme][lang];
+    if (activeData[section]) {
+      if (field === 'bullets' && index !== null && index !== undefined) {
+        let bulletsArray = activeData[section].mainText.split('\n').filter(line => line.trim() !== '');
+        bulletsArray[parseInt(index)] = '• ' + originalText;
+        activeData[section].mainText = bulletsArray.join('\n');
+      } else {
+        activeData[section][field] = originalText;
+      }
+    }
+  } else {
+    const activeData = getActiveData();
+    if (activeData[section]) {
+      if (index !== null && index !== undefined && Array.isArray(activeData[section][field])) {
+        activeData[section][field][parseInt(index)] = originalText;
+      } else {
+        activeData[section][field] = originalText;
+      }
+    }
+  }
+  
+  // Delete backup
+  delete state.originalTexts[backupKey];
+  
+  // Re-render canvas
+  render();
+};
+
 // Google Gemini AI rewrite caller
 window.triggerAiRewrite = async function(section, field, index, buttonEl) {
   const apiKey = localStorage.getItem('geminiApiKey') || state.geminiKey;
@@ -1962,12 +2029,17 @@ window.triggerAiRewrite = async function(section, field, index, buttonEl) {
   const originalText = el.innerText.trim();
   if (!originalText) return;
 
+  // Save backup text before rewrite
+  const backupKey = `${state.docType}-${state.template}-${state.bookmarkTheme}-${state.language}-${section}-${field}-${index !== null && index !== undefined ? index : ''}`;
+  state.originalTexts = state.originalTexts || {};
+  state.originalTexts[backupKey] = originalText;
+
   buttonEl.classList.add('loading');
   buttonEl.disabled = true;
   el.classList.add('ai-loading-shimmer');
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-3.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -2023,6 +2095,7 @@ Text to rewrite: "${originalText}"`
           }
         }
       }
+      render(); // Re-render to show Undo button
     } else {
       alert("⚠️ Το Gemini API δεν επέστρεψε περιεχόμενο. Δοκιμάστε ξανά.");
     }
@@ -2397,29 +2470,29 @@ function renderCoverPanel(coverData, pageNum) {
       
       <div class="editable-container">
         <div class="cover-badge editable-field" data-sec="cover" data-field="badge">${coverData.badge}</div>
-        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'badge', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        ${renderAiButtons('cover', 'badge')}
       </div>
       
       <div class="cover-main">
         <div class="cover-emblem"></div>
         <div class="editable-container">
           <h1 class="cover-title serif-title editable-field" data-sec="cover" data-field="title">${coverData.title}</h1>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('cover', 'title')}
         </div>
         <div class="editable-container">
           <p class="cover-subtitle greek-style-heading editable-field" data-sec="cover" data-field="subtitle">${coverData.subtitle}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'subtitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('cover', 'subtitle')}
         </div>
       </div>
       
       <div class="cover-event">
         <div class="editable-container">
           <div class="cover-event-title editable-field" data-sec="cover" data-field="eventTitle">${coverData.eventTitle}</div>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'eventTitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('cover', 'eventTitle')}
         </div>
         <div class="editable-container">
           <div class="cover-event-date editable-field" data-sec="cover" data-field="eventDate">${coverData.eventDate}</div>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'eventDate', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('cover', 'eventDate')}
         </div>
       </div>
     </div>
@@ -2438,30 +2511,30 @@ function renderBackCoverPanel(backData, pageNum) {
       <div class="back-header">
         <div class="editable-container">
           <span class="panel-category editable-field" data-sec="backCover" data-field="title">${backData.title}</span>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'title')}
         </div>
         <div class="editable-container">
           <p class="panel-lead editable-field" data-sec="backCover" data-field="lead">${backData.lead}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'lead')}
         </div>
       </div>
       
       <div class="contact-info">
         <div class="editable-container">
           <p class="contact-item editable-field" data-sec="backCover" data-field="address">${backData.address}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'address', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'address')}
         </div>
         <div class="editable-container">
           <p class="contact-item editable-field" data-sec="backCover" data-field="phone">${backData.phone}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'phone', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'phone')}
         </div>
         <div class="editable-container">
           <p class="contact-item editable-field" data-sec="backCover" data-field="email">${backData.email}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'email', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'email')}
         </div>
         <div class="editable-container">
           <p class="contact-item editable-field" data-sec="backCover" data-field="website">${backData.website}</p>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'website', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons('backCover', 'website')}
         </div>
       </div>
       
@@ -2469,12 +2542,12 @@ function renderBackCoverPanel(backData, pageNum) {
         <div class="social-links">
           <div class="editable-container" style="display: inline-block;">
             <span class="editable-field" data-sec="backCover" data-field="socialFb">${backData.socialFb}</span>
-            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'socialFb', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+            ${renderAiButtons('backCover', 'socialFb')}
           </div>
           <span>•</span>
           <div class="editable-container" style="display: inline-block;">
             <span class="editable-field" data-sec="backCover" data-field="socialTw">${backData.socialTw}</span>
-            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'socialTw', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+            ${renderAiButtons('backCover', 'socialTw')}
           </div>
         </div>
       </div>
@@ -2489,7 +2562,7 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
     bodyContent = sectionData.paras.map((p, idx) => `
       <div class="editable-container">
         <p class="panel-para editable-field" data-sec="${sectionKey}" data-field="paras" data-idx="${idx}">${p}</p>
-        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'paras', ${idx}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        ${renderAiButtons(sectionKey, 'paras', idx)}
         <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'paras', ${idx})">❌</button>
       </div>
     `).join('');
@@ -2499,7 +2572,7 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
         ${sectionData.list.map((item, idx) => `
           <div class="editable-container">
             <li class="editable-field" data-sec="${sectionKey}" data-field="list" data-idx="${idx}">${item}</li>
-            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'list', ${idx}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+            ${renderAiButtons(sectionKey, 'list', idx)}
             <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'list', ${idx})">❌</button>
           </div>
         `).join('')}
@@ -2528,18 +2601,18 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
       <div class="panel-header">
         <div class="editable-container">
           <span class="panel-category editable-field" data-sec="${sectionKey}" data-field="category">${sectionData.category}</span>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'category', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(sectionKey, 'category')}
         </div>
         <div class="editable-container">
           <h2 class="panel-title serif-title editable-field" data-sec="${sectionKey}" data-field="title">${sectionData.title}</h2>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(sectionKey, 'title')}
         </div>
       </div>
       
       <div class="panel-body">
         <div class="editable-container">
           <div class="panel-lead editable-field" data-sec="${sectionKey}" data-field="lead">${sectionData.lead}</div>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(sectionKey, 'lead')}
         </div>
         ${bodyContent}
         ${imageContent}
@@ -2582,14 +2655,14 @@ function renderBookmarkPanel(panelData, side, pageNum) {
     mainBodyContent = `
       <div class="editable-container">
         <p class="bookmark-quote editable-field" data-sec="${side}" data-field="mainText">${mainText}</p>
-        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'mainText', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        ${renderAiButtons(side, 'mainText')}
       </div>
     `;
   } else {
     mainBodyContent = `
       <div class="editable-container">
         <p class="panel-para editable-field" data-sec="${side}" data-field="mainText">${mainText}</p>
-        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'mainText', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        ${renderAiButtons(side, 'mainText')}
       </div>
     `;
   }
@@ -2616,16 +2689,16 @@ function renderBookmarkPanel(panelData, side, pageNum) {
       <div class="panel-header">
         <div class="editable-container">
           <span class="panel-category editable-field" data-sec="${side}" data-field="category">${category}</span>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'category', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(side, 'category')}
         </div>
         <div class="editable-container">
           <h2 class="panel-title serif-title editable-field" data-sec="${side}" data-field="title">${title}</h2>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(side, 'title')}
         </div>
         ${subtitle ? `
           <div class="editable-container">
             <p class="cover-subtitle greek-style-heading editable-field" data-sec="${side}" data-field="subtitle">${subtitle}</p>
-            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'subtitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+            ${renderAiButtons(side, 'subtitle')}
           </div>
         ` : ''}
       </div>
@@ -2633,7 +2706,7 @@ function renderBookmarkPanel(panelData, side, pageNum) {
       <div class="panel-body">
         <div class="editable-container">
           <div class="panel-lead editable-field" data-sec="${side}" data-field="lead">${lead}</div>
-          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          ${renderAiButtons(side, 'lead')}
         </div>
         ${mainBodyContent}
         ${emblemHtml}
@@ -2641,7 +2714,7 @@ function renderBookmarkPanel(panelData, side, pageNum) {
       
       <div class="editable-container">
         <div class="bookmark-footnote editable-field" data-sec="${side}" data-field="footnote">${footnote}</div>
-        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'footnote', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        ${renderAiButtons(side, 'footnote')}
       </div>
     </div>
   `;

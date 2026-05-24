@@ -1745,11 +1745,21 @@ body.edit-mode-active .image-edit-container:hover .btn-image-change {
   100% { transform: translateX(100%); }
 }
 
-.ai-rewrite-btn {
+.ai-actions-container {
   display: none;
   position: absolute;
   right: 2px;
   top: 2px;
+  z-index: 99;
+  gap: 4px;
+  align-items: center;
+}
+
+body.edit-mode-active .editable-container:hover .ai-actions-container {
+  display: flex;
+}
+
+.ai-rewrite-btn {
   background: linear-gradient(135deg, #181d28, #242c3d);
   border: 1px solid var(--border-color);
   color: var(--secondary-color);
@@ -1757,17 +1767,13 @@ body.edit-mode-active .image-edit-container:hover .btn-image-change {
   padding: 1px 5px;
   font-size: 6.5pt;
   cursor: pointer;
-  z-index: 99;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-body.edit-mode-active .editable-container:hover .ai-rewrite-btn {
   display: flex;
   align-items: center;
-  gap: 2px;
+  justify-content: center;
 }
 
 .ai-rewrite-btn:hover {
@@ -1779,6 +1785,33 @@ body.edit-mode-active .editable-container:hover .ai-rewrite-btn {
   background: var(--dashboard-accent);
   color: #fff;
   animation: pulse 1s infinite alternate;
+}
+
+.ai-undo-btn {
+  background: rgba(229, 62, 62, 0.2) !important;
+  border: 1px solid rgba(229, 62, 62, 0.4) !important;
+  color: #feb2b2 !important;
+  border-radius: 4px !important;
+  padding: 1px 4px !important;
+  font-size: 6.5pt !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+}
+
+.ai-undo-btn:hover {
+  background: rgba(229, 62, 62, 0.4) !important;
+  border-color: rgba(229, 62, 62, 0.6) !important;
+  color: #fff !important;
+}
+
+.ai-undo-btn:active {
+  transform: scale(0.9) !important;
 }
 
 /* Modal Overlay Styles (Glassmorphism) */
