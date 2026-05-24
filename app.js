@@ -2553,6 +2553,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderBookmarkPanel(frontData, 'front', '1'))}
           ${renderPrintWrapper(renderBookmarkPanel(backData, 'back', '2'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
     `;
@@ -2567,6 +2568,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderBackCoverPanel(activeContent.page16, '16'))}
           ${renderPrintWrapper(renderCoverPanel(activeContent.page1, '1'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2576,6 +2578,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page2', activeContent.page2, '2'))}
           ${renderPrintWrapper(renderSectionPanel('page3', activeContent.page3, '3'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2585,6 +2588,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page4', activeContent.page4, '4'))}
           ${renderPrintWrapper(renderSectionPanel('page5', activeContent.page5, '5'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2594,6 +2598,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page6', activeContent.page6, '6'))}
           ${renderPrintWrapper(renderSectionPanel('page7', activeContent.page7, '7'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2603,6 +2608,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page8', activeContent.page8, '8'))}
           ${renderPrintWrapper(renderSectionPanel('page9', activeContent.page9, '9'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2612,6 +2618,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page10', activeContent.page10, '10'))}
           ${renderPrintWrapper(renderSectionPanel('page11', activeContent.page11, '11'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2621,6 +2628,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page12', activeContent.page12, '12'))}
           ${renderPrintWrapper(renderSectionPanel('page13', activeContent.page13, '13'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
       
@@ -2630,6 +2638,7 @@ function render() {
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page14', activeContent.page14, '14'))}
           ${renderPrintWrapper(renderSectionPanel('page15', activeContent.page15, '15'))}
+          ${createFoldGuide(1)}
         </div>
       </div>
     `;
@@ -2644,6 +2653,8 @@ function render() {
             ${renderPrintWrapper(renderSectionPanel('section3', activeContent.section3, '4'))}
             ${renderPrintWrapper(renderBackCoverPanel(activeContent.backCover, '5'))}
             ${renderPrintWrapper(renderCoverPanel(activeContent.cover, '6'))}
+            ${createFoldGuide(1)}
+            ${createFoldGuide(2)}
           </div>
         </div>
         <div class="spread-container inside-spread">
@@ -2652,6 +2663,8 @@ function render() {
             ${renderPrintWrapper(renderSectionPanel('intro', activeContent.intro, '1'))}
             ${renderPrintWrapper(renderSectionPanel('section1', activeContent.section1, '2'))}
             ${renderPrintWrapper(renderSectionPanel('section2', activeContent.section2, '3'))}
+            ${createFoldGuide(1)}
+            ${createFoldGuide(2)}
           </div>
         </div>
       `;
@@ -2662,6 +2675,7 @@ function render() {
           <div class="spread-canvas layout-bifold motif-${state.motif}">
             ${renderPrintWrapper(renderBackCoverPanel(activeContent.backCover, '4'))}
             ${renderPrintWrapper(renderCoverPanel(activeContent.cover, '1'))}
+            ${createFoldGuide(1)}
           </div>
         </div>
         <div class="spread-container inside-spread">
@@ -2669,6 +2683,7 @@ function render() {
           <div class="spread-canvas layout-bifold motif-${state.motif}">
             ${renderPrintWrapper(renderSectionPanel('intro', activeContent.intro, '2'))}
             ${renderPrintWrapper(renderSectionPanel('section1', activeContent.section1, '3'))}
+            ${createFoldGuide(1)}
           </div>
         </div>
       `;

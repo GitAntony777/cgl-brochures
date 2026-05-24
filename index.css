@@ -536,14 +536,39 @@ body.show-fold-guides .fold-guide {
   left: calc(-1 * var(--bleed-margin));
   right: calc(-1 * var(--bleed-margin));
   bottom: calc(-1 * var(--bleed-margin));
-  border: var(--bleed-margin) solid rgba(229, 62, 62, 0.15); /* Bleed area outside panel */
-  outline: 1px solid rgba(229, 62, 62, 0.4); /* Bleed limit (outer boundary) */
+  border-style: solid;
+  border-color: rgba(229, 62, 62, 0.15); /* Bleed area outside panel */
+  border-width: var(--bleed-margin) 0; /* Default: bleed top and bottom only */
   pointer-events: none;
   z-index: 9;
   display: none;
 }
 
-/* Safe margin boundary (5mm inside panel trim line) */
+/* Single layout: bleed on all 4 sides */
+.spread-canvas.layout-single .panel-print-wrapper .print-guides {
+  border-width: var(--bleed-margin);
+}
+
+/* Bifold layout: first bleeds left, last bleeds right */
+.spread-canvas.layout-bifold .panel-print-wrapper:first-child .print-guides {
+  border-width: var(--bleed-margin) 0 var(--bleed-margin) var(--bleed-margin);
+}
+.spread-canvas.layout-bifold .panel-print-wrapper:last-child .print-guides {
+  border-width: var(--bleed-margin) var(--bleed-margin) var(--bleed-margin) 0;
+}
+
+/* Trifold layout: first bleeds left, middle bleeds none horizontally, last bleeds right */
+.spread-canvas.layout-trifold .panel-print-wrapper:first-child .print-guides {
+  border-width: var(--bleed-margin) 0 var(--bleed-margin) var(--bleed-margin);
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:nth-child(2) .print-guides {
+  border-width: var(--bleed-margin) 0;
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:last-child .print-guides {
+  border-width: var(--bleed-margin) var(--bleed-margin) var(--bleed-margin) 0;
+}
+
+/* Safe margin boundary (5mm inside panel trim line) - always on all 4 sides of each panel */
 .print-guides::before {
   content: "";
   position: absolute;
@@ -554,7 +579,7 @@ body.show-fold-guides .fold-guide {
   border: 1px dotted rgba(49, 130, 206, 0.85); /* Safe zone dotted boundary */
 }
 
-/* Panel trim line (exact edge of the panel) */
+/* Panel trim line (exact edge of the panel) - default top and bottom only */
 .print-guides::after {
   content: "";
   position: absolute;
@@ -562,7 +587,33 @@ body.show-fold-guides .fold-guide {
   left: var(--bleed-margin);
   right: var(--bleed-margin);
   bottom: var(--bleed-margin);
-  border: 1px dashed rgba(229, 62, 62, 0.8); /* Cut/Trim line boundary */
+  border-style: dashed;
+  border-color: rgba(229, 62, 62, 0.8); /* Cut/Trim line boundary */
+  border-width: 1px 0; /* Default: top and bottom only */
+}
+
+/* Single layout: trim line on all 4 sides */
+.spread-canvas.layout-single .panel-print-wrapper .print-guides::after {
+  border-width: 1px;
+}
+
+/* Bifold layout */
+.spread-canvas.layout-bifold .panel-print-wrapper:first-child .print-guides::after {
+  border-width: 1px 0 1px 1px;
+}
+.spread-canvas.layout-bifold .panel-print-wrapper:last-child .print-guides::after {
+  border-width: 1px 1px 1px 0;
+}
+
+/* Trifold layout */
+.spread-canvas.layout-trifold .panel-print-wrapper:first-child .print-guides::after {
+  border-width: 1px 0 1px 1px;
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:nth-child(2) .print-guides::after {
+  border-width: 1px 0;
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:last-child .print-guides::after {
+  border-width: 1px 1px 1px 0;
 }
 
 body.show-print-guides .print-guides {
@@ -579,6 +630,7 @@ body.show-print-guides .print-guides {
   justify-content: space-between;
   padding: 18mm 14mm; /* Professional editorial print padding */
   overflow: hidden;
+  background-color: var(--paper-bg, var(--bg-color));
   color: var(--text-color);
   flex-shrink: 0;
   z-index: 1;
@@ -1157,6 +1209,9 @@ body.show-print-guides .panel-print-wrapper {
 
 body.show-print-guides .spread-canvas {
   margin: 15mm 12mm;
+  overflow: visible !important; /* Make bleed & crop marks visible on screen */
+  outline: 1px solid rgba(229, 62, 62, 0.4);
+  outline-offset: 3mm;
 }
 
 /* Printer Marks (Crop, Registration, Color Bar) */
@@ -1306,6 +1361,16 @@ body.show-print-guides .panel-print-wrapper:not(:last-child) .crop-br-v {
 }
 body.show-print-guides .color-bar {
   display: flex;
+}
+
+/* Avoid duplicate printer marks: color bar only on first panel */
+body.show-print-guides .panel-print-wrapper:not(:first-child) .color-bar {
+  display: none !important;
+}
+
+/* In trifold layout, only show registration marks on the middle panel (exact center of the spread) */
+.spread-canvas.layout-trifold .panel-print-wrapper:not(:nth-child(2)) .registration-mark {
+  display: none !important;
 }
 .color-patch {
   width: 3.5mm;
@@ -2246,5 +2311,7 @@ body.show-print-guides .brochure-panel {
   body.show-print-guides .spread-canvas {
     overflow: visible !important;
     background-color: transparent !important; /* Let wrapper background color take over */
+    outline: 1px solid rgba(229, 62, 62, 0.4) !important;
+    outline-offset: 3mm !important;
   }
 }
