@@ -49,9 +49,13 @@
     </div>
     
     <div class="quick-links">
-      <a href="http://www.greeklanguage.gr" target="_blank" rel="noopener">greeklanguage.gr</a>
-      <a href="http://www.greek-language.gr" target="_blank" rel="noopener">greek-language.gr</a>
-      <a href="https://www.fryktories.gr" target="_blank" rel="noopener">fryktories.gr</a>
+      <a href="https://www.greeklanguage.gr" target="_blank" rel="noopener">ΚΕΓ (Αρχική)</a>
+      <a href="https://www.greek-language.gr" target="_blank" rel="noopener">Πύλη</a>
+      <a href="https://www.fryktories.gr" target="_blank" rel="noopener">Φρυκτωρίες</a>
+      <a href="https://www.greek-language.gr/certification" target="_blank" rel="noopener">Πιστοποίηση</a>
+      <a href="https://proteas.greek-language.gr" target="_blank" rel="noopener">Πρωτέας</a>
+      <a href="https://ebooks.greeklanguage.gr" target="_blank" rel="noopener">e-Books</a>
+      <button id="btnLogout" class="btn-logout" title="Αποσύνδεση">🚪 Αποσύνδεση</button>
     </div>
   </header>
 
@@ -69,35 +73,31 @@
           </select>
         </div>
 
-        <div class="control-group" id="templateSelectGroup">
-          <label for="brochureTemplateSelect">Επιλέξτε Περιεχόμενο Φυλλαδίου:</label>
-          <select id="brochureTemplateSelect">
-            <option value="general" selected>Γενική Παρουσίαση & Πύλη (Προτείνεται: Τρίπτυχο)</option>
-            <option value="certification">Πιστοποίηση Ελληνομάθειας (Προτείνεται: Δίπτυχο)</option>
-            <option value="fryktories">Φρυκτωρίες & Εκπαίδευση (Προτείνεται: Μονό Φύλλο)</option>
-          </select>
-        </div>
-
-        <div class="control-group" id="bookmarkThemeSelectGroup" style="display: none;">
-          <label for="bookmarkThemeSelect">Επιλέξτε Θέμα Σελιδοδείκτη:</label>
-          <select id="bookmarkThemeSelect">
+        <div class="control-group" id="unifiedThemeSelectGroup">
+          <label for="themeSelect">Επιλέξτε Θεματικό Περιεχόμενο:</label>
+          <select id="themeSelect">
             <optgroup label="Τμήματα & Δράσεις ΚΕΓ">
-              <option value="lexicography" selected>Τμήμα Λεξικογραφίας (Λεξικά, Κριαράς κλπ)</option>
+              <option value="general" selected>Γενική Παρουσίαση & Πύλη (Προτείνεται: Τρίπτυχο)</option>
+              <option value="certification">Πιστοποίηση Ελληνομάθειας (Προτείνεται: Δίπτυχο)</option>
+              <option value="fryktories">Φρυκτωρίες & Εκπαίδευση (Προτείνεται: Μονό Φύλλο)</option>
+              <option value="lexicography">Τμήμα Λεξικογραφίας (Λεξικά, Κριαράς κλπ)</option>
               <option value="linguistics">Τμήμα Γλωσσολογίας (Έρευνα & Μελέτες)</option>
               <option value="literature">Τμήμα Στήριξης & Προβολής της Ελληνικής Γλώσσας</option>
-              <option value="certification">Πιστοποίηση Ελληνομάθειας (Εξετάσεις & Επίπεδα)</option>
               <option value="portal">Πύλη για την Ελληνική Γλώσσα</option>
-              <option value="fryktories">Φρυκτωρίες (Υποστήριξη Εκπαιδευτικών)</option>
             </optgroup>
-            <optgroup label="Βιογραφικοί Σελιδοδείκτες">
+            <optgroup label="Βιογραφικά & Πρόσωπα">
               <option value="cavafy">Κ. Π. Καβάφης</option>
               <option value="elytis">Οδυσσέας Ελύτης</option>
               <option value="seferis">Γιώργος Σεφέρης</option>
               <option value="kriaras">Εμμανουήλ Κριαράς</option>
             </optgroup>
-            <optgroup label="Θεματική Ελληνικής Γλώσσας">
+            <optgroup label="Θεματικές Ελληνικής Γλώσσας">
               <option value="history">Ιστορία της Ελληνικής Γλώσσας</option>
               <option value="etymology">Ετυμολογία & Ρίζες</option>
+            </optgroup>
+            <optgroup label="Εμπορικά & Εκδόσεις">
+              <option value="books">Σειρά Βιβλίων & «ΚΛΙΚ στα Ελληνικά»</option>
+              <option value="interactive">Διαδραστικά Βιβλία & Καινοτομίες</option>
             </optgroup>
           </select>
         </div>
@@ -236,8 +236,14 @@
 
     <!-- Brochure Canvas Area -->
     <section class="canvas-wrapper">
-      <div class="canvas-zoom-control">
+      <div class="canvas-zoom-control" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px;">
         <span>Προεπισκόπηση B5 Έντυπου (Max 176mm x 250mm ανά σελίδα)</span>
+        <div class="zoom-buttons" style="display: flex; gap: 0.5rem; align-items: center;">
+          <button id="btnZoomOut" class="btn-zoom" title="Σμίκρυνση">➖</button>
+          <span id="zoomValue" style="color: var(--dashboard-text); font-size: 0.85rem; font-weight: 500; min-width: 45px; text-align: center;">100%</span>
+          <button id="btnZoomIn" class="btn-zoom" title="Μεγέθυνση">➕</button>
+          <button id="btnZoomReset" class="btn-zoom" title="Επαναφορά Zoom" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">Reset</button>
+        </div>
       </div>
 
       <div class="brochure-canvas" id="brochureCanvas">

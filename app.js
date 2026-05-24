@@ -1156,6 +1156,7 @@ let state = {
   fontStyle: 'cinzel',    // 'cinzel', 'serif', 'sans'
   fontSize: 'medium',     // 'small', 'medium', 'large'
   bookmarkTheme: 'lexicography',
+  zoom: 1.0,
   bilingualBookmark: false,
   geminiKey: '',
   videoScripts: {},       // Stores user-edited video script text
@@ -1165,9 +1166,7 @@ let state = {
 
 // DOM Element Selectors
 const docTypeSelect = document.getElementById('docTypeSelect');
-const brochureTemplateSelect = document.getElementById('brochureTemplateSelect');
-const bookmarkThemeSelect = document.getElementById('bookmarkThemeSelect');
-const bookmarkThemeSelectGroup = document.getElementById('bookmarkThemeSelectGroup');
+const themeSelect = document.getElementById('themeSelect');
 const toggleBilingualBookmark = document.getElementById('toggleBilingualBookmark');
 const bilingualBookmarkToggleGroup = document.getElementById('bilingualBookmarkToggleGroup');
 const geminiApiKey = document.getElementById('geminiApiKey');
@@ -1245,6 +1244,14 @@ const themeVideos = {
   etymology: {
     youtubeId: "g2qJ3r_6y08",
     script: "Η ετυμολογία αναζητά τις ρίζες και την εξέλιξη των λέξεων. Δείτε την τεράστια επίδραση της ελληνικής στο παγκόσμιο λεξιλόγιο της επιστήμης."
+  },
+  books: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η σειρά εκπαιδευτικών βιβλίων ΚΛΙΚ στα Ελληνικά αποτελεί το πλέον σύγχρονο εργαλείο για την εκμάθηση της ελληνικής ως δεύτερης ή ξένης γλώσσας, καλύπτοντας όλα τα επίπεδα από το Α1 έως το Γ1."
+  },
+  interactive: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Τα διαδραστικά βιβλία του ΚΕΓ εισάγουν νέες καινοτομίες στη διδασκαλία της ελληνικής γλώσσας, συνδυάζοντας το multimedia περιεχόμενο με διαδραστικές ασκήσεις στην οθόνη του υπολογιστή σας."
   }
 };
 
@@ -1267,6 +1274,9 @@ function init() {
     state.geminiKey = savedKey;
   }
   
+  state.contentData = JSON.parse(JSON.stringify(templatesContent));
+  populateAllThemes(state.contentData);
+
   setupAuthListeners();
   setupThemeListeners();
   setupLayoutListeners();
@@ -1339,15 +1349,44 @@ function setupOptionListeners() {
     render();
   });
 
-  brochureTemplateSelect.addEventListener('change', (e) => {
+  themeSelect.addEventListener('change', (e) => {
     state.template = e.target.value;
-    render();
-  });
-
-  bookmarkThemeSelect.addEventListener('change', (e) => {
     state.bookmarkTheme = e.target.value;
     render();
   });
+
+  // Logout listener
+  const btnLogout = document.getElementById('btnLogout');
+  if (btnLogout) {
+    btnLogout.addEventListener('click', () => {
+      sessionStorage.removeItem('cglAuth');
+      state.authenticated = false;
+      document.body.classList.add('not-logged-in');
+      alert("🔒 Αποσυνδεθήκατε επιτυχώς!");
+    });
+  }
+
+  // Zoom listeners
+  const btnZoomIn = document.getElementById('btnZoomIn');
+  const btnZoomOut = document.getElementById('btnZoomOut');
+  const btnZoomReset = document.getElementById('btnZoomReset');
+
+  if (btnZoomIn && btnZoomOut && btnZoomReset) {
+    btnZoomIn.addEventListener('click', () => {
+      state.zoom = Math.min(state.zoom + 0.1, 2.0);
+      applyZoom();
+    });
+
+    btnZoomOut.addEventListener('click', () => {
+      state.zoom = Math.max(state.zoom - 0.1, 0.5);
+      applyZoom();
+    });
+
+    btnZoomReset.addEventListener('click', () => {
+      state.zoom = 1.0;
+      applyZoom();
+    });
+  }
 
   toggleBilingualBookmark.addEventListener('change', (e) => {
     state.bilingualBookmark = e.target.checked;
@@ -1445,12 +1484,310 @@ function applyUIClassesToBody() {
   }
 }
 
+function generateBrochureData(theme, lang, bookmarkStore) {
+  const bookmarkData = bookmarkStore[theme];
+  if (!bookmarkData) return {};
+  const activeBookmark = bookmarkData[lang];
+  
+  let image1 = 'assets/ancient_manuscript.png';
+  let image2 = 'assets/modern_geometric.png';
+  let image3 = 'assets/abstract_letters.png';
+  
+  if (theme === 'cavafy' || theme === 'elytis' || theme === 'seferis' || theme === 'kriaras') {
+    image1 = `assets/${theme}_portrait.png`;
+  } else if (theme === 'books') {
+    image1 = 'assets/books_illustration.png';
+  } else if (theme === 'interactive') {
+    image1 = 'assets/interactive_illustration.png';
+  }
+
+  return {
+    cover: {
+      title: activeBookmark.front.title,
+      subtitle: activeBookmark.front.subtitle || activeBookmark.front.category,
+      badge: lang === 'el' ? "Εκπαιδευτικό & Ερευνητικό Υλικό" : "Educational & Research Material",
+      eventTitle: lang === 'el' ? "Κέντρο Ελληνικής Γλώσσας" : "Center for the Greek Language",
+      eventDate: lang === 'el' ? "Θεσσαλονίκη • Έτος Ίδρυσης 1994" : "Thessaloniki • Established 1994"
+    },
+    backCover: {
+      title: lang === 'el' ? "Επικοινωνία & Πληροφορίες" : "Contact & Info",
+      lead: lang === 'el' ? "Βρείτε μας στη Θεσσαλονίκη και ψηφιακά σε όλο τον κόσμο." : "Find us in Thessaloniki and digitally across the globe.",
+      address: lang === 'el' ? "📍 Καραμαούνα 1, Πλατεία Σκρα, 55134 Καλαμαριά, Θεσσαλονίκη" : "📍 1 Karamaouna Str., Skra Square, 55134 Kalamaria, Thessaloniki",
+      phone: lang === 'el' ? "📞 Τηλέφωνο: +30 2313 331 500" : "📞 Tel: +30 2313 331 500",
+      email: lang === 'el' ? "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr" : "✉️ Email: centre@komvos.edu.gr • info@greeklanguage.gr",
+      website: "🌐 www.greeklanguage.gr",
+      socialFb: "Facebook: @greeklanguage.gr",
+      socialTw: "X: @GreekLanguage"
+    },
+    intro: {
+      category: activeBookmark.front.category,
+      title: lang === 'el' ? "Εισαγωγικό Σημείωμα" : "Introduction",
+      lead: activeBookmark.front.lead,
+      paras: [
+        activeBookmark.front.mainText,
+        lang === 'el'
+          ? "Το Κέντρο Ελληνικής Γλώσσας αναπτύσσει συστηματικές εκπαιδευτικές και ερευνητικές δράσεις για την υποστήριξη και διάδοση της ελληνικής γλώσσας. Μέσα από σύγχρονες υποδομές και έντυπες ή ψηφιακές εκδόσεις, προσφέρει ολοκληρωμένες λύσεις σε μαθητές και εκπαιδευτικούς παγκοσμίως."
+          : "The Center for the Greek Language develops systematic educational and research initiatives to support and disseminate the Greek language. Through modern infrastructures and print or digital publications, it offers comprehensive solutions for learners and teachers worldwide."
+      ]
+    },
+    section1: {
+      category: activeBookmark.back.category,
+      title: activeBookmark.back.title,
+      lead: activeBookmark.back.lead,
+      image: image1,
+      paras: [
+        activeBookmark.back.mainText.replace(/•/g, '').replace(/\n/g, ' '),
+        lang === 'el'
+          ? "Οι προσπάθειές μας επικεντρώνονται στην παροχή έγκριτου υλικού και ψηφιακών εργαλείων που διευκολύνουν την καθημερινή εκπαιδευτική πράξη και την επιστημονική μελέτη της γλώσσας μας."
+          : "Our efforts focus on providing authoritative materials and digital tools that facilitate daily educational practice and the scientific study of our language."
+      ]
+    },
+    section2: {
+      category: lang === 'el' ? "Άξονες Δράσης" : "Key Pillars",
+      title: lang === 'el' ? "Τομείς Εφαρμογής" : "Areas of Application",
+      lead: lang === 'el' ? "Κύριες κατευθύνσεις και εφαρμογές της θεματικής." : "Main directions and applications of the theme.",
+      image: image2,
+      list: activeBookmark.back.mainText.includes('•')
+        ? activeBookmark.back.mainText.split('\n').map(l => l.replace(/^[•\-\*\s]+/, '').trim()).filter(l => l !== '')
+        : (lang === 'el'
+            ? [
+                "Συστηματική μελέτη και επιστημονική ανάλυση της θεματικής",
+                "Ανάπτυξη υποστηρικτικού εκπαιδευτικού υλικού για τη σχολική τάξη",
+                "Διοργάνωση webinars και σεμιναρίων επιμόρφωσης εκπαιδευτικών",
+                "Διασύνδεση με διεθνείς πανεπιστημιακές έδρες και σπουδές"
+              ]
+            : [
+                "Systematic study and scientific analysis of the theme",
+                "Development of supportive educational material for classrooms",
+                "Organization of webinars and training seminars for educators",
+                "Collaboration with international university chairs and departments"
+              ])
+    },
+    section3: {
+      category: lang === 'el' ? "Υποστήριξη & Πόροι" : "Support & Resources",
+      title: lang === 'el' ? "Ψηφιακά Εργαλεία & Βοηθήματα" : "Digital Tools & Materials",
+      lead: lang === 'el' ? "Ελεύθερη πρόσβαση στις υποδομές του ΚΕΓ." : "Free access to CGL's digital infrastructure.",
+      image: image3,
+      paras: [
+        lang === 'el'
+          ? "Μέσα από την Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) και το ψηφιακό δίκτυο «Φρυκτωρίες», το ΚΕΓ παρέχει άμεση πρόσβαση σε λεξικά, σώματα κειμένων, εκπαιδευτικά σενάρια και βιβλιογραφικούς οδηγούς."
+          : "Through the Portal for the Greek Language (www.greek-language.gr) and the 'Fryktories' digital network, CGL provides direct access to dictionaries, text corpora, and lesson plans.",
+        lang === 'el'
+          ? "Κάθε ενδιαφερόμενος μπορεί να μελετήσει σε βάθος το θέμα αυτό, αξιοποιώντας τις σύγχρονες τεχνολογικές υποδομές και το έγκριτο υλικό που προσφέρεται παγκοσμίως."
+          : "Anyone interested can study this topic in depth, taking advantage of modern technological infrastructures and authoritative resources offered globally."
+      ]
+    }
+  };
+}
+
+function generateBookletData(theme, lang, contentData, originalBooklet) {
+  if (theme === 'general') {
+    return originalBooklet;
+  }
+  
+  const customBooklet = JSON.parse(JSON.stringify(originalBooklet));
+  const brochure = contentData[theme][lang];
+  
+  customBooklet.page1 = {
+    title: brochure.cover.title,
+    subtitle: brochure.cover.subtitle,
+    badge: brochure.cover.badge,
+    eventTitle: brochure.cover.eventTitle,
+    eventDate: brochure.cover.eventDate
+  };
+  
+  customBooklet.page2 = {
+    category: brochure.intro.category,
+    title: brochure.intro.title,
+    lead: brochure.intro.lead,
+    image: brochure.section1.image,
+    paras: brochure.intro.paras
+  };
+  
+  customBooklet.page4 = {
+    category: brochure.section1.category,
+    title: brochure.section1.title,
+    lead: brochure.section1.lead,
+    image: brochure.section1.image,
+    paras: brochure.section1.paras
+  };
+  
+  customBooklet.page5 = {
+    category: brochure.section2.category,
+    title: brochure.section2.title,
+    lead: brochure.section2.lead,
+    image: brochure.section2.image,
+    list: brochure.section2.list
+  };
+  
+  customBooklet.page6 = {
+    category: brochure.section3.category,
+    title: brochure.section3.title,
+    lead: brochure.section3.lead,
+    image: brochure.section3.image,
+    paras: brochure.section3.paras
+  };
+  
+  return customBooklet;
+}
+
+function populateAllThemes(contentData) {
+  if (!contentData.bookmark.general) {
+    contentData.bookmark.general = {
+      el: {
+        front: {
+          category: "ΚΕΝΤΡΟ ΕΛΛΗΝΙΚΗΣ ΓΛΩΣΣΑΣ",
+          title: "Γενική Παρουσίαση",
+          lead: "Το ΚΕΓ προάγει και στηρίζει την ελληνική γλώσσα εντός και εκτός Ελλάδος, προσφέροντας ψηφιακούς πόρους και επιστημονικά βοηθήματα.",
+          mainText: "«Η ελληνική γλώσσα είναι ο κοινός μας ορίζοντας. Η καλλιέργεια και η διάδοσή της αποτελούν το θεμέλιο της πνευματικής μας ταυτότητας.»",
+          footnote: "centre@komvos.edu.gr"
+        },
+        back: {
+          category: "ΔΡΑΣΕΙΣ & ΕΡΕΥΝΑ",
+          title: "Οι Πυλώνες μας",
+          lead: "Μέσα από τα τέσσερα επιστημονικά του τμήματα, το ΚΕΓ καλύπτει όλο το φάσμα της γλωσσικής έρευνας, λεξικογραφίας και εκπαίδευσης.",
+          mainText: "• Στήριξη της ελληνικής γλώσσας παγκοσμίως\n• Πιστοποίηση επάρκειας ελληνομάθειας\n• Ψηφιακός εμπλουτισμός & Πύλη\n• Μεσαιωνική & Νεοελληνική λεξικογραφία\n• Υποστήριξη διδασκόντων (Φρυκτωρίες)",
+          footnote: "www.greeklanguage.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "CENTER FOR THE GREEK LANGUAGE",
+          title: "General Presentation",
+          lead: "CGL promotes and supports the Greek language globally, offering digital resources, corpora, and scientific publications.",
+          mainText: "'The Greek language is our common horizon. Its cultivation and dissemination constitute the foundation of our cultural identity.'",
+          footnote: "centre@komvos.edu.gr"
+        },
+        back: {
+          category: "RESEARCH & EDUCATION",
+          title: "Our Key Pillars",
+          lead: "Through its four departments, CGL covers language research, lexicography, pedagogy, and supporting Greek abroad.",
+          mainText: "• Promoting Greek language education worldwide\n• Official Certification of Attainment in Greek\n• The Digital Portal for the Greek Language\n• Standard medieval & modern lexicography\n• Professional support for teachers (Fryktories)",
+          footnote: "www.greeklanguage.gr"
+        }
+      }
+    };
+  }
+
+  if (!contentData.bookmark.books) {
+    contentData.bookmark.books = {
+      el: {
+        front: {
+          category: "ΕΚΠΑΙΔΕΥΤΙΚΕΣ ΕΚΔΟΣΕΙΣ",
+          title: "Σειρά «ΚΛΙΚ στα Ελληνικά»",
+          image: "assets/books_illustration.png",
+          lead: "Η κορυφαία σειρά βιβλίων για τη διδασκαλία της ελληνικής ως δεύτερης/ξένης γλώσσας.",
+          mainText: "«Το βιβλίο είναι το παράθυρο στον κόσμο της γνώσης. Η σειρά ΚΛΙΚ αποτελεί το ιδανικό εργαλείο για την εκμάθηση της ελληνικής γλώσσας, συνδυάζοντας τη θεωρία με την επικοινωνιακή πράξη.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΕΚΔΟΣΕΙΣ & ΒΙΒΛΙΑ",
+          title: "Εγχειρίδια Εξετάσεων",
+          lead: "Επιστημονικά σχεδιασμένα βιβλία για την προετοιμασία των εξετάσεων Πιστοποίησης Ελληνομάθειας.",
+          mainText: "• ΚΛΙΚ στα Ελληνικά (επίπεδα Α1-Γ1)\n• Εγχειρίδια προετοιμασίας εξετάσεων\n• Υλικό για διδασκαλία σε παιδιά & ενήλικες\n• Εξειδικευμένα λεξικογραφικά βοηθήματα\n• Διανομή βιβλίων σε όλο τον κόσμο",
+          footnote: "www.greeklanguage.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "EDUCATIONAL BOOKS",
+          title: "'KLIK sta Ellinika'",
+          image: "assets/books_illustration.png",
+          lead: "The premier textbook series for teaching Greek as a second or foreign language.",
+          mainText: "'Books are windows to the world of knowledge. The KLIK series is the ultimate guide to mastering Greek, merging theory with practical communication.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "PUBLICATIONS",
+          title: "Exam Handbooks",
+          lead: "Scientifically structured books helping candidates prepare for the Certification in Greek.",
+          mainText: "• 'KLIK sta Ellinika' series (Levels A1-C1)\n• Official exam preparation handbooks\n• Curriculum books for children and adults\n• Specialized philological dictionaries\n• Global distribution of CGL publications",
+          footnote: "www.greeklanguage.gr"
+        }
+      }
+    };
+  }
+
+  if (!contentData.bookmark.interactive) {
+    contentData.bookmark.interactive = {
+      el: {
+        front: {
+          category: "ΨΗΦΙΑΚΕΣ ΚΑΙΝΟΤΟΜΙΕΣ",
+          title: "Διαδραστικά Βιβλία",
+          image: "assets/interactive_illustration.png",
+          lead: "Το νέο καινοτόμο ψηφιακό προϊόν του ΚΕΓ που φέρνει το βιβλίο στην οθόνη του υπολογιστή και του tablet.",
+          mainText: "«Η μάθηση γίνεται παιχνίδι. Τα διαδραστικά μας βιβλία συνδυάζουν το έντυπο υλικό με ήχο, βίντεο, διαδραστικές ασκήσεις και αυτοαξιολόγηση για μια σύγχρονη εκπαιδευτική εμπειρία.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΝΕΕΣ ΤΕΧΝΟΛΟΓΙΕΣ",
+          title: "Ψηφιακή Τάξη",
+          lead: "Έξυπνα εκπαιδευτικά εργαλεία για μαθητές και εκπαιδευτικούς στην ψηφιακή εποχή.",
+          mainText: "• Εμπλουτισμένα e-books με multimedia\n• Διαδραστικά κουίζ & ασκήσεις\n• Ήχος & ακουστική κατανόηση\n• Εξ αποστάσεως παρακολούθηση\n• Συμβατότητα με κινητά & tablet",
+          footnote: "ebooks.greeklanguage.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "DIGITAL INNOVATION",
+          title: "Interactive Books",
+          image: "assets/interactive_illustration.png",
+          lead: "The new innovative digital product by CGL that brings textbooks onto computer screens and tablets.",
+          mainText: "'Learning becomes interactive. Our digital books combine print material with audio, video, interactive tasks, and self-assessment for a modern educational experience.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "NEW TECHNOLOGIES",
+          title: "Digital Classroom",
+          lead: "Smart educational tools empowering students and teachers in the digital age.",
+          mainText: "• Multimedia-enriched e-books\n• Interactive quizzes & exercises\n• Native audio samples & comprehension\n• Remote learning & progress tracking\n• Full mobile and tablet support",
+          footnote: "ebooks.greeklanguage.gr"
+        }
+      }
+    };
+  }
+
+  const originalBookletEl = JSON.parse(JSON.stringify(contentData.booklet.el));
+  const originalBookletEn = JSON.parse(JSON.stringify(contentData.booklet.en));
+
+  contentData.booklet = {};
+  const themes = Object.keys(contentData.bookmark);
+  themes.forEach(theme => {
+    if (theme !== 'general' && theme !== 'certification' && theme !== 'fryktories') {
+      contentData[theme] = {
+        el: generateBrochureData(theme, 'el', contentData.bookmark),
+        en: generateBrochureData(theme, 'en', contentData.bookmark)
+      };
+    }
+    contentData.booklet[theme] = {
+      el: generateBookletData(theme, 'el', contentData, originalBookletEl),
+      en: generateBookletData(theme, 'en', contentData, originalBookletEn)
+    };
+  });
+}
+
+function applyZoom() {
+  const canvas = document.getElementById('brochureCanvas');
+  if (canvas) {
+    canvas.style.zoom = state.zoom;
+    canvas.style.transform = '';
+  }
+  const zoomValue = document.getElementById('zoomValue');
+  if (zoomValue) {
+    zoomValue.innerText = `${Math.round(state.zoom * 100)}%`;
+  }
+}
+
 // Helper to retrieve currently active dataset
 function getActiveData() {
   if (state.docType === 'bookmark') {
     return state.contentData.bookmark[state.bookmarkTheme][state.language];
   }
-  return state.contentData[state.docType === 'booklet' ? 'booklet' : state.template][state.language];
+  const themeKey = state.template;
+  if (state.docType === 'booklet') {
+    return state.contentData.booklet[themeKey][state.language];
+  }
+  return state.contentData[themeKey][state.language];
 }
 
 // Setup listeners for Video Presenter Modal
@@ -1869,25 +2206,17 @@ function render() {
   }
 
   // Show/Hide template and layout controls based on docType
-  const templateSelectGroup = document.getElementById('templateSelectGroup');
   const layoutSection = document.getElementById('layoutSection');
-  const bookmarkThemeSelectGroup = document.getElementById('bookmarkThemeSelectGroup');
   const bilingualBookmarkToggleGroup = document.getElementById('bilingualBookmarkToggleGroup');
 
   if (state.docType === 'bookmark') {
-    templateSelectGroup.style.display = 'none';
     layoutSection.style.display = 'none';
-    bookmarkThemeSelectGroup.style.display = 'block';
     bilingualBookmarkToggleGroup.style.display = 'block';
   } else if (state.docType === 'booklet') {
-    templateSelectGroup.style.display = 'none';
     layoutSection.style.display = 'none';
-    bookmarkThemeSelectGroup.style.display = 'none';
     bilingualBookmarkToggleGroup.style.display = 'none';
   } else {
-    templateSelectGroup.style.display = 'block';
     layoutSection.style.display = 'block';
-    bookmarkThemeSelectGroup.style.display = 'none';
     bilingualBookmarkToggleGroup.style.display = 'none';
   }
 
@@ -1915,7 +2244,7 @@ function render() {
       </div>
     `;
   } else if (state.docType === 'booklet') {
-    const activeContent = state.contentData.booklet[state.language];
+    const activeContent = getActiveData();
     
     // Render 8 Spreads (16 pages total, saddle stitched)
     brochureCanvas.innerHTML = `
@@ -1992,7 +2321,7 @@ function render() {
       </div>
     `;
   } else {
-    const activeContent = state.contentData[state.template][state.language];
+    const activeContent = getActiveData();
     
     if (state.layout === 'trifold') {
       brochureCanvas.innerHTML = `
