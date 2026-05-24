@@ -2353,6 +2353,9 @@ function renderPrintWrapper(panelHtml) {
         <div class="color-patch patch-b" title="Blue"></div>
       </div>
       
+      <!-- Bleed & Safe Margin Guides -->
+      <div class="print-guides"></div>
+      
       <!-- The Panel -->
       ${panelHtml}
     </div>

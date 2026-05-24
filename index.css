@@ -532,24 +532,37 @@ body.show-fold-guides .fold-guide {
 /* Safe Area & Bleed Guides (Red borders) */
 .print-guides {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: var(--bleed-margin) solid var(--safe-guide-color);
+  top: calc(-1 * var(--bleed-margin));
+  left: calc(-1 * var(--bleed-margin));
+  right: calc(-1 * var(--bleed-margin));
+  bottom: calc(-1 * var(--bleed-margin));
+  border: var(--bleed-margin) solid rgba(229, 62, 62, 0.15); /* Bleed area outside panel */
+  outline: 1px solid rgba(229, 62, 62, 0.4); /* Bleed limit (outer boundary) */
   pointer-events: none;
   z-index: 9;
   display: none;
 }
 
+/* Safe margin boundary (5mm inside panel trim line) */
 .print-guides::before {
   content: "";
   position: absolute;
-  top: var(--safe-margin);
-  left: var(--safe-margin);
-  right: var(--safe-margin);
-  bottom: var(--safe-margin);
-  border: 1px dotted rgba(229, 62, 62, 0.6);
+  top: calc(var(--bleed-margin) + var(--safe-margin));
+  left: calc(var(--bleed-margin) + var(--safe-margin));
+  right: calc(var(--bleed-margin) + var(--safe-margin));
+  bottom: calc(var(--bleed-margin) + var(--safe-margin));
+  border: 1px dotted rgba(49, 130, 206, 0.85); /* Safe zone dotted boundary */
+}
+
+/* Panel trim line (exact edge of the panel) */
+.print-guides::after {
+  content: "";
+  position: absolute;
+  top: var(--bleed-margin);
+  left: var(--bleed-margin);
+  right: var(--bleed-margin);
+  bottom: var(--bleed-margin);
+  border: 1px dashed rgba(229, 62, 62, 0.8); /* Cut/Trim line boundary */
 }
 
 body.show-print-guides .print-guides {
@@ -569,16 +582,17 @@ body.show-print-guides .print-guides {
   color: var(--text-color);
   flex-shrink: 0;
   z-index: 1;
+  transform: translateZ(0); /* Enforces strict stacking context for negative z-index children */
 }
 
-/* Dynamic backgrounds - Image Motif with opacity */
+/* Dynamic backgrounds - Image Motif with opacity (extends into bleed area) */
 .brochure-panel::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: calc(-1 * var(--bleed-margin));
+  left: calc(-1 * var(--bleed-margin));
+  right: calc(-1 * var(--bleed-margin));
+  bottom: calc(-1 * var(--bleed-margin));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -756,7 +770,6 @@ body.show-print-guides .print-guides {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  background-color: var(--panel-bg);
 }
 
 .cover-badge {
@@ -1137,8 +1150,12 @@ body.font-outfit .panel-list li {
   transition: margin 0.3s ease;
 }
 
-/* When print guides are active, add a margin around panels on screen to show marks */
+/* When print guides are active, add a margin around the entire canvas to show marks, and keep panels touching */
 body.show-print-guides .panel-print-wrapper {
+  margin: 0;
+}
+
+body.show-print-guides .spread-canvas {
   margin: 15mm 12mm;
 }
 
@@ -1157,6 +1174,34 @@ body.show-print-guides .printer-mark {
 /* Crop Marks (0.1mm hairline stroke) */
 .crop-mark {
   background-color: #111;
+}
+
+/* By default, hide all crop marks inside the spread boundaries */
+body.show-print-guides .panel-print-wrapper .crop-mark {
+  display: none;
+}
+
+/* Show left crop marks on the first panel of the spread */
+body.show-print-guides .panel-print-wrapper:first-child .crop-tl-h,
+body.show-print-guides .panel-print-wrapper:first-child .crop-tl-v,
+body.show-print-guides .panel-print-wrapper:first-child .crop-bl-h,
+body.show-print-guides .panel-print-wrapper:first-child .crop-bl-v {
+  display: block;
+}
+
+/* Show right crop marks on the last panel of the spread */
+body.show-print-guides .panel-print-wrapper:last-child .crop-tr-h,
+body.show-print-guides .panel-print-wrapper:last-child .crop-tr-v,
+body.show-print-guides .panel-print-wrapper:last-child .crop-br-h,
+body.show-print-guides .panel-print-wrapper:last-child .crop-br-v {
+  display: block;
+}
+
+/* Show vertical crop marks at internal boundaries as fold marks */
+body.show-print-guides .panel-print-wrapper:not(:last-child) .crop-tr-v,
+body.show-print-guides .panel-print-wrapper:not(:last-child) .crop-br-v {
+  display: block;
+  background-color: #555; /* Slightly lighter shade for fold ticks */
 }
 
 /* Top Left */
@@ -1277,8 +1322,12 @@ body.show-print-guides .color-bar {
 
 /* Print Mode Booklet Break Rules */
 @media print {
-  /* Apply margins when print guides are active during print */
+  /* Keep panels touching during print */
   body.show-print-guides .panel-print-wrapper {
+    margin: 0 !important;
+  }
+  /* Apply margins to the entire sheet to make room for crop marks */
+  body.show-print-guides .spread-canvas {
     margin: 15mm 12mm !important;
   }
 }
@@ -2167,5 +2216,35 @@ body.paper-type-textured .spread-canvas::after {
     background-image: none !important;
     box-shadow: none !important;
     border: none !important;
+  }
+}
+
+/* Background color extension for bleed area */
+.panel-print-wrapper::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--bleed-margin));
+  left: calc(-1 * var(--bleed-margin));
+  right: calc(-1 * var(--bleed-margin));
+  bottom: calc(-1 * var(--bleed-margin));
+  background-color: var(--paper-bg, var(--bg-color));
+  z-index: -2;
+  pointer-events: none;
+  display: none;
+}
+
+body.show-print-guides .panel-print-wrapper::before {
+  display: block;
+}
+
+/* Make panel contents overflow visible when printing bleed */
+body.show-print-guides .brochure-panel {
+  overflow: visible !important;
+}
+
+@media print {
+  body.show-print-guides .spread-canvas {
+    overflow: visible !important;
+    background-color: transparent !important; /* Let wrapper background color take over */
   }
 }
