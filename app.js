@@ -1527,6 +1527,7 @@ function setupButtonListeners() {
   btnPrint.addEventListener('click', () => {
     const radio = document.querySelector(`input[name="printModeRadio"][value="${state.printMode}"]`);
     if (radio) radio.checked = true;
+    updatePrintModalOrientationText();
     printModal.style.display = 'flex';
   });
 
@@ -2480,15 +2481,8 @@ function renderPrintWrapper(panelHtml) {
   `;
 }
 
-// Render dynamic print page sizes dynamically via style tag
-function updatePrintPageSize() {
-  let styleTag = document.getElementById('print-page-style');
-  if (!styleTag) {
-    styleTag = document.createElement('style');
-    styleTag.id = 'print-page-style';
-    document.head.appendChild(styleTag);
-  }
-
+// Calculate the final flat layout spread dimensions (width x height) without bleed or margins
+function getDocumentSpreadDimensions() {
   let w = 176;
   let h = 250;
   
@@ -2508,8 +2502,34 @@ function updatePrintPageSize() {
     else if (state.layout === 'single') panels = 1;
   }
 
-  let totalW = panels * w;
-  let totalH = h;
+  return {
+    width: panels * w,
+    height: h
+  };
+}
+
+// Update orientation text in the print preparation dialog modal
+function updatePrintModalOrientationText() {
+  const dims = getDocumentSpreadDimensions();
+  const orientationText = dims.width > dims.height ? 'Οριζόντιος (Landscape)' : 'Κατακόρυφος (Portrait)';
+  const el = document.getElementById('printModalOrientation');
+  if (el) {
+    el.innerHTML = `📐 <strong>Προσανατολισμός:</strong> ${orientationText}`;
+  }
+}
+
+// Render dynamic print page sizes dynamically via style tag
+function updatePrintPageSize() {
+  let styleTag = document.getElementById('print-page-style');
+  if (!styleTag) {
+    styleTag = document.createElement('style');
+    styleTag.id = 'print-page-style';
+    document.head.appendChild(styleTag);
+  }
+
+  const dims = getDocumentSpreadDimensions();
+  let totalW = dims.width;
+  let totalH = dims.height;
 
   const mode = state.printMode || 'bleedbox';
   if (mode === 'instructions') {
@@ -3453,21 +3473,18 @@ function generatePrinterInstructionsHTML() {
   const paperWeightLabel = `${state.paperWeight} gsm`;
 
   // 4. Resolve Dimensions
-  const dims = PAGE_SIZES[state.pageSize] || (state.docType === 'bookmark' ? PAGE_SIZES.bookmark_wide : PAGE_SIZES.b5);
-  const pageW = dims.width;
-  const pageH = dims.height;
+  const singleDims = PAGE_SIZES[state.pageSize] || (state.docType === 'bookmark' ? PAGE_SIZES.bookmark_wide : PAGE_SIZES.b5);
+  const pageW = singleDims.width;
+  const pageH = singleDims.height;
 
-  let panels = 2; // Default for bifold / booklet / bookmark
-  if (state.docType === 'brochure') {
-    if (state.layout === 'trifold') panels = 3;
-    else if (state.layout === 'single') panels = 1;
-  }
-
-  const totalTrimW = panels * pageW;
-  const totalTrimH = pageH;
+  const dims = getDocumentSpreadDimensions();
+  const totalTrimW = dims.width;
+  const totalTrimH = dims.height;
   
   const totalBleedW = totalTrimW + 6;
   const totalBleedH = totalTrimH + 6;
+  
+  const orientationText = totalTrimW > totalTrimH ? 'Οριζόντιος Προσανατολισμός' : 'Κατακόρυφος Προσανατολισμός';
 
   // 5. Selected Print Mode
   const selectedRadio = document.querySelector('input[name="printModeRadio"]:checked');
@@ -3553,7 +3570,7 @@ function generatePrinterInstructionsHTML() {
         </tr>
         <tr>
           <th>Συνολικές Διαστάσεις Ανάπτυξης (Spread):</th>
-          <td>${totalTrimW} x ${totalTrimH} mm (Οριζόντιος Προσανατολισμός)</td>
+          <td>${totalTrimW} x ${totalTrimH} mm (${orientationText})</td>
         </tr>
         <tr>
           <th>Περιθώριο Ξακρίσματος (Bleed):</th>
