@@ -2171,6 +2171,9 @@ Text to rewrite: "${originalText}"`
       rewrittenText = rewrittenText.trim().replace(/^["'«“]|["'»”]$/g, '').trim();
       el.innerText = rewrittenText;
       
+      // Save rewrite to field history (MUST be called before state memory is updated so getFieldCurrentValue returns the old value)
+      pushFieldState(backupKey, rewrittenText, section, field, index);
+      
       if (state.docType === 'bookmark') {
         let lang = state.language;
         if (state.bilingualBookmark) {
@@ -2196,8 +2199,6 @@ Text to rewrite: "${originalText}"`
           }
         }
       }
-      // Save rewrite to field history
-      pushFieldState(backupKey, rewrittenText, section, field, index);
       render(); // Re-render to show Undo/Redo buttons
     } else {
       alert("⚠️ Το Gemini API δεν επέστρεψε περιεχόμενο. Δοκιμάστε ξανά.");
