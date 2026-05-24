@@ -696,6 +696,440 @@ const templatesContent = {
         socialTw: "X (Twitter): @GreekLanguage"
       }
     }
+  },
+  bookmark: {
+    lexicography: {
+      el: {
+        front: {
+          category: "ΤΜΗΜΑ ΛΕΞΙΚΟΓΡΑΦΙΑΣ",
+          title: "Λεξικό Κριαρά",
+          lead: "Το μνημειώδες έργο για τη μεσαιωνική ελληνική γραμματεία.",
+          mainText: "«Η γλώσσα είναι ο καθρέφτης του πνεύματος και της ιστορίας ενός λαού.»\n— Εμμανουήλ Κριαράς",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΨΗΦΙΑΚΗ ΛΕΞΙΚΟΓΡΑΦΙΑ",
+          title: "Ηλεκτρονικά Λεξικά",
+          lead: "Ελεύθερη online πρόσβαση στα κορυφαία λεξικά της ελληνικής γραμματείας.",
+          mainText: "• Λεξικό Κοινής Νεοελληνικής (Τριανταφυλλίδη)\n• Λεξικό Μεσαιωνικής Δημώδους (Κριαρά)\n• Επιτομή Λεξικού Liddell & Scott",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "LEXICOGRAPHY DEPT.",
+          title: "Kriaras Dictionary",
+          lead: "The monumental work for medieval Greek literature.",
+          mainText: "'Language is the mirror of a nation's spirit and history.'\n— Emmanuel Kriaras",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "DIGITAL LEXICOGRAPHY",
+          title: "E-Dictionaries",
+          lead: "Free online access to standard Greek dictionaries.",
+          mainText: "• Dictionary of Standard Modern Greek\n• Medieval Greek Lexicon (Kriaras)\n• Liddell & Scott Greek-English Lexicon",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    linguistics: {
+      el: {
+        front: {
+          category: "ΤΜΗΜΑ ΓΛΩΣΣΟΛΟΓΙΑΣ",
+          title: "Γλωσσική Έρευνα",
+          lead: "Μελέτη της δομής, της ιστορικής εξέλιξης και των διαλέκτων της ελληνικής.",
+          mainText: "Έρευνα για τη γλωσσική ποικιλία, την κοινωνιογλωσσολογία και τη χάραξη εθνικής γλωσσικής πολιτικής.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΓΛΩΣΣΙΚΟΙ ΠΟΡΟΙ",
+          title: "Σώματα Κειμένων",
+          lead: "Σύγχρονα ψηφιακά εργαλεία για ερευνητές και γλωσσολόγους.",
+          mainText: "• Εθνικά σώματα κειμένων (corpora)\n• Μελέτες για τις νεοελληνικές διαλέκτους\n• Ψηφιακές υποδομές γλωσσικής ανάλυσης",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "LINGUISTICS DEPT.",
+          title: "Linguistic Research",
+          lead: "Studying the structure, historical development, and dialects of Greek.",
+          mainText: "Research in linguistic variation, sociolinguistics, and national language planning.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "LINGUISTIC RESOURCES",
+          title: "Text Corpora",
+          lead: "State-of-the-art digital tools for researchers and linguists.",
+          mainText: "• Systematic text corpora\n• Studies on Modern Greek dialects\n• Infrastructure for linguistic analysis",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    literature: {
+      el: {
+        front: {
+          category: "ΓΛΩΣΣΑ & ΛΟΓΟΤΕΧΝΙΑ",
+          title: "Λόγος & Τέχνη",
+          lead: "Η ελληνική λογοτεχνία ως βασικός πυλώνας γλωσσικής καλλιέργειας και παιδείας.",
+          mainText: "«Η λογοτεχνία είναι η πατρίδα των λέξεων που σώζουν την ψυχή μας.»\nΈρευνα και ανάδειξη της νεοελληνικής γραμματείας.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΨΗΦΙΑΚΗ ΑΝΘΟΛΟΓΗΣΗ",
+          title: "Πόροι Λογοτεχνίας",
+          lead: "Ψηφιακά περιβάλλοντα για τη μελέτη της λογοτεχνικής μας κληρονομιάς.",
+          mainText: "• Ανθολογίες νεοελληνικής λογοτεχνίας\n• Ψηφιακή βιβλιοθήκη «Μνημοσύνη»\n• Εκπαιδευτικό υλικό για τη σχολική τάξη",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "LANGUAGE & LITERATURE",
+          title: "Word & Art",
+          lead: "Greek literature as a fundamental pillar of linguistic cultivation and culture.",
+          mainText: "Researching, preserving, and highlighting Modern Greek literary works across eras.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "DIGITAL ANTHOLOGIES",
+          title: "Literature Resources",
+          lead: "Digital environments for studying our rich literary heritage.",
+          mainText: "• Modern Greek literature anthologies\n• 'Mnemosyne' digital library of ancient texts\n• Educational material for high schools",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    certification: {
+      el: {
+        front: {
+          category: "ΠΙΣΤΟΠΟΙΗΣΗ",
+          title: "Ελληνομάθεια",
+          lead: "Ο επίσημος κρατικός τίτλος επάρκειας της ελληνικής γλώσσας παγκοσμίως.",
+          mainText: "«Ένα επίσημο διαβατήριο για σπουδές, εργασία και θεσμική αναγνώριση στην Ελλάδα και την Ευρώπη.»",
+          footnote: "ellinomatheia@komvos.edu.gr"
+        },
+        back: {
+          category: "ΟΙ ΕΞΕΤΑΣΕΙΣ",
+          title: "Δομή & Επίπεδα",
+          lead: "Διεξαγωγή εξετάσεων κάθε Μάιο σε πάνω από 160 εξεταστικά κέντρα παγκοσμίως.",
+          mainText: "• Επίπεδα Α1-Γ2 (σύμφωνα με το CEFR)\n• Αναγνωρισμένοι τίτλοι σπουδών\n• Σειρά βιβλίων «ΚΛΙΚ στα Ελληνικά»",
+          footnote: "www.greek-language.gr/certification"
+        }
+      },
+      en: {
+        front: {
+          category: "CERTIFICATION",
+          title: "Greek Proficiency",
+          lead: "The official state certificate of proficiency in the Greek language worldwide.",
+          mainText: "'An official passport for studies, professional employment, and legal status in Greece & EU.'",
+          footnote: "ellinomatheia@komvos.edu.gr"
+        },
+        back: {
+          category: "EXAMINATIONS",
+          title: "Structure & Levels",
+          lead: "Held every May at over 160 official exam centers across the globe.",
+          mainText: "• Levels A1-C2 (aligned with the CEFR)\n• Globally recognized credentials\n• 'KLIK sta Ellinika' textbook series",
+          footnote: "www.greek-language.gr/certification"
+        }
+      }
+    },
+    portal: {
+      el: {
+        front: {
+          category: "ΨΗΦΙΑΚΟΣ ΚΟΜΒΟΣ",
+          title: "Η Πύλη",
+          lead: "Ο κεντρικός ψηφιακός κόμβος της ελληνικής γλώσσας στο διαδίκτυο.",
+          mainText: "Ψηφιακός θησαυρός για εκπαιδευτικούς, ερευνητές, φοιτητές και μαθητές σε όλο τον κόσμο.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΨΗΦΙΑΚΟΙ ΠΟΡΟΙ",
+          title: "Ελεύθερη Πρόσβαση",
+          lead: "Πληθώρα εργαλείων και επιστημονικών πόρων με ένα κλικ.",
+          mainText: "• Ηλεκτρονικά λεξικά & σώματα κειμένων\n• Ψηφίδες γλωσσικής εκπαίδευσης\n• Βιβλιογραφικοί οδηγοί & μελέτες",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "DIGITAL PORTAL",
+          title: "The Portal",
+          lead: "The flagship digital hub for the Greek language on the web.",
+          mainText: "A comprehensive digital treasure for educators, students, and scholars worldwide.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "DIGITAL RESOURCES",
+          title: "Free Access",
+          lead: "A wealth of linguistic tools and educational resources at your fingertips.",
+          mainText: "• E-dictionaries & text corpora\n• Psifides pedagogical environment\n• Bibliographical guides & materials",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    fryktories: {
+      el: {
+        front: {
+          category: "ΨΗΦΙΑΚΟ ΔΙΚΤΥΟ",
+          title: "Φρυκτωρίες",
+          lead: "Σύνδεση των εδρών ελληνικών σπουδών και των εκπαιδευτικών σε όλο τον κόσμο.",
+          mainText: "Μετάδοση του ελληνικού λόγου και του πολιτισμού από άκρη σε άκρη της γης μέσω της τεχνολογίας.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΚΟΙΝΟΤΗΤΑ ΜΑΘΗΣΗΣ",
+          title: "Δίκτυο & Συνεργασία",
+          lead: "Μια παγκόσμια κοινότητα επικοινωνίας και υποστήριξης.",
+          mainText: "• Χάρτης εδρών ελληνικών σπουδών\n• Ανταλλαγή εκπαιδευτικών σεναρίων\n• Φόρουμ επιστημονικού διαλόγου",
+          footnote: "www.fryktories.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "DIGITAL NETWORK",
+          title: "Fryktories",
+          lead: "Connecting departments of Greek studies and educators across the globe.",
+          mainText: "Transmitting Greek language and culture to the ends of the earth through modern technology.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "LEARNING NETWORK",
+          title: "Connect & Collaborate",
+          lead: "A global community for communication and mutual support.",
+          mainText: "• Global directory of Greek chairs\n• Sharing lesson plans & resources\n• Scientific discussion forums",
+          footnote: "www.fryktories.gr"
+        }
+      }
+    },
+    cavafy: {
+      el: {
+        front: {
+          category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
+          title: "Κ. Π. Καβάφης",
+          subtitle: "Ο Αλεξανδρινός Ποιητής",
+          lead: "Αποσπάσματα από τα κορυφαία ποιήματα της παγκόσμιας λογοτεχνίας.",
+          mainText: "«Σαν έτοιμος από καιρό, σα θαρραλέος, αποχαιρέτα την, την Αλεξάνδρεια που φεύγει.»\n— Αποχαιρετισμός",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΙΘΑΚΗ",
+          title: "Το Ταξίδι της Ζωής",
+          subtitle: "Φιλοσοφική Ποίηση",
+          lead: "«Σα βγεις στον πηγαιμό για την Ιθάκη, να εύχεσαι να 'ναι μακρύς ο δρόμος, γεμάτος περιπέτειες, γεμάτος γνώσεις.»",
+          mainText: "Η φιλοσοφική ποίηση του Κ. Π. Καβάφη ως οικουμενικό μάθημα ζωής και γλωσσικής ακρίβειας.",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "BIOGRAPHICAL BOOKMARK",
+          title: "C. P. Cavafy",
+          subtitle: "The Alexandrian Poet",
+          lead: "Excerpts from some of the finest works in modern world poetry.",
+          mainText: "'As one long prepared, as one courageous, bid her farewell, the Alexandria that is leaving.'\n— The God Abandons Antony",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "ITHACA",
+          title: "The Journey of Life",
+          subtitle: "Philosophical Poetry",
+          lead: "'Keep Ithaca always in your mind. Arriving there is what you're destined for. But don't hurry the journey at all.'",
+          mainText: "Cavafy's historical and philosophical poetry as a universal lesson of wisdom and artistic precision.",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    elytis: {
+      el: {
+        front: {
+          category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
+          title: "Οδ. Ελύτης",
+          subtitle: "Ποιητής του Αιγαίου",
+          lead: "Βραβείο Νόμπελ Λογοτεχνίας 1979. Η ποίηση του φωτός, του Αιγαίου και του ελληνισμού.",
+          mainText: "«Εάν αποσυνδέσεις την Ελλάδα, στο τέλος θα δεις να σου απομένουν μια ελιά, ένα αμπέλι κι ένα καράβι. Που σημαίνει: με άλλα τόσα την ξαναφτιάχνεις.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΤΟ ΑΞΙΟΝ ΕΣΤΙ",
+          title: "Μνημειώδες Έργο",
+          subtitle: "Νόμπελ Λογοτεχνίας",
+          lead: "«Τη γλώσσα μου έδωσαν ελληνική· το σπίτι φτωχικό στις αμμουδιές του Ομήρου...»",
+          mainText: "Η λυρική κοσμοθεωρία του Ελύτη ως ύμνος στη ζωή, την ελευθερία και τη διαχρονική δύναμη του ελληνικού λόγου.",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "BIOGRAPHICAL BOOKMARK",
+          title: "O. Elytis",
+          subtitle: "Poet of the Aegean",
+          lead: "Nobel Prize in Literature 1979. The poetry of light, the Aegean Sea, and Hellenism.",
+          mainText: "'If you deconstruct Greece, in the end you will see that what is left is an olive tree, a vineyard and a boat. Meaning: with these same components you can rebuild it.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "THE AXION ESTI",
+          title: "The Lyrical Anthem",
+          subtitle: "Nobel Prize 1979",
+          lead: "'Greek was the language they gave me; humble my house on the sandy shores of Homer...'",
+          mainText: "Elytis's lyrical philosophy as an anthem to life, liberty, and the enduring power of the Greek language.",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    seferis: {
+      el: {
+        front: {
+          category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
+          title: "Γ. Σεφέρης",
+          subtitle: "Ποίηση & Ιστορία",
+          lead: "Βραβείο Νόμπελ Λογοτεχνίας 1963. Ο ποιητής που συνδύασε τον κλασικό μύθο με τη σύγχρονη μοίρα.",
+          mainText: "«Σ' αυτόν τον κόσμο, που ολοένα στενεύει, ο καθένας μας χρειάζεται τον άλλο. Πρέπει να αναζητήσουμε τον άνθρωπο, όπου κι αν βρίσκεται.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "Η ΕΛΛΗΝΙΚΗ ΓΛΩΣΣΑ",
+          title: "Λόγος της Αποδοχής",
+          subtitle: "Νόμπελ Λογοτεχνίας",
+          lead: "«Ανήκω σε μια χώρα μικρή. Είναι ένα πέτρινο ακρωτήρι στη Μεσόγειο, που δεν έχει άλλο αγαθό παρά τον αγώνα του λαού του, τη θάλασσα, και το φως του ήλιου.»",
+          mainText: "«Είναι μικρός ο τόπος μας, αλλά η παράδοσή του είναι τεράστια και το κοινό χαρακτηριστικό της είναι ότι μας παραδόθηκε χωρίς διακοπή.»",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "BIOGRAPHICAL BOOKMARK",
+          title: "G. Seferis",
+          subtitle: "Poetry & History",
+          lead: "Nobel Prize in Literature 1963. Integrating classical myth with modern human destiny.",
+          mainText: "'In this world, which is constantly shrinking, each of us needs the other. We must seek out man, wherever he may be.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "THE GREEK LANGUAGE",
+          title: "Nobel Speech",
+          subtitle: "Nobel Prize 1963",
+          lead: "'I belong to a small country. A stone cape in the Mediterranean, with no other resource than the struggle of its people, the sea, and the light of the sun.'",
+          mainText: "'Our land is small, but its tradition is vast, and its main characteristic is that it has been handed down to us without interruption.'",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    kriaras: {
+      el: {
+        front: {
+          category: "ΒΙΟΓΡΑΦΙΚΟΣ ΣΕΛΙΔΟΔΕΙΚΤΗΣ",
+          title: "Εμ. Κριαράς",
+          subtitle: "Ο Δάσκαλος της Γλώσσας",
+          lead: "Ο κορυφαίος Έλληνας φιλόλογος, λεξικογράφος και υποστηρικτής της δημοτικής γλώσσας.",
+          mainText: "«Η δημοτική γλώσσα είναι η ζωντανή φωνή του ελληνικού λαού, το όργανο με το οποίο εκφράστηκε η ψυχή του έθνους μας.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΤΟ ΛΕΞΙΚΟ ΚΡΙΑΡΑ",
+          title: "Μεσαιωνική Γραμματεία",
+          subtitle: "Λεξικογραφικό Έργο",
+          lead: "Το Λεξικό της Μεσαιωνικής Ελληνικής Δημώδους Γραμματείας (1100-1669) αποτελεί τον συνδετικό κρίκο της γλώσσας μας.",
+          mainText: "Η έκδοση του Λεξικού συνεχίζεται συστηματικά από το ΚΕΓ (23ος τόμος, 2025) αποτελώντας παγκόσμιο σημείο αναφοράς.",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "BIOGRAPHICAL BOOKMARK",
+          title: "Em. Kriaras",
+          subtitle: "The Scholar of Greek",
+          lead: "The preeminent Greek philologist, lexicographer, and advocate of the Demotic language.",
+          mainText: "'The demotic language is the living voice of the Greek people, the instrument through which the soul of our nation was expressed.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "KRIARAS DICTIONARY",
+          title: "Medieval Greek Lexicon",
+          subtitle: "Lexicographical Work",
+          lead: "The Dictionary of Medieval Vulgar Greek Literature (1100-1669) is the essential link in the history of Greek.",
+          mainText: "The publication of the Lexicon is systematically continued by CGL (Vol. 23, 2025), serving as a global scientific resource.",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    history: {
+      el: {
+        front: {
+          category: "ΘΕΜΑΤΙΚΗ ΕΛΛΗΝΙΚΗΣ ΓΛΩΣΣΑΣ",
+          title: "Ιστορία",
+          subtitle: "Της Ελληνικής Γλώσσας",
+          lead: "Μια αδιάσπαστη ιστορική διαδρομή 3.500 ετών γραπτής παράδοσης.",
+          mainText: "Από τη Μυκηναϊκή Γραμμική Β, στην Κλασική Αρχαιότητα, την Ελληνιστική Κοινή, τη Μεσαιωνική και τη Νέα Ελληνική γλώσσα.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΔΙΑΧΡΟΝΙΑ",
+          title: "Μια Ζωντανή Γλώσσα",
+          subtitle: "3.500 Έτη Παράδοσης",
+          lead: "Η ελληνική γλώσσα είναι μία από τις ελάχιστες ζωντανές γλώσσες με συνεχή γραπτή μαρτυρία αιώνων.",
+          mainText: "• Γραμμική Β (15ος αι. π.Χ.)\n• Κλασική & Ελληνιστική περίοδος\n• Βυζαντινή & Μεσαιωνική δημώδης\n• Νεοελληνική κοινή γλώσσα",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "THEMATIC FIELDS",
+          title: "History",
+          subtitle: "Of the Greek Language",
+          lead: "An uninterrupted historical path of 3,500 years of written tradition.",
+          mainText: "From Mycenaean Linear B, to Classical Antiquity, Hellenistic Koine, Medieval Vulgar, and Modern Greek.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "DIACHRONY",
+          title: "A Living Language",
+          subtitle: "3,500 Years of Tradition",
+          lead: "Greek is one of the few living languages with a continuous written record spanning millennia.",
+          mainText: "• Linear B (15th century BC)\n• Classical & Hellenistic period\n• Byzantine & Medieval vernacular\n• Modern Greek standard language",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    },
+    etymology: {
+      el: {
+        front: {
+          category: "ΘΕΜΑΤΙΚΗ ΕΛΛΗΝΙΚΗΣ ΓΛΩΣΣΑΣ",
+          title: "Ετυμολογία",
+          subtitle: "Η Ιστορία των Λέξεων",
+          lead: "Αναζητώντας τις ρίζες, την καταγωγή και την εξέλιξη των ελληνικών λέξεων.",
+          mainText: "Κάθε λέξη κρύβει μέσα της έναν μύθο, μια ιστορική διαδρομή και μια φιλοσοφική προσέγγιση του κόσμου.",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΟΙΚΟΥΜΕΝΙΚΟΤΗΤΑ",
+          title: "Ρίζες & Δάνεια",
+          subtitle: "Διεθνείς Όροι",
+          lead: "Η τεράστια επίδραση της ελληνικής γλώσσας στο παγκόσμιο λεξιλόγιο της επιστήμης και του πολιτισμού.",
+          mainText: "• Ανάλυση ριζών και παραγωγής\n• Διεθνείς επιστημονικοί όροι\n• Ετυμολογικά λεξικά στην Πύλη",
+          footnote: "www.greek-language.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "THEMATIC FIELDS",
+          title: "Etymology",
+          subtitle: "History of Words",
+          lead: "Exploring the roots, origin, and evolution of Greek words.",
+          mainText: "Every single word hides a myth, a historical journey, and a philosophical approach to the universe.",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "UNIVERSALITY",
+          title: "Roots & Loanwords",
+          subtitle: "International Terms",
+          lead: "The immense influence of the Greek language on the global vocabulary of science, medicine, and culture.",
+          mainText: "• Root analysis and word formation\n• International scientific terminology\n• Etymological dictionaries on the Portal",
+          footnote: "www.greek-language.gr"
+        }
+      }
+    }
   }
 };
 
@@ -709,10 +1143,14 @@ let state = {
   foldGuides: true,
   printGuides: false,
   language: 'el',         // 'el', 'en'
-  docType: 'brochure',    // 'brochure', 'booklet'
+  docType: 'brochure',    // 'brochure', 'booklet', 'bookmark'
   pageSize: 'b5',         // 'b5', 'a4', 'a5', 'dl'
   fontStyle: 'cinzel',    // 'cinzel', 'serif', 'sans'
   fontSize: 'medium',     // 'small', 'medium', 'large'
+  bookmarkTheme: 'lexicography',
+  bilingualBookmark: false,
+  geminiKey: '',
+  videoScripts: {},       // Stores user-edited video script text
   authenticated: false,
   contentData: JSON.parse(JSON.stringify(templatesContent))
 };
@@ -720,6 +1158,14 @@ let state = {
 // DOM Element Selectors
 const docTypeSelect = document.getElementById('docTypeSelect');
 const brochureTemplateSelect = document.getElementById('brochureTemplateSelect');
+const bookmarkThemeSelect = document.getElementById('bookmarkThemeSelect');
+const bookmarkThemeSelectGroup = document.getElementById('bookmarkThemeSelectGroup');
+const toggleBilingualBookmark = document.getElementById('toggleBilingualBookmark');
+const bilingualBookmarkToggleGroup = document.getElementById('bilingualBookmarkToggleGroup');
+const geminiApiKey = document.getElementById('geminiApiKey');
+const btnToggleApiKeyVisibility = document.getElementById('btnToggleApiKeyVisibility');
+const btnViewVideo = document.getElementById('btnViewVideo');
+
 const btnLayoutSingle = document.getElementById('btnLayoutSingle');
 const btnLayoutBifold = document.getElementById('btnLayoutBifold');
 const btnLayoutTrifold = document.getElementById('btnLayoutTrifold');
@@ -738,6 +1184,62 @@ const brochureCanvas = document.getElementById('brochureCanvas');
 const colorDots = document.querySelectorAll('.color-dot');
 const layoutButtons = document.querySelectorAll('.layout-btn');
 
+// Video Presenter YouTube and Script Map
+const themeVideos = {
+  general: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Καλώς ορίσατε στο Κέντρο Ελληνικής Γλώσσας. Στο βίντεο αυτό παρουσιάζουμε τις γενικές δράσεις του Κέντρου και τον ψηφιακό μας κόμβο για την υποστήριξη της ελληνικής γλώσσας."
+  },
+  certification: {
+    youtubeId: "fA4uUj96l3Q",
+    script: "Η Πιστοποίηση Ελληνομάθειας αποτελεί το επίσημο κρατικό πιστοποιητικό για τη γνώση της ελληνικής ως ξένης ή δεύτερης γλώσσας. Δείτε πώς διενεργούνται οι εξετάσεις παγκοσμίως."
+  },
+  fryktories: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Οι Φρυκτωρίες συνδέουν τις έδρες ελληνικών σπουδών σε όλο τον κόσμο, δημιουργώντας μια παγκόσμια ψηφιακή κοινότητα για τους διδάσκοντες την ελληνική γλώσσα."
+  },
+  lexicography: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Το Τμήμα Λεξικογραφίας συνεχίζει το έργο του Εμμανουήλ Κριαρά. Δείτε την ιστορία και τη μεθοδολογία σύνταξης των λεξικών μας."
+  },
+  linguistics: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η Γλωσσολογική έρευνα στο ΚΕΓ εστιάζει στη μελέτη της δομής, των διαλέκτων και της κοινωνικής διάστασης της ελληνικής γλώσσας."
+  },
+  literature: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η ελληνική λογοτεχνία αποτελεί βασικό πυλώνας της γλωσσικής μας καλλιέργειας. Παρουσιάζουμε τις ψηφιακές ανθολογίες και τους λογοτεχνικούς πόρους του ΚΕΓ."
+  },
+  portal: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η Πύλη για την Ελληνική Γλώσσα είναι ο κεντρικός διαδικτυακός κόμβος για τη μελέτη, τη διδασκαλία και την έρευνα της ελληνικής γλώσσας."
+  },
+  cavafy: {
+    youtubeId: "6q2nK1i8aZk",
+    script: "Η ποίηση του Κ. Π. Καβάφη είναι οικουμενική. Αναλύουμε τα ποιήματα «Ιθάκη» και «Όσο μπορείς» ως μαθήματα ζωής και γλωσσικής ακρίβειας."
+  },
+  elytis: {
+    youtubeId: "41Xl-eM0k5w",
+    script: "Οδυσσέας Ελύτης: Ο ποιητής του φωτός και του Αιγαίου. Παρουσιάζουμε το «Άξιον Εστί» και τη λυρική του κοσμοθεωρία."
+  },
+  seferis: {
+    youtubeId: "6q2nK1i8aZk",
+    script: "Γιώργος Σεφέρης: Ο πρώτος Έλληνας νομπελίστας ποιητής. Αναλύουμε τη σύνδεση του έργου του με την ιστορία και την ελληνική παράδοση."
+  },
+  kriaras: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Εμμανουήλ Κριαράς: Ο μεγάλος δάσκαλος της γλώσσας μας. Παρουσιάζουμε τη ζωή, το έργο του και τη συμβολή του στη δημοτική γλώσσα."
+  },
+  history: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η ιστορία της ελληνικής γλώσσας αριθμεί 3.500 χρόνια γραπτής παράδοσης. Δείτε την εξέλιξή της από τη Γραμμική Β στη σημερινή κοινή νεοελληνική."
+  },
+  etymology: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Η ετυμολογία αναζητά τις ρίζες και την εξέλιξη των λέξεων. Δείτε την τεράστια επίδραση της ελληνικής στο παγκόσμιο λεξιλόγιο της επιστήμης."
+  }
+};
+
 // Initialize Application
 function init() {
   // Check Authentication Status
@@ -749,12 +1251,20 @@ function init() {
     state.authenticated = false;
     document.body.classList.add('not-logged-in');
   }
+
+  // Load Saved Gemini API Key
+  const savedKey = localStorage.getItem('geminiApiKey');
+  if (savedKey) {
+    geminiApiKey.value = savedKey;
+    state.geminiKey = savedKey;
+  }
   
   setupAuthListeners();
   setupThemeListeners();
   setupLayoutListeners();
   setupOptionListeners();
   setupButtonListeners();
+  setupVideoPresenterListeners();
   
   // Render Initial View
   render();
@@ -826,6 +1336,31 @@ function setupOptionListeners() {
     render();
   });
 
+  bookmarkThemeSelect.addEventListener('change', (e) => {
+    state.bookmarkTheme = e.target.value;
+    render();
+  });
+
+  toggleBilingualBookmark.addEventListener('change', (e) => {
+    state.bilingualBookmark = e.target.checked;
+    render();
+  });
+
+  geminiApiKey.addEventListener('input', (e) => {
+    state.geminiKey = e.target.value.trim();
+    localStorage.setItem('geminiApiKey', state.geminiKey);
+  });
+
+  btnToggleApiKeyVisibility.addEventListener('click', () => {
+    if (geminiApiKey.type === 'password') {
+      geminiApiKey.type = 'text';
+      btnToggleApiKeyVisibility.innerText = '🔒';
+    } else {
+      geminiApiKey.type = 'password';
+      btnToggleApiKeyVisibility.innerText = '👁️';
+    }
+  });
+
   motifSelect.addEventListener('change', (e) => {
     state.motif = e.target.value;
     render();
@@ -889,7 +1424,7 @@ function applyUIClassesToBody() {
     document.body.classList.remove('edit-mode-active');
   }
 
-  if (state.foldGuides) {
+  if (state.foldGuides && state.docType !== 'bookmark') {
     document.body.classList.add('show-fold-guides');
   } else {
     document.body.classList.remove('show-fold-guides');
@@ -904,7 +1439,94 @@ function applyUIClassesToBody() {
 
 // Helper to retrieve currently active dataset
 function getActiveData() {
+  if (state.docType === 'bookmark') {
+    return state.contentData.bookmark[state.bookmarkTheme][state.language];
+  }
   return state.contentData[state.docType === 'booklet' ? 'booklet' : state.template][state.language];
+}
+
+// Setup listeners for Video Presenter Modal
+function setupVideoPresenterListeners() {
+  const videoModal = document.getElementById('videoModal');
+  const btnCloseVideoModal = document.getElementById('btnCloseVideoModal');
+  const videoPlayerFrame = document.getElementById('videoPlayerFrame');
+  const videoScriptText = document.getElementById('videoScriptText');
+  const btnSaveScript = document.getElementById('btnSaveScript');
+  const btnSynthesizeSpeech = document.getElementById('btnSynthesizeSpeech');
+  const avatarSelect = document.getElementById('avatarSelect');
+
+  btnViewVideo.addEventListener('click', () => {
+    const activeTheme = state.docType === 'bookmark' ? state.bookmarkTheme : state.template;
+    const videoInfo = themeVideos[activeTheme] || themeVideos.general;
+    
+    // Load YouTube video
+    videoPlayerFrame.src = `https://www.youtube.com/embed/${videoInfo.youtubeId}?autoplay=1`;
+    
+    // Load script (either saved edit or template script)
+    const savedScript = state.videoScripts[activeTheme];
+    videoScriptText.value = savedScript !== undefined ? savedScript : videoInfo.script;
+    
+    // Show Modal
+    videoModal.style.display = 'flex';
+  });
+
+  btnCloseVideoModal.addEventListener('click', () => {
+    videoModal.style.display = 'none';
+    videoPlayerFrame.src = ''; // stop playback
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel(); // stop TTS
+    }
+  });
+
+  btnSaveScript.addEventListener('click', () => {
+    const activeTheme = state.docType === 'bookmark' ? state.bookmarkTheme : state.template;
+    state.videoScripts[activeTheme] = videoScriptText.value;
+    alert("✅ Το σενάριο αποθηκεύτηκε επιτυχώς!");
+  });
+
+  btnSynthesizeSpeech.addEventListener('click', () => {
+    if (!window.speechSynthesis) {
+      alert("⚠️ Η σύνθεση ομιλίας δεν υποστηρίζεται από τον browser σας.");
+      return;
+    }
+
+    // Toggle speech if already speaking
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      btnSynthesizeSpeech.innerText = "🔊 Εκφώνηση Σεναρίου";
+      return;
+    }
+
+    const scriptText = videoScriptText.value.trim();
+    if (!scriptText) return;
+
+    btnSynthesizeSpeech.innerText = "🛑 Διακοπή Εκφώνησης";
+    const utterance = new SpeechSynthesisUtterance(scriptText);
+    
+    // Set Greek voice
+    utterance.lang = 'el-GR';
+    
+    // Choose rate & pitch depending on selected avatar
+    if (avatarSelect.value === 'avatar2') {
+      // Orpheus - deeper voice pitch
+      utterance.pitch = 0.85;
+      utterance.rate = 0.95;
+    } else {
+      // Nefeli - slightly faster pitch
+      utterance.pitch = 1.05;
+      utterance.rate = 1.0;
+    }
+
+    utterance.onend = () => {
+      btnSynthesizeSpeech.innerText = "🔊 Εκφώνηση Σεναρίου";
+    };
+
+    utterance.onerror = () => {
+      btnSynthesizeSpeech.innerText = "🔊 Εκφώνηση Σεναρίου";
+    };
+
+    window.speechSynthesis.speak(utterance);
+  });
 }
 
 // Expose editor actions globally on window
@@ -977,6 +1599,98 @@ window.triggerImageUpload = function(sectionKey) {
   document.body.removeChild(fileInput);
 };
 
+// Google Gemini AI rewrite caller
+window.triggerAiRewrite = async function(section, field, index, buttonEl) {
+  const apiKey = localStorage.getItem('geminiApiKey') || state.geminiKey;
+  if (!apiKey) {
+    alert("⚠️ Παρακαλώ εισάγετε ένα έγκυρο Google Gemini API Key στο sidebar για να χρησιμοποιήσετε αυτή τη λειτουργία!");
+    return;
+  }
+
+  let selector = `.editable-field[data-sec="${section}"][data-field="${field}"]`;
+  if (index !== null && index !== undefined) {
+    selector += `[data-idx="${index}"]`;
+  }
+  const el = document.querySelector(selector);
+  if (!el) return;
+
+  const originalText = el.innerText.trim();
+  if (!originalText) return;
+
+  buttonEl.classList.add('loading');
+  buttonEl.disabled = true;
+  el.classList.add('ai-loading-shimmer');
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `You are a professional editor for the Center for the Greek Language.
+Rewrite the following text to make it more elegant, rich, and polished, but keep it concise so it fits a printed brochure layout.
+Maintain the exact same language (if input is Greek, rewrite in Greek; if English, rewrite in English).
+Keep it under 300 characters. Do not include any quotes, introductions, or conversational text. Output ONLY the rewritten text.
+
+Text to rewrite: "${originalText}"`
+          }]
+        }]
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || "Σφάλμα κατά την κλήση του Gemini API");
+    }
+
+    const data = await response.json();
+    let rewrittenText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    
+    if (rewrittenText) {
+      rewrittenText = rewrittenText.trim().replace(/^["'«“]|["'»”]$/g, '').trim();
+      el.innerText = rewrittenText;
+      
+      if (state.docType === 'bookmark') {
+        let lang = state.language;
+        if (state.bilingualBookmark) {
+          lang = (section === 'front') ? 'el' : 'en';
+        }
+        const activeData = state.contentData.bookmark[state.bookmarkTheme][lang];
+        if (activeData[section]) {
+          if (field === 'bullets' && index !== null && index !== undefined) {
+            let bulletsArray = activeData[section].mainText.split('\n').filter(line => line.trim() !== '');
+            bulletsArray[parseInt(index)] = '• ' + rewrittenText;
+            activeData[section].mainText = bulletsArray.join('\n');
+          } else {
+            activeData[section][field] = rewrittenText;
+          }
+        }
+      } else {
+        const activeData = getActiveData();
+        if (activeData[section]) {
+          if (index !== null && index !== undefined && Array.isArray(activeData[section][field])) {
+            activeData[section][field][parseInt(index)] = rewrittenText;
+          } else {
+            activeData[section][field] = rewrittenText;
+          }
+        }
+      }
+    } else {
+      alert("⚠️ Το Gemini API δεν επέστρεψε περιεχόμενο. Δοκιμάστε ξανά.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert(`⚠️ Σφάλμα AI: ${err.message}`);
+  } finally {
+    buttonEl.classList.remove('loading');
+    buttonEl.disabled = false;
+    el.classList.remove('ai-loading-shimmer');
+  }
+};
+
 // Dynamically toggles contenteditable attribute on elements
 function toggleContentEditable() {
   const editableElements = document.querySelectorAll('.editable-field');
@@ -996,8 +1710,26 @@ function bindTextEdits() {
       const index = e.target.getAttribute('data-idx');
       
       const newText = e.target.innerText.trim();
-      const activeData = getActiveData();
       
+      if (state.docType === 'bookmark') {
+        let lang = state.language;
+        if (state.bilingualBookmark) {
+          lang = (section === 'front') ? 'el' : 'en';
+        }
+        const activeData = state.contentData.bookmark[state.bookmarkTheme][lang];
+        if (activeData[section]) {
+          if (field === 'bullets' && index !== null && index !== undefined) {
+            let bulletsArray = activeData[section].mainText.split('\n').filter(line => line.trim() !== '');
+            bulletsArray[parseInt(index)] = '• ' + newText;
+            activeData[section].mainText = bulletsArray.join('\n');
+          } else {
+            activeData[section][field] = newText;
+          }
+        }
+        return;
+      }
+      
+      const activeData = getActiveData();
       if (activeData[section]) {
         if (index !== null && index !== undefined && activeData[section][field] && Array.isArray(activeData[section][field])) {
           activeData[section][field][parseInt(index)] = newText;
@@ -1061,7 +1793,10 @@ function updatePrintPageSize() {
   let w = 176;
   let h = 250;
   
-  if (state.pageSize === 'a4') {
+  if (state.docType === 'bookmark') {
+    w = 55;
+    h = 200;
+  } else if (state.pageSize === 'a4') {
     w = 210; h = 297;
   } else if (state.pageSize === 'a5') {
     w = 148; h = 210;
@@ -1069,7 +1804,7 @@ function updatePrintPageSize() {
     w = 99; h = 210;
   }
 
-  let panels = 2; // Default for bifold / booklet
+  let panels = 2; // Default for bifold / booklet / bookmark
   if (state.docType === 'brochure') {
     if (state.layout === 'trifold') panels = 3;
     else if (state.layout === 'single') panels = 1;
@@ -1108,7 +1843,10 @@ function render() {
 
   // 2. Set dynamic panel dimensions on root element
   const root = document.documentElement;
-  if (state.pageSize === 'a4') {
+  if (state.docType === 'bookmark') {
+    root.style.setProperty('--panel-width', '55mm');
+    root.style.setProperty('--panel-height', '200mm');
+  } else if (state.pageSize === 'a4') {
     root.style.setProperty('--panel-width', '210mm');
     root.style.setProperty('--panel-height', '297mm');
   } else if (state.pageSize === 'a5') {
@@ -1125,18 +1863,50 @@ function render() {
   // Show/Hide template and layout controls based on docType
   const templateSelectGroup = document.getElementById('templateSelectGroup');
   const layoutSection = document.getElementById('layoutSection');
-  if (state.docType === 'booklet') {
+  const bookmarkThemeSelectGroup = document.getElementById('bookmarkThemeSelectGroup');
+  const bilingualBookmarkToggleGroup = document.getElementById('bilingualBookmarkToggleGroup');
+
+  if (state.docType === 'bookmark') {
     templateSelectGroup.style.display = 'none';
     layoutSection.style.display = 'none';
+    bookmarkThemeSelectGroup.style.display = 'block';
+    bilingualBookmarkToggleGroup.style.display = 'block';
+  } else if (state.docType === 'booklet') {
+    templateSelectGroup.style.display = 'none';
+    layoutSection.style.display = 'none';
+    bookmarkThemeSelectGroup.style.display = 'none';
+    bilingualBookmarkToggleGroup.style.display = 'none';
   } else {
     templateSelectGroup.style.display = 'block';
     layoutSection.style.display = 'block';
+    bookmarkThemeSelectGroup.style.display = 'none';
+    bilingualBookmarkToggleGroup.style.display = 'none';
   }
 
   brochureCanvas.innerHTML = ''; // Clear canvas
 
   // 3. Render content based on document type
-  if (state.docType === 'booklet') {
+  if (state.docType === 'bookmark') {
+    let frontLang = state.language;
+    let backLang = state.language;
+    if (state.bilingualBookmark) {
+      frontLang = 'el';
+      backLang = 'en';
+    }
+    const themeData = state.contentData.bookmark[state.bookmarkTheme];
+    const frontData = themeData[frontLang].front;
+    const backData = themeData[backLang].back;
+
+    brochureCanvas.innerHTML = `
+      <div class="spread-container outside-spread">
+        <div class="spread-title-indicator">Θεματικός Σελιδοδείκτης (Διαστάσεις: 55mm x 200mm, Διπλής Όψεως)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderBookmarkPanel(frontData, 'front', '1'))}
+          ${renderPrintWrapper(renderBookmarkPanel(backData, 'back', '2'))}
+        </div>
+      </div>
+    `;
+  } else if (state.docType === 'booklet') {
     const activeContent = state.contentData.booklet[state.language];
     
     // Render 8 Spreads (16 pages total, saddle stitched)
@@ -1150,7 +1920,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 2: Pages 2 & 3 (Identity & Principles) -->
+      <!-- Spread 2: Pages 2 & 3 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 2: Σελίδες 2 & 3 (Ταυτότητα & Αποστολή / Επιστημονικές Αρχές)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1159,7 +1929,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 3: Pages 4 & 5 (Departments: Lexicography & Linguistics) -->
+      <!-- Spread 3: Pages 4 & 5 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 3: Σελίδες 4 & 5 (Ερευνητικά Τμήματα: Λεξικογραφία & Γλωσσολογία)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1168,7 +1938,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 4: Pages 6 & 7 (Departments: Support/Promotion & Language/Literature) -->
+      <!-- Spread 4: Pages 6 & 7 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 4: Σελίδες 6 & 7 (Ερευνητικά Τμήματα: Στήριξη/Προβολή & Γλώσσα/Λογοτεχνία)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1177,7 +1947,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 5: Pages 8 & 9 (Portal - Dictionaries & Text Corpora) -->
+      <!-- Spread 5: Pages 8 & 9 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 5: Σελίδες 8 & 9 (Η Πύλη για την Ελληνική Γλώσσα)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1186,7 +1956,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 6: Pages 10 & 11 (Digital Classroom & E-learning) -->
+      <!-- Spread 6: Pages 10 & 11 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 6: Σελίδες 10 & 11 (Ψηφιακά Εργαλεία & Ψηφίδες/E-Learning)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1195,7 +1965,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 7: Pages 12 & 13 (Certification Exams & Standard CEFR Levels) -->
+      <!-- Spread 7: Pages 12 & 13 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 7: Σελίδες 12 & 13 (Πιστοποίηση Ελληνομάθειας - Δράση & Επίπεδα)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1204,7 +1974,7 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 8: Pages 14 & 15 (Certificate Value & Fryktories Network) -->
+      <!-- Spread 8: Pages 14 & 15 -->
       <div class="spread-container inside-spread">
         <div class="spread-title-indicator">Φύλλο 8: Σελίδες 14 & 15 (Χρησιμότητα Πιστοποιητικού / Δίκτυο Φρυκτωρίες)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
@@ -1214,7 +1984,6 @@ function render() {
       </div>
     `;
   } else {
-    // Render brochures
     const activeContent = state.contentData[state.template][state.language];
     
     if (state.layout === 'trifold') {
@@ -1289,17 +2058,32 @@ function renderCoverPanel(coverData, pageNum) {
       <div class="ornament-corner ornament-bl"></div>
       <div class="ornament-corner ornament-br"></div>
       
-      <div class="cover-badge editable-field" data-sec="cover" data-field="badge">${coverData.badge}</div>
+      <div class="editable-container">
+        <div class="cover-badge editable-field" data-sec="cover" data-field="badge">${coverData.badge}</div>
+        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'badge', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+      </div>
       
       <div class="cover-main">
         <div class="cover-emblem"></div>
-        <h1 class="cover-title serif-title editable-field" data-sec="cover" data-field="title">${coverData.title}</h1>
-        <p class="cover-subtitle greek-style-heading editable-field" data-sec="cover" data-field="subtitle">${coverData.subtitle}</p>
+        <div class="editable-container">
+          <h1 class="cover-title serif-title editable-field" data-sec="cover" data-field="title">${coverData.title}</h1>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <p class="cover-subtitle greek-style-heading editable-field" data-sec="cover" data-field="subtitle">${coverData.subtitle}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'subtitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
       </div>
       
       <div class="cover-event">
-        <div class="cover-event-title editable-field" data-sec="cover" data-field="eventTitle">${coverData.eventTitle}</div>
-        <div class="cover-event-date editable-field" data-sec="cover" data-field="eventDate">${coverData.eventDate}</div>
+        <div class="editable-container">
+          <div class="cover-event-title editable-field" data-sec="cover" data-field="eventTitle">${coverData.eventTitle}</div>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'eventTitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <div class="cover-event-date editable-field" data-sec="cover" data-field="eventDate">${coverData.eventDate}</div>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('cover', 'eventDate', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
       </div>
     </div>
   `;
@@ -1315,22 +2099,46 @@ function renderBackCoverPanel(backData, pageNum) {
       <div class="ornament-corner ornament-br"></div>
       
       <div class="back-header">
-        <span class="panel-category editable-field" data-sec="backCover" data-field="title">${backData.title}</span>
-        <p class="panel-lead editable-field" data-sec="backCover" data-field="lead">${backData.lead}</p>
+        <div class="editable-container">
+          <span class="panel-category editable-field" data-sec="backCover" data-field="title">${backData.title}</span>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <p class="panel-lead editable-field" data-sec="backCover" data-field="lead">${backData.lead}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
       </div>
       
       <div class="contact-info">
-        <p class="contact-item editable-field" data-sec="backCover" data-field="address">${backData.address}</p>
-        <p class="contact-item editable-field" data-sec="backCover" data-field="phone">${backData.phone}</p>
-        <p class="contact-item editable-field" data-sec="backCover" data-field="email">${backData.email}</p>
-        <p class="contact-item editable-field" data-sec="backCover" data-field="website">${backData.website}</p>
+        <div class="editable-container">
+          <p class="contact-item editable-field" data-sec="backCover" data-field="address">${backData.address}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'address', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <p class="contact-item editable-field" data-sec="backCover" data-field="phone">${backData.phone}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'phone', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <p class="contact-item editable-field" data-sec="backCover" data-field="email">${backData.email}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'email', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <p class="contact-item editable-field" data-sec="backCover" data-field="website">${backData.website}</p>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'website', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
       </div>
       
       <div class="back-footer">
         <div class="social-links">
-          <span class="editable-field" data-sec="backCover" data-field="socialFb">${backData.socialFb}</span>
+          <div class="editable-container" style="display: inline-block;">
+            <span class="editable-field" data-sec="backCover" data-field="socialFb">${backData.socialFb}</span>
+            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'socialFb', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          </div>
           <span>•</span>
-          <span class="editable-field" data-sec="backCover" data-field="socialTw">${backData.socialTw}</span>
+          <div class="editable-container" style="display: inline-block;">
+            <span class="editable-field" data-sec="backCover" data-field="socialTw">${backData.socialTw}</span>
+            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('backCover', 'socialTw', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1344,6 +2152,7 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
     bodyContent = sectionData.paras.map((p, idx) => `
       <div class="editable-container">
         <p class="panel-para editable-field" data-sec="${sectionKey}" data-field="paras" data-idx="${idx}">${p}</p>
+        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'paras', ${idx}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
         <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'paras', ${idx})">❌</button>
       </div>
     `).join('');
@@ -1353,6 +2162,7 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
         ${sectionData.list.map((item, idx) => `
           <div class="editable-container">
             <li class="editable-field" data-sec="${sectionKey}" data-field="list" data-idx="${idx}">${item}</li>
+            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'list', ${idx}, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
             <button class="delete-element-btn" onclick="window.deleteElement('${sectionKey}', 'list', ${idx})">❌</button>
           </div>
         `).join('')}
@@ -1379,12 +2189,21 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
       <div class="ornament-corner ornament-br"></div>
       
       <div class="panel-header">
-        <span class="panel-category editable-field" data-sec="${sectionKey}" data-field="category">${sectionData.category}</span>
-        <h2 class="panel-title serif-title editable-field" data-sec="${sectionKey}" data-field="title">${sectionData.title}</h2>
+        <div class="editable-container">
+          <span class="panel-category editable-field" data-sec="${sectionKey}" data-field="category">${sectionData.category}</span>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'category', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <h2 class="panel-title serif-title editable-field" data-sec="${sectionKey}" data-field="title">${sectionData.title}</h2>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
       </div>
       
       <div class="panel-body">
-        <div class="panel-lead editable-field" data-sec="${sectionKey}" data-field="lead">${sectionData.lead}</div>
+        <div class="editable-container">
+          <div class="panel-lead editable-field" data-sec="${sectionKey}" data-field="lead">${sectionData.lead}</div>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${sectionKey}', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
         ${bodyContent}
         ${imageContent}
       </div>
@@ -1393,6 +2212,93 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
         <button class="btn-panel-action" onclick="window.addParagraph('${sectionKey}')">➕ Παράγραφος</button>
         <button class="btn-panel-action" onclick="window.addListItem('${sectionKey}')">➕ Λίστα</button>
         <button class="btn-panel-action" onclick="window.triggerImageUpload('${sectionKey}')">📷 Εικόνα</button>
+      </div>
+    </div>
+  `;
+}
+
+// Render function for Bookmark Panel
+function renderBookmarkPanel(panelData, side, pageNum) {
+  const category = panelData.category || "";
+  const title = panelData.title || "";
+  const subtitle = panelData.subtitle || "";
+  const lead = panelData.lead || "";
+  const mainText = panelData.mainText || "";
+  const footnote = panelData.footnote || "";
+  
+  let mainBodyContent = '';
+  if (mainText.includes('•') || mainText.includes('- ')) {
+    const bullets = mainText.split('\n').filter(line => line.trim() !== '');
+    mainBodyContent = `
+      <ul class="bookmark-bullets">
+        ${bullets.map((b, idx) => {
+          const cleanB = b.replace(/^[•\-\*\s]+/, '').trim();
+          return `
+            <div class="editable-container">
+              <li class="editable-field" data-sec="${side}" data-field="bullets" data-idx="${idx}">${cleanB}</li>
+            </div>
+          `;
+        }).join('')}
+      </ul>
+    `;
+  } else if (mainText.includes('«') || mainText.includes('"') || mainText.includes('\'')) {
+    mainBodyContent = `
+      <div class="editable-container">
+        <p class="bookmark-quote editable-field" data-sec="${side}" data-field="mainText">${mainText}</p>
+        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'mainText', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+      </div>
+    `;
+  } else {
+    mainBodyContent = `
+      <div class="editable-container">
+        <p class="panel-para editable-field" data-sec="${side}" data-field="mainText">${mainText}</p>
+        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'mainText', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+      </div>
+    `;
+  }
+
+  let emblemHtml = '';
+  if (side === 'front') {
+    emblemHtml = `<div class="cover-emblem"></div>`;
+  }
+
+  return `
+    <div class="brochure-panel panel-bookmark" data-page="${pageNum}">
+      <div class="panel-border-box"></div>
+      <div class="ornament-corner ornament-tl"></div>
+      <div class="ornament-corner ornament-tr"></div>
+      <div class="ornament-corner ornament-bl"></div>
+      <div class="ornament-corner ornament-br"></div>
+      
+      <div class="panel-header">
+        <div class="editable-container">
+          <span class="panel-category editable-field" data-sec="${side}" data-field="category">${category}</span>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'category', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        <div class="editable-container">
+          <h2 class="panel-title serif-title editable-field" data-sec="${side}" data-field="title">${title}</h2>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'title', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        ${subtitle ? `
+          <div class="editable-container">
+            <p class="cover-subtitle greek-style-heading editable-field" data-sec="${side}" data-field="subtitle">${subtitle}</p>
+            <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'subtitle', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+          </div>
+        ` : ''}
+      </div>
+      
+      <div class="panel-body">
+        <div class="editable-container">
+          <div class="panel-lead editable-field" data-sec="${side}" data-field="lead">${lead}</div>
+          <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'lead', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
+        </div>
+        ${mainBodyContent}
+        ${emblemHtml}
+      </div>
+      
+      <div class="editable-container">
+        <div class="bookmark-footnote editable-field" data-sec="${side}" data-field="footnote">${footnote}</div>
+        <button class="ai-rewrite-btn" onclick="window.triggerAiRewrite('${side}', 'footnote', null, this)" title="Ανασύνταξη με Gemini AI">✨ AI</button>
       </div>
     </div>
   `;
