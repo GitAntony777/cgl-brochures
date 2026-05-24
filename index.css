@@ -2384,3 +2384,87 @@ body.print-mode-cropmarks .brochure-panel {
     overflow: hidden !important;
   }
 }
+
+/* Projects & Drafts List Styling */
+.draft-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+}
+
+.draft-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.draft-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.draft-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.draft-meta {
+  font-size: 0.65rem;
+  color: var(--dashboard-text-muted);
+}
+
+.draft-actions {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: 0.5rem;
+}
+
+.btn-draft-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--dashboard-text);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-draft-action.load:hover {
+  background: var(--dashboard-accent);
+  color: #fff;
+  border-color: var(--dashboard-accent);
+}
+
+.btn-draft-action.delete:hover {
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
+}
+
+/* Custom Scrollbar for Drafts List */
+#draftsList::-webkit-scrollbar {
+  width: 4px;
+}
+#draftsList::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+#draftsList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+#draftsList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

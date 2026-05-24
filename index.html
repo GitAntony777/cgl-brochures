@@ -294,6 +294,34 @@
         </div>
       </div>
 
+      <div class="panel-section" id="projectManagementSection">
+        <h2>8. Διαχείριση Έργου (Save/Load)</h2>
+        <div class="control-group" style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <button id="btnExportProject" class="btn-secondary" style="flex: 1; font-size: 0.75rem; padding: 0.6rem 0.3rem;" title="Λήψη του έργου σε αρχείο .json">
+            <span class="icon">📤</span> Εξαγωγή (.json)
+          </button>
+          <button id="btnImportProjectTrigger" class="btn-secondary" style="flex: 1; font-size: 0.75rem; padding: 0.6rem 0.3rem;" title="Φόρτωση έργου από αρχείο .json">
+            <span class="icon">📥</span> Εισαγωγή (.json)
+          </button>
+          <input type="file" id="importProjectFile" accept=".json" style="display: none;">
+        </div>
+        
+        <div class="control-group">
+          <label for="draftNameInput">Όνομα Προσχεδίου (Τοπικά):</label>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+            <input type="text" id="draftNameInput" placeholder="Π.χ. Φυλλάδιο Πιστοποίησης A..." style="flex: 1; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--dashboard-border); background-color: #242c3d; color: white; font-size: 0.85rem;">
+            <button id="btnSaveDraft" class="btn-primary" style="padding: 0.5rem 0.75rem; font-size: 0.85rem; box-shadow: none;" title="Αποθήκευση Προσχεδίου">💾</button>
+          </div>
+        </div>
+
+        <div class="control-group" id="draftsListContainer" style="margin-top: 0.75rem;">
+          <label style="font-size: 0.8rem; color: var(--dashboard-text-muted);">Αποθηκευμένα Προσχέδια:</label>
+          <div id="draftsList" style="display: flex; flex-direction: column; gap: 0.4rem; max-height: 150px; overflow-y: auto; margin-top: 0.4rem; padding-right: 2px;">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+
       <div class="panel-section actions-section">
         <button id="btnViewVideo" class="btn-secondary" style="margin-bottom: 0.5rem;">
           <span class="icon">🎥</span> Προβολή Θεματικού Βίντεο

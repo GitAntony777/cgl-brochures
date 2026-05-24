@@ -1219,6 +1219,15 @@ const printModal = document.getElementById('printModal');
 const btnClosePrintModal = document.getElementById('btnClosePrintModal');
 const btnModalConfirmPrint = document.getElementById('btnModalConfirmPrint');
 const btnModalCancelPrint = document.getElementById('btnModalCancelPrint');
+
+// Project Management DOM elements
+const btnExportProject = document.getElementById('btnExportProject');
+const btnImportProjectTrigger = document.getElementById('btnImportProjectTrigger');
+const importProjectFile = document.getElementById('importProjectFile');
+const draftNameInput = document.getElementById('draftNameInput');
+const btnSaveDraft = document.getElementById('btnSaveDraft');
+const draftsList = document.getElementById('draftsList');
+
 const colorDots = document.querySelectorAll('.color-dot');
 const layoutButtons = document.querySelectorAll('.layout-btn');
 
@@ -1318,6 +1327,9 @@ function init() {
   // Initialize dropdown contents and recommendations
   updatePageSizeDropdown();
   updatePaperRecommendations();
+  
+  // Render Drafts List
+  renderDraftsList();
   
   // Render Initial View
   render();
@@ -1568,6 +1580,26 @@ function setupButtonListeners() {
       render();
     }
   });
+
+  // Project Management Listeners
+  if (btnExportProject) {
+    btnExportProject.addEventListener('click', () => exportProject());
+  }
+  if (btnImportProjectTrigger && importProjectFile) {
+    btnImportProjectTrigger.addEventListener('click', () => importProjectFile.click());
+    importProjectFile.addEventListener('change', (e) => importProject(e));
+  }
+  if (btnSaveDraft) {
+    btnSaveDraft.addEventListener('click', () => saveCurrentDraft());
+  }
+  if (draftNameInput) {
+    draftNameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        saveCurrentDraft();
+      }
+    });
+  }
 }
 
 // Helper function to apply active UI styling classes to document body
@@ -2466,6 +2498,283 @@ function updatePrintPageSize() {
       }
     }
   `;
+}
+
+// ==========================================================================
+// PROJECT & DRAFT MANAGEMENT LOGIC (LocalStorage & JSON file)
+// ==========================================================================
+
+// Helper to get all drafts from localStorage
+function getLocalDrafts() {
+  const data = localStorage.getItem('cgl_brochure_drafts');
+  try {
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    console.error("Error parsing drafts:", e);
+    return [];
+  }
+}
+
+// Helper to save drafts array to localStorage
+function saveLocalDrafts(drafts) {
+  localStorage.setItem('cgl_brochure_drafts', JSON.stringify(drafts));
+}
+
+// Populate drafts list in the sidebar
+function renderDraftsList() {
+  if (!draftsList) return;
+  const drafts = getLocalDrafts();
+  
+  if (drafts.length === 0) {
+    draftsList.innerHTML = `<p style="font-size: 0.75rem; color: var(--dashboard-text-muted); margin: 0; font-style: italic;">Δεν υπάρχουν αποθηκευμένα προσχέδια.</p>`;
+    return;
+  }
+  
+  draftsList.innerHTML = '';
+  // Sort drafts by timestamp descending (newest first)
+  drafts.sort((a, b) => b.timestamp - a.timestamp);
+  
+  drafts.forEach(draft => {
+    const item = document.createElement('div');
+    item.className = 'draft-item';
+    
+    const info = document.createElement('div');
+    info.className = 'draft-info';
+    
+    const title = document.createElement('div');
+    title.className = 'draft-title';
+    title.innerText = draft.name;
+    title.title = draft.name;
+    
+    const meta = document.createElement('div');
+    meta.className = 'draft-meta';
+    
+    // Format timestamp nicely
+    const date = new Date(draft.timestamp);
+    const dateString = date.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit' }) + ' ' + date.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
+    const typeLabel = draft.state.docType === 'bookmark' ? 'Σελιδοδείκτης' : (draft.state.docType === 'booklet' ? 'Booklet' : 'Φυλλάδιο');
+    meta.innerText = `${dateString} • ${typeLabel}`;
+    
+    info.appendChild(title);
+    info.appendChild(meta);
+    
+    const actions = document.createElement('div');
+    actions.className = 'draft-actions';
+    
+    const btnLoad = document.createElement('button');
+    btnLoad.className = 'btn-draft-action load';
+    btnLoad.innerText = 'Φόρτωση';
+    btnLoad.title = 'Φόρτωση προσχεδίου';
+    btnLoad.addEventListener('click', () => {
+      loadState(draft.state);
+    });
+    
+    const btnDelete = document.createElement('button');
+    btnDelete.className = 'btn-draft-action delete';
+    btnDelete.innerText = 'Διαγραφή';
+    btnDelete.title = 'Διαγραφή προσχεδίου';
+    btnDelete.addEventListener('click', () => {
+      if (confirm(`Είστε σίγουροι ότι θέλετε να διαγράψετε το προσχέδιο "${draft.name}";`)) {
+        deleteDraft(draft.timestamp);
+      }
+    });
+    
+    actions.appendChild(btnLoad);
+    actions.appendChild(btnDelete);
+    
+    item.appendChild(info);
+    item.appendChild(actions);
+    
+    draftsList.appendChild(item);
+  });
+}
+
+// Save current state as a local draft
+function saveCurrentDraft() {
+  const name = draftNameInput.value.trim();
+  if (!name) {
+    alert("Παρακαλώ εισάγετε ένα όνομα για το προσχέδιο.");
+    return;
+  }
+  
+  // Clone current state
+  const stateCopy = JSON.parse(JSON.stringify(state));
+  
+  const drafts = getLocalDrafts();
+  
+  // Check if draft name already exists
+  const existingIndex = drafts.findIndex(d => d.name.toLowerCase() === name.toLowerCase());
+  if (existingIndex !== -1) {
+    if (!confirm(`Υπάρχει ήδη ένα προσχέδιο με το όνομα "${name}". Θέλετε να το αντικαταστήσετε;`)) {
+      return;
+    }
+    // Update existing draft
+    drafts[existingIndex].state = stateCopy;
+    drafts[existingIndex].timestamp = Date.now();
+  } else {
+    // Add new draft
+    drafts.push({
+      name: name,
+      timestamp: Date.now(),
+      state: stateCopy
+    });
+  }
+  
+  saveLocalDrafts(drafts);
+  draftNameInput.value = '';
+  renderDraftsList();
+  alert(`Το προσχέδιο "${name}" αποθηκεύτηκε με επιτυχία!`);
+}
+
+// Delete a draft by its timestamp
+function deleteDraft(timestamp) {
+  let drafts = getLocalDrafts();
+  drafts = drafts.filter(d => d.timestamp !== timestamp);
+  saveLocalDrafts(drafts);
+  renderDraftsList();
+}
+
+// Export current state to JSON file
+function exportProject() {
+  const stateCopy = JSON.parse(JSON.stringify(state));
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(stateCopy, null, 2));
+  const downloadAnchor = document.createElement('a');
+  
+  const docTypeLabel = state.docType === 'bookmark' ? 'bookmark' : (state.docType === 'booklet' ? 'booklet' : 'brochure');
+  const date = new Date().toISOString().slice(0, 10);
+  const filename = `cgl-${docTypeLabel}-${state.template}-${date}.json`;
+  
+  downloadAnchor.setAttribute("href", dataStr);
+  downloadAnchor.setAttribute("download", filename);
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+}
+
+// Import state from uploaded JSON file
+function importProject(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      const importedState = JSON.parse(evt.target.result);
+      
+      // Simple validation of imported state structure
+      if (!importedState.docType || !importedState.template || !importedState.contentData) {
+        throw new Error("Μη έγκυρη δομή αρχείου έργου.");
+      }
+      
+      loadState(importedState);
+      alert("Το έργο φορτώθηκε με επιτυχία!");
+    } catch (err) {
+      alert("Σφάλμα κατά τη φόρτωση του αρχείου: " + err.message);
+      console.error(err);
+    }
+    // Reset file input value so same file can be uploaded again
+    importProjectFile.value = '';
+  };
+  reader.readAsText(file);
+}
+
+// Safely restore state and update UI components
+function loadState(savedState) {
+  // Update state properties
+  Object.keys(savedState).forEach(key => {
+    state[key] = savedState[key];
+  });
+  
+  // 1. Update dropdown selectors
+  document.getElementById('docTypeSelect').value = state.docType;
+  
+  // Update page sizes select options since they depend on docType
+  updatePageSizeDropdown();
+  document.getElementById('pageSizeSelect').value = state.pageSize;
+  
+  const themeSelect = document.getElementById('themeSelect');
+  if (themeSelect) themeSelect.value = state.template;
+  
+  const motifSelect = document.getElementById('motifSelect');
+  if (motifSelect) motifSelect.value = state.motif;
+  
+  const fontStyleSelect = document.getElementById('fontStyleSelect');
+  if (fontStyleSelect) fontStyleSelect.value = state.fontStyle;
+  
+  const titleFontSizeSelect = document.getElementById('titleFontSizeSelect');
+  if (titleFontSizeSelect) titleFontSizeSelect.value = state.titleFontSize;
+  
+  const bodyFontSizeSelect = document.getElementById('bodyFontSizeSelect');
+  if (bodyFontSizeSelect) bodyFontSizeSelect.value = state.bodyFontSize;
+  
+  const paperTypeSelect = document.getElementById('paperTypeSelect');
+  if (paperTypeSelect) paperTypeSelect.value = state.paperType;
+  
+  const paperWeightSelect = document.getElementById('paperWeightSelect');
+  if (paperWeightSelect) paperWeightSelect.value = state.paperWeight;
+  
+  const paperColorSelect = document.getElementById('paperColorSelect');
+  if (paperColorSelect) paperColorSelect.value = state.paperColor;
+  
+  // 2. Update toggle switches
+  const toggleEditMode = document.getElementById('toggleEditMode');
+  if (toggleEditMode) toggleEditMode.checked = state.editMode;
+  
+  const toggleFoldGuides = document.getElementById('toggleFoldGuides');
+  if (toggleFoldGuides) toggleFoldGuides.checked = state.foldGuides;
+  
+  const togglePrintGuides = document.getElementById('togglePrintGuides');
+  if (togglePrintGuides) togglePrintGuides.checked = state.printGuides;
+  
+  const toggleLanguage = document.getElementById('toggleLanguage');
+  if (toggleLanguage) toggleLanguage.checked = state.language === 'en';
+  
+  const toggleBilingualBookmark = document.getElementById('toggleBilingualBookmark');
+  if (toggleBilingualBookmark) toggleBilingualBookmark.checked = state.bilingualBookmark;
+  
+  const geminiApiKey = document.getElementById('geminiApiKey');
+  if (geminiApiKey) geminiApiKey.value = state.geminiKey || '';
+
+  // 3. Update theme dots active class
+  const colorDots = document.querySelectorAll('.color-dot');
+  colorDots.forEach(dot => {
+    if (dot.getAttribute('data-theme') === state.theme) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+
+  // 4. Update layout buttons active class
+  const layoutButtons = document.querySelectorAll('.layout-btn');
+  layoutButtons.forEach(btn => {
+    if (btn.getAttribute('data-layout') === state.layout) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  // 5. Hide/show bilingual bookmark
+  const bilingualBookmarkToggleGroup = document.getElementById('bilingualBookmarkToggleGroup');
+  const layoutSection = document.getElementById('layoutSection');
+  if (state.docType === 'bookmark') {
+    if (layoutSection) layoutSection.style.display = 'none';
+    if (bilingualBookmarkToggleGroup) bilingualBookmarkToggleGroup.style.display = 'block';
+  } else if (state.docType === 'booklet') {
+    if (layoutSection) layoutSection.style.display = 'none';
+    if (bilingualBookmarkToggleGroup) bilingualBookmarkToggleGroup.style.display = 'none';
+  } else {
+    if (layoutSection) layoutSection.style.display = 'block';
+    if (bilingualBookmarkToggleGroup) bilingualBookmarkToggleGroup.style.display = 'none';
+  }
+
+  // 6. Rerender document and update zoom value
+  render();
+  updatePaperRecommendations();
+  
+  const zoomValue = document.getElementById('zoomValue');
+  if (zoomValue) zoomValue.innerText = `${Math.round(state.zoom * 100)}%`;
 }
 
 // Dynamic update of Page Size select options based on docType
