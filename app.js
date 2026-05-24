@@ -1165,6 +1165,7 @@ let state = {
   editMode: true,
   foldGuides: true,
   printGuides: false,
+  printMode: 'bleedbox',  // 'bleedbox', 'cropmarks', 'trim'
   language: 'el',         // 'el', 'en'
   docType: 'brochure',    // 'brochure', 'booklet', 'bookmark'
   pageSize: 'b5',         // 'b5', 'a4', 'a5', 'dl'
@@ -1216,7 +1217,6 @@ const brochureCanvas = document.getElementById('brochureCanvas');
 // Print Modal DOM elements
 const printModal = document.getElementById('printModal');
 const btnClosePrintModal = document.getElementById('btnClosePrintModal');
-const modalTogglePrintGuides = document.getElementById('modalTogglePrintGuides');
 const btnModalConfirmPrint = document.getElementById('btnModalConfirmPrint');
 const btnModalCancelPrint = document.getElementById('btnModalCancelPrint');
 const colorDots = document.querySelectorAll('.color-dot');
@@ -1498,6 +1498,7 @@ function setupOptionListeners() {
 
   togglePrintGuides.addEventListener('change', (e) => {
     state.printGuides = e.target.checked;
+    state.printMode = e.target.checked ? 'cropmarks' : 'bleedbox';
     render();
   });
 
@@ -1510,7 +1511,8 @@ function setupOptionListeners() {
 // Setup Action Buttons
 function setupButtonListeners() {
   btnPrint.addEventListener('click', () => {
-    modalTogglePrintGuides.checked = state.printGuides;
+    const radio = document.querySelector(`input[name="printModeRadio"][value="${state.printMode}"]`);
+    if (radio) radio.checked = true;
     printModal.style.display = 'flex';
   });
 
@@ -1522,20 +1524,42 @@ function setupButtonListeners() {
     printModal.style.display = 'none';
   });
 
-  modalTogglePrintGuides.addEventListener('change', (e) => {
-    state.printGuides = e.target.checked;
-    const sidebarToggle = document.getElementById('togglePrintGuides');
-    if (sidebarToggle) {
-      sidebarToggle.checked = state.printGuides;
-    }
-    render();
-  });
-
   btnModalConfirmPrint.addEventListener('click', () => {
     printModal.style.display = 'none';
+    
+    // Read the selected print mode
+    const selectedMode = document.querySelector('input[name="printModeRadio"]:checked').value;
+    state.printMode = selectedMode;
+    
+    // Set appropriate print classes
+    document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
+    document.body.classList.add(`print-mode-${selectedMode}`);
+    
+    // Synergize print guides
+    if (selectedMode === 'cropmarks') {
+      document.body.classList.add('show-print-guides');
+    } else {
+      document.body.classList.remove('show-print-guides');
+    }
+    
+    // Update dynamic print page dimensions
+    updatePrintPageSize();
+    
     setTimeout(() => {
       window.print();
     }, 150);
+  });
+
+  window.addEventListener('afterprint', () => {
+    // Restore original classes
+    document.body.classList.remove('print-mode-bleedbox', 'print-mode-cropmarks', 'print-mode-trim');
+    if (state.printGuides) {
+      document.body.classList.add('show-print-guides');
+    } else {
+      document.body.classList.remove('show-print-guides');
+    }
+    // Re-run updatePrintPageSize to restore state
+    updatePrintPageSize();
   });
 
   btnReset.addEventListener('click', () => {
@@ -2425,9 +2449,13 @@ function updatePrintPageSize() {
   let totalW = panels * w;
   let totalH = h;
 
-  if (state.printGuides) {
+  const mode = state.printMode || 'bleedbox';
+  if (mode === 'cropmarks') {
     totalW += 24; // 12mm left, 12mm right margins
     totalH += 30; // 15mm top, 15mm bottom margins
+  } else if (mode === 'bleedbox') {
+    totalW += 6;  // 3mm left, 3mm right bleed
+    totalH += 6;  // 3mm top, 3mm bottom bleed
   }
 
   styleTag.innerHTML = `

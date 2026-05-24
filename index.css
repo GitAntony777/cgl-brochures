@@ -2303,20 +2303,84 @@ body.paper-type-textured .spread-canvas::after {
   display: none;
 }
 
-body.show-print-guides .panel-print-wrapper::before {
+body.show-print-guides .panel-print-wrapper::before,
+body.print-mode-bleedbox .panel-print-wrapper::before,
+body.print-mode-cropmarks .panel-print-wrapper::before {
   display: block;
 }
 
 /* Make panel contents overflow visible when printing bleed */
-body.show-print-guides .brochure-panel {
+body.show-print-guides .brochure-panel,
+body.print-mode-bleedbox .brochure-panel,
+body.print-mode-cropmarks .brochure-panel {
   overflow: visible !important;
 }
 
 @media print {
-  body.show-print-guides .spread-canvas {
+  /* Mode 1: Bleed Box */
+  body.print-mode-bleedbox .spread-canvas {
+    margin: 3mm !important;
     overflow: visible !important;
-    background-color: transparent !important; /* Let wrapper background color take over */
+    background-color: transparent !important;
+    outline: none !important;
+  }
+  
+  /* Mode 2: Crop Marks & Bleed */
+  body.print-mode-cropmarks .spread-canvas {
+    margin: 15mm 12mm !important;
+    overflow: visible !important;
+    background-color: transparent !important;
     outline: 1px solid rgba(229, 62, 62, 0.4) !important;
     outline-offset: 3mm !important;
+  }
+  body.print-mode-cropmarks .panel-print-wrapper {
+    margin: 0 !important;
+  }
+  body.print-mode-cropmarks .printer-mark {
+    display: block !important;
+  }
+  /* Ensure crop marks display correctly inside the printing layout */
+  body.print-mode-cropmarks .panel-print-wrapper .crop-mark {
+    display: none !important;
+  }
+  body.print-mode-cropmarks .panel-print-wrapper:first-child .crop-tl-h,
+  body.print-mode-cropmarks .panel-print-wrapper:first-child .crop-tl-v,
+  body.print-mode-cropmarks .panel-print-wrapper:first-child .crop-bl-h,
+  body.print-mode-cropmarks .panel-print-wrapper:first-child .crop-bl-v {
+    display: block !important;
+  }
+  body.print-mode-cropmarks .panel-print-wrapper:last-child .crop-tr-h,
+  body.print-mode-cropmarks .panel-print-wrapper:last-child .crop-tr-v,
+  body.print-mode-cropmarks .panel-print-wrapper:last-child .crop-br-h,
+  body.print-mode-cropmarks .panel-print-wrapper:last-child .crop-br-v {
+    display: block !important;
+  }
+  body.print-mode-cropmarks .panel-print-wrapper:not(:last-child) .crop-tr-v,
+  body.print-mode-cropmarks .panel-print-wrapper:not(:last-child) .crop-br-v {
+    display: block !important;
+    background-color: #555 !important;
+  }
+  body.print-mode-cropmarks .panel-print-wrapper:not(:first-child) .color-bar {
+    display: none !important;
+  }
+  .spread-canvas.layout-trifold .panel-print-wrapper:not(:nth-child(2)) .registration-mark {
+    display: none !important;
+  }
+
+  /* Mode 3: Clean Trim Size */
+  body.print-mode-trim .spread-canvas {
+    margin: 0 !important;
+    overflow: hidden !important;
+    background-color: var(--bg-color) !important;
+  }
+  body.print-mode-trim .printer-mark,
+  body.print-mode-trim .print-guides {
+    display: none !important;
+  }
+  body.print-mode-trim .panel-print-wrapper::before {
+    display: none !important;
+  }
+  body.print-mode-trim .brochure-panel {
+    overflow: hidden !important;
   }
 }
