@@ -382,6 +382,47 @@
     </div>
   </div>
 
+  <!-- Print Settings & Guidelines Modal -->
+  <div id="printModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 600px;">
+      <button class="modal-close-btn" id="btnClosePrintModal">&times;</button>
+      <div class="modal-header">
+        <h2>🖨️ Προετοιμασία Εκτύπωσης / PDF</h2>
+        <p>Οδηγός δημιουργίας αρχείου για τον τυπογράφο</p>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: rgba(197, 160, 89, 0.08); border-left: 4px solid var(--secondary-color); padding: 10px 15px; border-radius: 4px; font-size: 0.88rem; line-height: 1.5; color: #cbd5e1;">
+          <strong>📢 Σημείωση για τον Τυπογράφο (Διαχωρισμοί & CMYK):</strong><br>
+          Τα παραγόμενα PDF περιέχουν <strong>οδηγούς κοπής (crop marks)</strong>, <strong>σταυρούς σύμπτωσης (registration marks)</strong> και <strong>μπάρες ελέγχου χρωμάτων</strong>. Ο τυπογράφος μπορεί να εισάγει το PDF στο λογισμικό του (π.χ. Adobe Acrobat Pro, RIP) για να εκτελέσει τους <strong>διαχωρισμούς χρωμάτων (color separations)</strong> και τη μετατροπή σε CMYK.
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <h3 style="font-size: 1rem; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; margin: 0;">🔧 Ρυθμίσεις Παραθύρου Εκτύπωσης Browser:</h3>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; margin: 0;">
+            <li>📐 <strong>Προσανατολισμός:</strong> Οριζόντιος (Landscape)</li>
+            <li>🖼️ <strong>Γραφικά φόντου (Background Graphics):</strong> <span style="color: #48bb78; font-weight: bold;">Ενεργοποιημένα (Checked)</span></li>
+            <li>📏 <strong>Περιθώρια (Margins):</strong> <span style="color: #ef5350; font-weight: bold;">Κανένα (None)</span> &mdash; <em>Κρίσιμο για να μην αλλοιωθούν οι διαστάσεις (π.χ. B5)</em></li>
+            <li>⚖️ <strong>Κλίμακα (Scale):</strong> 100% ή Προεπιλογή (Default)</li>
+          </ul>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 6px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="font-size: 0.9rem; color: #fff; margin: 0;">🛠️ Επιλογές Αρχείου:</h3>
+          <label class="toggle-switch" style="margin: 5px 0;">
+            <input type="checkbox" id="modalTogglePrintGuides">
+            <span class="slider"></span>
+            <span class="toggle-label" style="font-size: 0.85rem; font-weight: 500;">Συμπερίληψη Bleed (3mm) & Σημείων Εκτύπωσης (Συνίσταται για Τυπογράφο)</span>
+          </label>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+          <button id="btnModalConfirmPrint" class="btn-primary" style="flex: 1; padding: 0.85rem;">🔥 Συνέχεια στην Εκτύπωση</button>
+          <button id="btnModalCancelPrint" class="btn-secondary" style="flex: 0.5; padding: 0.85rem;">Ακύρωση</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

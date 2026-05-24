@@ -982,23 +982,29 @@ body.edit-mode-active [contenteditable="true"]:focus {
 
 /* PRINT MEDIA STYLES - CRITICAL FOR B5 DIMENSIONS */
 @media print {
-  /* Hide the entire Dashboard UI */
+  /* Hide the entire Dashboard UI and Modals */
   .app-header, 
   .control-panel, 
   .canvas-zoom-control, 
   .spread-title-indicator,
-  .app-footer-info {
+  .app-footer-info,
+  .modal-overlay {
     display: none !important;
   }
 
-  /* Reset body and container backgrounds for printing */
+  /* Reset body and container backgrounds for printing and unlock heights */
+  html, body, .app-container, .canvas-wrapper, .brochure-canvas {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
     padding: 0 !important;
     margin: 0 !important;
-    overflow: visible !important;
-    min-height: auto !important;
   }
 
   .app-container {
@@ -1011,7 +1017,6 @@ body.edit-mode-active [contenteditable="true"]:focus {
     background-color: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
-    overflow: visible !important;
     display: block !important;
   }
 

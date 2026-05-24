@@ -1212,6 +1212,13 @@ const toggleLanguage = document.getElementById('toggleLanguage');
 const btnPrint = document.getElementById('btnPrint');
 const btnReset = document.getElementById('btnReset');
 const brochureCanvas = document.getElementById('brochureCanvas');
+
+// Print Modal DOM elements
+const printModal = document.getElementById('printModal');
+const btnClosePrintModal = document.getElementById('btnClosePrintModal');
+const modalTogglePrintGuides = document.getElementById('modalTogglePrintGuides');
+const btnModalConfirmPrint = document.getElementById('btnModalConfirmPrint');
+const btnModalCancelPrint = document.getElementById('btnModalCancelPrint');
 const colorDots = document.querySelectorAll('.color-dot');
 const layoutButtons = document.querySelectorAll('.layout-btn');
 
@@ -1503,7 +1510,32 @@ function setupOptionListeners() {
 // Setup Action Buttons
 function setupButtonListeners() {
   btnPrint.addEventListener('click', () => {
-    window.print();
+    modalTogglePrintGuides.checked = state.printGuides;
+    printModal.style.display = 'flex';
+  });
+
+  btnClosePrintModal.addEventListener('click', () => {
+    printModal.style.display = 'none';
+  });
+
+  btnModalCancelPrint.addEventListener('click', () => {
+    printModal.style.display = 'none';
+  });
+
+  modalTogglePrintGuides.addEventListener('change', (e) => {
+    state.printGuides = e.target.checked;
+    const sidebarToggle = document.getElementById('togglePrintGuides');
+    if (sidebarToggle) {
+      sidebarToggle.checked = state.printGuides;
+    }
+    render();
+  });
+
+  btnModalConfirmPrint.addEventListener('click', () => {
+    printModal.style.display = 'none';
+    setTimeout(() => {
+      window.print();
+    }, 150);
   });
 
   btnReset.addEventListener('click', () => {
