@@ -1739,6 +1739,7 @@ let state = {
   editMode: true,
   foldGuides: true,
   printGuides: false,
+  rulerActive: false,
   printMode: 'bleedbox',  // 'bleedbox', 'cropmarks', 'trim'
   language: 'el',         // 'el', 'en'
   docType: 'brochure',    // 'brochure', 'booklet', 'bookmark'
@@ -2205,6 +2206,14 @@ function setupOptionListeners() {
     state.printMode = e.target.checked ? 'cropmarks' : 'bleedbox';
     render();
   });
+
+  const toggleRuler = document.getElementById('toggleRuler');
+  if (toggleRuler) {
+    toggleRuler.addEventListener('change', (e) => {
+      state.rulerActive = e.target.checked;
+      render();
+    });
+  }
 
   toggleLanguage.addEventListener('change', (e) => {
     state.language = e.target.checked ? 'en' : 'el';
@@ -3731,6 +3740,9 @@ function loadState(savedState) {
   const togglePrintGuides = document.getElementById('togglePrintGuides');
   if (togglePrintGuides) togglePrintGuides.checked = state.printGuides;
   
+  const toggleRuler = document.getElementById('toggleRuler');
+  if (toggleRuler) toggleRuler.checked = state.rulerActive || false;
+  
   const toggleLanguage = document.getElementById('toggleLanguage');
   if (toggleLanguage) toggleLanguage.checked = state.language === 'en';
   
@@ -4088,6 +4100,9 @@ function render() {
   // 5. Connect Text editing
   toggleContentEditable();
   bindTextEdits();
+
+  // 6. Inject rulers if active
+  injectRulers();
 }
 
 // Panel Render Functions
@@ -4622,3 +4637,108 @@ function triggerSpecsSheetPrint(brochureFilename) {
 
 // Start app on load
 window.addEventListener('DOMContentLoaded', init);
+
+// ==========================================================================
+// DYNAMIC RULERS INJECTION (MM ACCURATE SVGS)
+// ==========================================================================
+function injectRulers() {
+  // Remove any existing rulers first
+  const existingRulers = document.querySelectorAll('.spread-canvas-ruler');
+  existingRulers.forEach(r => r.remove());
+  
+  // Toggle class on body
+  document.body.classList.toggle('ruler-active', !!state.rulerActive);
+  
+  if (!state.rulerActive) return;
+  
+  const canvasElements = document.querySelectorAll('.spread-canvas');
+  if (canvasElements.length === 0) return;
+  
+  // Resolve page sizes and dimensions
+  const dims = PAGE_SIZES[state.pageSize] || PAGE_SIZES.b5;
+  let numPanels = 1;
+  if (state.docType === 'bookmark' || state.docType === 'booklet') {
+    numPanels = 2;
+  } else {
+    if (state.layout === 'bifold') numPanels = 2;
+    if (state.layout === 'trifold') numPanels = 3;
+  }
+  
+  const spreadW = dims.width * numPanels;
+  const spreadH = dims.height;
+  
+  // Generate Horizontal Ruler SVG
+  const hSvg = generateHorizontalRulerSvg(spreadW);
+  // Generate Vertical Ruler SVG
+  const vSvg = generateVerticalRulerSvg(spreadH);
+  
+  canvasElements.forEach(canvas => {
+    // Create horizontal ruler container
+    const hRuler = document.createElement('div');
+    hRuler.className = 'spread-canvas-ruler ruler-horizontal';
+    hRuler.innerHTML = hSvg;
+    
+    // Create vertical ruler container
+    const vRuler = document.createElement('div');
+    vRuler.className = 'spread-canvas-ruler ruler-vertical';
+    vRuler.innerHTML = vSvg;
+    
+    // Append to canvas
+    canvas.appendChild(hRuler);
+    canvas.appendChild(vRuler);
+  });
+}
+
+function generateHorizontalRulerSvg(widthMm) {
+  const labelStep = widthMm < 200 ? 20 : 50;
+  let pathD = '';
+  let textElements = '';
+  
+  for (let i = 0; i <= widthMm; i++) {
+    let tickH = 1.5;
+    if (i % labelStep === 0) {
+      tickH = 5;
+      textElements += `<text x="${i}" y="2.2" font-size="1.8" fill="rgba(148, 163, 184, 0.85)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500">${i}</text>`;
+    } else if (i % 10 === 0) {
+      tickH = 3.5;
+    } else if (i % 5 === 0) {
+      tickH = 2.5;
+    }
+    pathD += `M${i} 8 L${i} ${8 - tickH} `;
+  }
+  
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${widthMm} 8" preserveAspectRatio="none" style="display: block;">
+      <line x1="0" y1="8" x2="${widthMm}" y2="8" stroke="rgba(148, 163, 184, 0.4)" stroke-width="0.15"/>
+      <path d="${pathD}" stroke="rgba(148, 163, 184, 0.5)" stroke-width="0.1" fill="none"/>
+      ${textElements}
+    </svg>
+  `;
+}
+
+function generateVerticalRulerSvg(heightMm) {
+  const labelStep = heightMm < 200 ? 20 : 50;
+  let pathD = '';
+  let textElements = '';
+  
+  for (let i = 0; i <= heightMm; i++) {
+    let tickW = 1.5;
+    if (i % labelStep === 0) {
+      tickW = 5;
+      textElements += `<text x="2" y="${i + 0.6}" font-size="1.8" fill="rgba(148, 163, 184, 0.85)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" transform="rotate(-90 2 ${i + 0.6})">${i}</text>`;
+    } else if (i % 10 === 0) {
+      tickW = 3.5;
+    } else if (i % 5 === 0) {
+      tickW = 2.5;
+    }
+    pathD += `M8 ${i} L${8 - tickW} ${i} `;
+  }
+  
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 8 ${heightMm}" preserveAspectRatio="none" style="display: block;">
+      <line x1="8" y1="0" x2="8" y2="${heightMm}" stroke="rgba(148, 163, 184, 0.4)" stroke-width="0.15"/>
+      <path d="${pathD}" stroke="rgba(148, 163, 184, 0.5)" stroke-width="0.1" fill="none"/>
+      ${textElements}
+    </svg>
+  `;
+}
