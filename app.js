@@ -2002,6 +2002,68 @@ function getActiveData() {
   return state.contentData[themeKey][state.language];
 }
 
+// Helper to gather all text from the active document to feed to Gemini AI
+function gatherActiveContentText() {
+  const activeData = getActiveData();
+  if (!activeData) return "";
+  
+  let textParts = [];
+  
+  if (state.docType === 'bookmark') {
+    // Front panel
+    if (activeData.front) {
+      if (activeData.front.category) textParts.push(activeData.front.category);
+      if (activeData.front.title) textParts.push(activeData.front.title);
+      if (activeData.front.lead) textParts.push(activeData.front.lead);
+      if (activeData.front.mainText) textParts.push(activeData.front.mainText);
+    }
+    // Back panel
+    if (activeData.back) {
+      if (activeData.back.category) textParts.push(activeData.back.category);
+      if (activeData.back.title) textParts.push(activeData.back.title);
+      if (activeData.back.lead) textParts.push(activeData.back.lead);
+      if (activeData.back.mainText) textParts.push(activeData.back.mainText);
+    }
+  } else if (state.docType === 'booklet') {
+    // Booklet has pages 1 to 16
+    for (let i = 1; i <= 16; i++) {
+      const page = activeData[`page${i}`];
+      if (page) {
+        if (page.category) textParts.push(page.category);
+        if (page.title) textParts.push(page.title);
+        if (page.subtitle) textParts.push(page.subtitle);
+        if (page.lead) textParts.push(page.lead);
+        if (page.paras && Array.isArray(page.paras)) {
+          textParts.push(...page.paras);
+        }
+        if (page.list && Array.isArray(page.list)) {
+          textParts.push(...page.list);
+        }
+      }
+    }
+  } else {
+    // Brochure panels: cover, backCover, section1, section2, section3
+    const panels = ['cover', 'section1', 'section2', 'section3', 'backCover'];
+    panels.forEach(p => {
+      const panel = activeData[p];
+      if (panel) {
+        if (panel.category) textParts.push(panel.category);
+        if (panel.title) textParts.push(panel.title);
+        if (panel.subtitle) textParts.push(panel.subtitle);
+        if (panel.lead) textParts.push(panel.lead);
+        if (panel.paras && Array.isArray(panel.paras)) {
+          textParts.push(...panel.paras);
+        }
+        if (panel.list && Array.isArray(panel.list)) {
+          textParts.push(...panel.list);
+        }
+      }
+    });
+  }
+  
+  return textParts.filter(t => typeof t === 'string' && t.trim() !== "").join(" | ");
+}
+
 // Setup listeners for Video Presenter Modal
 function setupVideoPresenterListeners() {
   const videoModal = document.getElementById('videoModal');
@@ -2009,8 +2071,19 @@ function setupVideoPresenterListeners() {
   const videoPlayerFrame = document.getElementById('videoPlayerFrame');
   const videoScriptText = document.getElementById('videoScriptText');
   const btnSaveScript = document.getElementById('btnSaveScript');
+  const btnGenerateScriptAi = document.getElementById('btnGenerateScriptAi');
   const btnSynthesizeSpeech = document.getElementById('btnSynthesizeSpeech');
   const avatarSelect = document.getElementById('avatarSelect');
+
+  // Trigger loading voices so they are cached on load
+  if (window.speechSynthesis) {
+    window.speechSynthesis.getVoices();
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+      };
+    }
+  }
 
   btnViewVideo.addEventListener('click', () => {
     const activeTheme = state.docType === 'bookmark' ? state.bookmarkTheme : state.template;
@@ -2041,6 +2114,69 @@ function setupVideoPresenterListeners() {
     alert("✅ Το σενάριο αποθηκεύτηκε επιτυχώς!");
   });
 
+  if (btnGenerateScriptAi) {
+    btnGenerateScriptAi.addEventListener('click', async () => {
+      const apiKey = localStorage.getItem('geminiApiKey') || state.geminiKey;
+      if (!apiKey) {
+        alert("⚠️ Παρακαλώ εισάγετε ένα έγκυρο Google Gemini API Key στο sidebar για να χρησιμοποιήσετε αυτή τη λειτουργία!");
+        return;
+      }
+      
+      btnGenerateScriptAi.classList.add('loading');
+      btnGenerateScriptAi.disabled = true;
+      videoScriptText.classList.add('ai-loading-shimmer');
+      
+      try {
+        const textContext = gatherActiveContentText();
+        const activeTheme = state.docType === 'bookmark' ? state.bookmarkTheme : state.template;
+        
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-3.5-flash:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [{
+                text: `You are a professional video scriptwriter for the Center for the Greek Language.
+Based on the following customized brochure/booklet/bookmark content, produce a concise, engaging, and professional presentation script (in Greek) for a digital video presenter.
+The script should summarize the core messages of the brochure and speak directly to the audience.
+Keep the script under 500 characters so it fits a short video preview. Do not include any quotes, markdown, introductions, or conversational text. Output ONLY the Greek presentation script.
+
+Brochure Content:
+"${textContext}"`
+              }]
+            }]
+          })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error?.message || "Σφάλμα κατά την κλήση του Gemini API");
+        }
+
+        const data = await response.json();
+        let rewrittenText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        
+        if (rewrittenText) {
+          rewrittenText = rewrittenText.trim().replace(/^["'«“]|["'»”]$/g, '').trim();
+          videoScriptText.value = rewrittenText;
+          state.videoScripts[activeTheme] = rewrittenText;
+          alert("✨ Το σενάριο παράχθηκε επιτυχώς με AI!");
+        } else {
+          alert("⚠️ Το Gemini API δεν επέστρεψε περιεχόμενο. Δοκιμάστε ξανά.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert(`⚠️ Σφάλμα AI: ${err.message}`);
+      } finally {
+        btnGenerateScriptAi.classList.remove('loading');
+        btnGenerateScriptAi.disabled = false;
+        videoScriptText.classList.remove('ai-loading-shimmer');
+      }
+    });
+  }
+
   btnSynthesizeSpeech.addEventListener('click', () => {
     if (!window.speechSynthesis) {
       alert("⚠️ Η σύνθεση ομιλίας δεν υποστηρίζεται από τον browser σας.");
@@ -2060,10 +2196,26 @@ function setupVideoPresenterListeners() {
     btnSynthesizeSpeech.innerText = "🛑 Διακοπή Εκφώνησης";
     const utterance = new SpeechSynthesisUtterance(scriptText);
     
-    // Set Greek voice
+    // Choose voice & pitch depending on selected avatar
     utterance.lang = 'el-GR';
+    const voices = window.speechSynthesis.getVoices();
+    const greekVoices = voices.filter(voice => voice.lang.toLowerCase().includes('el'));
     
-    // Choose rate & pitch depending on selected avatar
+    let selectedVoice = null;
+    if (greekVoices.length > 0) {
+      if (avatarSelect.value === 'avatar2') {
+        // Orpheus (Male) - try to find "stefanos" or "male"
+        selectedVoice = greekVoices.find(v => v.name.toLowerCase().includes('stefanos') || v.name.toLowerCase().includes('male')) || greekVoices[0];
+      } else {
+        // Nefeli (Female) - try to find "sofia", "melina", or "female"
+        selectedVoice = greekVoices.find(v => v.name.toLowerCase().includes('sofia') || v.name.toLowerCase().includes('melina') || v.name.toLowerCase().includes('female')) || greekVoices[0];
+      }
+    }
+    
+    if (selectedVoice) {
+      utterance.voice = selectedVoice;
+    }
+    
     if (avatarSelect.value === 'avatar2') {
       // Orpheus - deeper voice pitch
       utterance.pitch = 0.85;
@@ -2082,6 +2234,8 @@ function setupVideoPresenterListeners() {
       btnSynthesizeSpeech.innerText = "🔊 Εκφώνηση Σεναρίου";
     };
 
+    // Explicitly cancel any pending speech before starting new speech to prevent Chrome freezing
+    window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   });
 }

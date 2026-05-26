@@ -407,9 +407,10 @@
         <div class="video-script-column">
           <h3>Σενάριο Παρουσίασης (Editable Script)</h3>
           <textarea id="videoScriptText" placeholder="Το σενάριο του βίντεο θα εμφανιστεί εδώ..."></textarea>
-          <div class="script-actions">
-            <button id="btnSaveScript" class="btn-primary">Αποθήκευση Σεναρίου</button>
-            <button id="btnSynthesizeSpeech" class="btn-secondary">🔊 Εκφώνηση Σεναρίου</button>
+          <div class="script-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+            <button id="btnSaveScript" class="btn-primary" style="flex: 1; min-width: 130px;">Αποθήκευση Σεναρίου</button>
+            <button id="btnGenerateScriptAi" class="btn-primary" style="flex: 1; min-width: 160px; background-color: var(--secondary-color); color: #000;">✨ Παραγωγή Σεναρίου (AI)</button>
+            <button id="btnSynthesizeSpeech" class="btn-secondary" style="flex: 1; min-width: 150px;">🔊 Εκφώνηση Σεναρίου</button>
           </div>
         </div>
       </div>
