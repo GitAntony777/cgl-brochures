@@ -289,6 +289,20 @@
           </label>
 
           <label class="toggle-switch">
+            <input type="checkbox" id="toggleWatermark">
+            <span class="slider"></span>
+            <span class="toggle-label">Υδατογράφημα Ασφαλείας (Watermark)</span>
+          </label>
+
+          <div id="watermarkStyleGroup" style="display: none; margin-top: 0.25rem; margin-bottom: 0.5rem; padding-left: 1.5rem;">
+            <label for="watermarkStyleSelect" style="font-size: 0.75rem; color: var(--dashboard-text-muted);">Στυλ Υδατογραφήματος:</label>
+            <select id="watermarkStyleSelect" style="width: 100%; padding: 0.4rem; border-radius: 6px; border: 1px solid var(--dashboard-border); background-color: #242c3d; color: white; font-size: 0.75rem; margin-top: 0.2rem;">
+              <option value="text">Μόνο Κείμενο (Text Only)</option>
+              <option value="combined" selected>Κείμενο & Γεωμετρικό Μοτίβο (Combined)</option>
+            </select>
+          </div>
+
+          <label class="toggle-switch">
             <input type="checkbox" id="toggleLanguage">
             <span class="slider"></span>
             <span class="toggle-label">Αγγλικό Περιεχόμενο (EN)</span>

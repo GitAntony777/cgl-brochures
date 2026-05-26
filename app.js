@@ -1740,6 +1740,8 @@ let state = {
   foldGuides: true,
   printGuides: false,
   rulerActive: false,
+  watermarkActive: false,
+  watermarkStyle: 'combined',
   printMode: 'bleedbox',  // 'bleedbox', 'cropmarks', 'trim'
   language: 'el',         // 'el', 'en'
   docType: 'brochure',    // 'brochure', 'booklet', 'bookmark'
@@ -1786,7 +1788,9 @@ function saveGlobalState() {
     paperWeight: state.paperWeight,
     paperColor: state.paperColor,
     bookmarkTheme: state.bookmarkTheme,
-    bilingualBookmark: state.bilingualBookmark
+    bilingualBookmark: state.bilingualBookmark,
+    watermarkActive: state.watermarkActive,
+    watermarkStyle: state.watermarkStyle
   });
 
   if (globalHistory.currentIndex >= 0) {
@@ -2215,6 +2219,33 @@ function setupOptionListeners() {
     });
   }
 
+  const toggleWatermark = document.getElementById('toggleWatermark');
+  if (toggleWatermark) {
+    toggleWatermark.addEventListener('change', (e) => {
+      const targetChecked = e.target.checked;
+      const actionText = targetChecked ? 'ενεργοποίηση' : 'απενεργοποίηση';
+      const pw = prompt(`Εισάγετε τον κωδικό πρόσβασης της εφαρμογής για ${actionText} του υδατογραφήματος:`);
+      
+      if (pw === 'cglpassword123') {
+        state.watermarkActive = targetChecked;
+        render();
+      } else {
+        if (pw !== null) {
+          alert('⚠️ Λανθασμένος κωδικός πρόσβασης! Η ενέργεια ακυρώθηκε.');
+        }
+        e.target.checked = !targetChecked;
+      }
+    });
+  }
+
+  const watermarkStyleSelect = document.getElementById('watermarkStyleSelect');
+  if (watermarkStyleSelect) {
+    watermarkStyleSelect.addEventListener('change', (e) => {
+      state.watermarkStyle = e.target.value;
+      render();
+    });
+  }
+
   toggleLanguage.addEventListener('change', (e) => {
     state.language = e.target.checked ? 'en' : 'el';
     render();
@@ -2398,6 +2429,15 @@ function applyUIClassesToBody() {
   } else {
     document.body.classList.remove('show-print-guides');
   }
+
+  if (state.watermarkActive) {
+    document.body.classList.add('watermark-active');
+  } else {
+    document.body.classList.remove('watermark-active');
+  }
+
+  document.body.classList.remove('watermark-style-text', 'watermark-style-combined');
+  document.body.classList.add(`watermark-style-${state.watermarkStyle || 'combined'}`);
 }
 
 function generateBrochureData(theme, lang, bookmarkStore) {
@@ -3742,6 +3782,12 @@ function loadState(savedState) {
   
   const toggleRuler = document.getElementById('toggleRuler');
   if (toggleRuler) toggleRuler.checked = state.rulerActive || false;
+
+  const toggleWatermark = document.getElementById('toggleWatermark');
+  if (toggleWatermark) toggleWatermark.checked = state.watermarkActive || false;
+
+  const watermarkStyleSelect = document.getElementById('watermarkStyleSelect');
+  if (watermarkStyleSelect) watermarkStyleSelect.value = state.watermarkStyle || 'combined';
   
   const toggleLanguage = document.getElementById('toggleLanguage');
   if (toggleLanguage) toggleLanguage.checked = state.language === 'en';
@@ -3920,6 +3966,11 @@ function render() {
   } else {
     layoutSection.style.display = 'block';
     bilingualBookmarkToggleGroup.style.display = 'none';
+  }
+
+  const watermarkStyleGroup = document.getElementById('watermarkStyleGroup');
+  if (watermarkStyleGroup) {
+    watermarkStyleGroup.style.display = state.watermarkActive ? 'block' : 'none';
   }
 
   brochureCanvas.innerHTML = ''; // Clear canvas
@@ -4142,6 +4193,7 @@ function renderCoverPanel(coverData, pageNum) {
           ${renderAiButtons('cover', 'eventDate')}
         </div>
       </div>
+      <div class="panel-watermark"></div>
     </div>
   `;
 }
@@ -4200,6 +4252,7 @@ function renderBackCoverPanel(backData, pageNum) {
           </div>
         </div>
       </div>
+      <div class="panel-watermark"></div>
     </div>
   `;
 }
@@ -4305,6 +4358,7 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
         <button class="btn-panel-action" onclick="window.addListItem('${sectionKey}')">➕ Λίστα</button>
         <button class="btn-panel-action" onclick="window.triggerImageUpload('${sectionKey}')">📷 Εικόνα</button>
       </div>
+      <div class="panel-watermark"></div>
     </div>
   `;
 }
@@ -4399,6 +4453,7 @@ function renderBookmarkPanel(panelData, side, pageNum) {
         <div class="bookmark-footnote editable-field" data-sec="${side}" data-field="footnote">${footnote}</div>
         ${renderAiButtons(side, 'footnote')}
       </div>
+      <div class="panel-watermark"></div>
     </div>
   `;
 }
