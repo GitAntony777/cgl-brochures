@@ -1771,6 +1771,8 @@ let globalHistory = {
   isUndoingOrRedoing: false
 };
 
+let pendingWatermarkState = null;
+
 function saveGlobalState() {
   if (globalHistory.isUndoingOrRedoing) return;
 
@@ -2222,19 +2224,65 @@ function setupOptionListeners() {
   const toggleWatermark = document.getElementById('toggleWatermark');
   if (toggleWatermark) {
     toggleWatermark.addEventListener('change', (e) => {
+      // Revert checkbox immediately; it will only visually change on successful auth
       const targetChecked = e.target.checked;
-      const actionText = targetChecked ? 'ενεργοποίηση' : 'απενεργοποίηση';
-      const pw = prompt(`Εισάγετε τον κωδικό πρόσβασης της εφαρμογής για ${actionText} του υδατογραφήματος:`);
-      
+      e.target.checked = !targetChecked;
+
+      pendingWatermarkState = targetChecked;
+
+      const modal = document.getElementById('watermarkPasswordModal');
+      const input = document.getElementById('watermarkPasswordInput');
+      const errorText = document.getElementById('watermarkModalError');
+      const msgText = document.getElementById('watermarkModalMessage');
+
+      if (modal && input && errorText && msgText) {
+        input.value = '';
+        errorText.style.display = 'none';
+        msgText.innerText = `Εισάγετε τον κωδικό πρόσβασης της εφαρμογής για ${targetChecked ? 'ενεργοποίηση' : 'απενεργοποίηση'} του υδατογραφήματος:`;
+        modal.style.display = 'flex';
+        input.focus();
+      }
+    });
+  }
+
+  const btnConfirmWatermarkPassword = document.getElementById('btnConfirmWatermarkPassword');
+  const btnCancelWatermarkPassword = document.getElementById('btnCancelWatermarkPassword');
+  const watermarkPasswordInput = document.getElementById('watermarkPasswordInput');
+  const watermarkPasswordModal = document.getElementById('watermarkPasswordModal');
+  const watermarkModalError = document.getElementById('watermarkModalError');
+
+  if (btnConfirmWatermarkPassword) {
+    const handleConfirm = () => {
+      const pw = watermarkPasswordInput.value;
       if (pw === 'cglpassword123') {
-        state.watermarkActive = targetChecked;
+        state.watermarkActive = pendingWatermarkState;
+        watermarkPasswordModal.style.display = 'none';
+        
+        const toggleWatermark = document.getElementById('toggleWatermark');
+        if (toggleWatermark) toggleWatermark.checked = state.watermarkActive;
         render();
       } else {
-        if (pw !== null) {
-          alert('⚠️ Λανθασμένος κωδικός πρόσβασης! Η ενέργεια ακυρώθηκε.');
-        }
-        e.target.checked = !targetChecked;
+        watermarkModalError.style.display = 'block';
+        watermarkPasswordInput.value = '';
+        watermarkPasswordInput.focus();
       }
+    };
+
+    btnConfirmWatermarkPassword.addEventListener('click', handleConfirm);
+
+    if (watermarkPasswordInput) {
+      watermarkPasswordInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          handleConfirm();
+        }
+      });
+    }
+  }
+
+  if (btnCancelWatermarkPassword) {
+    btnCancelWatermarkPassword.addEventListener('click', () => {
+      watermarkPasswordModal.style.display = 'none';
+      pendingWatermarkState = null;
     });
   }
 
@@ -4758,7 +4806,7 @@ function generateHorizontalRulerSvg(widthMm) {
     let tickH = 1.5;
     if (i % labelStep === 0) {
       tickH = 5;
-      textElements += `<text x="${i}" y="2.2" font-size="1.8" fill="rgba(148, 163, 184, 0.85)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500">${i}</text>`;
+      textElements += `<text x="${i}" y="2.6" font-size="2.4" fill="rgba(241, 245, 249, 0.95)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600">${i}</text>`;
     } else if (i % 10 === 0) {
       tickH = 3.5;
     } else if (i % 5 === 0) {
@@ -4769,8 +4817,8 @@ function generateHorizontalRulerSvg(widthMm) {
   
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${widthMm} 8" preserveAspectRatio="none" style="display: block;">
-      <line x1="0" y1="8" x2="${widthMm}" y2="8" stroke="rgba(148, 163, 184, 0.4)" stroke-width="0.15"/>
-      <path d="${pathD}" stroke="rgba(148, 163, 184, 0.5)" stroke-width="0.1" fill="none"/>
+      <line x1="0" y1="8" x2="${widthMm}" y2="8" stroke="rgba(241, 245, 249, 0.5)" stroke-width="0.15"/>
+      <path d="${pathD}" stroke="rgba(241, 245, 249, 0.65)" stroke-width="0.1" fill="none"/>
       ${textElements}
     </svg>
   `;
@@ -4785,7 +4833,7 @@ function generateVerticalRulerSvg(heightMm) {
     let tickW = 1.5;
     if (i % labelStep === 0) {
       tickW = 5;
-      textElements += `<text x="2" y="${i + 0.6}" font-size="1.8" fill="rgba(148, 163, 184, 0.85)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" transform="rotate(-90 2 ${i + 0.6})">${i}</text>`;
+      textElements += `<text x="2.2" y="${i + 0.8}" font-size="2.4" fill="rgba(241, 245, 249, 0.95)" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" transform="rotate(-90 2.2 ${i + 0.8})">${i}</text>`;
     } else if (i % 10 === 0) {
       tickW = 3.5;
     } else if (i % 5 === 0) {
@@ -4796,8 +4844,8 @@ function generateVerticalRulerSvg(heightMm) {
   
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 8 ${heightMm}" preserveAspectRatio="none" style="display: block;">
-      <line x1="8" y1="0" x2="8" y2="${heightMm}" stroke="rgba(148, 163, 184, 0.4)" stroke-width="0.15"/>
-      <path d="${pathD}" stroke="rgba(148, 163, 184, 0.5)" stroke-width="0.1" fill="none"/>
+      <line x1="8" y1="0" x2="8" y2="${heightMm}" stroke="rgba(241, 245, 249, 0.5)" stroke-width="0.15"/>
+      <path d="${pathD}" stroke="rgba(241, 245, 249, 0.65)" stroke-width="0.1" fill="none"/>
       ${textElements}
     </svg>
   `;
