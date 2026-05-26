@@ -2594,8 +2594,34 @@ function updatePrintPageSize() {
     totalH += 6;  // 3mm top, 3mm bottom bleed
   }
 
+  // Resolve active panel dimensions for variables during print
+  let dimsForVars;
+  if (state.docType === 'bookmark') {
+    dimsForVars = PAGE_SIZES[state.pageSize] || PAGE_SIZES.bookmark_wide;
+  } else {
+    dimsForVars = PAGE_SIZES[state.pageSize] || PAGE_SIZES.b5;
+  }
+
+  const paperColorsMap = {
+    white: '#ffffff',
+    cream: '#faf5eb',
+    offwhite: '#fbfaf8',
+    grey: '#e8e6e3',
+    kraft: '#c8ad8d'
+  };
+  const paperBg = paperColorsMap[state.paperColor] || '#fbfaf8';
+
   styleTag.innerHTML = `
     @media print {
+      :root {
+        --panel-width: ${dimsForVars.width}mm !important;
+        --panel-height: ${dimsForVars.height}mm !important;
+        --paper-bg: ${paperBg} !important;
+        --panel-title-size: ${state.titleFontSize}pt !important;
+        --panel-lead-size: ${(state.bodyFontSize + 1.5)}pt !important;
+        --panel-body-size: ${state.bodyFontSize}pt !important;
+        --cover-title-size: ${(state.titleFontSize * 1.2)}pt !important;
+      }
       @page {
         size: ${totalW}mm ${totalH}mm;
         margin: 0;
