@@ -1083,7 +1083,11 @@ body.edit-mode-active [contenteditable="true"]:focus {
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
-    width: auto !important;
+    width: var(--print-page-width, auto) !important;
+    height: var(--print-page-height, auto) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
   }
 
   .spread-container:last-child {

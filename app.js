@@ -3323,11 +3323,9 @@ function updatePrintPageSize() {
   const mode = state.printMode || 'bleedbox';
   if (mode === 'instructions') {
     styleTag.innerHTML = `
-      @media print {
-        @page {
-          size: A4 portrait;
-          margin: 15mm;
-        }
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
       }
     `;
     return;
@@ -3359,6 +3357,10 @@ function updatePrintPageSize() {
   const paperBg = paperColorsMap[state.paperColor] || '#fbfaf8';
 
   styleTag.innerHTML = `
+    @page {
+      size: ${totalW}mm ${totalH}mm;
+      margin: 0;
+    }
     @media print {
       :root {
         --panel-width: ${dimsForVars.width}mm !important;
@@ -3368,10 +3370,8 @@ function updatePrintPageSize() {
         --panel-lead-size: ${(state.bodyFontSize + 1.5)}pt !important;
         --panel-body-size: ${state.bodyFontSize}pt !important;
         --cover-title-size: ${(state.titleFontSize * 1.2)}pt !important;
-      }
-      @page {
-        size: ${totalW}mm ${totalH}mm;
-        margin: 0;
+        --print-page-width: ${totalW}mm !important;
+        --print-page-height: ${totalH}mm !important;
       }
     }
   `;
