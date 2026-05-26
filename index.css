@@ -2862,6 +2862,11 @@ body.ruler-active .spread-canvas {
   overflow: visible !important;
 }
 
+body.ruler-active.show-print-guides .spread-canvas {
+  margin-top: 15mm !important;
+  margin-left: 15mm !important;
+}
+
 .spread-canvas-ruler {
   position: absolute;
   pointer-events: none;
@@ -2884,6 +2889,17 @@ body.ruler-active .spread-canvas {
   left: -8mm;
   width: 8mm;
   height: 100%;
+  border-right: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(1px);
+}
+
+.ruler-corner {
+  top: -8mm;
+  left: -8mm;
+  width: 8mm;
+  height: 8mm;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
   border-right: 1px solid rgba(148, 163, 184, 0.4);
   background: rgba(15, 23, 42, 0.15);
   backdrop-filter: blur(1px);

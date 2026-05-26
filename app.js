@@ -4683,9 +4683,14 @@ function injectRulers() {
     vRuler.className = 'spread-canvas-ruler ruler-vertical';
     vRuler.innerHTML = vSvg;
     
+    // Create corner intersection container
+    const corner = document.createElement('div');
+    corner.className = 'spread-canvas-ruler ruler-corner';
+    
     // Append to canvas
     canvas.appendChild(hRuler);
     canvas.appendChild(vRuler);
+    canvas.appendChild(corner);
   });
 }
 
