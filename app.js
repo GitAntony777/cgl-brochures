@@ -1137,6 +1137,120 @@ const templatesContent = {
           footnote: "www.greeklanguage.gr"
         }
       }
+    },
+    greektome: {
+      el: {
+        front: {
+          category: "ΜΑΘΗΜΑΤΑ ΕΛΛΗΝΙΚΗΣ",
+          title: "Πρόγραμμα «Greek to Me»",
+          subtitle: "Μαθήματα online",
+          lead: "Σύγχρονα διαδικτυακά μαθήματα ελληνικής γλώσσας για εφήβους και ενήλικες σε όλο τον κόσμο.",
+          mainText: "«Η εκμάθηση της ελληνικής γλώσσας γίνεται εύκολη, ευχάριστη και προσβάσιμη από οπουδήποτε. Το πρόγραμμα Greek to Me προσφέρει εξατομικευμένη διδασκαλία με τη χρήση προηγμένων ψηφιακών μέσων.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΕΚΠΑΙΔΕΥΣΗ & ΜΑΘΗΜΑΤΑ",
+          title: "Δομή & Επίπεδα",
+          subtitle: "Online Εκμάθηση",
+          lead: "Ευέλικτα μαθήματα σχεδιασμένα από ειδικούς επιστήμονες του Κέντρου Ελληνικής Γλώσσας.",
+          mainText: "• Διδασκαλία από έμπειρους και πιστοποιημένους καθηγητές\n• Κάλυψη επιπέδων ελληνομάθειας Α1 έως Β1\n• Ευέλικτο ωράριο προσαρμοσμένο στις ανάγκες σας\n• Διαδραστικές ασκήσεις και multimedia υλικό\n• Εστίαση στην επικοινωνία και στην κατανόηση",
+          footnote: "greektome.greeklanguage.gr"
+        }
+      },
+      en: {
+        front: {
+          category: "GREEK COURSES",
+          title: "'Greek to Me' Program",
+          subtitle: "Online Lessons",
+          lead: "Modern online Greek language courses for teenagers and adults worldwide.",
+          mainText: "'Learning the Greek language becomes simple, engaging, and accessible from anywhere. The Greek to Me program offers personalized instruction using advanced digital materials.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "EDUCATION & COURSES",
+          title: "Structure & Levels",
+          subtitle: "Online Learning",
+          lead: "Flexible courses designed by expert linguists at the Center for the Greek Language.",
+          mainText: "• Instruction by experienced and certified native teachers\n• Covering attainment levels from A1 to B1\n• Flexible scheduling tailored to your timezone and pace\n• Interactive tasks and multimedia learning tools\n• Focus on conversational skills and daily comprehension",
+          footnote: "greektome.greeklanguage.gr"
+        }
+      }
+    },
+    shop: {
+      el: {
+        front: {
+          category: "ΕΚΔΟΣΕΙΣ & ΒΙΒΛΙΑ",
+          title: "Ηλεκτρονικό Κατάστημα",
+          subtitle: "Εκδόσεις ΚΕΓ",
+          lead: "Επίσημο e-Shop του Κέντρου Ελληνικής Γλώσσας με επιστημονικά και εκπαιδευτικά συγγράμματα.",
+          mainText: "«Ανακαλύψτε τις επίσημες εκδόσεις του ΚΕΓ. Μια πλούσια συλλογή από λεξικά, μελέτες, γλωσσολογικά βοηθήματα και διδακτικό υλικό για την υποστήριξη της ελληνικής εκπαίδευσης.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΚΑΤΗΓΟΡΙΕΣ ΕΚΔΟΣΕΩΝ",
+          title: "Βιβλία & Λεξικά",
+          subtitle: "e-Shop ΚΕΓ",
+          lead: "Περιηγηθείτε στις κατηγορίες εκδόσεων και βρείτε το κατάλληλο υλικό για την έρευνα και τη διδασκαλία σας.",
+          mainText: "• Μνημειώδη λεξικά (Λεξικό Κριαρά, Liddell & Scott)\n• Επιστημονικά περιοδικά, μελέτες & πρακτικά συνεδρίων\n• Βιβλία για τη διδασκαλία της ελληνικής ως ξένης\n• Εγχειρίδια προετοιμασίας για τις εξετάσεις πιστοποίησης\n• Διεθνής αποστολή βιβλίων και ψηφιακές αγορές",
+          footnote: "greeklanguage.gr/shop"
+        }
+      },
+      en: {
+        front: {
+          category: "PUBLICATIONS & BOOKS",
+          title: "Official Online Shop",
+          subtitle: "CGL Publications",
+          lead: "The official e-Shop of the Center for the Greek Language, featuring scientific and educational publications.",
+          mainText: "'Discover the official publications of CGL. A rich collection of dictionaries, studies, linguistic resources, and textbooks supporting Greek education worldwide.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "SHOP CATEGORIES",
+          title: "Books & Dictionaries",
+          subtitle: "CGL e-Shop",
+          lead: "Browse through publication categories and find the right material for research, study, or teaching.",
+          mainText: "• Landmark dictionaries (Kriaras Lexicon, Liddell & Scott)\n• Scientific journals, studies, and conference proceedings\n• Textbooks for teaching Greek as a foreign language\n• Preparation manuals for official certification exams\n• Worldwide shipping and secure online checkout",
+          footnote: "greeklanguage.gr/shop"
+        }
+      }
+    },
+    routes: {
+      el: {
+        front: {
+          category: "ΕΠΙΜΟΡΦΩΣΗ ΕΚΠΑΙΔΕΥΤΙΚΩΝ",
+          title: "Πρόγραμμα «Διαδρομές»",
+          subtitle: "Εξ Αποστάσεως Εκπαίδευση",
+          lead: "Πρότυπο πρόγραμμα εξ αποστάσεως επιμόρφωσης για τη διδασκαλία της ελληνικής ως δεύτερης/ξένης γλώσσας.",
+          mainText: "«Η επαγγελματική εξέλιξη των εκπαιδευτικών είναι ο πυρήνας της ποιοτικής διδασκαλίας. Οι Διαδρομές προσφέρουν εξειδικευμένη κατάρτιση σε θεωρία, μεθοδολογία και πρακτική εφαρμογή.»",
+          footnote: "Κέντρο Ελληνικής Γλώσσας"
+        },
+        back: {
+          category: "ΔΟΜΗ & ΘΕΜΑΤΙΚΕΣ",
+          title: "Ενότητες Κατάρτισης",
+          subtitle: "Πρόγραμμα Διαδρομές",
+          lead: "Επιμορφωτικές ενότητες που καλύπτουν όλες τις πτυχές της σύγχρονης διδακτικής μεθοδολογίας.",
+          mainText: "• Σχεδιασμός μαθήματος και παραγωγή διδακτικού υλικού\n• Διδασκαλία της γραμματικής, του λεξιλογίου και της προφοράς\n• Αξιολόγηση της γλωσσολογικής επίδοσης των μαθητών\n• Χρήση νέων τεχνολογιών στη γλωσσική τάξη\n• Εξειδίκευση στη διδασκαλία σε παιδιά, εφήβους και ενήλικες",
+          footnote: "www.greek-language.gr/routes"
+        }
+      },
+      en: {
+        front: {
+          category: "TEACHER TRAINING",
+          title: "'Routes' Program",
+          subtitle: "Distance Learning Certification",
+          lead: "A standard distance-learning professional training program for teaching Greek as a second/foreign language.",
+          mainText: "'The professional development of teachers is the core of quality instruction. Routes offers specialized training in language teaching theory, methodology, and classroom practice.'",
+          footnote: "Center for the Greek Language"
+        },
+        back: {
+          category: "TRAINING MODULES",
+          title: "Professional Training",
+          subtitle: "Routes Program",
+          lead: "Training modules covering all aspects of modern language teaching methodology and classroom management.",
+          mainText: "• Lesson planning and dynamic educational material design\n• Teaching grammar, vocabulary, pronunciation, and spelling\n• Assessment of student linguistic performance and tests\n• Integrating new digital technologies in the language classroom\n• Specializing in teaching children, teenagers, and adults",
+          footnote: "www.greek-language.gr/routes"
+        }
+      }
     }
   }
 };
@@ -1156,6 +1270,41 @@ const PAGE_SIZES = {
   bookmark_wide: { name: 'Σελιδοδείκτης Wide', width: 55, height: 200 },
   bookmark_std: { name: 'Σελιδοδείκτης Standard', width: 50, height: 200 }
 };
+
+// Official URLs for each theme used to generate QR Codes
+const themeUrls = {
+  general: "https://www.greeklanguage.gr",
+  certification: "https://www.greeklanguage.gr/certification/",
+  fryktories: "https://www.fryktories.gr",
+  lexicography: "https://www.greeklanguage.gr",
+  linguistics: "https://www.greeklanguage.gr",
+  literature: "https://www.greeklanguage.gr",
+  portal: "https://www.greek-language.gr",
+  cavafy: "https://www.greek-language.gr",
+  elytis: "https://www.greek-language.gr",
+  seferis: "https://www.greek-language.gr",
+  kriaras: "https://www.greek-language.gr",
+  history: "https://www.greek-language.gr",
+  etymology: "https://www.greek-language.gr",
+  books: "https://greeklanguage.gr/product-category/klik-sta-ellinika/",
+  interactive: "https://ebooks.greeklanguage.gr",
+  greektome: "https://greektome.greeklanguage.gr/",
+  shop: "https://greeklanguage.gr/shop/",
+  routes: "https://www.greek-language.gr/routes/"
+};
+
+// Helper to render QR code for the active theme URL
+function getQRHtml() {
+  const activeTheme = state.docType === 'bookmark' ? state.bookmarkTheme : state.template;
+  const url = themeUrls[activeTheme] || "https://www.greeklanguage.gr";
+  
+  return `
+    <div class="panel-qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(url)}" alt="QR Code" class="qr-code-img" />
+      <span class="qr-code-label">Σάρωση για πληροφορίες</span>
+    </div>
+  `;
+}
 
 let state = {
   template: 'general',    // 'general', 'certification', 'fryktories'
@@ -1295,6 +1444,18 @@ const themeVideos = {
   interactive: {
     youtubeId: "g2qJ3r_6y08",
     script: "Τα διαδραστικά βιβλία του ΚΕΓ εισάγουν νέες καινοτομίες στη διδασκαλία της ελληνικής γλώσσας, συνδυάζοντας το multimedia περιεχόμενο με διαδραστικές ασκήσεις στην οθόνη του υπολογιστή σας."
+  },
+  greektome: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Το πρόγραμμα Greek to Me προσφέρει online μαθήματα ελληνικής γλώσσας για εφήβους και ενήλικες σε όλο τον κόσμο, με ευέλικτο ωράριο και πιστοποιημένους καθηγητές."
+  },
+  shop: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Επισκεφθείτε το επίσημο ηλεκτρονικό κατάστημα του ΚΕΓ και ανακαλύψτε λεξικά, επιστημονικά συγγράμματα και βιβλία διδασκαλίας της ελληνικής γλώσσας."
+  },
+  routes: {
+    youtubeId: "g2qJ3r_6y08",
+    script: "Το πρόγραμμα Διαδρομές αποτελεί ένα πρότυπο εξ αποστάσεως πρόγραμμα επιμόρφωσης εκπαιδευτικών για τη διδασκαλία της ελληνικής ως δεύτερης ή ξένης γλώσσας."
   }
 };
 
@@ -3446,6 +3607,8 @@ function renderBackCoverPanel(backData, pageNum) {
         </div>
       </div>
       
+      ${getQRHtml()}
+      
       <div class="back-footer">
         <div class="social-links">
           <div class="editable-container" style="display: inline-block;">
@@ -3618,6 +3781,7 @@ function renderBookmarkPanel(panelData, side, pageNum) {
         </div>
         ${mainBodyContent}
         ${emblemHtml}
+        ${side === 'back' ? getQRHtml() : ''}
       </div>
       
       <div class="editable-container">

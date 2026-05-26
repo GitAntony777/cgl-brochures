@@ -2721,3 +2721,32 @@ body.print-mode-cropmarks .brochure-panel {
   left: 0 !important;
   right: calc(-1 * var(--bleed-margin)) !important;
 }
+
+/* QR Code styling */
+.panel-qr-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.25rem auto 0.5rem auto;
+  gap: 0.35rem;
+  width: fit-content;
+  text-align: center;
+}
+
+.qr-code-img {
+  width: 75px;
+  height: 75px;
+  padding: 4px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border: 1px solid var(--dashboard-border);
+}
+
+.qr-code-label {
+  font-size: 0.65rem;
+  color: var(--dashboard-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
