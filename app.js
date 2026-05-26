@@ -1287,11 +1287,436 @@ const themeUrls = {
   history: "https://www.greek-language.gr",
   etymology: "https://www.greek-language.gr",
   books: "https://greeklanguage.gr/product-category/klik-sta-ellinika/",
-  interactive: "https://ebooks.greeklanguage.gr",
+  interactive: "https://greeklanguage.gr/?product_cat=&s=%CE%B4%CE%B9%CE%B1%CE%B4%CF%81%CE%B1&post_type=product&lang=el",
   greektome: "https://greektome.greeklanguage.gr/",
   shop: "https://greeklanguage.gr/shop/",
   routes: "https://www.greek-language.gr/routes/"
 };
+
+// Rich, theme-specific texts for the dynamic themes
+const themeRichData = {
+  lexicography: {
+    el: {
+      intro_para2: "Το Τμήμα Λεξικογραφίας του ΚΕΓ επιτελεί έργο εθνικής σημασίας, εστιάζοντας στη συστηματική καταγραφή της ελληνικής γλώσσας. Μέσα από τη σύνταξη επιστημονικών λεξικών, τη μελέτη των πηγών και τη διαρκή επιστημονική τεκμηρίωση, το τμήμα προσφέρει πολύτιμα εφόδια στην παγκόσμια κοινότητα των μελετητών της ελληνικής.",
+      sec1_para2: "Η λεξικογραφική έρευνα δεν περιορίζεται στην απλή παράθεση λέξεων, αλλά αναδεικνύει την ιστορική εξέλιξη, τις σημασιολογικές μεταβολές και τις πολιτισμικές αποχρώσεις κάθε όρου στη διαχρονία του.",
+      sec3: {
+        category: "ΛΕΞΙΚΟΓΡΑΦΙΚΗ ΥΠΟΣΤΗΡΙΞΗ",
+        title: "Ψηφιακά Λεξικά & Βάσεις",
+        lead: "Άμεση πρόσβαση στα κορυφαία λεξικογραφικά έργα του ΚΕΓ.",
+        paras: [
+          "Μέσω της Πύλης για την Ελληνική Γλώσσα παρέχεται ελεύθερη πρόσβαση στο Λεξικό Τριανταφυλλίδη για τη Νεοελληνική και στο Λεξικό Κριαρά για τη Μεσαιωνική, αποτελώντας θεμέλιο για την εκπαιδευτική πράξη.",
+          "Η συνεχής ψηφιοποίηση και ο εμπλουτισμός των λεξικών με νέα λήμματα και παραδείγματα χρήσης διασφαλίζει ότι η λεξικογραφική μας κληρονομιά παραμένει ζωντανή και προσβάσιμη στην ψηφιακή εποχή."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The Lexicography Department of CGL carries out work of national importance, focusing on the systematic documentation of the Greek language. Through the compilation of scholarly dictionaries, source study, and continuous research, the department provides valuable assets to the global community of Greek scholars.",
+      sec1_para2: "Lexicographical research does not merely list words, but highlights the historical evolution, semantic shifts, and cultural nuances of each term throughout its diachronic path.",
+      sec3: {
+        category: "LEXICOGRAPHICAL SUPPORT",
+        title: "Digital Lexicons & Databases",
+        lead: "Direct access to the flagship lexicographical works of CGL.",
+        paras: [
+          "Through the Portal for the Greek Language, free access is provided to the Triantafyllidis Lexicon for Modern Greek and the Kriaras Lexicon for Medieval Greek, forming a cornerstone for language education.",
+          "The continuous digitization and enrichment of dictionaries with new entries and usage examples ensure that our lexicographical heritage remains active and accessible in the digital era."
+        ]
+      }
+    }
+  },
+  linguistics: {
+    el: {
+      intro_para2: "Το Τμήμα Γλωσσολογίας μελετά την ελληνική γλώσσα με σύγχρονες επιστημονικές μεθόδους, ερευνώντας τη δομή, τη φωνολογία, τη μορφολογία, τη σύνταξη και την κοινωνιογλωσσική της διάσταση, προσφέροντας τεκμηριωμένες προτάσεις για τη γλωσσική εκπαίδευση.",
+      sec1_para2: "Η συστηματική καταγραφή των νεοελληνικών διαλέκτων και η ανάλυση της προφορικής και γραπτής επικοινωνίας αποτελούν βασικούς άξονες για την κατανόηση της ζωντανής γλωσσικής πραγματικότητας.",
+      sec3: {
+        category: "ΓΛΩΣΣΟΛΟΓΙΚΗ ΕΡΕΥΝΑ",
+        title: "Σώματα Κειμένων & Μελέτες",
+        lead: "Σύγχρονα εργαλεία για τη γλωσσολογική ανάλυση.",
+        paras: [
+          "Το τμήμα αναπτύσσει πρότυπα σώματα κειμένων (corpora) που επιτρέπουν την ποσοτική και ποιοτική μελέτη της γλώσσας, προσφέροντας πολύτιμα δεδομένα σε ερευνητές παγκοσμίως.",
+          "Οι μελέτες μας επικεντρώνονται επίσης στη διδακτική της ελληνικής ως δεύτερης ή ξένης γλώσσας, διαμορφώνοντας σύγχρονα εκπαιδευτικά προγράμματα και αναλυτικά προγράμματα σπουδών."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The Department of Linguistics studies the Greek language using modern scientific methods, researching its structure, phonology, morphology, syntax, and sociolinguistic aspects, offering evidence-based recommendations for language education.",
+      sec1_para2: "The systematic documentation of Modern Greek dialects and the analysis of spoken and written communication are core pillars for understanding living linguistic reality.",
+      sec3: {
+        category: "LINGUISTIC RESEARCH",
+        title: "Text Corpora & Studies",
+        lead: "Modern tools for advanced linguistic analysis.",
+        paras: [
+          "The department develops standard text corpora enabling quantitative and qualitative study of the language, providing valuable data to researchers worldwide.",
+          "Our studies also focus on teaching Greek as a second/foreign language, shaping modern educational materials and curriculum guidelines."
+        ]
+      }
+    }
+  },
+  literature: {
+    el: {
+      intro_para2: "Το Τμήμα εστιάζει στη διάδοση της ελληνικής γλώσσας και του πολιτισμού εκτός των συνόρων, υποστηρίζοντας ακαδημαϊκές έδρες ελληνικών σπουδών, σχολεία της ομογένειας και πολιτιστικούς φορείς σε όλο τον κόσμο.",
+      sec1_para2: "Η προώθηση της ελληνικής λογοτεχνικής δημιουργίας και η σύνδεση της λογοτεχνίας με τη γλωσσική καλλιέργεια αποτελούν βασικό όχημα για την ανάδειξη της πολιτισμικής μας κληρονομιάς.",
+      sec3: {
+        category: "ΠΡΟΒΟΛΗ & ΠΟΛΙΤΙΣΜΟΣ",
+        title: "Διεθνείς Συνεργασίες & Ανθολογίες",
+        lead: "Στήριξη της ελληνικής παρουσίας στο διεθνές στερέωμα.",
+        paras: [
+          "Μέσα από ψηφιακές ανθολογίες νεοελληνικής λογοτεχνίας και βιβλιογραφικούς οδηγούς, το τμήμα φέρνει τον παγκόσμιο αναγνώστη σε επαφή με τον ελληνικό λόγο.",
+          "Συνεργαζόμαστε ενεργά με ξένα πανεπιστήμια, διοργανώνουμε webinars και στηρίζουμε προγράμματα φιλοξενίας και ανταλλαγής για την ενίσχυση των ελληνικών σπουδών παγκοσμίως."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The Department focuses on disseminating the Greek language and culture abroad, supporting academic chairs of Greek studies, diaspora schools, and cultural institutions globally.",
+      sec1_para2: "Promoting Greek literary creation and connecting literature with language acquisition serve as primary vehicles for highlighting our cultural heritage.",
+      sec3: {
+        category: "PROMOTION & CULTURE",
+        title: "International Collaborations",
+        lead: "Supporting the Greek presence on the global stage.",
+        paras: [
+          "Through digital anthologies of Modern Greek literature and bibliographic guides, the department connects global readers with Greek writing.",
+          "We actively collaborate with foreign universities, organize webinars, and support residency and exchange programs to strengthen Hellenic studies worldwide."
+        ]
+      }
+    }
+  },
+  portal: {
+    el: {
+      intro_para2: "Η Πύλη για την Ελληνική Γλώσσα αποτελεί το πληρέστερο ψηφιακό περιβάλλον για τη μελέτη, τη διδασκαλία και την έρευνα της ελληνικής, συγκεντρώνοντας έγκριτους πόρους για όλες τις ιστορικές περιόδους της γλώσσας μας.",
+      sec1_para2: "Με χιλιάδες καθημερινούς χρήστες, η Πύλη γεφυρώνει την παραδοσιακή επιστημονική γνώση με τις σύγχρονες ανάγκες της εκπαιδευτικής κοινότητας και των ερευνητών.",
+      sec3: {
+        category: "ΨΗΦΙΑΚΗ ΠΥΛΗ",
+        title: "Ηλεκτρονικές Βιβλιοθήκες & Πόροι",
+        lead: "Μια δωρεάν ψηφιακή κιβωτός για την ελληνική γλώσσα.",
+        paras: [
+          "Φιλοξενούμε σώματα κειμένων, την ψηφιακή βιβλιοθήκη 'Μνημοσύνη' για την αρχαία γραμματεία, ανθολογίες λογοτεχνίας και τη βάση 'Ψηφίδες' με εκπαιδευτικό υλικό.",
+          "Η Πύλη εξελίσσεται διαρκώς, ενσωματώνοντας νέες τεχνολογίες και προσφέροντας εργαλεία αναζήτησης και συμφραστικούς πίνακες που διευκολύνουν τη γλωσσική έρευνα."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The Portal for the Greek Language is the most comprehensive digital environment for the study, teaching, and research of Greek, compiling authoritative resources for all historical periods.",
+      sec1_para2: "Serving thousands of daily users, the Portal bridges traditional scholarly knowledge with the modern needs of the educational community and academic researchers.",
+      sec3: {
+        category: "DIGITAL PORTAL",
+        title: "Online Libraries & Resources",
+        lead: "A free digital ark for the Greek language.",
+        paras: [
+          "We host text corpora, the 'Mnemosyne' digital library for ancient literature, literary anthologies, and the 'Psifides' database with pedagogical materials.",
+          "The Portal is constantly evolving, integrating new technologies and offering search tools and concordances that facilitate linguistic research."
+        ]
+      }
+    }
+  },
+  routes: {
+    el: {
+      intro_para2: "Το πρόγραμμα επαγγελματικής κατάρτισης 'Διαδρομές' προσφέρει εξ αποστάσεως επιμόρφωση σε εκπαιδευτικούς που διδάσκουν την ελληνική ως δεύτερη/ξένη γλώσσα, εξασφαλίζοντας τη συνεχή ενημέρωσή τους στις σύγχρονες διδακτικές μεθόδους.",
+      sec1_para2: "Οι επιμορφούμενοι αποκτούν θεωρητικές γνώσεις και πρακτικές δεξιότητες για τον σχεδιασμό μαθημάτων, τη διαχείριση της τάξης και την αξιολόγηση των μαθητών.",
+      sec3: {
+        category: "ΕΠΙΜΟΡΦΩΣΗ",
+        title: "Πιστοποιημένη Κατάρτιση",
+        lead: "Εξ αποστάσεως εκπαίδευση με κύρος και αναγνώριση.",
+        paras: [
+          "Το πρόγραμμα οδηγεί σε επίσημη πιστοποίηση από το ΚΕΓ και περιλαμβάνει θεματικές ενότητες για τη διδασκαλία σε παιδιά, εφήβους και ενήλικες, καθώς και τη χρήση των ΤΠΕ.",
+          "Μέσα από μια σύγχρονη πλατφόρμα e-learning, οι συμμετέχοντες αλληλεπιδρούν με έμπειρους εισηγητές και ανταλλάσσουν εκπαιδευτικά σενάρια και καλές πρακτικές."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The 'Routes' professional training program offers distance learning courses for educators teaching Greek as a second/foreign language, ensuring their continuous training in modern pedagogical methods.",
+      sec1_para2: "Trainees acquire theoretical knowledge and practical skills for lesson planning, classroom management, and student assessment.",
+      sec3: {
+        category: "TRAINING",
+        title: "Certified E-Learning",
+        lead: "Professional distance learning with prestige and recognition.",
+        paras: [
+          "The program leads to official certification by CGL and covers modules on teaching children, teenagers, and adults, as well as integrating ICT.",
+          "Through a state-of-the-art e-learning platform, participants interact with experienced instructors and exchange educational scenarios and best practices."
+        ]
+      }
+    }
+  },
+  cavafy: {
+    el: {
+      intro_para2: "Ο Κ. Π. Καβάφης αποτελεί έναν από τους σημαντικότερους και πλέον αναγνωρίσιμους ποιητές παγκοσμίως. Η ποίησή του συνδυάζει την ιστορική ακρίβεια με τον φιλοσοφικό στοχασμό και την υπαρξιακή ειλικρίνεια, προσφέροντας μια διαχρονική μελέτη του ανθρώπινου χαρακτήρα.",
+      sec1_para2: "Η ιδιότυπη γλώσσα του, ένα μείγμα καθαρεύουσας και δημοτικής με στοιχεία της αλεξανδρινής ντοπιολαλιάς, προσδίδει στα ποιήματά του μια μοναδική μουσικότητα και δραματικότητα.",
+      sec3: {
+        category: "ΚΑΒΑΦΙΚΗ ΠΟΙΗΣΗ",
+        title: "Η Παγκόσμια Απήχηση",
+        lead: "Η διάδοση του καβαφικού έργου στις επόμενες γενιές.",
+        paras: [
+          "Το ΚΕΓ στηρίζει τη μελέτη και διδασκαλία του Καβάφη στην εκπαίδευση, προσφέροντας ψηφιακά αρχεία, αναλύσεις ποιημάτων και διδακτικές προτάσεις για τη σχολική τάξη.",
+          "Η ποίηση του Καβάφη, μεταφρασμένη σε δεκάδες γλώσσες, συνεχίζει να εμπνέει καλλιτέχνες και μελετητές παγκοσμίως, αποδεικνύοντας τη διαχρονική αξία του έργου του."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "C. P. Cavafy is one of the most prominent and widely recognized poets globally. His poetry combines historical precision with philosophical reflection and existential honesty, offering a timeless study of the human condition.",
+      sec1_para2: "His idiosyncratic language, a blend of Katharevousa and Demotic with elements of Alexandrian vernacular, gives his poems a unique musicality and dramatic tone.",
+      sec3: {
+        category: "CAVAFY POETRY",
+        title: "Global Resonance",
+        lead: "Disseminating Cavafy's work to future generations.",
+        paras: [
+          "CGL supports the study and teaching of Cavafy in education, offering digital archives, poem analyses, and lesson plans for school classrooms.",
+          "Cavafy's poetry, translated into dozens of languages, continues to inspire artists and scholars worldwide, proving the enduring value of his legacy."
+        ]
+      }
+    }
+  },
+  elytis: {
+    el: {
+      intro_para2: "Ο Οδυσσέας Ελύτης, τιμημένος με το Νόμπελ Λογοτεχνίας το 1979, μετουσίωσε στην ποίησή του το φως του Αιγαίου, την ελληνική παράδοση και τον διαρκή αγώνα για ελευθερία και ανθρώπινη αξιοπρέπεια, αναδεικνύοντας τις πλαστικές δυνάμεις της ελληνικής γλώσσας.",
+      sec1_para2: "Το έργο του, από τα νεανικά υπερρεαλιστικά ποιήματα έως το μνημειώδες 'Άξιον Εστί', αποτελεί έναν ύμνο στη φύση, τον έρωτα και την ηθική συνείδηση του ελληνισμού.",
+      sec3: {
+        category: "ΕΛΥΤΙΚΟΣ ΛΥΡΙΣΜΟΣ",
+        title: "Το Φως του Αιγαίου",
+        lead: "Η ελληνική γλώσσα ως όχημα πνευματικής ελευθερίας.",
+        paras: [
+          "Μέσα από τη μελέτη του ελυτικού έργου, το ΚΕΓ αναδεικνύει τη σημασία της ποιητικής γλώσσας στη διαμόρφωση της νεοελληνικής πολιτισμικής ταυτότητας.",
+          "Ο Ελύτης μάς δίδαξε ότι η γλώσσα είναι το σπίτι μας και ότι με απλά υλικά -μια ελιά, ένα αμπέλι, ένα καράβι- μπορούμε να ξαναχτίσουμε τον κόσμο μας."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "Odysseus Elytis, awarded the Nobel Prize in Literature in 1979, translated into his poetry the luminous clarity of the Aegean, Greek tradition, and the constant struggle for freedom and human dignity, highlighting the expressive powers of the Greek language.",
+      sec1_para2: "His work, from early surrealist poems to the monumental 'Axion Esti', stands as a praise to nature, love, and the moral consciousness of Hellenism.",
+      sec3: {
+        category: "ELYTIS LYRICISM",
+        title: "Aegean Luminous Light",
+        lead: "The Greek language as a vehicle for intellectual freedom.",
+        paras: [
+          "Through the study of Elytis's work, CGL highlights the importance of poetic language in shaping modern Greek cultural identity.",
+          "Elytis taught us that language is our home and that with simple components -an olive tree, a vineyard, a boat- we can rebuild our world."
+        ]
+      }
+    }
+  },
+  seferis: {
+    el: {
+      intro_para2: "Ο Γιώργος Σεφέρης, ο πρώτος Έλληνας νομπελίστας ποιητής (1963), συνδύασε τη λόγια παράδοση με τη λαϊκή σοφία. Η ποίησή του, σημαδεμένη από την εμπειρία του πολέμου και της προσφυγιάς, εκφράζει με απαράμιλλο λυρισμό τον καημό του ελληνισμού.",
+      sec1_para2: "Ως διπλωμάτης και στοχαστής, ο Σεφέρης αποτύπωσε στα δοκίμια και τα ημερολόγιά του τη βαθιά αγωνία για τη μοίρα του σύγχρονου ανθρώπου και την ανάγκη διαφύλαξης της γλωσσικής μας κληρονομιάς.",
+      sec3: {
+        category: "ΣΕΦΕΡΙΚΗ ΠΟΙΗΣΗ",
+        title: "Η Διαχρονική Παράδοση",
+        lead: "Η ελληνική γλώσσα ως αδιάσπαστη και ζωντανή συνέχεια.",
+        paras: [
+          "Στον λόγο του στην Ακαδημία της Στοκχόλμης, ο Σεφέρης τόνισε ότι η ελληνική γλώσσα μάς παραδόθηκε χωρίς διακοπή επί αιώνες, αποτελώντας πηγή δύναμης.",
+          "Το ΚΕΓ προωθεί τη μελέτη του σεφερικού έργου στην εκπαίδευση, προσφέροντας ψηφιακούς πόρους και αναλύσεις που βοηθούν στην κατανόηση της ποιητικής του."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "George Seferis, the first Greek Nobel laureate in Literature (1963), combined scholarly tradition with popular wisdom. His poetry, marked by the experience of war and displacement, expresses the tragedies and hopes of Hellenism with unmatched lyricism.",
+      sec1_para2: "As a diplomat and intellectual, Seferis captured in his essays and diaries the deep anxiety over the modern human condition and the need to protect our linguistic heritage.",
+      sec3: {
+        category: "SEFERIS POETRY",
+        title: "Timeless Tradition",
+        lead: "The Greek language as an unbroken and living continuity.",
+        paras: [
+          "In his Nobel speech, Seferis emphasized that the Greek language has been handed down to us without interruption for centuries, serving as a source of strength.",
+          "CGL promotes the study of Seferis's work in schools, offering digital resources and analyses that assist in understanding his geographic/poetic universe."
+        ]
+      }
+    }
+  },
+  kriaras: {
+    el: {
+      intro_para2: "Ο Εμμανουήλ Κριαράς υπήρξε μια εμβληματική μορφή των ελληνικών γραμμάτων, αφιερώνοντας τη ζωή του στη μελέτη της μεσαιωνικής ελληνικής γραμματείας και στον αγώνα για την καθιέρωση της δημοτικής γλώσσας στην εκπαίδευση και τη δημόσια ζωή.",
+      sec1_para2: "Το έργο του αποτελεί γέφυρα ανάμεσα στην αρχαία και τη νέα ελληνική, αποδεικνύοντας την ενιαία και αδιάσπαστη πορεία της γλώσσας μας μέσα στους αιώνες.",
+      sec3: {
+        category: "ΜΕΣΑΙΩΝΙΚΗ ΓΛΩΣΣΑ",
+        title: "Το Λεξικό Κριαρά & Το ΚΕΓ",
+        lead: "Συνέχιση και εμπλουτισμός του μνημειώδους έργου.",
+        paras: [
+          "Το ΚΕΓ έχει αναλάβει επισήμως τη συνέχιση της σύνταξης και έκδοσης του 'Λεξικού της Μεσαιωνικής Ελληνικής Δημώδους Γραμματείας', έχοντας εκδώσει πρόσφατα τον 23ο τόμο.",
+          "Το λεξικό είναι ελεύθερα προσβάσιμο στην Πύλη για την Ελληνική Γλώσσα, αποτελώντας απαραίτητο εργαλείο για ερευνητές, φοιτητές και μελετητές της μεσαιωνικής περιόδου."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "Emmanuel Kriaras was an iconic figure of Greek letters, dedicating his life to the study of medieval Greek literature and the struggle for the establishment of Demotic Greek in education and public life.",
+      sec1_para2: "His work serves as a bridge between ancient and modern Greek, proving the unified and unbroken path of our language throughout the centuries.",
+      sec3: {
+        category: "MEDIEVAL GREEK",
+        title: "Kriaras Dictionary & CGL",
+        lead: "Continuing and enriching the monumental lexicon.",
+        paras: [
+          "CGL has officially undertaken the continuation of compiling and publishing the 'Lexicon of Medieval Greek Vernacular Literature', recently issuing its 23rd volume.",
+          "The lexicon is freely accessible online on the Portal for the Greek Language, serving as an indispensable tool for researchers and students of the medieval era."
+        ]
+      }
+    }
+  },
+  history: {
+    el: {
+      intro_para2: "Η ιστορία της ελληνικής γλώσσας είναι η ιστορία του ίδιου του ευρωπαϊκού πολιτισμού. Με γραπτή παράδοση που εκτείνεται σε 35 αιώνες, η ελληνική παρουσιάζει μια μοναδική συνέχεια και έναν απαράμιλλο λεξιλογικό πλούτο.",
+      sec1_para2: "Από τις μυκηναϊκές πινακίδες της Γραμμικής Β και τα ομηρικά έπη έως τη διαμόρφωση της Κοινής Νεοελληνικής, η γλώσσα μας εξελίσσεται διαρκώς, διατηρώντας τον πυρήνα της.",
+      sec3: {
+        category: "ΓΛΩΣΣΙΚΗ ΙΣΤΟΡΙΑ",
+        title: "Διαχρονική Μελέτη & Πόροι",
+        lead: "Η εξέλιξη της ελληνικής γλώσσας μέσα στο χρόνο.",
+        paras: [
+          "Το ΚΕΓ παρέχει πλούσιο υποστηρικτικό υλικό, ιστορικές ανασκοπήσεις και ψηφιοποιημένα κείμενα που βοηθούν στην κατανόηση των σταθμών της ελληνικής γλώσσας.",
+          "Μέσα από την Πύλη, εκπαιδευτικοί και μαθητές μπορούν να μελετήσουν τη διαχρονία της γλώσσας, εξερευνώντας τη μετάβαση από την αρχαία στη μεσαιωνική και τη νέα ελληνική."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The history of the Greek language is the history of European civilization itself. With a written tradition spanning 35 centuries, Greek presents unique continuity and unparalleled vocabulary richness.",
+      sec1_para2: "From the Mycenaean tablets of Linear B and the Homeric epics to the formation of Modern Greek, our language constantly evolves while preserving its core elements.",
+      sec3: {
+        category: "LANGUAGE HISTORY",
+        title: "Diachronic Study & Resources",
+        lead: "The evolution of the Greek language through time.",
+        paras: [
+          "CGL provides extensive support materials, historical overviews, and digitized texts that aid in understanding the milestones of the Greek language.",
+          "Through the Portal, teachers and students can study the language's diachrony, exploring the transition from Ancient to Medieval and Modern Greek."
+        ]
+      }
+    }
+  },
+  etymology: {
+    el: {
+      intro_para2: "Η ετυμολογία φωτίζει την προέλευση και την ιστορική διαδρομή των λέξεων, αποκαλύπτοντας τις σχέσεις ανάμεσα στις έννοιες, τις κοινωνικές αλλαγές και την επίδραση της ελληνικής σε άλλες γλώσσες.",
+      sec1_para2: "Κάθε ελληνική ρίζα φέρει μαζί της έναν ολόκληρο κόσμο ιδεών, βοηθώντας μας να κατανοήσουμε σε βάθος τη δομή και τη λογική της γλώσσας που μιλάμε.",
+      sec3: {
+        category: "ΕΤΥΜΟΛΟΓΙΚΗ ΕΡΕΥΝΑ",
+        title: "Η Ιστορία των Λέξεων",
+        lead: "Ανακαλύπτοντας τις ρίζες του παγκόσμιου λεξιλογίου.",
+        paras: [
+          "Η ελληνική γλώσσα έχει προσφέρει χιλιάδες επιστημονικούς, φιλοσοφικούς και ιατρικούς όρους στις ευρωπαϊκές γλώσσες, αποτελώντας διεθνές γλωσσικό θεμέλιο.",
+          "Το ΚΕΓ προσφέρει ελεύθερα ετυμολογικά λεξικά και ψηφιακές εφαρμογές που κάνουν την αναζήτηση της προέλευσης των λέξεων μια συναρπαστική εκπαιδευτική εμπειρία."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "Etymology illuminates the origin and historical journey of words, revealing relationships between concepts, social shifts, and the influence of Greek on other languages.",
+      sec1_para2: "Every Greek root carries an entire world of ideas, helping us understand in depth the structure and logic of the language we speak today.",
+      sec3: {
+        category: "ETYMOLOGICAL RESEARCH",
+        title: "History of Words",
+        lead: "Discovering the roots of global vocabulary.",
+        paras: [
+          "The Greek language has contributed thousands of scientific, philosophical, and medical terms to European languages, serving as a global linguistic foundation.",
+          "CGL provides free etymological dictionaries and digital tools that make searching for word origins an exciting educational journey."
+        ]
+      }
+    }
+  },
+  books: {
+    el: {
+      intro_para2: "Η σειρά βιβλίων 'ΚΛΙΚ στα Ελληνικά' αποτελεί το επίσημο και πλέον αναγνωρισμένο εγχειρίδιο του ΚΕΓ για τη διδασκαλία της ελληνικής ως δεύτερης/ξένης γλώσσας, καλύπτοντας όλα τα επίπεδα ελληνομάθειας (Α1-Γ1).",
+      sec1_para2: "Σχεδιασμένη με βάση τις προδιαγραφές του Κοινού Ευρωπαϊκού Πλαισίου Αναφοράς (CEFR), η σειρά συνδυάζει τη συστηματική εκμάθηση της γραμματικής με την επικοινωνιακή προσέγγιση.",
+      sec3: {
+        category: "ΕΚΠΑΙΔΕΥΤΙΚΕΣ ΕΚΔΟΣΕΙΣ",
+        title: "Βιβλία & Εργαλεία KLIK",
+        lead: "Ολοκληρωμένη προετοιμασία για τις εξετάσεις πιστοποίησης.",
+        paras: [
+          "Τα βιβλία περιέχουν πλούσιο εικονογραφημένο υλικό, ασκήσεις ακουστικής κατανόησης, δείγματα εξετάσεων και οδηγίες για τον εκπαιδευτικό.",
+          "Η σειρά συνοδεύεται από ψηφιακές εφαρμογές για κινητά και tablet, επιτρέποντας στους μαθητές να εξασκούνται αυτόνομα και διαδραστικά από οπουδήποτε."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The 'KLIK sta Ellinika' textbook series is the official and highly acclaimed educational manual of CGL for teaching Greek as a second/foreign language, covering levels A1 to C1.",
+      sec1_para2: "Designed in accordance with the Common European Framework of Reference for Languages (CEFR), the series merges systematic grammar acquisition with a communicative approach.",
+      sec3: {
+        category: "EDUCATIONAL EDITIONS",
+        title: "KLIK Books & Tools",
+        lead: "Comprehensive preparation for official certification exams.",
+        paras: [
+          "The textbooks contain rich illustrated materials, listening comprehension tasks, sample exam papers, and detailed teacher guidelines.",
+          "The series is complemented by mobile and tablet applications, enabling students to practice independently and interactively from anywhere in the world."
+        ]
+      }
+    }
+  },
+  interactive: {
+    el: {
+      intro_para2: "Τα Διαδραστικά Βιβλία του ΚΕΓ αντιπροσωπεύουν μια ψηφιακή επανάσταση στη γλωσσική εκπαίδευση, μετατρέποντας το παραδοσιακό έντυπο βιβλίο σε ένα ζωντανό, πολυμεσικό περιβάλλον μάθησης που κινητοποιεί τον μαθητή.",
+      sec1_para2: "Μέσα από την ενσωμάτωση ήχου, βίντεο, διαδραστικών ασκήσεων και συστημάτων αυτοαξιολόγησης, η εκμάθηση της ελληνικής γίνεται πιο ευχάριστη, γρήγορη και αποτελεσματική.",
+      sec3: {
+        category: "ΨΗΦΙΑΚΕΣ ΚΑΙΝΟΤΟΜΙΕΣ",
+        title: "Διαδραστική Μάθηση",
+        lead: "Το μέλλον της γλωσσικής εκπαίδευσης είναι ψηφιακό.",
+        paras: [
+          "Τα διαδραστικά βιβλία είναι προσβάσιμα από υπολογιστές, tablet και κινητά τηλέφωνα, διευκολύνοντας την εξ αποστάσεως εκπαίδευση και την αυτόνομη μελέτη.",
+          "Το ΚΕΓ αναπτύσσει διαρκώς νέους ψηφιακούς τίτλους, συνδυάζοντας την επιστημονική εγκυρότητα του περιεχομένου με τις πιο σύγχρονες παιδαγωγικές τεχνολογίες."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "CGL's Interactive Books represent a digital revolution in language learning, transforming the traditional textbook into a dynamic, multimedia learning environment that motivates the student.",
+      sec1_para2: "By integrating audio, video, interactive tasks, and self-assessment features, learning Greek becomes more engaging, rapid, and effective.",
+      sec3: {
+        category: "DIGITAL INNOVATIONS",
+        title: "Interactive Learning",
+        lead: "The future of language education is digital.",
+        paras: [
+          "Interactive books are accessible on computers, tablets, and smartphones, facilitating remote learning and self-paced study.",
+          "CGL constantly develops new digital titles, combining scientific validity with state-of-the-art educational technologies."
+        ]
+      }
+    }
+  },
+  greektome: {
+    el: {
+      intro_para2: "Το πρωτοποριακό πρόγραμμα 'Greek to Me' προσφέρει εξ αποστάσεως μαθήματα ελληνικής γλώσσας σε εφήβους και ενήλικες παγκοσμίως, φέρνοντας την εξειδικευμένη γνώση του ΚΕΓ απευθείας στην οθόνη σας.",
+      sec1_para2: "Τα μαθήματα παραδίδονται από έμπειρους, πιστοποιημένους καθηγητές και προσαρμόζονται στις ανάγκες, το επίπεδο και το ρυθμό μάθησης κάθε σπουδαστή.",
+      sec3: {
+        category: "ΜΑΘΗΜΑΤΑ ONLINE",
+        title: "Ευέλικτη Εκμάθηση",
+        lead: "Μάθετε ελληνικά από το σπίτι, με την εγγύηση του ΚΕΓ.",
+        paras: [
+          "Το πρόγραμμα καλύπτει τα επίπεδα ελληνομάθειας Α1 έως Β1, εστιάζοντας στην ανάπτυξη προφορικών δεξιοτήτων και στην καθημερινή επικοινωνία.",
+          "Οι σπουδαστές έχουν πρόσβαση σε διαδραστικές ασκήσεις, ηχητικό υλικό και υποστήριξη, καθιστώντας την εκμάθηση της ελληνικής μια ευχάριστη εμπειρία."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The pioneering 'Greek to Me' program offers online Greek language courses to teenagers and adults worldwide, bringing the specialized expertise of CGL directly to your screen.",
+      sec1_para2: "Lessons are delivered by experienced, certified native tutors and are customized to each student's needs, proficiency level, and learning pace.",
+      sec3: {
+        category: "ONLINE COURSES",
+        title: "Flexible E-Learning",
+        lead: "Learn Greek from home, backed by CGL's academic guarantee.",
+        paras: [
+          "The program covers proficiency levels A1 to B1, focusing heavily on developing conversational skills and daily communication.",
+          "Students gain access to interactive tasks, native audio materials, and continuous tutoring support, making learning Greek an engaging experience."
+        ]
+      }
+    }
+  },
+  shop: {
+    el: {
+      intro_para2: "Το επίσημο ηλεκτρονικό κατάστημα του ΚΕΓ παρέχει άμεση πρόσβαση στο σύνολο του εκδοτικού και ερευνητικού έργου του φορέα, διευκολύνοντας την προμήθεια λεξικών, μελετών και εκπαιδευτικών βιβλίων παγκοσμίως.",
+      sec1_para2: "Με ασφαλείς συναλλαγές και δυνατότητα διεθνούς αποστολής, το e-Shop εξυπηρετεί σχολεία, πανεπιστήμια, καθηγητές και μαθητές σε όλο τον κόσμο.",
+      sec3: {
+        category: "ΕΚΔΟΣΕΙΣ ΚΕΓ",
+        title: "Βιβλία & Ψηφιακές Αγορές",
+        lead: "Αποκτήστε τις επίσημες εκδόσεις του Κέντρου Ελληνικής Γλώσσας.",
+        paras: [
+          "Στο κατάστημα θα βρείτε τα μνημειώδη λεξικά (Λεξικό Κριαρά, Liddell & Scott), τη σειρά 'ΚΛΙΚ στα Ελληνικά', καθώς και επιστημονικές μελέτες και πρακτικά συνεδρίων.",
+          "Υποστηρίζεται επίσης η άμεση αγορά ψηφιακών εκδόσεων και η πρόσβαση σε υποστηρικτικό multimedia υλικό, διευκολύνοντας την ψηφιακή διανομή."
+        ]
+      }
+    },
+    en: {
+      intro_para2: "The official e-Shop of CGL provides direct access to the institution's entire publishing and research output, facilitating the purchase of dictionaries, studies, and textbooks worldwide.",
+      sec1_para2: "With secure checkouts and international shipping options, the online shop serves schools, universities, educators, and language learners globally.",
+      sec3: {
+        category: "CGL EDITIONS",
+        title: "Books & Digital Purchases",
+        lead: "Get the official publications of the Center for the Greek Language.",
+        paras: [
+          "In the store, you will find landmark dictionaries (Kriaras Lexicon, Liddell & Scott), the 'KLIK sta Ellinika' textbook series, and scientific studies.",
+          "Instant purchases of digital editions and access to accompanying multimedia resources are fully supported, simplifying global digital distribution."
+        ]
+      }
+    }
+  }
+};
+
 
 // Helper to render QR code for the active theme URL
 function getQRHtml() {
@@ -1898,9 +2323,10 @@ function generateBrochureData(theme, lang, bookmarkStore) {
       lead: activeBookmark.front.lead,
       paras: [
         activeBookmark.front.mainText,
-        lang === 'el'
+        (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].intro_para2) ||
+        (lang === 'el'
           ? "Το Κέντρο Ελληνικής Γλώσσας αναπτύσσει συστηματικές εκπαιδευτικές και ερευνητικές δράσεις για την υποστήριξη και διάδοση της ελληνικής γλώσσας. Μέσα από σύγχρονες υποδομές και έντυπες ή ψηφιακές εκδόσεις, προσφέρει ολοκληρωμένες λύσεις σε μαθητές και εκπαιδευτικούς παγκοσμίως."
-          : "The Center for the Greek Language develops systematic educational and research initiatives to support and disseminate the Greek language. Through modern infrastructures and print or digital publications, it offers comprehensive solutions for learners and teachers worldwide."
+          : "The Center for the Greek Language develops systematic educational and research initiatives to support and disseminate the Greek language. Through modern infrastructures and print or digital publications, it offers comprehensive solutions for learners and teachers worldwide.")
       ]
     },
     section1: {
@@ -1910,9 +2336,10 @@ function generateBrochureData(theme, lang, bookmarkStore) {
       image: image1,
       paras: [
         activeBookmark.back.mainText.replace(/•/g, '').replace(/\n/g, ' '),
-        lang === 'el'
+        (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].sec1_para2) ||
+        (lang === 'el'
           ? "Οι προσπάθειές μας επικεντρώνονται στην παροχή έγκριτου υλικού και ψηφιακών εργαλείων που διευκολύνουν την καθημερινή εκπαιδευτική πράξη και την επιστημονική μελέτη της γλώσσας μας."
-          : "Our efforts focus on providing authoritative materials and digital tools that facilitate daily educational practice and the scientific study of our language."
+          : "Our efforts focus on providing authoritative materials and digital tools that facilitate daily educational practice and the scientific study of our language.")
       ]
     },
     section2: {
@@ -1937,18 +2364,23 @@ function generateBrochureData(theme, lang, bookmarkStore) {
               ])
     },
     section3: {
-      category: lang === 'el' ? "Υποστήριξη & Πόροι" : "Support & Resources",
-      title: lang === 'el' ? "Ψηφιακά Εργαλεία & Βοηθήματα" : "Digital Tools & Materials",
-      lead: lang === 'el' ? "Ελεύθερη πρόσβαση στις υποδομές του ΚΕΓ." : "Free access to CGL's digital infrastructure.",
+      category: (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].sec3 && themeRichData[theme][lang].sec3.category) ||
+                (lang === 'el' ? "Υποστήριξη & Πόροι" : "Support & Resources"),
+      title: (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].sec3 && themeRichData[theme][lang].sec3.title) ||
+             (lang === 'el' ? "Ψηφιακά Εργαλεία & Βοηθήματα" : "Digital Tools & Materials"),
+      lead: (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].sec3 && themeRichData[theme][lang].sec3.lead) ||
+            (lang === 'el' ? "Ελεύθερη πρόσβαση στις υποδομές του ΚΕΓ." : "Free access to CGL's digital infrastructure."),
       image: image3,
-      paras: [
-        lang === 'el'
-          ? "Μέσα από την Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) και το ψηφιακό δίκτυο «Φρυκτωρίες», το ΚΕΓ παρέχει άμεση πρόσβαση σε λεξικά, σώματα κειμένων, εκπαιδευτικά σενάρια και βιβλιογραφικούς οδηγούς."
-          : "Through the Portal for the Greek Language (www.greek-language.gr) and the 'Fryktories' digital network, CGL provides direct access to dictionaries, text corpora, and lesson plans.",
-        lang === 'el'
-          ? "Κάθε ενδιαφερόμενος μπορεί να μελετήσει σε βάθος το θέμα αυτό, αξιοποιώντας τις σύγχρονες τεχνολογικές υποδομές και το έγκριτο υλικό που προσφέρεται παγκοσμίως."
-          : "Anyone interested can study this topic in depth, taking advantage of modern technological infrastructures and authoritative resources offered globally."
-      ]
+      paras: (themeRichData[theme] && themeRichData[theme][lang] && themeRichData[theme][lang].sec3 && themeRichData[theme][lang].sec3.paras) ||
+             (lang === 'el'
+               ? [
+                   "Μέσα από την Πύλη για την Ελληνική Γλώσσα (www.greek-language.gr) και το ψηφιακό δίκτυο «Φρυκτωρίες», το ΚΕΓ παρέχει άμεση πρόσβαση σε λεξικά, σώματα κειμένων, εκπαιδευτικά σενάρια και βιβλιογραφικούς οδηγούς.",
+                   "Κάθε ενδιαφερόμενος μπορεί να μελετήσει σε βάθος το θέμα αυτό, αξιοποιώντας τις σύγχρονες τεχνολογικές υποδομές και το έγκριτο υλικό που προσφέρεται παγκοσμίως."
+                 ]
+               : [
+                   "Through the Portal for the Greek Language (www.greek-language.gr) and the 'Fryktories' digital network, CGL provides direct access to dictionaries, text corpora, and lesson plans.",
+                   "Anyone interested can study this topic in depth, taking advantage of modern technological infrastructures and authoritative resources offered globally."
+                 ])
     }
   };
 }
