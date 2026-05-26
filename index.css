@@ -1791,11 +1791,111 @@ body.edit-mode-active .image-edit-container:hover .btn-image-change {
   border-color: #c5a059;
 }
 
+.image-editor-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: 6px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2mm 3mm;
+  gap: 1.5mm;
+  z-index: 100;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+body.edit-mode-active .image-edit-container:hover .image-editor-overlay {
+  display: flex;
+}
+
+.image-editor-overlay .overlay-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2mm;
+}
+
+.image-editor-overlay .overlay-row.main-actions {
+  justify-content: center;
+  margin-bottom: 1mm;
+}
+
+.image-editor-overlay .btn-image-action {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 4px;
+  padding: 1mm 2.5mm;
+  font-size: 7.5pt;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.image-editor-overlay .btn-image-action:hover {
+  background: #c5a059;
+  color: #0f172a;
+  border-color: #c5a059;
+}
+
+.image-editor-overlay .btn-image-action.remove-btn:hover {
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
+}
+
+.image-editor-overlay .control-label {
+  font-size: 7pt;
+  font-weight: 500;
+  color: #cbd5e1;
+  min-width: 15mm;
+}
+
+.image-editor-overlay input[type="range"] {
+  flex: 1;
+  height: 1.2mm;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  accent-color: #c5a059;
+  cursor: pointer;
+  margin: 0;
+}
+
+.image-editor-overlay .control-val {
+  font-size: 7pt;
+  color: #fff;
+  min-width: 9mm;
+  text-align: right;
+}
+
+.image-editor-overlay .select-image-fit {
+  flex: 1;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.8mm;
+  font-size: 7pt;
+  outline: none;
+  cursor: pointer;
+}
+
 /* Hide all editor controls in print */
 @media print {
   .panel-editor-controls,
   .delete-element-btn,
   .btn-image-change,
+  .image-editor-overlay,
+  .ai-actions-container,
   .ai-rewrite-btn {
     display: none !important;
   }

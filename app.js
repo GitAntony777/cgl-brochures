@@ -1759,6 +1759,109 @@ let state = {
   contentData: JSON.parse(JSON.stringify(templatesContent))
 };
 
+// ==========================================================================
+// GLOBAL HISTORY MECHANISM (UNDO / REDO)
+// ==========================================================================
+let globalHistory = {
+  states: [],
+  currentIndex: -1,
+  isUndoingOrRedoing: false
+};
+
+function saveGlobalState() {
+  if (globalHistory.isUndoingOrRedoing) return;
+
+  const stateSnapshot = JSON.stringify({
+    contentData: state.contentData,
+    template: state.template,
+    layout: state.layout,
+    theme: state.theme,
+    motif: state.motif,
+    pageSize: state.pageSize,
+    fontStyle: state.fontStyle,
+    titleFontSize: state.titleFontSize,
+    bodyFontSize: state.bodyFontSize,
+    paperType: state.paperType,
+    paperWeight: state.paperWeight,
+    paperColor: state.paperColor,
+    bookmarkTheme: state.bookmarkTheme,
+    bilingualBookmark: state.bilingualBookmark
+  });
+
+  if (globalHistory.currentIndex >= 0) {
+    if (globalHistory.states[globalHistory.currentIndex] === stateSnapshot) {
+      return; // State hasn't changed, skip
+    }
+  }
+
+  // Discard future states if we were in the middle of undoing and made a change
+  globalHistory.states = globalHistory.states.slice(0, globalHistory.currentIndex + 1);
+  globalHistory.states.push(stateSnapshot);
+  globalHistory.currentIndex = globalHistory.states.length - 1;
+
+  // Limit size of history stack to 30 snapshots
+  if (globalHistory.states.length > 30) {
+    globalHistory.states.shift();
+    globalHistory.currentIndex = globalHistory.states.length - 1;
+  }
+
+  updateGlobalUndoRedoButtons();
+}
+
+window.undoGlobal = function() {
+  if (globalHistory.currentIndex > 0) {
+    globalHistory.isUndoingOrRedoing = true;
+    globalHistory.currentIndex--;
+    applyHistoryState(globalHistory.states[globalHistory.currentIndex]);
+    globalHistory.isUndoingOrRedoing = false;
+    updateGlobalUndoRedoButtons();
+  }
+};
+
+window.redoGlobal = function() {
+  if (globalHistory.currentIndex < globalHistory.states.length - 1) {
+    globalHistory.isUndoingOrRedoing = true;
+    globalHistory.currentIndex++;
+    applyHistoryState(globalHistory.states[globalHistory.currentIndex]);
+    globalHistory.isUndoingOrRedoing = false;
+    updateGlobalUndoRedoButtons();
+  }
+};
+
+function applyHistoryState(stateStr) {
+  const parsed = JSON.parse(stateStr);
+  loadState(parsed);
+}
+
+function updateGlobalUndoRedoButtons() {
+  const btnUndo = document.getElementById('btnUndoGlobal');
+  const btnRedo = document.getElementById('btnRedoGlobal');
+  
+  if (btnUndo) {
+    const canUndo = globalHistory.currentIndex > 0;
+    btnUndo.disabled = !canUndo;
+    btnUndo.style.opacity = canUndo ? '1' : '0.4';
+    btnUndo.style.cursor = canUndo ? 'pointer' : 'not-allowed';
+  }
+  if (btnRedo) {
+    const canRedo = globalHistory.currentIndex < globalHistory.states.length - 1;
+    btnRedo.disabled = !canRedo;
+    btnRedo.style.opacity = canRedo ? '1' : '0.4';
+    btnRedo.style.cursor = canRedo ? 'pointer' : 'not-allowed';
+  }
+}
+
+// Add global keyboard listeners
+window.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.key.toLowerCase() === 'z') {
+    e.preventDefault();
+    window.undoGlobal();
+  } else if (e.ctrlKey && e.key.toLowerCase() === 'y') {
+    e.preventDefault();
+    window.redoGlobal();
+  }
+});
+
 // DOM Element Selectors
 const docTypeSelect = document.getElementById('docTypeSelect');
 const themeSelect = document.getElementById('themeSelect');
@@ -2259,6 +2362,12 @@ function setupButtonListeners() {
       }
     });
   }
+
+  // Global Undo/Redo listeners
+  const btnUndoGlobal = document.getElementById('btnUndoGlobal');
+  const btnRedoGlobal = document.getElementById('btnRedoGlobal');
+  if (btnUndoGlobal) btnUndoGlobal.addEventListener('click', () => window.undoGlobal());
+  if (btnRedoGlobal) btnRedoGlobal.addEventListener('click', () => window.redoGlobal());
 }
 
 // Helper function to apply active UI styling classes to document body
@@ -2901,6 +3010,25 @@ window.triggerImageUpload = function(sectionKey) {
   document.body.appendChild(fileInput);
   fileInput.click();
   document.body.removeChild(fileInput);
+};
+
+window.removeImage = function(sectionKey) {
+  const activeData = getActiveData();
+  if (activeData[sectionKey] && activeData[sectionKey].image) {
+    delete activeData[sectionKey].image;
+    delete activeData[sectionKey].imageWidth;
+    delete activeData[sectionKey].imageHeight;
+    delete activeData[sectionKey].imageObjectFit;
+    render();
+  }
+};
+
+window.updateImageStyle = function(sectionKey, styleProp, value) {
+  const activeData = getActiveData();
+  if (activeData[sectionKey]) {
+    activeData[sectionKey][styleProp] = value;
+    render();
+  }
 };
 
 // Helper to retrieve current field value directly from state
@@ -3724,6 +3852,9 @@ function render() {
     return; // Don't render content if not logged in
   }
 
+  // Save current state to global history stack
+  saveGlobalState();
+
   // 1. Set Typography & Theme & Paper classes on document body
   document.body.className = '';
   document.body.classList.add(`theme-${state.theme}`);
@@ -4085,10 +4216,43 @@ function renderSectionPanel(sectionKey, sectionData, pageNum) {
 
   let imageContent = '';
   if (sectionData.image) {
+    const widthVal = sectionData.imageWidth || '100%';
+    const heightVal = sectionData.imageHeight || '42mm';
+    const fitVal = sectionData.imageObjectFit || 'cover';
+    
+    let imgStyle = `width: ${widthVal}; height: ${heightVal}; object-fit: ${fitVal};`;
+    if (widthVal !== '100%') {
+      imgStyle += ` margin-left: auto; margin-right: auto;`;
+    }
+    
     imageContent = `
       <div class="image-edit-container">
-        <img src="${sectionData.image}" alt="${sectionData.title}" class="panel-image">
-        <button class="btn-image-change" onclick="window.changeImage('${sectionKey}')">📷 Αλλαγή Εικόνας</button>
+        <img src="${sectionData.image}" alt="${sectionData.title}" class="panel-image" style="${imgStyle}">
+        
+        <div class="image-editor-overlay">
+          <div class="overlay-row main-actions">
+            <button class="btn-image-action change-btn" onclick="window.changeImage('${sectionKey}')" title="Αλλαγή Εικόνας">📷 Αλλαγή</button>
+            <button class="btn-image-action remove-btn" onclick="window.removeImage('${sectionKey}')" title="Αφαίρεση Εικόνας">❌ Αφαίρεση</button>
+          </div>
+          <div class="overlay-row size-control">
+            <span class="control-label">Πλάτος:</span>
+            <input type="range" min="20" max="100" step="5" value="${parseInt(widthVal) || 100}" oninput="window.updateImageStyle('${sectionKey}', 'imageWidth', this.value + '%')">
+            <span class="control-val">${widthVal}</span>
+          </div>
+          <div class="overlay-row size-control">
+            <span class="control-label">Ύψος:</span>
+            <input type="range" min="15" max="80" step="5" value="${parseInt(heightVal) || 42}" oninput="window.updateImageStyle('${sectionKey}', 'imageHeight', this.value + 'mm')">
+            <span class="control-val">${heightVal}</span>
+          </div>
+          <div class="overlay-row fit-control">
+            <span class="control-label">Προσαρμογή:</span>
+            <select class="select-image-fit" onchange="window.updateImageStyle('${sectionKey}', 'imageObjectFit', this.value)">
+              <option value="cover" ${fitVal === 'cover' ? 'selected' : ''}>Cover (Γέμισμα)</option>
+              <option value="contain" ${fitVal === 'contain' ? 'selected' : ''}>Contain (Προσαρμογή)</option>
+              <option value="fill" ${fitVal === 'fill' ? 'selected' : ''}>Stretch (Παραμόρφωση)</option>
+            </select>
+          </div>
+        </div>
       </div>
     `;
   }
