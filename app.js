@@ -3033,11 +3033,11 @@ function render() {
   } else if (state.docType === 'booklet') {
     const activeContent = getActiveData();
     
-    // Render 8 Spreads (16 pages total, saddle stitched)
+    // Render 8 Spreads (16 pages total, saddle stitched - Imposed for duplex printing)
     brochureCanvas.innerHTML = `
-      <!-- Spread 1: Covers -->
+      <!-- Sheet 1: Front (Pages 16 & 1) -->
       <div class="spread-container outside-spread">
-        <div class="spread-title-indicator">Φύλλο 1: Εξώφυλλο / Οπισθόφυλλο (Σελίδες 16 & 1) - Βιβλιοδεσία Καρφίτσα</div>
+        <div class="spread-title-indicator">Φύλλο 1: Εξωτερική Όψη (Οπισθόφυλλο & Εξώφυλλο - Σελίδες 16 & 1)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderBackCoverPanel(activeContent.page16, '16'))}
           ${renderPrintWrapper(renderCoverPanel(activeContent.page1, '1'))}
@@ -3045,72 +3045,72 @@ function render() {
         </div>
       </div>
       
-      <!-- Spread 2: Pages 2 & 3 -->
+      <!-- Sheet 1: Back (Pages 2 & 15) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 2: Σελίδες 2 & 3 (Ταυτότητα & Αποστολή / Επιστημονικές Αρχές)</div>
+        <div class="spread-title-indicator">Φύλλο 1: Εσωτερική Όψη (Ταυτότητα & Δίκτυο Φρυκτωρίες - Σελίδες 2 & 15)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page2', activeContent.page2, '2'))}
+          ${renderPrintWrapper(renderSectionPanel('page15', activeContent.page15, '15'))}
+          ${createFoldGuide(1)}
+        </div>
+      </div>
+      
+      <!-- Sheet 2: Front (Pages 14 & 3) -->
+      <div class="spread-container outside-spread">
+        <div class="spread-title-indicator">Φύλλο 2: Εξωτερική Όψη (Χρησιμότητα Πιστοποιητικού & Επιστημονικές Αρχές - Σελίδες 14 & 3)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page14', activeContent.page14, '14'))}
           ${renderPrintWrapper(renderSectionPanel('page3', activeContent.page3, '3'))}
           ${createFoldGuide(1)}
         </div>
       </div>
       
-      <!-- Spread 3: Pages 4 & 5 -->
+      <!-- Sheet 2: Back (Pages 4 & 13) -->
       <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 3: Σελίδες 4 & 5 (Ερευνητικά Τμήματα: Λεξικογραφία & Γλωσσολογία)</div>
+        <div class="spread-title-indicator">Φύλλο 2: Εσωτερική Όψη (Λεξικογραφία & Επίπεδα Πιστοποίησης - Σελίδες 4 & 13)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
           ${renderPrintWrapper(renderSectionPanel('page4', activeContent.page4, '4'))}
-          ${renderPrintWrapper(renderSectionPanel('page5', activeContent.page5, '5'))}
-          ${createFoldGuide(1)}
-        </div>
-      </div>
-      
-      <!-- Spread 4: Pages 6 & 7 -->
-      <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 4: Σελίδες 6 & 7 (Ερευνητικά Τμήματα: Στήριξη/Προβολή & Γλώσσα/Λογοτεχνία)</div>
-        <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderSectionPanel('page6', activeContent.page6, '6'))}
-          ${renderPrintWrapper(renderSectionPanel('page7', activeContent.page7, '7'))}
-          ${createFoldGuide(1)}
-        </div>
-      </div>
-      
-      <!-- Spread 5: Pages 8 & 9 -->
-      <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 5: Σελίδες 8 & 9 (Η Πύλη για την Ελληνική Γλώσσα)</div>
-        <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderSectionPanel('page8', activeContent.page8, '8'))}
-          ${renderPrintWrapper(renderSectionPanel('page9', activeContent.page9, '9'))}
-          ${createFoldGuide(1)}
-        </div>
-      </div>
-      
-      <!-- Spread 6: Pages 10 & 11 -->
-      <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 6: Σελίδες 10 & 11 (Ψηφιακά Εργαλεία & Ψηφίδες/E-Learning)</div>
-        <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderSectionPanel('page10', activeContent.page10, '10'))}
-          ${renderPrintWrapper(renderSectionPanel('page11', activeContent.page11, '11'))}
-          ${createFoldGuide(1)}
-        </div>
-      </div>
-      
-      <!-- Spread 7: Pages 12 & 13 -->
-      <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 7: Σελίδες 12 & 13 (Πιστοποίηση Ελληνομάθειας - Δράση & Επίπεδα)</div>
-        <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderSectionPanel('page12', activeContent.page12, '12'))}
           ${renderPrintWrapper(renderSectionPanel('page13', activeContent.page13, '13'))}
           ${createFoldGuide(1)}
         </div>
       </div>
       
-      <!-- Spread 8: Pages 14 & 15 -->
-      <div class="spread-container inside-spread">
-        <div class="spread-title-indicator">Φύλλο 8: Σελίδες 14 & 15 (Χρησιμότητα Πιστοποιητικού / Δίκτυο Φρυκτωρίες)</div>
+      <!-- Sheet 3: Front (Pages 12 & 5) -->
+      <div class="spread-container outside-spread">
+        <div class="spread-title-indicator">Φύλλο 3: Εξωτερική Όψη (Επίσημες Εξετάσεις & Γλωσσολογία - Σελίδες 12 & 5)</div>
         <div class="spread-canvas layout-bifold motif-${state.motif}">
-          ${renderPrintWrapper(renderSectionPanel('page14', activeContent.page14, '14'))}
-          ${renderPrintWrapper(renderSectionPanel('page15', activeContent.page15, '15'))}
+          ${renderPrintWrapper(renderSectionPanel('page12', activeContent.page12, '12'))}
+          ${renderPrintWrapper(renderSectionPanel('page5', activeContent.page5, '5'))}
+          ${createFoldGuide(1)}
+        </div>
+      </div>
+      
+      <!-- Sheet 3: Back (Pages 6 & 11) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 3: Εσωτερική Όψη (Στήριξη/Προβολή & E-Learning - Σελίδες 6 & 11)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page6', activeContent.page6, '6'))}
+          ${renderPrintWrapper(renderSectionPanel('page11', activeContent.page11, '11'))}
+          ${createFoldGuide(1)}
+        </div>
+      </div>
+      
+      <!-- Sheet 4: Front (Pages 10 & 7) -->
+      <div class="spread-container outside-spread">
+        <div class="spread-title-indicator">Φύλλο 4: Εξωτερική Όψη (Πρωτέας/Πολύτροπη & Γλώσσα/Λογοτεχνία - Σελίδες 10 & 7)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page10', activeContent.page10, '10'))}
+          ${renderPrintWrapper(renderSectionPanel('page7', activeContent.page7, '7'))}
+          ${createFoldGuide(1)}
+        </div>
+      </div>
+      
+      <!-- Sheet 4: Back (Pages 8 & 9) -->
+      <div class="spread-container inside-spread">
+        <div class="spread-title-indicator">Φύλλο 4: Εσωτερική Όψη (Η Πύλη & Λεξικά/Σώματα - Σελίδες 8 & 9 - Κεντρικό Σαλόνι)</div>
+        <div class="spread-canvas layout-bifold motif-${state.motif}">
+          ${renderPrintWrapper(renderSectionPanel('page8', activeContent.page8, '8'))}
+          ${renderPrintWrapper(renderSectionPanel('page9', activeContent.page9, '9'))}
           ${createFoldGuide(1)}
         </div>
       </div>

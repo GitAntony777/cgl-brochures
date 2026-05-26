@@ -2674,3 +2674,50 @@ body.print-mode-cropmarks .brochure-panel {
     color: #64748b;
   }
 }
+
+/* ==========================================================================
+   OUTER BLEED CONTAINMENT RULES FOR ALL LAYOUTS
+   ========================================================================== */
+
+/* 1. Reset horizontal bleed for all print wrappers and panels by default */
+.panel-print-wrapper::before,
+.brochure-panel::before {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* 2. Single layout: bleeds left and right on the only panel */
+.spread-canvas.layout-single .panel-print-wrapper::before,
+.spread-canvas.layout-single .brochure-panel::before {
+  left: calc(-1 * var(--bleed-margin)) !important;
+  right: calc(-1 * var(--bleed-margin)) !important;
+}
+
+/* 3. Bifold/Booklet layout: first child bleeds left, last child bleeds right */
+.spread-canvas.layout-bifold .panel-print-wrapper:first-child::before,
+.spread-canvas.layout-bifold .panel-print-wrapper:first-child .brochure-panel::before {
+  left: calc(-1 * var(--bleed-margin)) !important;
+  right: 0 !important;
+}
+.spread-canvas.layout-bifold .panel-print-wrapper:last-child::before,
+.spread-canvas.layout-bifold .panel-print-wrapper:last-child .brochure-panel::before {
+  left: 0 !important;
+  right: calc(-1 * var(--bleed-margin)) !important;
+}
+
+/* 4. Trifold layout: first child bleeds left, last child bleeds right, middle child does not bleed horizontally */
+.spread-canvas.layout-trifold .panel-print-wrapper:first-child::before,
+.spread-canvas.layout-trifold .panel-print-wrapper:first-child .brochure-panel::before {
+  left: calc(-1 * var(--bleed-margin)) !important;
+  right: 0 !important;
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:nth-child(2)::before,
+.spread-canvas.layout-trifold .panel-print-wrapper:nth-child(2) .brochure-panel::before {
+  left: 0 !important;
+  right: 0 !important;
+}
+.spread-canvas.layout-trifold .panel-print-wrapper:last-child::before,
+.spread-canvas.layout-trifold .panel-print-wrapper:last-child .brochure-panel::before {
+  left: 0 !important;
+  right: calc(-1 * var(--bleed-margin)) !important;
+}
